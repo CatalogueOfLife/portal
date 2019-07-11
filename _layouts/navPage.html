@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class='full parallax' style='background-image: url(/images/@stock/service-page-header.jpg); color: #fff;'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      {% include section-header.html title=page.title tagline=page.tagline color="#fff" class="big" %}
+    </div>
+  </div>
+  <div class='four spacing'></div>
+</div>
+
+
+<div class='full'>
+  <div class='row'>
+    {% for item in site.data.nav %}
+      {% if item.section_id == page.section_id %}
+        {% include nav-list.html children=item.children %}
+      {% endif %}
+    {% endfor %}
+  <div class='spacing'></div>
+</div>

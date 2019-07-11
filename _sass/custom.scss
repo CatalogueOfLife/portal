@@ -1,0 +1,50 @@
+.caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 3px;
+    font-size: 0.9rem!important;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.entryList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    > div {
+        flex: 1 1 50%;
+    }
+    .icon-text-simple {
+        p, h3 {
+            margin-left: 20px;
+        }
+    }
+}
+@media only screen and (max-width: 480px) {
+    .entryList {
+        > div {
+            flex: 1 1 100%;
+        }
+    }
+}
+
+.contact-map iframe {
+    width: 100%;
+}
+
+figure {
+    margin: 0 0 1em 0;
+}
+
+figcaption {
+    font-size: 0.9rem;
+}

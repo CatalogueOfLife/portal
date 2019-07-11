@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class='full parallax' style='position: relative; background-image: url({% if page.imageUrl %}{{page.imageUrl}}{% else %}{{site.col.defaultImageUrl}}{%endif%}); color: #fff;'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      {% include section-header.html title=page.title tagline=page.tagline color="#fff" class="big" %}
+    </div>
+  </div>
+  <div class='four spacing'></div>
+  <div class="caption">
+    {% if page.imageCaption %}
+      {{ page.imageCaption | markdownify }}
+    {% else page.imageUrl %}
+      {{ site.col.defaultImageCaption | markdownify }}
+    {%endif%}</div>
+</div>
+
+
+<div class='full'>
+  <div class='row'>
+    <div class='large-8 columns prose'>
+      {{content | markdownify}}
+      <div class='spacing'></div>
+    </div>
+    {% if page.toc == true %}
+    <div class='large-4 columns'>
+      <h3>Table of content</h3>
+      {{content | markdownify | toc_only}}
+    </div>
+    {% endif %}
+  </div>
+  <div class='four spacing'></div>
+</div>

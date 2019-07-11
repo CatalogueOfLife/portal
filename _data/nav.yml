@@ -1,0 +1,103 @@
+- name: Home
+  path: index.html
+  section_id: home
+- name: Data access
+  path: dataAccess.html
+  section_id: dataAccess
+  children:
+    - name: Browse
+      path: browse.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Search
+      path: search.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Contributing datasets
+      path: contributingDatasets.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Metrics
+      path: metrics.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Known gaps
+      path: knownGaps.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Recent changes
+      path: content/organisation.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+- name: About
+  path: about.html
+  section_id: about
+  children:
+    - name: Background
+      path: /content/background.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Scrutinized vs extended
+      path: /content/scrutinized-vs-extended.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Clearinghouse
+      path: /content/clearinghouse.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Governance
+      path: /content/governance.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: History
+      path: /content/history.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Awards
+      path: /content/awards.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Acknowledgements
+      path: /content/acknowledgements.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+- name: Resources
+  path: resources.html
+  section_id: resources
+  children:
+    - name: Yearly archives
+      path: /content/yearly-archives.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: API documentation
+      path: https://github.com/Sp2000/colplus
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: List matching
+      path: /list-matching.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: ColDP format
+      path: /content/Col-dp-format.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Financial reports
+      path: /content/financial-reports.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Press
+      path: /content/press.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Annual meeting minutes
+      path: /content/annual-meeting-minutes.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+- name: Help
+  path: help.html
+  section_id: help
+  children:
+    - name: FAQ
+      path: /content/faq.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Helpdesk
+      path: /content/helpdesk
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: User guide
+      path: /content/user-guide.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Contributor guide
+      path: /content/contributor-guide.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Guidelines for cost claims
+      path: /content/guidelines-for-cost-claims.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Terms of use
+      path: /terms.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Contact
+      path: content/contact.html
+      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+- name: News
+  path: blog/
+  section_id: blog
