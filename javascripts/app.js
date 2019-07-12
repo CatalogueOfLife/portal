@@ -723,7 +723,7 @@ jQuery(document).foundation();
       var $ctx = this.$ctx;
 
       $ctx.appear(function() {
-        $('strong', $ctx).countTo({
+        $('strong.counter', $ctx).countTo({
           speed: 1400
         });
       });
@@ -798,4 +798,29 @@ jQuery(document).foundation();
   })
 })(Tc.$);
 
-
+// Custom jQuery for populating counts dynamically
+jQuery(document).ready(function() {
+  // iterate all elements with a count attribute
+  jQuery("[count]").each(function(i, e) {
+    var val = jQuery( this ).attr("count");
+    //if the count attribute value is numeric then simply show the number
+    if (jQuery.isNumeric(val)) {
+      val = parseInt(val, 10);
+      // Set the element text to the provided value and format it to english
+      jQuery(this).text(val.toLocaleString('en'));
+    } else {
+      //if the count attribute value is not numeric then assume it is a url to get the count from
+      var that = this;
+      //The Api might not simply return a number but a json - use a selector to choose which value to use.
+      var selector = jQuery( this ).attr("count-selector");
+      jQuery.ajax({
+        url: val,
+        success: function(data){
+          var dataValue = selector ? data[selector] : data;
+          // Set the element text to the provided value and format it to english
+          jQuery(that).text(dataValue.toLocaleString('en'));
+        }
+      });
+    }
+  });
+});
