@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  A cup of coffee for you
+title:  David Eades has been awarded Frank Bisby Prize of 2018
 date:   2015-04-14 10:57:12
 images: images/@stock/blog-2.jpg
 excerpt:
   Iste neque doloribus dolor quis ad sit dolores dolor sit perferendis. nemo in rerum ducimus possimus aspernatur quas est. dolorem eaque vel id quasi voluptatem eligendi rerum et quo ut. fuga qui ea voluptates sunt
-categories: Design Bussiness
+categories: ["Awards", "Communication"]
 ---
 
 Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi

@@ -1,14 +1,8 @@
 ---
 layout: post
-title:  Make some sketches
-date:   2015-04-14 10:58:12
-images:
-  - images/@stock/blog-3.jpg
-  - images/@stock/blog-2.jpg
-excerpt:
-  Iste neque doloribus dolor quis ad sit dolores dolor sit perferendis. nemo in rerum ducimus possimus aspernatur quas est. dolorem eaque vel id quasi voluptatem eligendi rerum et quo ut. fuga qui ea voluptates sunt
-categories: Logo Development
-toc: true
+title:  "Archaea updated"
+date:   2015-02-10 08:19:12
+categories: Release
 ---
 
 Et sed ut quo maiores praesentium consequatur ipsum fuga aliquid corporis vel. exercitationem saepe vel aut consectetur vitae sed. necessitatibus est voluptatem nihil officiis nam debitis et perferendis exercitationem animi qui impedit modi recusandae. sapiente molestiae excepturi maxime. eum sequi nisi et itaque sunt nesciunt nulla vel sit ratione animi

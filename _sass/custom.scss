@@ -1,13 +1,19 @@
-.caption, .caption p {
+.caption-absolute {
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 3px;
-    font-size: 0.9rem!important;
     background: rgba(0,0,0,0.3);
     color: white;
     a {
-        color: white;
+        color: white!important;
+    }
+}
+.caption, .caption p {
+    padding: 3px;
+    font-size: 0.9rem!important;
+    color: inherit;
+    a {
+        color: #999;
         text-decoration: underline;
     }
     * {

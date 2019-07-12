@@ -1,0 +1,9 @@
+---
+layout: news
+---
+
+<p><a href="/news"><i class='fa fa-arrow-left'></i> Back to latest</a></p>
+
+{% for post in page.posts %}
+  {% include post.html post=post %}
+{% endfor %}

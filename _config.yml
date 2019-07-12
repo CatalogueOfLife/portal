@@ -15,13 +15,14 @@ markdown: kramdown
 
 
 paginate: 3
-paginate_path: "blog/page:num"
+paginate_path: "news/page:num"
 
 plugins:
   - jekyll-toc
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-archives
 
 collections:
   content:
@@ -30,6 +31,16 @@ collections:
 toc:
   min_level: 1 # default: 1
   max_level: 2 # default: 6
+
+jekyll-archives:
+  enabled: all
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
 
 col:
   defaultImageUrl: /images/black-horned-tree-cricket.jpg

@@ -1,0 +1,9 @@
+---
+layout: news
+title: News
+section_id: news
+---
+
+{% for post in paginator.posts %}
+  {% include post.html post=post %}
+{% endfor %}
