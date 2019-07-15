@@ -58,3 +58,15 @@ figcaption {
 .modDefaultSlider .sequence .title h2 {
     text-shadow: 0px 0px 1px rgba(0,0,0,0.3); /* add a small border to text on the homepage hero to make it easier to find images */
 }
+
+.linkBlock {
+    position: relative;
+    .blockLink {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;   
+    }
+}

@@ -13,9 +13,10 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 
-
 paginate: 3
 paginate_path: "news/page:num"
+
+exclude: ["/theme-examples"]
 
 plugins:
   - jekyll-toc
@@ -23,6 +24,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-archives
+
+
+permalink: /:year/:month/:day/:title.html
 
 collections:
   content:
@@ -38,10 +42,10 @@ jekyll-archives:
   permalinks:
     year: '/:year/'
     month: '/:year/:month/'
-    day: '/:year/:month/:day/'
+    day: '/:year/:month/:day/:name'
     tag: '/tag/:name/'
     category: '/category/:name/'
 
 col:
-  defaultImageUrl: /images/black-horned-tree-cricket.jpg
-  defaultImageCaption: "[Black-horned tree cricket (Oecanthus nigricornis)](https://www.gbif.org/occurrence/1668809618) observed in West Danby, NY, USA by edgarallenhoopoe. Photo via iNaturalist ([CC BY-NC 4.0](http://creativecommons.org/licenses/by-nc/4.0/))"
+  defaultImageUrl: /images/default-bg.jpg
+  defaultImageCaption: "[A description](https://www.some.org/where) would go here ([CC BY-NC 4.0](http://creativecommons.org/licenses/by-nc/4.0/))"

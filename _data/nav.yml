@@ -2,29 +2,29 @@
   path: index.html
   section_id: home
 - name: Data access
-  path: dataAccess.html
+  path: /data-access
   section_id: dataAccess
   children:
     - name: Browse
-      path: browse.html
+      path: /data-access/browse.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Search
-      path: search.html
+      path: /data-access/search.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Contributing datasets
-      path: contributingDatasets.html
+      path: /data-access/contributing-datasets.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Metrics
-      path: metrics.html
+      path: /data-access/metrics.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Known gaps
-      path: knownGaps.html
+      path: /data-access/known-gaps.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Recent changes
-      path: content/organisation.html
+      path: /data-access/recent-changes.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
 - name: About
-  path: about.html
+  path: /about
   section_id: about
   children:
     - name: Background
@@ -49,7 +49,7 @@
       path: /content/acknowledgements.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
 - name: Resources
-  path: resources.html
+  path: /resources
   section_id: resources
   children:
     - name: Yearly archives
@@ -62,7 +62,7 @@
       path: /list-matching.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: ColDP format
-      path: /content/Col-dp-format.html
+      path: /content/coldp-format.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Financial reports
       path: /content/financial-reports.html
@@ -74,11 +74,11 @@
       path: /content/annual-meeting-minutes.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
 - name: Help
-  path: help.html
+  path: /help
   section_id: help
   children:
     - name: FAQ
-      path: /content/faq.html
+      path: /content/frequently-asked-questions.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Helpdesk
       path: /content/helpdesk
@@ -93,10 +93,10 @@
       path: /content/guidelines-for-cost-claims.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Terms of use
-      path: /terms.html
+      path: /content/terms.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Contact
-      path: content/contact.html
+      path: /content/contact.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
 - name: News
   path: /news/

@@ -1,8 +1,10 @@
 <div class='fadein mod modIconText' data-delay='{{ include.delay }}'>
-  <div class='{{ include.shape_class }}'>
-    <i class='fa fa-{{ include.icon_class }}'></i>
+  <div class='{{ include.shape_class }} linkBlock'>
+    <i class='fa fa-{{ include.icon_class }} linkBlock'>
+    </i>
     <h3>{{ include.title }}</h3>
     <p>{{ include.desc }}</p>
+    <a href="{{include.href}}" class="blockLink"></a>
   </div>
   <div class='two spacing'></div>
 </div>
