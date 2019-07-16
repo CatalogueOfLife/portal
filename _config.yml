@@ -53,6 +53,8 @@ col:
 
 # Configurations for prose.io - this is only of interest if using prose to edit
 prose:
+  media: 'images'
+  siteurl: 'https://col-website-demo.netlify.com/'
   ignore:
     - /_includes
     - /_layouts
@@ -60,6 +62,7 @@ prose:
     - /css
     - /fonts
     - /javascripts
+    - /news
     - /scripts
     - /theme-examples
     - .gitignore
@@ -68,3 +71,17 @@ prose:
     - _config.yml
     - feed.xml
     - thumbnail.jpg
+  metadata:
+    _posts:
+      - name: "post"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
