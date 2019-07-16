@@ -100,3 +100,7 @@ prose:
         field:
           element: "hidden"
           value: "content"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
