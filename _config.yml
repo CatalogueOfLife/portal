@@ -73,7 +73,7 @@ prose:
     - thumbnail.jpg
   metadata:
     _posts:
-      - name: "post"
+      - name: "layout"
         field:
           element: "hidden"
           value: "post"
