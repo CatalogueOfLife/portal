@@ -60,35 +60,35 @@ intro:
 works:
   - image: /images/kingdoms/animalia/insect.jpg
     title: Animalia
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-2.jpg
     title: Archaea
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-3.jpg
     title: Bacteria
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-4.jpg
     title: Chromista
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-5.jpg
     title: Fungi
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-6.jpg
     title: Plantae
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-7.jpg
     title: Protozoa
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
   - image: images/@stock/work-8.jpg
     title: Viruses
-    link_to: portfolio-item.html
+    link_to: /search/animalia
     desc: See what is covered
 
 services:
@@ -99,15 +99,19 @@ services:
   items:
     - icon: pagelines
       title: Web services
+      link: /services
       desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
     - icon: question-circle
       title: Helpdesk
+      link: /content/helpdesk
       desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
     - icon: download
       title: Downloads
+      link: /yearly-archives
       desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
     - icon: list
       title: List matching services
+      link: /list-matching.html
       desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
 
 
@@ -280,7 +284,7 @@ partners:
         <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
           <div class='icon-text-simple'>
             <i class='fa fa-{{service.icon}}'></i>
-            <h3>{{service.title}}</h3>
+            <h3><a href="{{service.link}}" class="inherit">{{service.title}}</a></h3>
             <p>{{service.desc}}</p>
           </div>
           <div class='two spacing'></div>

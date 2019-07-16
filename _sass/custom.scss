@@ -71,6 +71,13 @@ figcaption {
     }
 }
 
+a.inherit {
+    color: inherit;
+}
+a.inherit:hover {
+    color: #F9CE06;
+}
+
 
 /* 404 page */
 .page404 {
