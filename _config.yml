@@ -54,9 +54,17 @@ col:
 # Configurations for prose.io - this is only of interest if using prose to edit
 prose:
   ignore:
-    - /* # Ignore everything
-    - !/_posts # Include posts
-    - !/_content # Include content
-    - !/root # Include root
-    - !/data-access # Include root
-    - !/nav-pages # Include root
+    - /_includes
+    - /_layouts
+    - /_sass
+    - /css
+    - /fonts
+    - /javascripts
+    - /scripts
+    - /theme-examples
+    - .gitignore
+    - Gemfile
+    - Gemfile.lock
+    - _config.yml
+    - feed.xml
+    - thumbnail.jpg
