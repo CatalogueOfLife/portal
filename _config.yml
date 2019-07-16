@@ -81,7 +81,22 @@ prose:
         field:
           element: "text"
           label: "Title"
-      - name: "date"
+      - name: "categories"
         field:
-          element: "text"
-          label: "Date"
+          element: "multiselect"
+          label: "Add categories"
+          placeholder: "Choose category"
+          options:
+            - name: "Release"
+              value: "Release"
+            - name: "Communication"
+              value: "Communication"
+            - name: "Awards"
+              value: "Awards"
+            - name: "Developer documentation"
+              value: "Developer documentation"
+    _content:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "content"
