@@ -1,11 +1,11 @@
 ---
 layout: content
-title: Background
+title: History
 tagline: Labore est quasi omnis ducimus.
 section_id: about
-toc: true
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/history
 ---
 # Lorem ipsum dolor sit amet
 

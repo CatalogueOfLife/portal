@@ -1,11 +1,11 @@
 ---
 layout: content
-title: Clearinghouse
+title: Awards
 tagline: Labore est quasi omnis ducimus.
 section_id: about
-toc: true
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/awards
 ---
 # Lorem ipsum dolor sit amet
 

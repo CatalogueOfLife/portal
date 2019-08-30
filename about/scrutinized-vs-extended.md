@@ -1,11 +1,11 @@
 ---
 layout: content
-title: Acknowledgements
-tagline: Labore est quasi omnis ducimus
+title: Scrutinized vs extended
+tagline: Labore est quasi omnis ducimus.
 section_id: about
-imageUrl: 'https://via.placeholder.com/550x250'
-imageCaption: 'Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra'
-published: true
+imageUrl: https://via.placeholder.com/550x250
+imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/scrutinized-vs-extended
 ---
 # Lorem ipsum dolor sit amet
 

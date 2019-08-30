@@ -1,13 +1,14 @@
 ---
 layout: content
-title: Governance 2
+title: Clearinghouse
 tagline: Labore est quasi omnis ducimus.
 section_id: about
 toc: true
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/clearinghouse
 ---
-# Lorem ipsum dolor sit amet 2
+# Lorem ipsum dolor sit amet
 
 {% include image.html url="https://via.placeholder.com/1250x550" alt="Alt text goes here" description="Phasellus arcu justo, tempor sed est quis, fermentum venenatis arcu." %}
 
