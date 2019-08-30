@@ -1,27 +1,31 @@
+# 'name' is the title of the menu item when rendered
+# 'path' is the url it will take you to when clicked
+# 'section_id' is the id of the top level menu item. 
+# 'desc' is the description that will show on the higher level navigation pages. E.g. https://col-website-demo.netlify.com/about
 - name: Home
   path: /
   section_id: home
-- name: Data access
-  path: /data-access
+- name: Data
+  path: /data
   section_id: dataAccess
   children:
     - name: Browse
-      path: /data-access/browse.html
+      path: /data/browse.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Search
-      path: /data-access/search.html
+      path: /data/search.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Contributing datasets
-      path: /data-access/contributing-datasets.html
+      path: /data/contributing-datasets.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Metrics
-      path: /data-access/metrics.html
+      path: /data/metrics.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Known gaps
-      path: /data-access/known-gaps.html
+      path: /data/known-gaps.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: Recent changes
-      path: /data-access/recent-changes.html
+      path: /data/recent-changes.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
 - name: About
   path: /about

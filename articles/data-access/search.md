@@ -3,6 +3,7 @@ layout: default
 title: Search
 tagline: This would probably be a custom page
 section_id: dataAccess
+permalink: /data/search
 ---
 <div class='full parallax' style='background-image: url(/images/default-bg.jpg); color: #fff;'>
   <div class='row'>

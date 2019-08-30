@@ -3,6 +3,7 @@ layout: default
 title: Catalogue metrics
 tagline: I imagine this is a custom js driven page that Thomas implement.
 section_id: dataAccess
+permalink: /data/metrics
 skills:
   - title: Animalia
     percentage: 84
