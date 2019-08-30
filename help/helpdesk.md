@@ -1,10 +1,11 @@
 ---
 layout: content
-title: Annual meeting minutes
+title: Helpdesk
 tagline: Labore est quasi omnis ducimus.
-section_id: resources
+section_id: help
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/helpdesk
 ---
 # Lorem ipsum dolor sit amet
 

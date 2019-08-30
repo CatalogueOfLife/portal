@@ -1,10 +1,11 @@
 ---
 layout: content
-title: Financial reports
+title: COLDP format
 tagline: Labore est quasi omnis ducimus.
 section_id: resources
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/coldp-format
 ---
 # Lorem ipsum dolor sit amet
 

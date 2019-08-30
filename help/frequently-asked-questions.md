@@ -6,6 +6,7 @@ section_id: help
 toc: true
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/frequently-asked-questions
 ---
 
 # Lorem ipsum dolor sit amet

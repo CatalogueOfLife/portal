@@ -16,7 +16,7 @@ markdown: kramdown
 paginate: 3
 paginate_path: "news/page:num"
 
-exclude: ["/theme-examples"]
+exclude: ["/theme-examples", "/**/README.md"]
 
 plugins:
   - jekyll-toc
@@ -27,10 +27,6 @@ plugins:
 
 
 permalink: /:year/:month/:day/:title.html
-
-collections:
-  content:
-    output: true
 
 toc:
   min_level: 1 # default: 1

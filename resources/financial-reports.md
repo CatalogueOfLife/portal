@@ -1,10 +1,11 @@
 ---
 layout: content
-title: Contributor guide
+title: Financial reports
 tagline: Labore est quasi omnis ducimus.
-section_id: help
+section_id: resources
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/financial-reports
 ---
 # Lorem ipsum dolor sit amet
 

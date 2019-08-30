@@ -1,10 +1,11 @@
 ---
 layout: content
-title: Press
+title: User guide
 tagline: Labore est quasi omnis ducimus.
-section_id: resources
+section_id: help
 imageUrl: https://via.placeholder.com/550x250
 imageCaption: "Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra"
+permalink: /content/user-guide
 ---
 # Lorem ipsum dolor sit amet
 
