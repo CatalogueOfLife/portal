@@ -66,8 +66,9 @@ articles/     # for writing articles. By default urls will reflect the folder st
 ## Writing articles
 When editing and adding articles there are 2 templates to choose from: `content` and `default`. If you are not a developer you probably want to use `layout: content`.
 
-*layout: content*
-`content` assumes that the written content is markdown. The yml frontmatter looks like this
+**layout: content**
+
+`content` assumes that the content is markdown. The yml frontmatter looks like this
 ```
 ---
 layout: content
@@ -84,8 +85,9 @@ noindex: false # Should this page be indexed by robots?
 You markdown content goes here
 ```
 
-*layout: default*
-`default` assumes that the written content in html. The yml frontmatter looks like this
+**layout: default**
+
+`default` assumes that the content is html. The yml frontmatter looks like this
 ```
 ---
 layout: default
