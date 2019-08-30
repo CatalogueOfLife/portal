@@ -104,9 +104,8 @@ You might also want to read about [jekyll frontmatter](https://jekyllrb.com/docs
 All news stories are located in the `_posts` folder. Filenames are important. You need to name them with `year-month-day-title`. E.g. `2015-04-14-call-for-logo-designer`.
 
 YML frontmatter:
-More complex example
 
-Simple example
+**Simple example**
 ```
 ---
 layout: post
@@ -116,6 +115,7 @@ categories: Release # how should this news story be categorised in the archive
 ---
 ```
 
+**More complex example**
 ```
 ---
 layout: post
