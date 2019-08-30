@@ -32,7 +32,7 @@ TODO:
 │   └── ...
 ├── _site/ # Jekyll compiles the site to this folder
 ├── articles/ # RELEVANT FOR EDITORS - this is where all content but news stories go
-│   ├── about/ # RELEVANT FOR EDITORS - content under the menu item 'about' should be placed here
+│   ├── about/ content under the menu item 'about' should be placed here
 │   │   ├── acknowledgements.md # the pages located here will show up under the url '/articles/about/filename' - unless the yml frontmatter defines another url using the permalink attribute
 │   │   └── ...
 │   ├── data/
