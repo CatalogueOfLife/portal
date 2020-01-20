@@ -1,0 +1,37 @@
+input.ant-input {
+    margin-bottom: 0px !important;
+    border-radius: 4px !important;
+    padding-top: 4px !important;
+    padding-right: 11px !important;
+    padding-bottom: 4px !important;
+    padding-left: 11px !important;
+    height: 32px !important;
+}
+
+div.ant-col > h1 {
+    text-transform: none !important;
+}
+
+
+
+.ant-input-group > .ant-input:first-child, .ant-input-group-addon:first-child {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.ant-input-group .ant-input {
+    float: left !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    text-align: inherit !important;
+}
+.ant-input-group-addon, .ant-input-group-wrap, .ant-input-group > .ant-input {
+    display: table-cell !important;
+}
+
+.ant-input-search-enter-button input {
+    border-right: 0 !important;
+}
+
+.ant-table-small > .ant-table-content > .ant-table-body {
+    margin: 0px !important;
+}
