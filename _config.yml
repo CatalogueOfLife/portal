@@ -18,6 +18,8 @@ paginate_path: "news/page:num"
 
 exclude: ["/theme-examples", "/**/README.md"]
 
+include: ["_redirects"]
+
 plugins:
   - jekyll-toc
   - jekyll-feed
