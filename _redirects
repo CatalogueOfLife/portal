@@ -1,1 +1,1 @@
-/data/taxon/:taxonid  /data/taxon/
+/data/taxon/*  /data/taxon/
