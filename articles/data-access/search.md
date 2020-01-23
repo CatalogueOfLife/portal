@@ -5,7 +5,6 @@ tagline: This would probably be a custom page
 section_id: dataAccess
 permalink: /data/search
 ---
-<link rel="stylesheet" href="/javascripts/main.5fd59b91.css">
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
 
