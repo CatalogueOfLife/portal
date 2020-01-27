@@ -50,6 +50,6 @@ col:
   datasetKey: 3
 
 react:
-    datasetKey: 3
-    pathToTaxon: "/data/taxon/"
-    pathToTree: "/data/browse"
+    datasetKey: 3 # Which dataset should the tree and search components use?
+    pathToTaxon: "/data/taxon/" # path to the taxon page for crosslinking between react components
+    pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
