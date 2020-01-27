@@ -47,3 +47,9 @@ jekyll-archives:
 col:
   defaultImageUrl: /images/default-bg.jpg
   defaultImageCaption: "[A description](https://www.some.org/where) would go here ([CC BY-NC 4.0](http://creativecommons.org/licenses/by-nc/4.0/))"
+  datasetKey: 3
+
+react:
+    datasetKey: 3
+    pathToTaxon: "/data/taxon/"
+    pathToTree: "/data/browse"

@@ -24,7 +24,7 @@ class PublicTree extends React.Component {
   
       return e(
         ColBrowser.Tree,
-        { catalogueKey: 3 , pathToTaxon: "/data/taxon/"}
+        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}' }
       );
     }
   }
