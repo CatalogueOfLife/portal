@@ -20,8 +20,7 @@ const e = React.createElement;
 class PublicTree extends React.Component {
 
     render() {
-     
-  
+       
       return e(
         ColBrowser.Tree,
         { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}' }
