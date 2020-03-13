@@ -1,3 +1,5 @@
+[![Build Status](https://builds.gbif.org/job/col-portal/badge/icon)](https://builds.gbif.org/job/col-portal/)
+
 # Public facing website for Catalogue of Life
 
 The website is build with [Jekyll](https://jekyllrb.com/). If you want to run the project locally, then jekyll has a nice documentation of [how to get started](https://jekyllrb.com/docs/).
