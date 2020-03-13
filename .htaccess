@@ -1,0 +1,3 @@
+# Rewrite --- /data/taxon/* => /data/taxon.html
+RewriteEngine On
+RewriteRule ^data/taxon/(.*)$ /data/taxon.html [L]

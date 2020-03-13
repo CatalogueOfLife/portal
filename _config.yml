@@ -18,7 +18,7 @@ paginate_path: "news/page:num"
 
 exclude: ["/theme-examples", "/**/README.md"]
 
-include: ["_redirects"]
+include: ["_redirects", ".htaccess"]
 
 plugins:
   - jekyll-toc
