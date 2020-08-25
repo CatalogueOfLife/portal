@@ -31,27 +31,30 @@
   path: /about
   section_id: about
   children:
-    - name: Background
-      path: /content/background.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Scrutinized vs extended
-      path: /content/scrutinized-vs-extended.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Clearinghouse
-      path: /content/clearinghouse.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Governance
-      path: /content/governance.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: History
-      path: /content/history.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Awards
-      path: /content/awards.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Acknowledgements
-      path: /content/acknowledgements.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: "What is Catalogue of Life?"
+      path: /content/catalogueoflife.html
+      desc: "The international community for listing species"
+    - name: "Species and their names"
+      path: /content/speciesnames.html
+      desc: "Taxonomy and nomenclature"
+    - name: "The COL community"
+      path: /content/colcommunity.html
+      desc: "Collaborating to list the world's species"
+    - name: "Roles and responsibilities"
+      path: /content/roles.html
+      desc: "Catalogue of Life - stakeholder roles and responsibilities"
+    - name: ChecklistBank
+      path: /content/checklistbank.html
+      desc: "The repository for species list datasets"
+    - name: Data formats
+      path: /content/colformats.html
+      desc: "Formats for publishing to ChecklistBank"
+    - name: "The COL data pipeline"
+      path: /content/colpipeline.html
+      desc: "Catalogue of Life - processing and accessing checklist data"
+    - name: Citing checklists
+      path: /content/colcitation.html
+      desc: "Tools and services to support taxonomy"
 - name: Resources
   path: /resources
   section_id: resources
