@@ -24,5 +24,14 @@ COL and GBIF have also developed a software workbench that brings together the c
 ## Addressing Gaps
 The COL Checklist is not yet complete or up to date for all taxonomic groups and all published scientific names. COL continues to engage with taxonomists and taxonomic publishers to fill these gaps. In the meantime, the COL Checklist uses automated processing within the software workbench to construct placeholder sections of the catalogue and to insert names that are not otherwise included. These automated additions have not been formally reviewed by a sector community and may contain errors, but they address the need of many users (including GBIF) for the COL Checklist to handle all scientific names in a predictable fashion. All records in the COL Checklist are annotated to show their source and review status. At any time, users can choose to view or access either the entire constructed list or just the reviewed components of the COL Checklist. Viewing just the reviewed sections corresponds in purpose to historical versions of the COL Checklist from before 2020. At any time, users can switch between these two views, which can also both be accessed through the API.
 
+## Measuring progress
+COL aims to deliver the most accurate and complete checklist possible. To achieve this goal, it is developing a model that tracks multiple aspects of the review status for each name and species within the COL Checklist:
+
+* Has a nomenclator or taxonomic community verified the publication details for each scientific name?
+* Has a taxonomic community reviewed whether each scientific name should be accepted or treated as a synonym?
+* Has a taxonomic community reviewed all species included within a given taxon (genus, etc.) at the global scale?
+
+The last of these checks reflects the difficulty of achieving a fully consistent global view when most taxonomists for the group work only on a regional fauna or flora.
+
 ## Extended information on species
 In many cases, the taxonomic communities that contribute sectors to the COL Checklist maintain additional information about their species beyond simple naming and classification, particularly on distributions and ecological relationships. COL aims to support efficient management and access for this more extensive species information, so users of COL may discover much greater detail for some groups than others.
