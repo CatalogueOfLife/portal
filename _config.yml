@@ -16,7 +16,7 @@ markdown: kramdown
 paginate: 3
 paginate_path: "news/page:num"
 
-exclude: ["/theme-examples", "/**/README.md", "bundle"]
+exclude: ["vendor", "/theme-examples", "/**/README.md", "bundle"]
 
 include: ["_redirects", ".htaccess"]
 
