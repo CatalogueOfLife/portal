@@ -16,7 +16,7 @@ markdown: kramdown
 paginate: 3
 paginate_path: "news/page:num"
 
-exclude: ["/theme-examples", "/**/README.md", "bundle"]
+exclude: ["vendor", "/theme-examples", "/**/README.md", "bundle"]
 
 include: ["_redirects", ".htaccess"]
 
@@ -40,7 +40,7 @@ jekyll-archives:
   permalinks:
     year: '/:year/'
     month: '/:year/:month/'
-    day: '/:year/:month/:day/:name'
+    day: '/:year/:month/:day/'
     tag: '/tag/:name/'
     category: '/category/:name/'
 

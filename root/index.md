@@ -17,7 +17,7 @@ slides:
     caption: "Photo by [Jakub Gorajek](https://unsplash.com/@cinegeek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/developer-nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
     title:
       klass: bottom-to-top
-      text: Currated by experts from around the globe
+      text: Curated by experts from around the globe
     buttons:
       klass: bottom-to-top
       items:
@@ -50,7 +50,7 @@ sections:
     path: /somewhere
     desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
   - icon: comments-o
-    title: Help us currate
+    title: Help us curate
     path: /somewhere
     desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
 
