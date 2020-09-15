@@ -63,7 +63,7 @@
       path: /content/yearly-archives.html
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: API documentation
-      path: https://github.com/Sp2000/colplus
+      path: http://api.catalogue.life/
       desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
     - name: List matching
       path: /list-matching.html
