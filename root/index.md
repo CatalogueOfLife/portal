@@ -122,19 +122,20 @@ milestones:
   imageUrl: "/images/background/trees/trees-dark.jpg"
   items:
     - icon: folder-open
-      count: //api.col.plus/dataset?limit=0
-      selector: total
+      count: //api.catalogue.life/dataset/3LR/source
+      selector: length
       title: Datasets
     - icon: coffee
-      count: //api.col.plus/dataset/1000/name/search?limit=0
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?limit=0&status=accepted&status=provisionally%20accepted
       selector: total
       title: Taxa
     - icon: thumbs-up
       count: 59
       title: Currators
     - icon: file-text
-      count: 357095435
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?limit=0
       title: Names
+      selector: total
 
 posts:
   title: Latest news

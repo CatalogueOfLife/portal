@@ -20,7 +20,11 @@ layout: default
 
 <div class='full'>
   <div class='row'>
+      {% if page.toc == true %}
     <div class='large-8 columns prose'>
+    {% else %}
+    <div class='large-12 columns prose'>
+     {% endif %}
       {{content | markdownify}}
       <div class='spacing'></div>
     </div>
