@@ -131,7 +131,7 @@ milestones:
       title: Taxa
     - icon: thumbs-up
       count: 59
-      title: Currators
+      title: Curators
     - icon: file-text
       count: 357095435
       title: Names
@@ -161,119 +161,23 @@ partners:
       path: "/2015"
 ---
 
-<div class='mod modDefaultSlider'>
-  <div class='sequence' data-autostop='on' data-timeout='0'>
-    <a class='sequence-prev' href='javascript:void(0);'>
-      <span></span>
-    </a>
-    <a class='sequence-next' href='javascript:void(0);'>
-      <span></span>
-    </a>
-    <ul class='sequence-pagination'>
-      {% for slide in page.slides %}
-        {% if forloop.first %}
-          {% assign class = 'current' %}
-        {% else %}
-          {% assign class = '' %}
-        {% endif %}
-        <li class="{{class}}"></li>
-      {% endfor %}
-    </ul>
-    <ul class='sequence-canvas'>
-      {% for slide in page.slides %}
-        {% if forloop.first %}
-          {% assign style = 'static' %}
-        {% else %}
-          {% assign style = '' %}
-        {% endif %}
-
-        <li class='frame {{style}} {{ slide.klass }}'>
-          <div class='bg' style='background-image: url({{ slide.bg}});'>
-            <div class="caption caption-absolute">{{ slide.caption | markdownify | remove: '<p>' | remove: '</p>' }}</div>
-          </div>
-          <div class='small-title {{ slide.small_title.klass }}'>
-            <div class='row'>
-              <div class='large-12 columns'>
-                <h2>{{ slide.small_title.text }}</h2>
-              </div>
-            </div>
-          </div>
-          <div class='title {{ slide.title.klass }}'>
-            <div class='row'>
-              <div class='large-12 columns'>
-                <h2>{{ slide.title.text }}</h2>
-              </div>
-            </div>
-          </div>
-          <div class='buttons-wrapper {{ slide.buttons.klass }}'>
-            <div class='row'>
-              <div class='large-12 columns'>
-                <div class='two spacing'></div>
-                {% for button in slide.buttons.items %}
-                  <a class='button {{ button.klass }}' href='{{ button.link_to }}'>{{ button.text }}</a>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-
-{% if page.sections %}
-<div class="four spacing"></div>
-<div class="row">
-  {% for section in page.sections %}
-  <div class="medium-3 large-3 columns">
-    {% include icon-text.html title=section.title desc=section.desc icon_class=section.icon href=section.path delay='0' shape_class='icon-text-circle' %}
-  </div>
-  {% endfor %}
-</div>
-<div class="spacing"></div>
-{% endif %}
-
-<div class="full" style="background: #f5f5f5;">
-  <div class="row">
-    <div class="large-12 columns">
-      {% include section-header.html title=page.intro.title %}
-      <div class="spacing"></div>
-      <p>
-        {{page.intro.desc}}
-      </p>
-      <div class="three spacing"></div>
-    </div>
-  </div>
-
-  <div class="mod modGallery">
-    <ul class="gallery small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-      {% for work in page.works %}
-        <li>
-          <a href='{{ work.link_to }}'>
-            <img alt="" src="{{ work.image }}" />
-            <div class='overlay'>
-              <div class='thumb-info'>
-                <h3>{{ work.title }}</h3>
-                <p>{{ work.desc }}</p>
-              </div>
-            </div>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+<div class='full parallax' style='background-image: url({{page.milestones.imageUrl}}); color: #fff;'>
+  <div class='row'>
+    {% for milestone in page.milestones.items %}
+      <div class='small-3 small-3 columns'>
+        <div class='mod modMilestone'>
+          <i class='fa fa-{{milestone.icon}}'></i>
+          <strong count='{{milestone.count}}' count-selector='{{milestone.selector}}'>&nbsp;2348675</strong>
+          <span>{{milestone.title}}</span>
+          <div class='one spacing'></div>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
 
 <div class='full'>
-  <div class='row'>
-    <div class='large-12 columns'>
-      {% include section-header.html title=page.services.title %}
-      <div class='spacing'></div>
-      {{page.services.desc | markdownify}}
-      <div class='three spacing'></div>
-    </div>
-  </div>
   <div class='row'>
     <div class='medium-6 columns'>
       <img class="fadeinleft" alt="" src="{{page.services.imageUrl}}" title="Photo by Casey Horner on Unsplash"/>
@@ -281,47 +185,35 @@ partners:
       <div class='three spacing'></div>
     </div>
     <div class='medium-6 columns'>
-      {% for service in page.services.items %}
-        <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
-          <div class='icon-text-simple'>
-            <i class='fa fa-{{service.icon}}'></i>
-            <h3><a href="{{service.link}}" class="inherit">{{service.title}}</a></h3>
-            <p>{{service.desc}}</p>
+    {% for post in site.posts %}
+      {% if forloop.index > 3 %}
+        {% break %}
+      {% endif %}
+
+      <div class='row'>
+        <div class='medium-4 columns'>
+        <div class='mod modBlogPost'>
+          <div class='content'>
+            <p class='date'>{{post.date | date: "%B %d, %Y" }}</p>
+            <h4><a href="#">{{post.title}}</a></h4>
           </div>
-          <div class='two spacing'></div>
         </div>
-      {% endfor %}
+        </div>
+        <div class='medium-8 columns'>
+        <div class='mod modBlogPost'>
+          <div class='content'>
+            <p>{{post.excerpt}}</p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    {% endfor %}
     </div>
   </div>
   <div class='spacing'></div>
 </div>
 
-
-<div class='full parallax' style='background-image: url({{page.milestones.imageUrl}}); color: #fff;'>
-  <div class='row'>
-    <div class='large-12 columns'>
-      {% include section-header.html title=page.milestones.title color="#fff" %}
-      <div class='spacing'></div>
-      <p class='centered-text' style='color: #ccc;'>
-        {{page.milestones.desc}}
-      </p>
-      <div class='two spacing'></div>
-    </div>
-  </div>
-  <div class='row'>
-    {% for milestone in page.milestones.items %}
-      <div class='medium-3 large-3 columns'>
-        <div class='mod modMilestone'>
-          <i class='fa fa-{{milestone.icon}}'></i>
-          <strong count='{{milestone.count}}' count-selector='{{milestone.selector}}'>&nbsp;2348675</strong>
-          <span>{{milestone.title}}</span>
-          <div class='four spacing'></div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-  <div class='two spacing'></div>
-</div>
 
 {% comment %}
 <div class='full'>
@@ -364,65 +256,6 @@ partners:
   </div>
 </div>
 {% endcomment %}
-
-<div class='full' style='background: #f5f5f5'>
-  <div class='row'>
-    <div class='large-12 columns'>
-      {% include section-header.html title=page.posts.title %}
-      <div class='spacing'></div>
-      {{page.posts.desc | markdownify}}
-      <div class='two spacing'></div>
-    </div>
-  </div>
-
-  <div class='row'>
-    {% for post in site.posts %}
-      {% if forloop.index > 3 %}
-        {% break %}
-      {% endif %}
-
-      <div class='large-4 medium-4 columns'>
-        <div class='mod modBlogPost'>
-          {% for image in post.images %}
-            {% unless forloop.first %}
-              {% break %}
-            {% endunless %}
-            <a href="{{post.url}}"><img alt="" src="{{image}}" /></a>
-          {% endfor %}
-          <div class='content'>
-            <p class='date'>{{post.date | date: "%B %d, %Y" }}</p>
-            <h4><a href="#">{{post.title}}</a></h4>
-            <p>{{post.excerpt}}</p>
-            <!--
-              <div class="tags">
-                {% for cat in post.categories %}
-                  <a href="#">{{cat | capitalize}}</a>
-                  {% unless forloop.last %}
-                    ,
-                  {% endunless %}
-                {% endfor %}
-              </div>
-            -->
-          </div>
-        </div>
-      </div>
-
-    {% endfor %}
-
-  </div>
-
-
-  <div class='two spacing'></div>
-  <div class='row'>
-    <div class='large-12 columns'>
-      <p class='centered-text'>
-        <a class='button' href='/news/'>{{page.posts.moreTitle}}</a>
-      </p>
-    </div>
-  </div>
-  <div class='two spacing'></div>
-
-</div>
 
 
 {% include our-partners.html %}
