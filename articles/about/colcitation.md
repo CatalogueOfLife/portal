@@ -13,14 +13,14 @@ permalink: /content/colcitation
 ## Digital Object Identifiers
 COL ensures that the COL Checklist and all content published through ChecklistBank has stable web identifiers and can readily be cited. This includes the following features:
 
-* Every checklist in ChecklistBank receives its own Digital Object Identifier (DOI)
-* Each version of the COL Checklist has its own DOI. The information shared for each version includes citation for contributing sector checklists and other sources contributing content
-* Every name in every checklist also has its own unique identifier and can be cited directly
+* Every checklist in ChecklistBank will receive its own Digital Object Identifier (DOI)
+* Each version of the COL Checklist will have its own DOI. The information shared for each version includes citation for contributing sector checklists and other sources contributing content
+* Every name in every checklist also has its own unique identifier and can be cited directly - existing identifiers within the source dataset are retained
 * Every name in each version of the COL Checklist has its own unique identifier and links to the corresponding record in a source checklist
 
 ## Citing data from COL and ChecklistBank
-[Users](roles#the-role-of-users) are strongly encouraged to use these identifiers in all publications and other uses of COL data. 
+[Users](roles#the-role-of-users) are strongly encouraged to use COL dataset identifers in all publications and other uses of COL data. 
 
-COL monitors use of all DOIs associated with checklists and aggregates this usage information as part of the metadata for each checklist (including each contributing checklist in the case of the COL Checklist itself). 
+COL will monitor use of all DOIs associated with checklists and aggregate this usage information as part of the metadata for each checklist (including each contributing checklist in the case of the COL Checklist itself). 
 
-Usage (including references inside publications) are then reported back to the contributors of the content, making it easier to highlight the importance of maintaining these datasets.
+Usage (including references inside publications) will then be reported back to the contributors of the content, making it easier to highlight the importance of maintaining these datasets.
