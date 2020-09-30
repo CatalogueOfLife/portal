@@ -9,15 +9,15 @@ imageCaption: _Macropus giganteus_ Shaw, 1790 - [Photo CC By Donald Hobern](http
 permalink: /content/roles
 ---
 # Roles and responsibilities
-The Catalogue of Life is an international collaborative activity with many contributors. [ChecklistBank](checklistbank) gives any interested researchers free access to share their checklist data. For the COL Checklist, COL itself undertakes a set of responsibilities to deliver a high-quality product that gives credit to the taxonomic communities that supply the core content. At the same time, COL depends on these communities to follow common principles focused on developing consensus around quality checklist datasets. This pages explains the roles and responsibilities of COL and of the taxonomic communities in this process, as well as ways that users can help to support the work.
+The Catalogue of Life is an international collaborative activity with many contributors. [ChecklistBank](checklistbank) gives any interested researchers free access to share their checklist data. For the COL Checklist, COL itself undertakes a set of responsibilities to deliver a high-quality product that gives credit to the taxonomic communities that supply the core content. At the same time, COL depends on these communities to follow common principles focused on developing consensus around quality checklist datasets. This page explains the roles and responsibilities of COL and of the taxonomic communities in this process, as well as ways that users can help to support the work.
 
 ## The role of taxonomic communities
-Each taxonomic community that contributes a sector to the COL Checklist assumes responsibility for the quality of their contributions. These communities may take different forms and contribute their expertise to COL by different routes. However, each  taxonomic community contributing a sector aims to do the following: 
+Each [taxonomic community](colcommunity) that contributes a sector to the COL Checklist assumes responsibility for the quality of their contributions. These communities may take different forms and contribute their expertise to COL by different routes. However, each  taxonomic community contributing a sector aims to do the following: 
 
 * Provide a comprehensive listing and original references for the names, species and classification for a specified taxonomic group, in line with the best supported modern scientific understanding
 * Publish this information in a supported machine-readable format with helpdesk support where needed
 * Publish this information using the COL data licensing model (CC0 licences preferred but CC BY supported)
-* Optionally, publish other species information as part of these datasets 
+* Optionally, publish other species information (e.g. distributions, descriptions or images) as part of these datasets 
 * Operate as an open community with an appropriate model that allows other taxonomists working on the group to contribute and become part of the community
 * Have an appropriate process for addressing differences in opinion/interpretation of taxonomy for the group, for example by supplementing a best-consensus view with alternative perspectives on species concepts that are still under debate 
 * Respond appropriately and efficiently to new additions, updates, user comments and corrections
