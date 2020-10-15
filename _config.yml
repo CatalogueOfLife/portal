@@ -16,7 +16,7 @@ markdown: kramdown
 paginate: 3
 paginate_path: "news/page:num"
 
-exclude: ["/theme-examples", "/**/README.md", "bundle"]
+exclude: ["vendor", "/theme-examples", "/**/README.md", "bundle"]
 
 include: ["_redirects", ".htaccess"]
 
@@ -53,3 +53,5 @@ react:
     datasetKey: "3LR" # Which dataset should the tree and search components use?
     pathToTaxon: "/data/taxon/" # path to the taxon page for crosslinking between react components
     pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
+    pathToSearch: "/data/search" # path to the search page for crosslinking between react components
+    pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
