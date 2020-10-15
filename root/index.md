@@ -121,18 +121,18 @@ milestones:
   desc: "Dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing."
   imageUrl: "/images/background/trees/trees-dark.jpg"
   items:
-    - icon: folder-open
+    - icon: database
       count: //api.col.plus/dataset?limit=0
       selector: total
       title: Datasets
-    - icon: coffee
+    - icon: otter
       count: //api.col.plus/dataset/1000/name/search?limit=0
       selector: total
       title: Taxa
-    - icon: thumbs-up
+    - icon: user-edit
       count: 59
       title: Curators
-    - icon: file-text
+    - icon: tag
       count: 357095435
       title: Names
 
@@ -179,32 +179,24 @@ partners:
 
 <div class='full'>
   <div class='row'>
-    <div class='medium-6 columns'>
+    <div class='medium-8 columns'>
       <img class="fadeinleft" alt="" src="{{page.services.imageUrl}}" title="Photo by Casey Horner on Unsplash"/>
       <div class="caption">{{page.services.imageCaption | markdownify | remove: '<p>' | remove: '</p>' }}</div>
       <div class='three spacing'></div>
     </div>
-    <div class='medium-6 columns'>
+    <div class='medium-4 columns'>
     {% for post in site.posts %}
       {% if forloop.index > 3 %}
         {% break %}
       {% endif %}
 
       <div class='row'>
-        <div class='medium-4 columns'>
         <div class='mod modBlogPost'>
           <div class='content'>
             <p class='date'>{{post.date | date: "%B %d, %Y" }}</p>
             <h4><a href="#">{{post.title}}</a></h4>
-          </div>
-        </div>
-        </div>
-        <div class='medium-8 columns'>
-        <div class='mod modBlogPost'>
-          <div class='content'>
             <p>{{post.excerpt}}</p>
           </div>
-        </div>
         </div>
       </div>
 

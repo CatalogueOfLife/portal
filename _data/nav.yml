@@ -6,105 +6,43 @@
   path: /
   section_id: home
 - name: Data
-  path: /data
+  path: /data/search.html
   section_id: dataAccess
   children:
     - name: Browse
       path: /data/browse.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+      desc: "Explore the catalogue of life as a tree"
     - name: Search
       path: /data/search.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+      desc: "Find species and other taxa by name"
     - name: Contributing datasets
       path: /data/contributing-datasets.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+      desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Metrics
       path: /data/metrics.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Known gaps
-      path: /data/known-gaps.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Recent changes
-      path: /data/recent-changes.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+      desc: "Summary information on the Catalogue"
 - name: About
   path: /about
   section_id: about
   children:
-    - name: "What is Catalogue of Life?"
+    - name: "The Catalogue of Life"
       path: /content/catalogueoflife.html
       desc: "The international community for listing species"
-    - name: "Species and their names"
-      path: /content/speciesnames.html
-      desc: "Taxonomy and nomenclature"
+    - name: "ChecklistBank and the COL Checklist"
+      path: /content/colpipeline.html
+      desc: "How COL and its contributors deliver the COL Checklist"
     - name: "The COL community"
       path: /content/colcommunity.html
       desc: "Collaborating to list the world's species"
-    - name: "Roles and responsibilities"
-      path: /content/roles.html
-      desc: "Catalogue of Life - stakeholder roles and responsibilities"
-    - name: ChecklistBank
-      path: /content/checklistbank.html
-      desc: "The repository for species list datasets"
-    - name: Data formats
-      path: /content/colformats.html
-      desc: "Formats for publishing to ChecklistBank"
-    - name: "The COL data pipeline"
-      path: /content/colpipeline.html
-      desc: "Catalogue of Life - processing and accessing checklist data"
-    - name: Citing checklists
-      path: /content/colcitation.html
-      desc: "Tools and services to support taxonomy"
-- name: Resources
-  path: /resources
-  section_id: resources
-  children:
-    - name: Yearly archives
-      path: /content/yearly-archives.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: API documentation
-      path: https://github.com/Sp2000/colplus
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: List matching
-      path: /list-matching.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: ColDP format
-      path: /content/coldp-format.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Financial reports
-      path: /content/financial-reports.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Press
-      path: /content/press.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Annual meeting minutes
-      path: /content/annual-meeting-minutes.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-- name: Help
-  path: /help
-  section_id: help
-  children:
-    - name: FAQ
-      path: /content/frequently-asked-questions.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Helpdesk
-      path: /content/helpdesk
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: User guide
-      path: /content/user-guide.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Contributor guide
-      path: /content/contributor-guide.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Guidelines for cost claims
-      path: /content/guidelines-for-cost-claims.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-    - name: Terms of use
-      path: /content/terms.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
+    - name: Using the COL Checklist
+      path: /content/colusage.html
+      desc: "Accessing and citing the Checklist"
+    - name: Funding
+      path: /content/funding.html
+      desc: "Information on funders and funding"
     - name: Contact
       path: /content/contact.html
-      desc: "Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos."
-- name: News
+      desc: "How to make contact with the Catalogue of Life"
+- name: News 
   path: /news/
   section_id: news
