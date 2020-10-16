@@ -3136,13 +3136,14 @@ body {
   font-size: 24px;
   text-align: center;
   box-sizing: border-box;
-  border: 2px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 .milestoneText {
     opacity: 0;
     padding: 10px;
     font-size: 16px;
+    border-radius: 10px;
 }
 .milestoneText:hover {
     opacity: 100;
@@ -3161,6 +3162,13 @@ body {
   text-align: center;
   height: 100px;
 }
+.kingdoms {
+    padding: 0px 10px;
+}
+.kingdoms .column, .kingdoms .columns {
+    padding-left: 6px;
+    padding-right: 6px;
+}
 @media (max-width: 1000px) {
     .milestoneText {
         font-size: 10px;
@@ -3168,14 +3176,17 @@ body {
 }
 @media (max-width: 500px) {
     .milestoneText {
-        padding: 10px 5px;
+        padding: 5px;
     }
     .milestoneTitle {
         font-size: 10px;
     }
-    .column, .columns {
-        padding-left: 5px;
-        padding-right: 5px;
+    .kingdoms {
+        padding: 0px 13px;
+    }
+    .kingdoms .column, .kingdoms .columns {
+        padding-left: 3px;
+        padding-right: 3px;
     }
 }
 .main-tree {
