@@ -68,25 +68,25 @@ milestones:
       title: Animalia
       bgcolor: 0480b5
       fgcolor: ccedfa
-      link: /data/browse.html
+      link: /index.html?taxonKey=061950e4-9782-4d1a-9c87-dcf375788e6b
     - image: Pultenaea.jpg
       count: "382,000"
       title: Plantae
       bgcolor: d0bd34
       fgcolor: fcfbe7
-      link: /data/search.html
+      link: /index.html?taxonKey=fc995438-b561-4616-a896-f479fca6e3d4
     - image: Teloschistes.jpg
       count: "140,000"
       title: Fungi
       bgcolor: e83143
       fgcolor: feebed
-      link: /data/search.html
+      link: /index.html?taxonKey=d64f9d40-cbe5-4908-b4c2-16a9d6429401
     - image: Protozoa.jpg
       count: "44,985"
       title: Other kingdoms
       bgcolor: 2db261
       fgcolor: ecf7ef
-      link: /data/search.html
+      link: /index.html?taxonKey=0
 
 posts:
   title: Latest news
