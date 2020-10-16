@@ -23,7 +23,7 @@ sections:
 
 milestones:
   items:
-    - image: Hecatesia.jpg
+    - image: Podarcis.jpg
       count: "1,525,728"
       title: Animalia
       bgcolor: 0480b5
