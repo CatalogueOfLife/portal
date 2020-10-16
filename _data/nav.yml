@@ -22,7 +22,7 @@
       path: /data/metrics.html
       desc: "Summary information on the Catalogue"
 - name: About
-  path: /about
+  path: /content/catalogueoflife.html
   section_id: about
   children:
     - name: "The Catalogue of Life"
