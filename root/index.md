@@ -58,83 +58,35 @@ intro:
   title: The Catalogue of Life
   desc: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing.
   
-works:
-  - image: /images/kingdoms/animalia/insect.jpg
-    title: Animalia
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-2.jpg
-    title: Archaea
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-3.jpg
-    title: Bacteria
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-4.jpg
-    title: Chromista
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-5.jpg
-    title: Fungi
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-6.jpg
-    title: Plantae
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-7.jpg
-    title: Protozoa
-    link_to: /search/animalia
-    desc: See what is covered
-  - image: images/@stock/work-8.jpg
-    title: Viruses
-    link_to: /search/animalia
-    desc: See what is covered
-
-services:
-  title: Our services
-  desc: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing."
-  imageUrl: "/images/background/services.jpg"
-  imageCaption: "[Rousselia humilis (Sw.) Urb.](https://www.gbif.org/occurrence/2242465169) - USF Herbarium ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode))"
-  items:
-    - icon: pagelines
-      title: Web services
-      link: /services
-      desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-    - icon: question-circle
-      title: Helpdesk
-      link: /content/helpdesk
-      desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-    - icon: download
-      title: Downloads
-      link: /yearly-archives
-      desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-    - icon: list
-      title: List matching services
-      link: /list-matching.html
-      desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-
-
 milestones:
   title: something
   desc: "Dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing."
   imageUrl: "/images/background/trees/trees-dark.jpg"
   items:
-    - icon: database
-      count: //api.col.plus/dataset?limit=0
-      selector: total
-      title: Datasets
-    - icon: otter
-      count: //api.col.plus/dataset/1000/name/search?limit=0
-      selector: total
-      title: Taxa
-    - icon: user-edit
-      count: 59
-      title: Curators
-    - icon: tag
-      count: 357095435
-      title: Names
+    - image: Hecatesia.jpg
+      count: "1,525,728"
+      title: Animalia
+      bgcolor: 0480b5
+      fgcolor: ccedfa
+      link: /data/browse.html
+    - image: Pultenaea.jpg
+      count: "382,000"
+      title: Plantae
+      bgcolor: d0bd34
+      fgcolor: fcfbe7
+      link: /data/search.html
+    - image: Teloschistes.jpg
+      count: "140,000"
+      title: Fungi
+      bgcolor: e83143
+      fgcolor: feebed
+      link: /data/search.html
+    - image: Protozoa.jpg
+      count: "44,985"
+      title: Other kingdoms
+      bgcolor: 2db261
+      fgcolor: ecf7ef
+      link: /data/search.html
 
 posts:
   title: Latest news
@@ -161,28 +113,50 @@ partners:
       path: "/2015"
 ---
 
-<div class='full parallax' style='background-image: url({{page.milestones.imageUrl}}); color: #fff;'>
-  <div class='row'>
-    {% for milestone in page.milestones.items %}
-      <div class='small-3 small-3 columns'>
-        <div class='mod modMilestone'>
-          <i class='fa fa-{{milestone.icon}}'></i>
-          <strong count='{{milestone.count}}' count-selector='{{milestone.selector}}'>&nbsp;2348675</strong>
-          <span>{{milestone.title}}</span>
-          <div class='one spacing'></div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-
 <div class='full'>
   <div class='row'>
-    <div class='medium-8 columns'>
-      <img class="fadeinleft" alt="" src="{{page.services.imageUrl}}" title="Photo by Casey Horner on Unsplash"/>
-      <div class="caption">{{page.services.imageCaption | markdownify | remove: '<p>' | remove: '</p>' }}</div>
-      <div class='three spacing'></div>
+    <div class="medium-8 columns" style="background: white; margin-top: 20px; margin-bottom: 60px">
+        <div class='row'>
+            {% for milestone in page.milestones.items %}
+                  <a href="{{milestone.link}}">
+              <div class='small-3 small-3 columns' style='background-color: #fff;'>
+                <div class='mod modMilestone' style='background-image: url(/images/kingdoms/{{milestone.image}}); background-size: cover;'>
+                    <div class="milestoneText" style='background-color: #{{milestone.bgcolor}}; color: #{{milestone.fgcolor}};'>
+                        <div class="milestoneTitle">{{milestone.title}}</div>
+                        <div class="milestoneCount">{{milestone.count}} estimated species</div>
+                    </div>
+                </div>
+
+              </div>
+                  </a>
+            {% endfor %}
+        </div>
+
+        <div class='row'>
+            <div class='full'>
+                <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
+                <div id="tree" class="catalogue-of-life"></div>
+            </div>
+            <script >
+                'use strict';
+
+                const e = React.createElement;
+
+                class PublicTree extends React.Component {
+
+                    render() {
+
+                      return e(
+                        ColBrowser.Tree,
+                        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}' }
+                      );
+                    }
+                  }
+
+                const domContainer = document.querySelector('#tree');
+                ReactDOM.render(e(PublicTree), domContainer);
+            </script>
+        </div>
     </div>
     <div class='medium-4 columns'>
     {% for post in site.posts %}

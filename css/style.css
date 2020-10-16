@@ -3133,30 +3133,36 @@ body {
   opacity: 0.1;
 }
 .modMilestone {
+  font-size: 24px;
   text-align: center;
-}
-.modMilestone i {
-  font-size: 36px;
-  color: #333;
-  background: #F9CE06;
-  width: 70px;
-  height: 70px;
-  -moz-border-radius: 45px;
-  -webkit-border-radius: 45px;
-  border-radius: 45px;
-  text-align: center;
-  padding: 17px 14px;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-.modMilestone strong {
-  font-size: 2.42857rem;
-  display: block;
+  box-sizing: border-box;
+  border: 2px;
   margin-bottom: 20px;
 }
-.modMilestone span {
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.milestoneText {
+    opacity: 0;
+    padding: 10px;
+}
+.milestoneText:hover {
+    opacity: 100;
+}
+.modMilestone .milestoneTitle {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  height: 100px;
+  padding-top: 20px;
+}
+.modMilestone .milestoneCount {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  height: 100px;
+}
+.milestoneContainer {
+
 }
 
 .modMilestone.no-icon {
