@@ -3174,7 +3174,7 @@ body {
     .milestoneTitle {
         font-size: 10px;
     }
-    .column, .columns {
+    .column {
         padding-left: 5px;
         padding-right: 5px;
     }
