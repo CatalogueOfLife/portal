@@ -3142,44 +3142,24 @@ body {
 .milestoneText {
     opacity: 0;
     padding: 10px;
-    font-size: 16px;
 }
 .milestoneText:hover {
     opacity: 100;
 }
-.milestoneTitle {
+.modMilestone .milestoneTitle {
   display: block;
-  font-size: 150%;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
   height: 100px;
   padding-top: 20px;
 }
-.milestoneCount {
+.modMilestone .milestoneCount {
   display: block;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   height: 100px;
-}
-@media (max-width: 1000px) {
-    .milestoneText {
-        font-size: 10px;
-    }
-}
-@media (max-width: 500px) {
-    .milestoneText {
-        padding: 10px 5px;
-    }
-    .milestoneTitle {
-        font-size: 10px;
-    }
-    .column, .columns {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-}
-.main-tree {
-    padding: 0px 16px;
 }
 .partners {
     display: flex;

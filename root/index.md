@@ -71,7 +71,7 @@ partners:
             {% for milestone in page.milestones.items %}
                   <a href="{{milestone.link}}">
                     <div class='small-3 small-3 columns' style='background-color: #fff;'>
-                      <div class='mod modMilestone' style='background: url(/images/kingdoms/{{milestone.image}}); background-size: cover; background-position: center'>
+                      <div class='mod modMilestone' style='background-image: url(/images/kingdoms/{{milestone.image}}); background-size: cover;'>
                           <div class="milestoneText" style='background-color: #{{milestone.bgcolor}}; color: #{{milestone.fgcolor}};'>
                               <div class="milestoneTitle">{{milestone.title}}</div>
                               <div class="milestoneCount">{{milestone.count}} estimated species</div>
@@ -83,7 +83,7 @@ partners:
         </div>
 
         <div class='row'>
-            <div class='full main-tree'>
+            <div class='full'>
                 <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
@@ -106,8 +106,8 @@ partners:
                 const domContainer = document.querySelector('#tree');
                 ReactDOM.render(e(PublicTree), domContainer);
             </script>
-        </div> 
-   </div>
+        </div>
+    </div>
     <div class='medium-4 columns'>
     {% for post in site.posts %}
       {% if forloop.index > 3 %}
@@ -127,7 +127,6 @@ partners:
     {% endfor %}
     </div>
   </div>
-  <div class='spacing'></div>
   <div class="row partners">
     {% for partner in page.partners.partners %}
         <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}"></a>
