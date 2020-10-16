@@ -67,7 +67,7 @@ partners:
 <div class='full'>
   <div class='row'>
     <div class="medium-8 columns" style="background: white; margin-top: 20px;">
-        <div class='row'>
+        <div class='row kingdoms'>
             {% for milestone in page.milestones.items %}
                   <a href="{{milestone.link}}">
                     <div class='small-3 small-3 columns' style='background-color: #fff;'>
