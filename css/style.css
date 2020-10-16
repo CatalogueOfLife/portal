@@ -3136,13 +3136,14 @@ body {
   font-size: 24px;
   text-align: center;
   box-sizing: border-box;
-  border: 2px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 .milestoneText {
     opacity: 0;
     padding: 10px;
     font-size: 16px;
+    border-radius: 10px;
 }
 .milestoneText:hover {
     opacity: 100;
