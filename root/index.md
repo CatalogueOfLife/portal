@@ -83,7 +83,7 @@ partners:
         </div>
 
         <div class='row'>
-            <div class='full'>
+            <div class='full main-tree'>
                 <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
