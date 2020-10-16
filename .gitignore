@@ -4,6 +4,5 @@ _site/
 .jekyll-metadata
 bundle/
 .DS_Store
-.gitignore
 Gemfile
 Gemfile.lock
