@@ -127,6 +127,8 @@ partners:
     {% endfor %}
     </div>
   </div>
+  <div class='spacing' style='background-color: #ccc; height: 2px;'></div>
+  <div class='spacing'></div>
   <div class="row partners">
     {% for partner in page.partners.partners %}
         <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}"></a>
