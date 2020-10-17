@@ -3,24 +3,6 @@ layout: default
 permalink: /
 section_id: home
 
-sections:
-  - icon: filter
-    title: Explore
-    path: /somewhere
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-  - icon: question
-    title: About the catalogue
-    path: /somewhere
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-  - icon: code
-    title: Developers
-    path: /somewhere
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-  - icon: comments-o
-    title: Help us curate
-    path: /somewhere
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-
 milestones:
   items:
     - image: Podarcis.jpg
@@ -52,11 +34,6 @@ milestones:
       fgcolor: ecf7ef
       link: /index.html?taxonKey=0
 
-posts:
-  title: Latest news
-  desc: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing.
-  moreTitle: See more news
-
 partners:
   title: Our partners
   partners:
@@ -69,6 +46,7 @@ partners:
 ---
 
 <div class='full'>
+  <div class='row introduction'>The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists - <a href="/content/catalogueoflife.html">Learn more</a></div>
   <div class='row'>
     <div class="medium-8 columns" style="background: white; margin-top: 20px;">
         <div class='row kingdoms'>
