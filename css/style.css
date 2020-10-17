@@ -1424,7 +1424,7 @@ form input.error, form textarea.error {
 }
 
 .modBlogPost {
-  margin-bottom: 10px;
+  margin-top: 10px;
   background: #fff;
 }
 .modBlogPost .content {
@@ -3132,6 +3132,13 @@ body {
 .modMasonryGallery ul.gallery li.hidden {
   opacity: 0.1;
 }
+.introduction {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 135%;
+    color: #333;
+    text-align: center;
+}
 .modMilestone {
   font-size: 24px;
   text-align: center;
@@ -3190,7 +3197,7 @@ body {
     }
 }
 .main-tree {
-    padding: 0px 16px;
+    padding: 0px 16px 60px 16px;
 }
 .partners {
     display: flex;
@@ -3806,6 +3813,9 @@ body {
   .modBoxedSlider .caption h2 {
     font-size: 1.8rem;
   }
+}
+.prose h2 {
+    font-size: 150%;
 }
 @media only screen and (max-width: 480px) {
   .modDefaultSlider .sequence .title h2 {
