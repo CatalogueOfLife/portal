@@ -11,7 +11,7 @@ permalink: /content/contact.html
   </div>
   <div class='row'>
     <div class='large-12 columns'>
-      {% include section-header.html title="Contact Us" tagline="Drop by or send an email to us" color="#fff" class="big" %}
+      {% include section-header.html title="Contact Us" tagline="Our location and how to message the Catalogue of Life" color="#fff" class="big" %}
     </div>
   </div>
   <div class='four spacing'></div>

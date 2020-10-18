@@ -1,9 +1,11 @@
 ---
-layout: default
+layout: content
 title: Browse
-tagline: This would probably be a custom page
+tagline: Explore the world's species as a tree
 section_id: dataAccess
 permalink: /data/browse
+imageUrl: /images/Patiriella_calcar.jpg
+imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/42551733071)
 ---
 
 <div class="row" style="background: white; margin-top: 40px; margin-bottom: 60px">

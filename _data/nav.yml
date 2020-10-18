@@ -39,7 +39,7 @@
       desc: "Accessing and citing the Checklist"
     - name: Funding
       path: /content/funding.html
-      desc: "Information on funders and funding"
+      desc: "Catalogue of Life funders and funding"
     - name: Contact
       path: /content/contact.html
       desc: "How to make contact with the Catalogue of Life"
