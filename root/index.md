@@ -42,7 +42,7 @@ partners:
     - image: "/images/partners/itis.png"
       link: "https://www.itis.gov/"
     - image: "/images/partners/GBIF-2015.png"
-      link: "/partners.html#gbif"
+      link: "https://gbif.org/"
 ---
 
 <div class='full'>
