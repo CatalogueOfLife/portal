@@ -18,6 +18,9 @@
     - name: Contributing datasets
       path: /data/contributing-datasets.html
       desc: "Browse the taxonomic datasets that make up the Catalogue"
+    - name: Previous versions
+      path: /data/archives.html
+      desc: "Archived historical versions of the COL Checklist"
 - name: About
   path: /content/catalogueoflife.html
   section_id: about

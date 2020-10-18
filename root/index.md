@@ -114,7 +114,7 @@ partners:
   <div class='spacing'></div>
   <div class="row partners">
     {% for partner in page.partners.partners %}
-        <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}"></a>
+        <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}" height="48"></a>
     {% endfor %}
   </div>
   <div class='spacing'></div>
