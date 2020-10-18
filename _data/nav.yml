@@ -38,7 +38,7 @@
       path: /content/funding.html
       desc: "Catalogue of Life funders and funding"
 - name: News 
-  path: /news/
+  path: /news/index.html
   section_id: news
 - name: Contact 
   path: /contact/contact.html
