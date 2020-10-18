@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  Catalogue of Life partnering to support conservation 
+author: "Donald Hobern"
 date:   2020-10-15 03:52:12
 images: images/iubs-paper.jpg
 excerpt:
