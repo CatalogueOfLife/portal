@@ -100,7 +100,7 @@ partners:
         <div class='mod modBlogPost'>
           <div class='content'>
             <p class='date'>{{post.date | date: "%B %d, %Y" }}</p>
-            <h4><a href="#">{{post.title}}</a></h4>
+            <h4><a href="{{post.url}}">{{post.title}}</a></h4>
             <p>{{post.excerpt}}</p>
           </div>
         </div>
