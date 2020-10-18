@@ -2,7 +2,7 @@
 layout: post
 title:  Catalogue of Life partnering to support conservation 
 date:   2020-10-15 03:52:12
-images: /images/iubs-paper.jpg
+images: images/iubs-paper.jpg
 excerpt:
   The Catalogue of Life is contributing actively to the new IUBS Working Group on the Governance of Taxonomic Lists
 categories: Partnerships
