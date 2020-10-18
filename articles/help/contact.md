@@ -41,4 +41,3 @@ permalink: /contact/contact.html
     </div>
   </div>
   <div class='four spacing'></div>
-</div>
