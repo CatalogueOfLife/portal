@@ -8,6 +8,9 @@ imageUrl: /images/Aphomia_sociella.jpg
 imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/18189103153)
 ---
 
+# Search the Catalogue of Life Checklist
+Use this search form to find any name in the current version of the COL Checklist.
+
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
 
 

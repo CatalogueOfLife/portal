@@ -8,6 +8,9 @@ imageUrl: /images/Patiriella_calcar.jpg
 imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/42551733071)
 ---
 
+# Browse the Catalogue of Life Checklist
+Use this tree to explore the full classification from the current version of the COL Checklist. The **Find taxon** field allows for direct access using any name known to COL.
+
 <div class="row" style="background: white; margin-top: 40px; margin-bottom: 60px">
 
 
