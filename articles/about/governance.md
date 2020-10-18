@@ -9,25 +9,27 @@ imageCaption: _Asio otus_ (Linnaeus, 1758) - [Photo CC By Donald Hobern](https:/
 permalink: /content/governance
 ---
 # Governance
-The Catalogue of Life (COL) is developed through a collaboration between Species 2000, the Integrated Taxonomic Information System (ITIS) and the Global Biodiversity Information Facility (GBIF). These three organisations support the executive team that is responsible for project management as well as development and maintenance of the COL digital infrastructure. In addition to these organisations, the COL is a global collaboration with many contributors.
+Catalogue of Life (COL) was originally established as a partnership between [Species 2000](https://sp2000.org/) and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). Recently, the COL partnership has been strengthened through the involvement of the Global Biodiversity Information Facility ([GBIF](https://gbif.org/). Species 2000 provides the residual legal body for Catalogue of Life, holding its Intellectual Property Rights, copyright, domain names, access licences, Memoranda of Understanding (MoU), taking responsibility for continuity between major projects and providing the ongoing governance of Catalogue of Life. Species 2000 is an autonomous federation of taxonomic database custodians, involving taxonomists throughout the world. Our goal is to collate a uniform and validated index to the world's known species (plants, animals, fungi and microbes). Species 2000 is registered as a not-for-profit company limited by guarantee (registered in England No. 3479405). In the near future, the company will move from the UK to the Netherlands.
 
-Species 2000 provides the residual legal body for the global Catalogue of Life programme, holding its Intellectual Property Rights, copyright, domain names, access licences, Memoranda of Understanding (MoU), taking responsibility for continuity between major projects and providing the ongoing governance of the global programme. It is structurally a federation, owned and governed by the participants that become its members.
+Species 2000 / Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
 
 ## Board of Directors
-Species 2000, and thus the Catalogue of Life, is managed by the Board of Directors (BoD, max 8 members). The BoD deals with international policy and business issues, appoints new Directors (to be confirmed in the AGM), appoints and authorises the CoL Global Team, including appointing the CoL Global Team Chair, and appointing and authorising the Executive Secretary. Directors contribute their expertise to the organisation and work closely with the Executive Secretary. The BoD elects a Chair and also appoints a Company Secretary. It usually meets two times per year, in different continents. The Board currently includes:
+Species 2000, and thus the Catalogue of Life, is managed by the Board of Directors (BoD). The BoD deals with international policy and business issues, appoints new Directors, appoints and authorises 'The COL Global Team', including appointing the COL Global Team Chair, and appointing and authorising the Executive Secretary. Directors contribute their expertise to the organisation and work closely with the Executive Secretary. The BoD elects a Chair and also appoints a Company Secretary. It usually meets two times per year in different continents. The Board currently consists of:
 
 * **Dr Peter Schalk** (Naturalis Biodiversity Center, Netherlands), Chair of the Board of Directors
 * **Prof. W. Alex Gray** (Computer Science & Informatics, United Kingdom), Company Secretary and Treasurer
-* **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium),Catalogue of Life Global Team Chair, Ex Officio Member
 * **Mr Francisco (Tjess) Hernandez** (Data Centre Manager, Flanders Marine Institute (VLIZ), Belgium), Member of the Board
 * **Dr Keping Ma** (Professor of Plant Ecology in Institute of Botany, Chinese Academy of Sciences, China), Member of the Board
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
 * **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
+* **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium),Catalogue of Life Global Team Chair, Ex Officio Member
+* **Dr Olaf B&aacute;nki** (Naturalis Biodiversity Center, Netherlands) Executive Secretary Species 2000 / Catalogue of Life, Ex Officio Member
 
 ## Global Team
-The COL Global Team (max 20 members) consists of active participants who contribute to the taxonomic and IT policy, and to the design of the work programme. Team members bring in expertise in the field of taxonomy, biodiversity informatics and/or as Global Species Database (GSD) or regional checklist custodians. The Global Team develops criteria for selecting global and regional taxonomic content, ensures the project's liaison in the taxonomic and informatics communities, recommends a work programme to the Directors, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
+The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Directors, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
 
-Working Groups (max. 15 persons) may be set up by the COL Global Team for special areas. Two working groups exist: Information Systems and Taxonomy. The working groups are led by a member of the COL Global Team but may include co-opted non-members.
+Working Groups (max. 15 persons) may be set up by the COL Global Team for special aspects. Two working groups currently exist for Information Systems and Taxonomy. The working groups are each led by a member of the COL Global Team but may include co-opted non-members.
+
 
 #### Members of the Catalogue of Life Global Team
 * **Nicolas Bailly** (Canada)
@@ -36,7 +38,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Markus Doering** (Germany)
 * **Anne Fuchs** (Australia)
 * **Stephen Garnett** (Australia)
-* **Donald Hobern** (Australia), ex officio
+* **Donald Hobern** (Australia), Ex Officio
 * **Tsuyoshi Hosoya** (Japan)
 * **David Nicolson** (USA)
 * **Li-Qiang Ji** (China)
@@ -73,6 +75,25 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
  
 #### Members of the Information Systems Group
 * **David Remsen** (USA), Chair
-* **Markus Doering** (Germany)
+* **Markus D&ouml;ring** (Germany)
 * **Tim Robertson** (Denmark)
 * **Bart Vanhoorne** (Belgium)
+
+## Secretariat
+Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiversity Center hosts the secretariat, the Illinois Natural History Survey hosts the editorial office, and the Global Biodiversity Information Facility hosts the infrastructure.
+
+* **Executive Secretary** - Dr. Olaf B&aacute;nki - Naturalis Biodiversity Center, The Netherlands
+* **International Engagement Officer** - Mr. Donald Hobern - Species 2000, Australia
+* **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
+* **Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
+* **Administrative and Finance Officer** - Ms. Mil de Reus - Naturalis Biodiversity Center, The Netherlands
+
+## Infrastructure project team
+A dedicated project team works to build and expand the Catalogue of Life Infrastructure hosted and powered by GBIF. The aim is to develop Catalogue of Life as a joint infrastructure for names and taxonomy to create core services for biodiversity data initiatives such as the Global Biodiversity Information Facility, Biodiversity Heritage Library ([BHL](https://www.biodiversitylibrary.org/)), the Encyclopedia of Life ([EOL](https://eol.org/)), the International Barcode of Life ([iBOL](https://ibol.org/)), the Distributed System of Scientific Collections ([DiSSCo](https://www.dissco.eu/)), and the [LifeWatch ERIC](https://www.lifewatch.eu/), amongst others.
+
+The project team works closely with the Catalogue of Life Secretariat and its partners.
+
+* **Lead developer** - Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
+* **User Interface developer** - Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
+* **Senior project manager** - Chantal Huijbers - Naturalis Biodiversity Center - The Netherlands
+* **Senior developer** - Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
