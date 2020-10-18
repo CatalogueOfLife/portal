@@ -779,14 +779,12 @@ ul.shortcode-list i {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
-  background: #F9CE06;
-  border: 2px solid #F9CE06;
+  background: #0480b5;
+  border: 2px solid #0480b5;
 }
-
 .button:hover {
-  background-color: rgba(249, 206, 6, 0.8);
+  background-color: rgba(4, 128, 181, 0.8);
 }
-
 .button.boxed {
   color: #fff;
   border: 2px solid #fff;
@@ -1434,7 +1432,7 @@ form input.error, form textarea.error {
   color: #333;
 }
 .modBlogPost h4 a:hover {
-  color: #f9ce06;
+  color: #0480b5;
 }
 .modBlogPost .date {
   font-size: 0.78571rem;
@@ -1489,7 +1487,7 @@ form input.error, form textarea.error {
   color: #333;
 }
 .modBlogPost.big h3 a:hover {
-  color: #f9ce06;
+  color: #0480b5;
 }
 .modBlogPost.big h4 {
   font-size: 1.7rem;
