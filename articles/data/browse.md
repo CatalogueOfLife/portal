@@ -1,7 +1,7 @@
 ---
 layout: content
 title: Browse
-tagline: Explore the world's species as a tree
+tagline: Explore the world's species through their classification
 section_id: dataAccess
 permalink: /data/browse
 imageUrl: /images/Patiriella_calcar.jpg

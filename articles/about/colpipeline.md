@@ -1,7 +1,7 @@
 ---
 layout: content
 title: ChecklistBank and the COL Checklist
-tagline: "Catalogue of Life: processing and accessing checklist data"
+tagline: "The COL pipeline for checklist data"
 section_id: about
 toc: true
 imageUrl: /images/Pultenaea_procumbens.jpg    

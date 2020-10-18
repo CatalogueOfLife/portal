@@ -1,21 +1,12 @@
 ---
-layout: default
-title: Contact
+layout: content
+title: Contact us
+tagline: Our location and how to message the Catalogue of Life
 section_id: contact
-permalink: /content/contact.html
+imageUrl: /images/Limosa_lapponica+Calidris_canutus.jpg    
+imageCaption: _Limosa lapponica_ (Linnaeus, 1758) and _Calidris canutus_ (Linnaeus, 1758) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
+permalink: /contact/contact.html
 ---
-
-<div class='full parallax' style='background-image: url(/images/@stock/contact.jpg); color: #fff; position: relative;'>
-  <div class="caption caption-absolute">
-    <a href="http://www.freepik.com">Designed by Dragana_Gordic / Freepik</a>
-  </div>
-  <div class='row'>
-    <div class='large-12 columns'>
-      {% include section-header.html title="Contact Us" tagline="Our location and how to message the Catalogue of Life" color="#fff" class="big" %}
-    </div>
-  </div>
-  <div class='four spacing'></div>
-</div>
 
   <div class='full'>
     <div class='row'>

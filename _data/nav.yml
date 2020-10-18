@@ -9,18 +9,15 @@
   path: /data/search.html
   section_id: dataAccess
   children:
-    - name: Browse
-      path: /data/browse.html
-      desc: "Explore the catalogue of life as a tree"
     - name: Search
       path: /data/search.html
       desc: "Find species and other taxa by name"
+    - name: Browse
+      path: /data/browse.html
+      desc: "Explore the catalogue of life through their classification"
     - name: Contributing datasets
       path: /data/contributing-datasets.html
       desc: "Browse the taxonomic datasets that make up the Catalogue"
-    - name: Metrics
-      path: /data/metrics.html
-      desc: "Summary information on the Catalogue"
 - name: About
   path: /content/catalogueoflife.html
   section_id: about
@@ -30,7 +27,7 @@
       desc: "The international community for listing species"
     - name: "ChecklistBank and the COL Checklist"
       path: /content/colpipeline.html
-      desc: "How COL and its contributors deliver the COL Checklist"
+      desc: "The COL pipeline for checklist data"
     - name: "The COL community"
       path: /content/colcommunity.html
       desc: "Collaborating to list the world's species"
@@ -40,9 +37,9 @@
     - name: Funding
       path: /content/funding.html
       desc: "Catalogue of Life funders and funding"
-    - name: Contact
-      path: /content/contact.html
-      desc: "How to make contact with the Catalogue of Life"
 - name: News 
   path: /news/
   section_id: news
+- name: Contact 
+  path: /contact/contact.html
+  section_id: contact

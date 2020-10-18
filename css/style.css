@@ -3877,3 +3877,9 @@ body {
     display: none;
   }
 }
+#footer .links {
+    margin-bottom: 0px;
+}
+#footer .creativecommons {
+    text-align: center;
+}
