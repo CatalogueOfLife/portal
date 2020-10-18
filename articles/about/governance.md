@@ -20,6 +20,7 @@ Species 2000, and thus the Catalogue of Life, is managed by the Board of Directo
 * **Prof. W. Alex Gray** (Computer Science & Informatics, United Kingdom), Company Secretary and Treasurer
 * **Mr Francisco (Tjess) Hernandez** (Data Centre Manager, Flanders Marine Institute (VLIZ), Belgium), Member of the Board
 * **Dr Keping Ma** (Professor of Plant Ecology in Institute of Botany, Chinese Academy of Sciences, China), Member of the Board
+* **Mr Jeroen Snijders** (Associate Director and CIO at Naturalis Biodiversity Center, Netherlands), Member of the Board, representing the host
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
 * **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
 * **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium),Catalogue of Life Global Team Chair, Ex Officio Member
