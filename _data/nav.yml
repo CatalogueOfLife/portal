@@ -37,6 +37,9 @@
     - name: Using the COL Checklist
       path: /content/colusage.html
       desc: "Accessing and citing the Checklist"
+    - name: Governance
+      path: /content/governance.html
+      desc: "Leadership and committees"
     - name: Funding
       path: /content/funding.html
       desc: "Catalogue of Life funders and funding"
