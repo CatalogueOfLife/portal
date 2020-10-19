@@ -28,9 +28,9 @@
     - name: "The Catalogue of Life"
       path: /content/catalogueoflife.html
       desc: "The international community for listing species"
-    - name: "ChecklistBank and the COL Checklist"
+    - name: "The COL data pipeline"
       path: /content/colpipeline.html
-      desc: "The COL pipeline for checklist data"
+      desc: "COL ChecklistBank and the COL Checklist"
     - name: "The COL community"
       path: /content/colcommunity.html
       desc: "Collaborating to list the world's species"
