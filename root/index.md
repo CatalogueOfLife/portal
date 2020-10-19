@@ -43,6 +43,8 @@ partners:
       link: "https://www.itis.gov/"
     - image: "/images/partners/GBIF-2015.png"
       link: "https://gbif.org/"
+    - image: "/images/partners/alliance.png"
+      link: "https://www.allianceforbio.org/"
 ---
 
 <div class='full'>
