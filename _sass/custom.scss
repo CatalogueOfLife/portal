@@ -78,7 +78,13 @@ a.inherit:hover {
     color: #F9CE06;
 }
 
-
+:target::before {
+    content: "";
+    display: block;
+    margin-top: -80px;
+    height: 80px;
+    width: 1px;
+  }
 /* 404 page */
 .page404 {
     padding: 20px;
