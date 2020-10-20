@@ -52,7 +52,7 @@ The latest version of the COL Checklist can always be accessed through the datas
 More information on the new COL ChecklistBank will follow soon.
 
 ### Downloads
-Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [**previous versions**](https://www.dev.catalogue.life/data/archives.html). 
+Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [previous versions](https://www.dev.catalogue.life/data/archives.html). 
 Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](http://api.catalogue.life/download/col/annual/).
 
 ### Deprecated legacy API
