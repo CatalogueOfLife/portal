@@ -1,5 +1,6 @@
 react:
     datasetKey: "3LRC" # Which dataset should the tree and search components use?
+    auth: "colplus:sp2000"
 
 milestones:
   items:
