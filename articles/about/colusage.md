@@ -116,13 +116,13 @@ Once these identifiers are in place, it is strongly recommended that [users](col
 
 Please use the following recommended citation for the current version of the COL Checklist:
 
-*{{site.data.colversion.citation}}*
+<i>{{site.data.colversion.citation}}</i>
 
 Please use the following recommended citations for the individual datasets contributing to the COL Checklist:
 
 <div class="sources">
 	{% assign sources = site.data.colsources | sort: "alias" %}
 	{% for src in sources %}
-		<p>{{src.citation}} see <a href="/data/dataset/{{src.key}}">{{src.alias}}</a></p>
+		<p><i>{{src.citation}}</i> <a href="/data/dataset/{{src.key}}"><img style="height: 12px; opacity: 60%" src="/images/link.png"/></a></p>
 	{% endfor %}
 </div>
