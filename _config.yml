@@ -89,3 +89,6 @@ milestones:
 jekyll_get_json:
   - data: colversion
     json: 'https://api.catalogue.life/dataset/3LR'
+  - data: colsources
+    json: 'https://api.catalogue.life/dataset/3LR/source'
+
