@@ -118,7 +118,7 @@ Please use the following recommended citation for the current version of the COL
 
 Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P. M., Bourgoin T., DeWalt R. E., Decock W., van Nieukerken E. J., Penev L. (eds.). **Species 2000 & ITIS Catalogue of Life, 3rd November 2020.** Digital resource at www.catalogueoflife.org. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.
 
-Please use the following recommended citation for the individual datasets contributing to the COL Checklist:
+Please use the following recommended citations for the individual datasets contributing to the COL Checklist:
 
 Oosterbroek P. [**CCW: Catalogue of Craneflies of the World (version Jul 2013).**](/data/dataset/1005) In: Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P. M., Bourgoin T., DeWalt R. E., Decock W., van Nieukerken E. J., Penev L. (eds.). Species 2000 & ITIS Catalogue of Life, 3rd November 2020. Digital resource at www.catalogueoflife.org. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-8858.
 
