@@ -44,19 +44,51 @@ Once a taxon has been found by either route, more information is available on th
 * **Source database**: link to the page that describes the source database for the species record.
 * **Link to original resource** (if available): this links to the corresponding species page in the original resource
 
-### New COL API
-The dynamic COL Checklist can be accessed through the JSON-based [COL ChecklistBank API](https://api.catalogue.life/). The API is still under active development and not finalized, so small changes are still expected to take place before the release of version 1.0. Authentication is via GBIF user accounts. Datasets in the ChecklistBank are accessible through dataset keys. The latest version of the COL Checklist can always be accessed through the dataset Key **3LR**. More information on the new COL ChecklistBank will follow soon.
+### COL API
+The dynamic COL Checklist can be accessed through the JSON-based [COL ChecklistBank API](https://api.catalogue.life/). 
+The API is still under active development and not finalized, so small changes are still expected to take place before the release of version 1.0. 
+Authentication is via GBIF user accounts. Datasets in the ChecklistBank are accessible through dataset keys. 
+The latest version of the COL Checklist can always be accessed through the dataset Key [3LR](https://api.catalogue.life/dataset/3LR). 
+More information on the new COL ChecklistBank will follow soon.
 
 ### Downloads
-Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [**previous versions**](https://www.dev.catalogue.life/data/archives.html). Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](http://api.catalogue.life/download/col/annual/).
+Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [previous versions](https://www.dev.catalogue.life/data/archives.html). 
+Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](http://api.catalogue.life/download/col/annual/).
 
-###Deprecated legacy API
-To facilitate a smooth change-over to the new Catalogue of Life infrastructure, the deprecated legacy API for the dynamic monthly COL Checklists will remain available for some period. However, we strongly recommend users to switch over to the new COL ChecklistBank API as soon as possible.
+### Deprecated legacy API
+To facilitate a smooth change-over to the new Catalogue of Life infrastructure, the deprecated legacy API for the dynamic monthly COL Checklists will remain available for some period. 
+However, we strongly recommend users to switch over to the new COL ChecklistBank API as soon as possible.
 
 ## Data formats
 
 ### Catalogue of Life Data Package
-For the new Catalogue of Life, the recommended exchange format for submitting data to and downloading data from the COL ChecklistBank is the [Catalogue of Life Data Package](https://github.com/CatalogueOfLife/coldp) (COLDP), a tabular text format with a standard set of files and columns and it is based on [Frictionless Data](https://frictionlessdata.io/). The format is a single ZIP archive that bundles various delimited text files described below together with a metadata.yaml file providing basic metadata about the entire dataset. The COLDP format was developed to overcome limitations in existing formats for sharing taxonomic information, particularly [Darwin Core Archives](https://dwc.tdwg.org/text/) and the previous Catalogue of Life submission format known as [Annual Checklist Exchange Format](https://dwc.tdwg.org/text/) (ACEF). Darwin Core Archives and ACEF are still supported for data exchange to and from the Catalogue of Life ChecklistBank, but the COLDP format supports a wider range of features. 
+For the new Catalogue of Life, the recommended exchange format for submitting data to and downloading data from the COL ChecklistBank 
+is the [Catalogue of Life Data Package](https://github.com/CatalogueOfLife/coldp) (ColDP), 
+a tabular text format with a standard set of files and columns and it is inspired by [Frictionless Data](https://frictionlessdata.io/). 
+The format is a single ZIP archive that bundles various delimited text files:
+
+ - [Name](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#name)
+ - [NameRelation](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#namerelation)
+ - [Taxon](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#taxon)
+ - [Synonym](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#synonym)
+ - [NameUsage](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#nameusage)
+ - [TaxonConceptRelation](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#taxonconceptrelation)
+ - [SpeciesInteraction](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesinteraction)
+ - [SpeciesEstimate](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesestimate)
+ - [Reference](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#reference)
+ - [NameReference](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#namereference)
+ - [TypeMaterial](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#typematerial)
+ - [Distribution](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#distribution)
+ - [Media](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#media)
+ - [VernacularName](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#vernacularname)
+ - [Treatments](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#treatment)
+
+A [metadata.yaml](https://github.com/CatalogueOfLife/coldp/blob/master/metadata.yaml) file can also be included to provide basic metadata about the entire dataset.
+For sharing structured bibliographic references the [BibTex](https://github.com/CatalogueOfLife/coldp#reference-bibtex) 
+and [CSL-JSON](https://github.com/CatalogueOfLife/coldp#reference-json-csl) format is also supported.
+
+The ColDP format was developed to overcome limitations in existing formats for sharing taxonomic information, particularly Darwin Core Archives and the Annual Checklist Exchange Format used previously in COL. 
+Darwin Core Archives and ACEF are still supported for data exchange to and from the Catalogue of Life ChecklistBank, but the [ColDP format supports a wider range of features](https://github.com/CatalogueOfLife/coldp#format-comparison). 
 
 ### Darwin Core Archive
 Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that makes use of the [Darwin Core](https://dwc.tdwg.org/list/) terms to produce a single, self-contained dataset for sharing species-level (checklist) data, species-occurrence data or sampling-event data. Each archive contains a set of text files, in standard comma- or tab-delimited format, along with a simple descriptor file (_meta.xml_) to document how the files are organised. The format is defined in the [Darwin Core Text Guidelines](https://dwc.tdwg.org/text/) (GBIF 2017).
@@ -64,7 +96,9 @@ Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that
 DwC-A archives may include one or many data files, depending on the scope of the dataset published. As a minumum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, the each record should be include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
 
 ### Annual Checklist Exchange Format
-The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, although the new COLDP format is recommended. The ACEF format includes several tables with pre-defined fields ([list of tables and fields](https://www.catalogueoflife.org/sites/default/files/datafiles/List%20of%20tables%20and%20fields_2014.pdf), [entity relationship diagram](http://www.catalogueoflife.org/sites/default/files/datafiles/ERD_Data%20Submission%20Format_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
+The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, 
+although the new ColDP format is recommended. 
+The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
 
 ## Citing the COL Checklist and data from ChecklistBank
 COL's goal is to make sure that the COL Checklist and all content published through ChecklistBank have stable web identifiers and can easily be cited. This will include the following features (some still under development as of October 2020:

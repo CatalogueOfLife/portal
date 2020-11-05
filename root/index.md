@@ -3,36 +3,7 @@ layout: default
 permalink: /
 section_id: home
 
-milestones:
-  items:
-    - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=061950e4-9782-4d1a-9c87-dcf375788e6b&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Animalia
-      bgcolor: 0480b5
-      fgcolor: ccedfa
-      link: /index.html?taxonKey=061950e4-9782-4d1a-9c87-dcf375788e6b
-    - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=fc995438-b561-4616-a896-f479fca6e3d4&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Plantae
-      bgcolor: d0bd34
-      fgcolor: fcfbe7
-      link: /index.html?taxonKey=fc995438-b561-4616-a896-f479fca6e3d4
-    - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=d64f9d40-cbe5-4908-b4c2-16a9d6429401&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Fungi
-      bgcolor: e83143
-      fgcolor: feebed
-      link: /index.html?taxonKey=d64f9d40-cbe5-4908-b4c2-16a9d6429401
-    - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=dc38164e-ddff-4305-85a1-b320a0216cef&TAXON_ID=56f9bfb4-e63c-4ef7-b8e5-66f40b9233cd&TAXON_ID=63e291b2-9018-4cdb-a599-ed6404d06ab4&TAXON_ID=7b3a7eb4-e311-4521-813b-c288e408e005&TAXON_ID=4f6fabd6-2431-4a77-b77f-de60e4a7accc&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Other kingdoms
-      bgcolor: 2db261
-      fgcolor: ecf7ef
-      link: /index.html?taxonKey=0
+
 
 partners:
   title: Our partners
@@ -52,7 +23,7 @@ partners:
   <div class='row'>
     <div class="medium-8 columns" style="background: white; margin-top: 20px;">
         <div class='row kingdoms'>
-            {% for milestone in page.milestones.items %}
+            {% for milestone in site.milestones.items %}
                   <a href="{{milestone.link}}">
                     <div class='small-3 small-3 columns' style='background-color: #fff;'>
                       <div class='mod modMilestone' style='background-image: url(/images/kingdoms/{{milestone.image}}); background-size: cover;'>
@@ -82,7 +53,7 @@ partners:
 
                       return e(
                         ColBrowser.Tree,
-                        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}' }
+                        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}', auth: '{{ site.react.auth }}' }
                       );
                     }
                   }

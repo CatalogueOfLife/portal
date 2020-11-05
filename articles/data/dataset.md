@@ -23,7 +23,7 @@ class PublicTaxon extends React.Component {
   
       return e(
         ColBrowser.Dataset,
-        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}'}
+        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}', auth: '{{ site.react.auth }}', pathToSearch: '{{ site.react.pathToSearch }}'}
       );
     }
   }

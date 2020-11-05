@@ -1,6 +1,6 @@
 ---
 layout: content
-title: COLDP format
+title: ColDP format
 tagline: Labore est quasi omnis ducimus.
 section_id: resources
 imageUrl: https://via.placeholder.com/550x250
