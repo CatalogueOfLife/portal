@@ -24,7 +24,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-archives
-
+  - jekyll-get-json
 
 permalink: /:year/:month/:day/:title.html
 
@@ -85,3 +85,7 @@ milestones:
       bgcolor: 2db261
       fgcolor: ecf7ef
       link: /index.html?taxonKey=0
+
+jekyll_get_json:
+  - data: colversion
+    json: 'https://api.catalogue.life/dataset/3LR'

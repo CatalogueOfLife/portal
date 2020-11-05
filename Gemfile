@@ -10,3 +10,4 @@ group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-archives'
 end
+gem "jekyll-get-json", "~> 0.0.2"
