@@ -9,7 +9,7 @@ imageCaption: _Asio otus_ (Linnaeus, 1758) - [Photo CC By Donald Hobern](https:/
 permalink: /content/governance
 ---
 # Governance
-Catalogue of Life (COL) was originally established as a partnership between [Species 2000](https://sp2000.org/) and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). Recently, the COL partnership has been strengthened through the involvement of the Global Biodiversity Information Facility ([GBIF](https://gbif.org/). Species 2000 provides the residual legal body for Catalogue of Life, holding its Intellectual Property Rights, copyright, domain names, access licences, Memoranda of Understanding (MoU), taking responsibility for continuity between major projects and providing the ongoing governance of Catalogue of Life. Species 2000 is an autonomous federation of taxonomic database custodians, involving taxonomists throughout the world. Our goal is to collate a uniform and validated index to the world's known species (plants, animals, fungi and microbes). Species 2000 is registered as a not-for-profit company limited by guarantee (registered in England No. 3479405). In the near future, the company will move from the UK to the Netherlands.
+Catalogue of Life (COL) was originally established as a partnership between [Species 2000](https://sp2000.org/) and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). Recently, the COL partnership has been strengthened through the involvement of the Global Biodiversity Information Facility ([GBIF](https://gbif.org/)). Species 2000 provides the residual legal body for Catalogue of Life, holding its Intellectual Property Rights, copyright, domain names, access licences, Memoranda of Understanding (MoUs), taking responsibility for continuity between major projects and providing the ongoing governance of Catalogue of Life. Species 2000 is an autonomous federation of taxonomic database custodians, involving taxonomists throughout the world. Our goal is to collate a uniform and validated index to the world's known species (plants, animals, fungi and microbes). Species 2000 is registered as a not-for-profit company limited by guarantee (registered in England No. 3479405). In the near future, the company will move from the UK to the Netherlands.
 
 Species 2000 / Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
 
@@ -23,7 +23,7 @@ Species 2000, and thus the Catalogue of Life, is managed by the Board of Directo
 * **Mr Jeroen Snijders** (Associate Director and CIO at Naturalis Biodiversity Center, Netherlands), Member of the Board, representing the host
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
 * **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
-* **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium),Catalogue of Life Global Team Chair, Ex Officio Member
+* **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium), Catalogue of Life Global Team Chair, Ex Officio Member
 * **Dr Olaf B&aacute;nki** (Naturalis Biodiversity Center, Netherlands) Executive Secretary Species 2000 / Catalogue of Life, Ex Officio Member
 
 ## Global Team
@@ -34,7 +34,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 
 #### Members of the Catalogue of Life Global Team
 * **Nicolas Bailly** (Canada)
-* **Olaf B&aacute;nki** (Netherlands)
+* **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano** (Argentina)
 * **Markus Doering** (Germany)
 * **Anne Fuchs** (Australia)
@@ -48,7 +48,6 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Richard Pyle** (USA)
 * **Lauren Raz** (Colombia)
 * **David Remsen** (USA)
-* **Michael Ruggiero** (USA)
 * **Jacek Swedo** (Poland)
 * **Leen Vandepitte** (Belgium), Chair
 * **Nina Wambiji** (Kenya)
@@ -56,20 +55,20 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
  
 #### Members of the Taxonomy Group
 * **Nicolas Bailly** (Canada), Chair
-* **Olaf B&aacute;nki** (Netherlands)
-* **Thierry Bourgoin** (France)
+* **Olaf B&aacute;nki** (Netherlands), Ex Officio
+* **Thierry Bourgoin** (France), Ex Officio
 * **Maria Marta Cigliano,** (Argentina)
 * **Mark Costello** (New Zealand)
-* **Edward DeWalt,** (USA)
+* **Edward DeWalt,** (USA), Ex Officio
 * **Donald Hobern** (Australia)
 * **Jeyaraney Kathirithamby** (United Kingdom)
 * **David Nicolson** (USA)
 * **Thomas Orrell** (USA)
-* **Geoffrey Ower** (USA)
+* **Geoffrey Ower** (USA), Ex Officio
 * **Thomas Pape** (Denmark)
 * **Richard Pyle** (USA)
 * **Tony Rees** (Australia)
-* **Yuri Roskov** (USA)
+* **Yuri Roskov** (USA), Ex Officio
 * **Michael Ruggiero** (USA)
 * **Jacek Szwedo** (Poland)
 * **Leen Vandepitte** (Belgium)
@@ -87,6 +86,7 @@ Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiver
 * **International Engagement Officer** - Mr. Donald Hobern - Species 2000, Australia
 * **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
 * **Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
+* **Senior project manager** - Dr. Chantal Huijbers - Naturalis Biodiversity Center, The Netherlands
 * **Administrative and Finance Officer** - Ms. Mil de Reus - Naturalis Biodiversity Center, The Netherlands
 
 ## Infrastructure project team
@@ -94,7 +94,6 @@ A dedicated project team works to build and expand the Catalogue of Life Infrast
 
 The project team works closely with the Catalogue of Life Secretariat and its partners.
 
-* **Lead developer** - Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
-* **User Interface developer** - Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
-* **Senior project manager** - Chantal Huijbers - Naturalis Biodiversity Center - The Netherlands
-* **Senior developer** - Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
+* **Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
+* **User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
+* **Senior developer** - Mr.Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
