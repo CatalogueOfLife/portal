@@ -96,4 +96,4 @@ The project team works closely with the Catalogue of Life Secretariat and its pa
 
 * **Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
 * **User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
-* **Senior developer** - Mr.Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
+* **Senior developer** - Mr. Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
