@@ -4,8 +4,8 @@ title: The COL community
 tagline: Collaborating to list the world's species
 section_id: about
 toc: true
-imageUrl: /images/Hecatesia_fenestrata.jpg    
-imageCaption: _Hecatesia fenestrata_ Boisduval, 1828 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5196160337)
+imageUrl: /images/Laccaria_amethystina.jpg    
+imageCaption: _Laccaria amethystina_ (Huds.) Cooke - Photo CC By Jan Huijbers
 permalink: /content/colcommunity
 ---
 # A global collaboration

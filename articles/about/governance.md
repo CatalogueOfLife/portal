@@ -4,8 +4,8 @@ title: COL Governance
 tagline: Leadership and committees
 section_id: about
 toc: true
-imageUrl: /images/Asio_otus.jpg    
-imageCaption: _Asio otus_ (Linnaeus, 1758) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/32387775737)
+imageUrl: /images/Tauraco_leucotis.jpg
+imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /content/governance
 ---
 # Governance
