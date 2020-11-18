@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/CatalogueOfLife/jekyll-get-json.git
+  revision: 45352783e9a1edfdebc506cee623864de43514f6
+  specs:
+    jekyll-get-json (0.0.3)
+      deep_merge (~> 1.2)
+      jekyll (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -5,6 +13,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.7)
+    deep_merge (1.2.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -79,6 +88,7 @@ DEPENDENCIES
   jekyll
   jekyll-archives
   jekyll-feed
+  jekyll-get-json (~> 0.0.3)!
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap

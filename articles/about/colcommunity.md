@@ -4,8 +4,8 @@ title: The COL community
 tagline: Collaborating to list the world's species
 section_id: about
 toc: true
-imageUrl: /images/Hecatesia_fenestrata.jpg    
-imageCaption: _Hecatesia fenestrata_ Boisduval, 1828 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5196160337)
+imageUrl: /images/Laccaria_amethystina.jpg    
+imageCaption: _Laccaria amethystina_ (Huds.) Cooke - Photo CC By Jan Huijbers
 permalink: /content/colcommunity
 ---
 # A global collaboration
@@ -38,7 +38,7 @@ The last of these checks reflects the difficulty of achieving a fully consistent
 In many cases, the taxonomic communities that contribute sectors to the COL Checklist maintain additional information about their species beyond simple naming and classification, particularly on distributions and ecological relationships. COL aims to support efficient management and access for this more extensive species information, so users of COL may discover much greater detail for some groups than others.
 
 ## Roles and responsibilities
-The Catalogue of Life is an international collaborative activity with many contributors. [COL ChecklistBank](https://data.catalogue.life/) gives any interested researchers free access to share their checklist data. For the COL Checklist, COL itself undertakes a set of responsibilities to deliver a high-quality product that gives credit to the taxonomic communities that supply the core content. At the same time, COL depends on these communities to follow common principles focused on developing consensus around quality checklist datasets. This pages explains the roles and responsibilities of COL and of the taxonomic communities in this process, as well as ways that users can help to support the work.
+The Catalogue of Life is an international collaborative activity with many contributors. [COL ChecklistBank](https://data.catalogue.life/) gives any interested researchers free access to share their checklist data. For the COL Checklist, COL itself undertakes a set of responsibilities to deliver a high-quality product that gives credit to the taxonomic communities that supply the core content. At the same time, COL depends on these communities to follow common principles focused on developing consensus around quality checklist datasets. This page explains the roles and responsibilities of COL and of the taxonomic communities in this process, as well as ways that users can help to support the work.
 
 ### The role of taxonomic communities
 Each taxonomic community that contributes a sector to the COL Checklist assumes responsibility for the quality of their contributions. These communities may take different forms and contribute their expertise to COL by different routes. However, each  taxonomic community contributing a sector aims to do the following: 

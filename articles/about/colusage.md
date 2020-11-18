@@ -52,8 +52,8 @@ The latest version of the COL Checklist can always be accessed through the datas
 More information on the new COL ChecklistBank will follow soon.
 
 ### Downloads
-Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [previous versions](https://www.dev.catalogue.life/data/archives.html). 
-Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](http://api.catalogue.life/download/col/annual/).
+Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [previous versions](/data/archives.html). 
+Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](https://download.catalogue.life/col/annual/).
 
 ### Deprecated legacy API
 To facilitate a smooth change-over to the new Catalogue of Life infrastructure, the deprecated legacy API for the dynamic monthly COL Checklists will remain available for some period. 
@@ -93,7 +93,7 @@ Darwin Core Archives and ACEF are still supported for data exchange to and from 
 ### Darwin Core Archive
 Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that makes use of the [Darwin Core](https://dwc.tdwg.org/list/) terms to produce a single, self-contained dataset for sharing species-level (checklist) data, species-occurrence data or sampling-event data. Each archive contains a set of text files, in standard comma- or tab-delimited format, along with a simple descriptor file (_meta.xml_) to document how the files are organised. The format is defined in the [Darwin Core Text Guidelines](https://dwc.tdwg.org/text/) (GBIF 2017).
 
-DwC-A archives may include one or many data files, depending on the scope of the dataset published. As a minumum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, the each record should be include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
+Darwin Core Archives may include one or many data files, depending on the scope of the dataset published. As a minimum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, each record should include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
 
 ### Annual Checklist Exchange Format
 The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, 
@@ -101,15 +101,28 @@ although the new ColDP format is recommended.
 The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
 
 ## Citing the COL Checklist and data from ChecklistBank
-COL's goal is to make sure that the COL Checklist and all content published through ChecklistBank have stable web identifiers and can easily be cited. This will include the following features (some still under development as of October 2020:
+COL's goal is to make sure that the COL Checklist and all content published through ChecklistBank have stable web identifiers and can easily be cited. To support this aim, COL is moving to DOI-based citation tools for all checklist datasets. This work is still under development as of November 2020. In the meantime, please cite COL and its contributors using the [recommended citations](#recommended-citations) listed further down on this page.
+
+The future model for citing COL will include the following features:
 
 * Every checklist in ChecklistBank will receive its own [Digital Object Identifier](https://doi.org/) (DOI).
 * Each version of the COL Checklist will have its own DOI. The information shared for each version includes citation of all contributing sector checklists and other sources contributing content. 
 * Every name in every checklist in ChecklistBank will also have its own unique identifier and can be cited directly. 
 * Every name in each version of the COL Checklist will have its own unique identifier that links to the corresponding record in a source checklist. COL will as far as possible maintain the stability of these identifiers between different versions.
 
-[Users](colcommunity#the-role-of-users) are strongly encouraged to use these identifiers in all publications and other uses of COL data. Doing so enables COL to demonstrate the importance both of taxonomic research and of the work to build the Checklist.
+Once these identifiers are in place, it is strongly recommended that [users](colcommunity#the-role-of-users) adopt them for citations in all publications and other uses of COL data. Monitoring use of these DOIs will enable COL to demonstrate the importance both of taxonomic research and of the work needed to build the Checklist itself. Usage information from DOI citations will be included as part of the metadata for each checklist version and each contributing dataset. This will allow COL to report usage (including references inside publications) more accurately to the data contributors of the content, making it easier for them to highlight the importance of maintaining these datasets.
 
-COL monitors use of all DOIs associated with checklists and aggregates this usage information as part of the metadata for each checklist (including each contributing checklist in the case of the COL Checklist itself). 
+## Recommended citations
 
-Usage (including references inside publications) are then reported back to the contributors of the content, making it easier to highlight the importance of maintaining these datasets.
+Please use the following recommended citation for the current version of the COL Checklist:
+
+<i>{{site.data.colversion.citation}}</i>
+
+Please use the following recommended citations for the individual datasets contributing to the COL Checklist:
+
+<div class="sources">
+	{% assign sources = site.data.colsources | sort: "alias" %}
+	{% for src in sources %}
+		<p><i>{{src.citation}}</i> <a href="/data/dataset/{{src.key}}"><img style="height: 12px; opacity: 60%" src="/images/link.png"/></a></p>
+	{% endfor %}
+</div>

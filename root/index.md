@@ -39,6 +39,7 @@ partners:
 
         <div class='row'>
             <div class='full main-tree'>
+                <div class='col-version'><strong>{{site.data.colversion.title}}</strong> - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist</a></div>
                 <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
