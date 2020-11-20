@@ -54,7 +54,7 @@ partners:
 
                       return e(
                         ColBrowser.Tree,
-                        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}', auth: '{{ site.react.auth }}' }
+                        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}', auth: '{{ site.react.auth }}', showTreeOptions: true }
                       );
                     }
                   }
