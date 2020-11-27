@@ -1338,7 +1338,7 @@ form input.error, form textarea.error {
   right: -25px;
 }
 .slick-prev:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 [dir="rtl"] .slick-prev:before {
   content: "â†’";
@@ -1355,7 +1355,7 @@ form input.error, form textarea.error {
   content: "â†’";
 }
 [dir="rtl"] .slick-next:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 
 /* Dots */
@@ -1668,7 +1668,7 @@ form input.error, form textarea.error {
   right: -25px;
 }
 .slick-prev:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 [dir="rtl"] .slick-prev:before {
   content: "â†’";
@@ -1685,7 +1685,7 @@ form input.error, form textarea.error {
   content: "â†’";
 }
 [dir="rtl"] .slick-next:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 
 /* Dots */
@@ -1948,7 +1948,7 @@ form input.error, form textarea.error {
   right: -25px;
 }
 .slick-prev:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 [dir="rtl"] .slick-prev:before {
   content: "â†’";
@@ -1965,7 +1965,7 @@ form input.error, form textarea.error {
   content: "â†’";
 }
 [dir="rtl"] .slick-next:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 
 /* Dots */
@@ -3137,6 +3137,9 @@ body {
     color: #333;
     text-align: center;
 }
+.col-version {
+  margin-bottom: 10px;
+}
 .modMilestone {
   font-size: 24px;
   text-align: center;
@@ -3534,7 +3537,7 @@ body {
   right: -25px;
 }
 .slick-prev:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 [dir="rtl"] .slick-prev:before {
   content: "â†’";
@@ -3551,7 +3554,7 @@ body {
   content: "â†’";
 }
 [dir="rtl"] .slick-next:before {
-  content: "â†?";
+  content: "ï¿½?";
 }
 
 /* Dots */

@@ -149,3 +149,4 @@ Icons are font awesome and can be browsed at https://fontawesome.com/icons?d=gal
 
 ## Example pages
 To get started there is a couple of [example pages](https://github.com/gbif/col-org/tree/master/articles/examples). When copying them make sure to change the yaml frontmatter. In particular the `noindex` which excludes the page from being indexed by Google and search engines. They are also available on the website at /articles/examples/intro.
+

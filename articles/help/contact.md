@@ -36,6 +36,8 @@ permalink: /contact/contact.html
           <p><a href="mailto:sp2000@sp2000.org">sp2000@sp2000.org</a></p>
           <h4>Helpdesk:</h4>
           <p><a href="mailto:support@sp2000.org">support@sp2000.org</a></p>
+          <h4>Mailing List:</h4>
+          <p><a href="https://lists.gbif.org/mailman/listinfo/col-users">COL-Users</a></p>
         </div>
       </div>
     </div>

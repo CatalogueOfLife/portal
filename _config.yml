@@ -1,6 +1,6 @@
 # Site settings
 title: COL
-email: your-email@domain.com
+email: feedback@catalogueoflife.org
 description: > # this means to ignore newlines until "baseurl:"
   The Catalogue of Life
 baseurl: "" # the subpath of your site, e.g. /blog/
@@ -24,7 +24,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-archives
-
+  - jekyll-get-json
 
 permalink: /:year/:month/:day/:title.html
 
@@ -54,34 +54,42 @@ react:
     pathToSearch: "/data/search" # path to the search page for crosslinking between react components
     pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
 
-
 milestones:
   items:
     - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=061950e4-9782-4d1a-9c87-dcf375788e6b&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=JES&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Animalia
       bgcolor: 0480b5
       fgcolor: ccedfa
-      link: /index.html?taxonKey=061950e4-9782-4d1a-9c87-dcf375788e6b
+      link: /index.html?taxonKey=JES
     - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=fc995438-b561-4616-a896-f479fca6e3d4&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=CRN&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Plantae
       bgcolor: d0bd34
       fgcolor: fcfbe7
-      link: /index.html?taxonKey=fc995438-b561-4616-a896-f479fca6e3d4
+      link: /index.html?taxonKey=CRN
     - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=d64f9d40-cbe5-4908-b4c2-16a9d6429401&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=33YW&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Fungi
       bgcolor: e83143
       fgcolor: feebed
-      link: /index.html?taxonKey=d64f9d40-cbe5-4908-b4c2-16a9d6429401
+      link: /index.html?taxonKey=33YW
     - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=dc38164e-ddff-4305-85a1-b320a0216cef&TAXON_ID=56f9bfb4-e63c-4ef7-b8e5-66f40b9233cd&TAXON_ID=63e291b2-9018-4cdb-a599-ed6404d06ab4&TAXON_ID=7b3a7eb4-e311-4521-813b-c288e408e005&TAXON_ID=4f6fabd6-2431-4a77-b77f-de60e4a7accc&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=5772J&TAXON_ID=4BLLF&TAXON_ID=4WUHY&TAXON_ID=UTDM&TAXON_ID=5JTB2&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Other kingdoms
       bgcolor: 2db261
       fgcolor: ecf7ef
-      link: /index.html?taxonKey=0
+      link: /index.html?taxonKey=5772J
+
+jekyll_get_json:
+  - data: colversion
+    json: https://api.catalogue.life/dataset/3LR
+  - data: colsources
+    json: https://api.catalogue.life/dataset/3LR/source
+
+
+
