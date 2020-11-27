@@ -3890,3 +3890,32 @@ anchor {
     top: -250px;
     visibility: hidden;
 }
+.partners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partners img {
+    width: 200px;
+}
+
+.eu-logo {
+    padding-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.eu-logo img {
+    width: 120px;
+    padding-bottom: 10px;
+}
+
+.eu-logo .caption {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #444;
+    padding-left: 10px;
+}
