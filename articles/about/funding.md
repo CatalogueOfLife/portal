@@ -14,7 +14,7 @@ permalink: /content/funding
 
 <div class="partners">
     <a href="https://gbif.org/" target="_null"><img src="/images/partners/GBIF-2015-full.png"></a>
-    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/partners/INHS.gif"></a>
+    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/partners/INHS.jpg"></a>
     <a href="https://naturalis.nl/" target="_null"><img src="/images/partners/Naturalis.jpg"></a>
     <a href="https://si.edu/" target="_null"><img src="/images/partners/Smithsonian.svg"></a>
 </div>
