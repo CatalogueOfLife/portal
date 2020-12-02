@@ -11,7 +11,15 @@ permalink: /content/funding
 # Funding
 
 ## Secretariat and infrastructure
-The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the Global Biodiversity Information Facility, Illinois Natural History Survey, Naturalis Biodiversity Center, and the Smithsonian Institute. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
+
+<div class="partners">
+    <a href="https://gbif.org/" target="_null"><img src="/images/partners/GBIF-2015-full.png"></a>
+    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/partners/INHS.jpg"></a>
+    <a href="https://naturalis.nl/" target="_null"><img src="/images/partners/Naturalis.jpg"></a>
+    <a href="https://si.edu/" target="_null"><img src="/images/partners/Smithsonian.svg"></a>
+</div>
+
+The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), **[Naturalis Biodiversity Center](https://naturalis.nl/)**, and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
 
 ## Project funding
 Species 2000 / Catalogue of Life is involved in several projects, sometimes through the host of the Secretariat, Naturalis Biodiversity Center.
@@ -21,6 +29,8 @@ Species 2000 / Catalogue of Life is involved in several projects, sometimes thro
 * **Catalogue of Life Plus**: A project funded by Netherlands Biodiversity Information Facility, Species 2000 / Catalogue of Life, Illinois Natural History Survey, Naturalis Biodiversity Center, and the Smithsonian Institute to complement the global work programme of the Global Biodiversity Information Facility on building a joined infrastructure for names and taxonomy.
 
 ## Past investments
+<div class="eu-logo"><a href="https://https://europa.eu/european-union/index_en/" target="_null"><img src="/images/partners/EU.svg"></a><div class="caption">Co-funded by<br/>the European Union</div></div>
+
 For years, the University of Reading financed a large part of the operational costs of Species 2000. Species 2000 / Catalogue of Life has also been involved in several projects financed by the European Commission. It is estimated that in its 25 years of existence, Species 2000 has received about 19 million euro investment originating from the following EU projects:
 
 * **Open-Up!** 2014-2015 - Opening up the Natural History Heritage for Europeana [Reference Number: 270890]
