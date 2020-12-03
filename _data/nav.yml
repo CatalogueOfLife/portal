@@ -6,46 +6,49 @@
   path: /
   section_id: home
 - name: Data
-  path: /data/search.html
+  path: /data/search
   section_id: dataAccess
   children:
     - name: Search
-      path: /data/search.html
+      path: /data/search
       desc: "Find species and other taxa by name"
     - name: Browse
-      path: /data/browse.html
+      path: /data/browse
       desc: "Explore the catalogue of life through their classification"
     - name: Contributing datasets
-      path: /data/contributing-datasets.html
+      path: /data/contributing-datasets
       desc: "Browse the taxonomic datasets that make up the Catalogue"
+    - name: Metadata
+      path: /data/metadata
+      desc: "Metadata about the COL Checklist"
     - name: Previous versions
-      path: /data/archives.html
+      path: /data/archives
       desc: "Archived historical versions of the COL Checklist"
 - name: About
-  path: /content/catalogueoflife.html
+  path: /content/catalogueoflife
   section_id: about
   children:
     - name: "The Catalogue of Life"
-      path: /content/catalogueoflife.html
+      path: /content/catalogueoflife
       desc: "The international community for listing species"
     - name: "The COL data pipeline"
-      path: /content/colpipeline.html
+      path: /content/colpipeline
       desc: "COL ChecklistBank and the COL Checklist"
     - name: "The COL community"
-      path: /content/colcommunity.html
+      path: /content/colcommunity
       desc: "Collaborating to list the world's species"
     - name: Using the COL Checklist
-      path: /content/colusage.html
+      path: /content/colusage
       desc: "Accessing and citing the Checklist"
     - name: Governance
-      path: /content/governance.html
+      path: /content/governance
       desc: "Leadership and committees"
     - name: Funding
-      path: /content/funding.html
+      path: /content/funding
       desc: "Catalogue of Life funders and funding"
 - name: News 
-  path: /news/index.html
+  path: /news/index
   section_id: news
 - name: Contact 
-  path: /contact/contact.html
+  path: /contact/contact
   section_id: contact

@@ -26,7 +26,7 @@ plugins:
   - jekyll-archives
   - jekyll-get-json
 
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title
 
 toc:
   min_level: 1 # default: 1
@@ -57,33 +57,33 @@ react:
 milestones:
   items:
     - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=JES&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=A&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Animalia
       bgcolor: 0480b5
       fgcolor: ccedfa
-      link: /index.html?taxonKey=JES
+      link: /index?taxonKey=A
     - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=CRN&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=P&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Plantae
       bgcolor: d0bd34
       fgcolor: fcfbe7
-      link: /index.html?taxonKey=CRN
+      link: /index?taxonKey=P
     - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=33YW&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=F&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Fungi
       bgcolor: e83143
       fgcolor: feebed
-      link: /index.html?taxonKey=33YW
+      link: /index?taxonKey=F
     - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=5772J&TAXON_ID=4BLLF&TAXON_ID=4WUHY&TAXON_ID=UTDM&TAXON_ID=5JTB2&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Other kingdoms
       bgcolor: 2db261
       fgcolor: ecf7ef
-      link: /index.html?taxonKey=5772J
+      link: /index?taxonKey=Z
 
 jekyll_get_json:
   - data: colversion

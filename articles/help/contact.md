@@ -33,9 +33,9 @@ permalink: /contact/contact.html
           <h4>Our Phone:</h4>
           <p><a href="tel:+31 (0)71 7519 362">+31 (0)71 7519 362</a></p>
           <h4>Our Email:</h4>
-          <p><a href="mailto:sp2000@sp2000.org">sp2000@sp2000.org</a></p>
+          <p><a href="mailto:contact@catalogueoflife.org">contact@catalogueoflife.org</a></p>
           <h4>Helpdesk:</h4>
-          <p><a href="mailto:support@sp2000.org">support@sp2000.org</a></p>
+          <p><a href="mailto:support@catalogueoflife.org">support@catalogueoflife.org</a></p>
           <h4>Mailing List:</h4>
           <p><a href="https://lists.gbif.org/mailman/listinfo/col-users">COL-Users</a></p>
         </div>
