@@ -1,44 +1,8 @@
 react:
-    datasetKey: "3LRC" # Which dataset should the tree and search components use?
     auth: "colplus:sp2000"
 
-jekyll_get_json:
-  - data: colversion
-    json: 'https://api.catalogue.life/dataset/3LRC'
-    user: colplus
-    pass: sp2000
-  - data: colsources
-    json: 'https://api.catalogue.life/dataset/3LRC/source'
-    user: colplus
-    pass: sp2000
-
-milestones:
-  items:
-    - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=A&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Animalia
-      bgcolor: 0480b5
-      fgcolor: ccedfa
-      link: /index?taxonKey=A
-    - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=P&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Plantae
-      bgcolor: d0bd34
-      fgcolor: fcfbe7
-      link: /index?taxonKey=P
-    - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=F&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Fungi
-      bgcolor: e83143
-      fgcolor: feebed
-      link: /index?taxonKey=F
-    - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Other kingdoms
-      bgcolor: 2db261
-      fgcolor: ecf7ef
-      link: /index?taxonKey=Z
+metadata:
+  key: 3LRC
+  api: https://api.catalogue.life
+  user: colplus
+  pass: sp2000

@@ -24,7 +24,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-archives
-  - jekyll-get-json
 
 permalink: /:year/:month/:day/:title
 
@@ -48,7 +47,7 @@ col:
   datasetKey: 3
 
 react:
-    datasetKey: "3LR" # Which dataset should the tree and search components use?
+    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
     pathToTaxon: "/data/taxon/" # path to the taxon page for crosslinking between react components
     pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
     pathToSearch: "/data/search" # path to the search page for crosslinking between react components
@@ -85,11 +84,8 @@ milestones:
       fgcolor: ecf7ef
       link: /index?taxonKey=Z
 
-jekyll_get_json:
-  - data: colversion
-    json: https://api.catalogue.life/dataset/3LR
-  - data: colsources
-    json: https://api.catalogue.life/dataset/3LR/source
-
+metadata:
+  key: 3LR
+  api: https://api.catalogue.life
 
 

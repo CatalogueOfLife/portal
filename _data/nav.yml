@@ -15,12 +15,12 @@
     - name: Browse
       path: /data/browse
       desc: "Explore the catalogue of life through their classification"
-    - name: Contributing datasets
-      path: /data/contributing-datasets
-      desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Metadata
       path: /data/metadata
       desc: "Metadata about the COL Checklist"
+    - name: Contributing datasets
+      path: /data/contributing-datasets
+      desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Previous versions
       path: /data/archives
       desc: "Archived historical versions of the COL Checklist"
