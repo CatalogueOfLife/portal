@@ -10,9 +10,9 @@ partners:
   partners:
     - image: "/images/partners/species-2000.png"
       link: "https://sp2000.org/"
-    - image: "/images/partners/itis.png"
+    - image: "/images/partners/ITIS_logo.svg"
       link: "https://www.itis.gov/"
-    - image: "/images/partners/GBIF-2015.png"
+    - image: "/images/partners/logo-gbif.svg"
       link: "https://gbif.org/"
     - image: "/images/partners/alliance.png"
       link: "https://www.allianceforbio.org/"
