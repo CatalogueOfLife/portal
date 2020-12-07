@@ -43,6 +43,9 @@
     - name: Funding
       path: /content/funding.html
       desc: "Catalogue of Life funders and funding"
+    - name: Glossary
+      path: /content/glossary.html
+      desc: "Glossary of terms"
 - name: News 
   path: /news/index.html
   section_id: news
