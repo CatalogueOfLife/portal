@@ -3921,5 +3921,6 @@ anchor {
 }
 
 .col-header-logo {
-  height: 80%
+  height: 80%;
+  max-width: 300px;
 }
