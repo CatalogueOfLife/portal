@@ -11,16 +11,13 @@ permalink: /data/contributing-datasets
 
 # Contributing datasets
 
-The data in current edition of the Catalogue of Life have been provided by the resources listed below. Most datasets include one or more sectors that feed into COL and cover all of the world's species in a particular group of organisms. These result from collaboration and editing by many expert taxonomists, whose names are found in the information for each dataset.
+The data in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist have been provided by the resources listed below. 
+Most datasets include one or more sectors that feed into COL and cover all of the world's species in a particular group of organisms. 
+These result from collaboration and editing by many expert taxonomists, whose names are found in the information for each dataset.
 
 A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
 
-**{{site.metadata.current.title}}** - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist and these datasets</a>
-
-<div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
-
-
-
+<div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="datasetSearch"></div>
 </div>
   <script>

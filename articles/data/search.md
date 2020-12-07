@@ -9,14 +9,10 @@ imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](h
 ---
 
 # Search the Catalogue of Life Checklist
-Use this search form to find any name in the current version of the COL Checklist.
-
-**{{site.metadata.current.title}}** - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist</a>
-
-<div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
+Use this search form to find any name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist.
 
 
-  <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
+<div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="search"></div>
 </div>
   <script>
