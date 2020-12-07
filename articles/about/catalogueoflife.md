@@ -1,7 +1,7 @@
 ---
 layout: content
 title: What is Catalogue of Life?
-tagline: Catalogue of Life - the international community for listing species.
+tagline: The international community for listing species
 section_id: about
 toc: true
 imageUrl: /images/Podiceps_grisegena.jpg    
