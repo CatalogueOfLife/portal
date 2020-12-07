@@ -38,6 +38,7 @@ Editors of the COL Checklist are:
   </ul>
 </div>
 
+
 ## Recommended citation
 
 <i>{{site.metadata.current.citation}}</i>
@@ -45,3 +46,10 @@ Editors of the COL Checklist are:
 Please also read the 
 <a href="/content/colusage.html#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
 
+## Data Downloads
+You can download this version of the COL checklist either as a 
+ - [Darwin Core Archive](https://download.catalogue.life/col/monthly/{{site.metadata.current.version}}_dwca.zip)
+ - ColDP Archive coming soon...
+ - PostgreSQL dump coming soon...
+
+For other versions please see the [COL downloads site](https://download.catalogue.life/col/).
