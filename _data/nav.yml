@@ -7,7 +7,7 @@
   section_id: home
 - name: Data
   path: /data/search
-  section_id: dataAccess
+  section_id: data
   children:
     - name: Search
       path: /data/search
@@ -25,33 +25,33 @@
       path: /data/archives
       desc: "Archived historical versions of the COL Checklist"
 - name: About
-  path: /content/catalogueoflife
+  path: /about/catalogueoflife
   section_id: about
   children:
     - name: "The Catalogue of Life"
-      path: /content/catalogueoflife
+      path: /about/catalogueoflife
       desc: "The international community for listing species"
     - name: "The COL data pipeline"
-      path: /content/colpipeline
+      path: /about/colpipeline
       desc: "COL ChecklistBank and the COL Checklist"
     - name: "The COL community"
-      path: /content/colcommunity
+      path: /about/colcommunity
       desc: "Collaborating to list the world's species"
     - name: Using the COL Checklist
-      path: /content/colusage
+      path: /about/colusage
       desc: "Accessing and citing the Checklist"
     - name: Governance
-      path: /content/governance
+      path: /about/governance
       desc: "Leadership and committees"
     - name: Funding
-      path: /content/funding
+      path: /about/funding
       desc: "Catalogue of Life funders and funding"
     - name: Glossary
-      path: /content/glossary.html
+      path: /about/glossary.html
       desc: "Glossary of terms"
 - name: News 
   path: /news/index
   section_id: news
 - name: Contact 
-  path: /contact/contact
+  path: /contact
   section_id: contact

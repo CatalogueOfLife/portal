@@ -38,7 +38,6 @@ TODO:
 │   │   ├── acknowledgements.md # the pages located here will show up under the url '/articles/about/filename' - unless the yml frontmatter defines another url using the permalink attribute
 │   │   └── ...
 │   ├── data/
-│   ├── examples/ # just a list of examples articles as a reference for how the frontmatter and markdown is used. Not indexed by search engines, but it is public. Feel free to delete. Can be seen under /articles/documentation/intro
 │   ├── help/
 │   └── resources/
 ├── css/ # Styling as provided by the theme
@@ -80,7 +79,7 @@ section_id: about # where does this belong in the menu (this is used to highligh
 imageUrl: 'https://via.placeholder.com/550x250' # Instead of a grey background behind the headline an image is shown
 imageCaption: 'Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra' # what caption should the image have
 published: true # is this just a draft or should it be build - defaults to true
-permalink: /content/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
+permalink: /about/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
 toc: true # should it have a table of contents - default false
 noindex: false # Should this page be indexed by robots?
 ---
@@ -95,7 +94,7 @@ You markdown content goes here
 layout: default
 section_id: about # where does this belong in the menu (this is used to highlight the menu item)
 published: true # is this just a draft or should it be build - defaults to true
-permalink: /content/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
+permalink: /about/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
 ---
 You html goes here
 ```
@@ -146,7 +145,4 @@ Below is a markdown custom figure. This isn't generic markdown, but specific for
 
 ## Icons
 Icons are font awesome and can be browsed at https://fontawesome.com/icons?d=gallery&m=free
-
-## Example pages
-To get started there is a couple of [example pages](https://github.com/gbif/col-org/tree/master/articles/examples). When copying them make sure to change the yaml frontmatter. In particular the `noindex` which excludes the page from being indexed by Google and search engines. They are also available on the website at /articles/examples/intro.
 

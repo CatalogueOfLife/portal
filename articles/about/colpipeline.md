@@ -6,7 +6,7 @@ section_id: about
 toc: true
 imageUrl: /images/Pultenaea_procumbens.jpg    
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
-permalink: /content/colpipeline
+permalink: /about/colpipeline
 ---
 # The COL data pipeline
 

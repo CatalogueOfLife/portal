@@ -2,7 +2,7 @@
 layout: default
 title: Browse
 tagline: This would probably be a custom page
-section_id: dataAccess
+section_id: data
 permalink: /data/taxon
 ---
 

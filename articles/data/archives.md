@@ -2,7 +2,7 @@
 layout: content
 title: Previous versions
 tagline: Archived historical versions of the COL Checklist
-section_id: dataAccess
+section_id: data
 imageUrl: /images/Hyposmocoma_fractistriata.jpg    
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
 permalink: /data/archives

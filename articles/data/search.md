@@ -2,7 +2,7 @@
 layout: content
 title: Search
 tagline: Find species and other taxa by name
-section_id: dataAccess
+section_id: data
 permalink: /data/search
 imageUrl: /images/Aphomia_sociella.jpg
 imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/18189103153)

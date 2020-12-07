@@ -6,7 +6,7 @@ section_id: about
 toc: true
 imageUrl: /images/Xanthoria_parietina.jpg
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
-permalink: /content/glossary
+permalink: /about/glossary
 ---
 # Glossary
 

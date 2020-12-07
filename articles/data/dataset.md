@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Dataset
-section_id: dataAccess
+section_id: data
 permalink: /data/dataset
 ---
 

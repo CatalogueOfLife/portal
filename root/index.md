@@ -19,7 +19,7 @@ partners:
 ---
 
 <div class='full'>
-  <div class='row introduction'>The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists - <a href="/content/catalogueoflife.html">Learn more</a></div>
+  <div class='row introduction'>The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists - <a href="/about/catalogueoflife.html">Learn more</a></div>
   <div class='row'>
     <div class="medium-8 columns" style="background: white; margin-top: 20px;">
         <div class='row kingdoms'>

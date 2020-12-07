@@ -3,7 +3,7 @@ layout: content
 toc: false
 title: Metadata
 tagline: About the current COL Checklist
-section_id: dataAccess
+section_id: data
 imageUrl: /images/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
 permalink: /data/metadata
@@ -44,7 +44,7 @@ Editors of the COL Checklist are:
 <i>{{site.metadata.current.citation}}</i>
 
 Please also read the 
-<a href="/content/colusage.html#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
+<a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
 
 ## Data Downloads
 You can download this version of the COL checklist either as a 
