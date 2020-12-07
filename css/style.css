@@ -3919,3 +3919,7 @@ anchor {
     color: #444;
     padding-left: 10px;
 }
+
+.col-header-logo {
+  height: 80%
+}
