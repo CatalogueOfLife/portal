@@ -9,13 +9,11 @@ imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](
 ---
 
 # Browse the Catalogue of Life Checklist
-Use this tree to explore the full classification from the current version of the COL Checklist. The **Find taxon** field allows for direct access using any name known to COL.
-
-<div class="row" style="background: white; margin-top: 40px; margin-bottom: 60px">
-  <div class='col-version'><strong>{{site.metadata.current.title}}</strong> - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist</a></div>
+Use this tree to explore the full classification from the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist. 
+The **Find taxon** field allows for direct access using any name known to COL.
 
 
-  <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
+<div class="row" style="background: white; margin-top: 00px; margin-bottom: 00px">
   <div id="tree" class="catalogue-of-life"></div>
 </div>
   <script >
