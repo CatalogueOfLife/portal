@@ -56,28 +56,28 @@ react:
 milestones:
   items:
     - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=A&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=A&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Animalia
       bgcolor: 0480b5
       fgcolor: ccedfa
       link: /index?taxonKey=A
     - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=P&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=P&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Plantae
       bgcolor: d0bd34
       fgcolor: fcfbe7
       link: /index?taxonKey=P
     - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=F&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=F&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Fungi
       bgcolor: e83143
       fgcolor: feebed
       link: /index?taxonKey=F
     - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LR/nameusage/search?TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Other kingdoms
       bgcolor: 2db261
@@ -86,6 +86,6 @@ milestones:
 
 metadata:
   key: 3LR
-  api: https://api.catalogue.life
+  api: https://api.catalogueoflife.org
 
 

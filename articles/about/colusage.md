@@ -45,15 +45,15 @@ Once a taxon has been found by either route, more information is available on th
 * **Link to original resource** (if available): this links to the corresponding species page in the original resource
 
 ### COL API
-The dynamic COL Checklist can be accessed through the JSON-based [COL ChecklistBank API](https://api.catalogue.life/). 
+The dynamic COL Checklist can be accessed through the JSON-based [COL ChecklistBank API](https://api.catalogueoflife.org/). 
 The API is still under active development and not finalized, so small changes are still expected to take place before the release of version 1.0. 
 Authentication is via GBIF user accounts. Datasets in the ChecklistBank are accessible through dataset keys. 
-The latest version of the COL Checklist can always be accessed through the dataset Key [3LR](https://api.catalogue.life/dataset/3LR). 
+The latest version of the COL Checklist can always be accessed through the dataset Key [3LR](https://api.catalogueoflife.org/dataset/3LR). 
 More information on the new COL ChecklistBank will follow soon.
 
 ### Downloads
 Historical versions of the annual COL Checklist (2005 - 2019) can be accessed under [previous versions](/data/archives.html). 
-Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](https://download.catalogue.life/col/annual/).
+Darwin Core Archives of historic annual COL Checklists (2012-2019) and/or MySQL dumps (2005-2019) can also be [downloaded from here](https://download.catalogueoflife.org/col/annual/).
 
 ### Deprecated legacy API
 To facilitate a smooth change-over to the new Catalogue of Life infrastructure, the deprecated legacy API for the dynamic monthly COL Checklists will remain available for some period. 

@@ -48,8 +48,8 @@ Please also read the
 
 ## Data Downloads
 You can download this version of the COL checklist either as a 
- - [Darwin Core Archive](https://download.catalogue.life/col/monthly/{{site.metadata.current.version}}_dwca.zip)
+ - [Darwin Core Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_dwca.zip)
  - ColDP Archive coming soon...
  - PostgreSQL dump coming soon...
 
-For other versions please see the [COL downloads site](https://download.catalogue.life/col/).
+For other versions please see the [COL downloads site](https://download.catalogueoflife.org/col/).
