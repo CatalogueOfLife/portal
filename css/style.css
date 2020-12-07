@@ -3929,6 +3929,6 @@ anchor {
 @media only screen and (max-width: 60em) {
   .col-header-logo {
     height: 80%;
-    max-width: 300px;
+    max-width: 250px;
   }
 }
