@@ -1,44 +1,8 @@
 react:
-    datasetKey: "3LRC" # Which dataset should the tree and search components use?
     auth: "colplus:sp2000"
 
-jekyll_get_json:
-  - data: colversion
-    json: 'https://api.catalogue.life/dataset/3LRC'
-    user: colplus
-    pass: sp2000
-  - data: colsources
-    json: 'https://api.catalogue.life/dataset/3LRC/source'
-    user: colplus
-    pass: sp2000
-
-milestones:
-  items:
-    - image: Podarcis.jpg
-      count: //api.catalogue.life/dataset/3LRC/nameusage/search?TAXON_ID=JES&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Animalia
-      bgcolor: 0480b5
-      fgcolor: ccedfa
-      link: /index.html?taxonKey=JES
-    - image: Pultenaea.jpg
-      count: //api.catalogue.life/dataset/3LRC/nameusage/search?TAXON_ID=CRN&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Plantae
-      bgcolor: d0bd34
-      fgcolor: fcfbe7
-      link: /index.html?taxonKey=CRN
-    - image: Teloschistes.jpg
-      count: //api.catalogue.life/dataset/3LRC/nameusage/search?TAXON_ID=33YW&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Fungi
-      bgcolor: e83143
-      fgcolor: feebed
-      link: /index.html?taxonKey=33YW
-    - image: Protozoa.jpg
-      count: //api.catalogue.life/dataset/3LRC/nameusage/search?TAXON_ID=5772J&TAXON_ID=4BLLF&TAXON_ID=4WUHY&TAXON_ID=UTDM&TAXON_ID=5JTB2&limit=0&rank=species&status=accepted&status=provisionally%20accepted
-      selector: total
-      title: Other kingdoms
-      bgcolor: 2db261
-      fgcolor: ecf7ef
-      link: /index.html?taxonKey=5772J
+metadata:
+  key: 3LRC
+  api: https://api.catalogue.life
+  user: colplus
+  pass: sp2000

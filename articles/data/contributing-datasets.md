@@ -15,7 +15,7 @@ The data in current edition of the Catalogue of Life have been provided by the r
 
 A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
 
-**{{site.data.colversion.title}}** - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist and these datasets</a>
+**{{site.metadata.current.title}}** - <a href="/content/colusage.html#recommended-citations">How to cite the COL Checklist and these datasets</a>
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
 

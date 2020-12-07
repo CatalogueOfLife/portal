@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'jekyll'
+gem 'uri'
+gem 'json'
 
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
@@ -10,5 +12,3 @@ group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-archives'
 end
-#gem "jekyll-get-json", "~> 0.0.3", path: "/Library/Ruby/Gems/2.6.0/gems/jekyll-get-json-0.0.4"
-gem "jekyll-get-json", "~> 0.0.3", :git => "git://github.com/CatalogueOfLife/jekyll-get-json.git"

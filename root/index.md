@@ -10,9 +10,9 @@ partners:
   partners:
     - image: "/images/partners/species-2000.png"
       link: "https://sp2000.org/"
-    - image: "/images/partners/itis.png"
+    - image: "/images/partners/ITIS_logo.svg"
       link: "https://www.itis.gov/"
-    - image: "/images/partners/GBIF-2015.png"
+    - image: "/images/partners/logo-gbif.svg"
       link: "https://gbif.org/"
     - image: "/images/partners/alliance.png"
       link: "https://www.allianceforbio.org/"
@@ -39,7 +39,7 @@ partners:
 
         <div class='row'>
             <div class='full main-tree'>
-                <div class='col-version'><a href="/data/metadata">Catalogue of Life, {{site.data.colversion.version}}</a></div>
+                <div class='col-version'><a href="/data/metadata">Catalogue of Life, {{site.metadata.current.version}}</a></div>
                 <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
