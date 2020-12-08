@@ -37,7 +37,7 @@ We maintain a [species ID mapping file](https://download.catalogue.life/col/lega
 to update any local, older COL identifiers you might have. The COL API also offers a redirection service to the new
 species pages in case you need that, e.g. [https://api.catalogueoflife.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553](https://api.catalogueoflife.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553) 
 will take you to the [Abies alba portal page](https://www.catalogueoflife.org/data/taxon/8K9Y). 
-The API can also redirect you to the JSON API if you request JSON via an `Accept: application/json` header.
+The API can also redirect you to the JSON API if you request JSON via an "Accept: application/json" header.
 
 #### COL API
 The latest version of the COL Checklist can be accessed through the [COL ChecklistBank API](http://api.catalogueoflife.org). 
