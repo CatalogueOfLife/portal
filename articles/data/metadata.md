@@ -4,7 +4,7 @@ toc: false
 title: Metadata
 tagline: About the current COL Checklist
 section_id: data
-imageUrl: /images/Asplenium_trichomanes.jpg
+imageUrl: /images/banner/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
 permalink: /data/metadata
 ---

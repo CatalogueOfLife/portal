@@ -40,7 +40,6 @@ partners:
         <div class='row'>
             <div class='full main-tree'>
                 <div class='col-version'><b><a href="/data/metadata">COL Version {{site.metadata.current.version}}</a></b></div>
-                <!-- img src="/images/placeholder_for_js_lib.png" style="display: block; margin: auto;"/ -->
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
             <script >

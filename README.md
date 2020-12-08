@@ -2,12 +2,14 @@
 
 # Public facing website for Catalogue of Life
 
-The website is build with [Jekyll](https://jekyllrb.com/). If you want to run the project locally, then jekyll has a nice documentation of [how to get started](https://jekyllrb.com/docs/).
+The website is build with [Jekyll](https://jekyllrb.com/). 
+If you want to run the project locally, then jekyll has a nice documentation of [how to get started](https://jekyllrb.com/docs/).
+`bundle install` and `bundle exec jekyll serve` should do the trick.
 
-It is not necessary to run the project locally to change content. It is possible to simple edit the files through Github's interface. It takes around 5 minutes for the changes to show on the website.
+It is not necessary to run the project locally to change content. 
+It is possible to simple edit the files through Github's interface. 
+It takes around 5 minutes for the changes to show on the website.
 
-TODO:
-> We need to find a good way to inform editors, when/if their changes is breaking the build (could for example be illegal yaml frontmatter).
 
 ## Site structure
 ```
@@ -38,8 +40,7 @@ TODO:
 │   │   ├── acknowledgements.md # the pages located here will show up under the url '/articles/about/filename' - unless the yml frontmatter defines another url using the permalink attribute
 │   │   └── ...
 │   ├── data/
-│   ├── help/
-│   └── resources/
+│   └── contact.md
 ├── css/ # Styling as provided by the theme
 ├── fonts/ # Where fonts are stored. Currently only the icon fonts
 ├── images/ # Will be copied verbatim to the public folder. Any image placed here, including subdirectories will be available in your templates
@@ -56,7 +57,10 @@ TODO:
 ```
 
 ## Content editors
-When writing content there are only a few folders that are relevant. And you need to have an understanding of [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [yml](https://www.tutorialspoint.com/yaml/yaml_introduction.htm). For most articles, your don't really have to understand much yaml. We use Markdown to write prose and YML to write structured data that needs special rendering.
+When writing content there are only a few folders that are relevant. 
+And you need to have an understanding of [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [yml](https://www.tutorialspoint.com/yaml/yaml_introduction.htm). 
+For most articles, your don't really have to understand much yaml. 
+We use Markdown to write prose and YML to write structured data that needs special rendering.
 
 ```
 _data/nav.yml # for editing the menu
@@ -65,7 +69,8 @@ articles/     # for writing articles. By default urls will reflect the folder st
 ```
 
 ## Writing articles
-When editing and adding articles there are 2 templates to choose from: `content` and `default`. If you are not a developer you probably want to use `layout: content`.
+When editing and adding articles there are 2 templates to choose from: `content` and `default`. 
+If you are not a developer you probably want to use `layout: content`.
 
 **layout: content**
 
@@ -102,7 +107,8 @@ You html goes here
 You might also want to read about [jekyll frontmatter](https://jekyllrb.com/docs/front-matter/)
 
 ## Writing news stories
-All news stories are located in the `_posts` folder. Filenames are important. You need to name them with `year-month-day-title`. E.g. `2015-04-14-call-for-logo-designer`.
+All news stories are located in the `_posts` folder. Filenames are important. 
+You need to name them with `year-month-day-title`. E.g. `2015-04-14-call-for-logo-designer`.
 
 YML frontmatter:
 

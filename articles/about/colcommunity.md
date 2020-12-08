@@ -4,7 +4,7 @@ title: The COL community
 tagline: Collaborating to list the world's species
 section_id: about
 toc: true
-imageUrl: /images/Laccaria_amethystina.jpg    
+imageUrl: /images/banner/Laccaria_amethystina.jpg    
 imageCaption: _Laccaria amethystina_ (Huds.) Cooke - Photo CC By Jan Huijbers
 permalink: /about/colcommunity
 ---

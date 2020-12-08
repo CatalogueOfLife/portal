@@ -4,7 +4,7 @@ title: COL Governance
 tagline: Leadership and committees
 section_id: about
 toc: true
-imageUrl: /images/Tauraco_leucotis.jpg
+imageUrl: /images/banner/Tauraco_leucotis.jpg
 imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /about/governance
 ---
