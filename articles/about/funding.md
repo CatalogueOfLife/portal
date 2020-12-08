@@ -13,13 +13,13 @@ permalink: /about/funding
 ## Secretariat and infrastructure
 
 <div class="partners">
-    <a href="https://gbif.org/" target="_null"><img src="/images/partners/GBIF-2015-full.png"></a>
+    <a href="https://www.gbif.org/" target="_null"><img src="/images/partners/GBIF-2015-full.png"></a>
     <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/partners/INHS.jpg"></a>
     <a href="https://naturalis.nl/" target="_null"><img src="/images/partners/Naturalis.jpg"></a>
     <a href="https://si.edu/" target="_null"><img src="/images/partners/Smithsonian.svg"></a>
 </div>
 
-The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), **[Naturalis Biodiversity Center](https://naturalis.nl/)**, and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
+The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), **[Naturalis Biodiversity Center](https://naturalis.nl/)**, and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
 
 ## Project funding
 Species 2000 / Catalogue of Life is involved in several projects, sometimes through the host of the Secretariat, Naturalis Biodiversity Center.

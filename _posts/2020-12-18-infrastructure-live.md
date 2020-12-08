@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  New Catalogue of Life infrastructure Live!
+title:  New Catalogue of Life infrastructure Live
 author: "Chantal Huijbers"
 date:   2020-12-08 18:18:18
-excerpt: The new Catalogue of Life (COL) infrastructure is now live!
+excerpt: The new Catalogue of Life (COL) infrastructure is live on GBIF servers
 categories: infrastructure
 ---
 
-#### New Catalogue of Life infrastructure Live!
 The new Catalogue of Life (COL) infrastructure is now live! 
 With the first products of the new infrastructure, the COL launches a new [Portal](http://www.catalogueoflife.org), 
 [ChecklistBank](http://data.catalogueoflife.org), and [API](http://api.catalogueoflife.org). 
@@ -23,9 +22,9 @@ or the [search](http://www.catalogueoflife.org/data/search) and [browse](http://
  - Access all [previous versions](http://www.catalogueoflife.org/data/archives) of the monthly and annual COL Checklists through their original interface at that time.
 
 We have maintained the most important URLs of the previous portal and setup redirections to the new site:
- - Dataset pages: http://www.catalogueoflife.org/col/details/database/id/8
- - Species pages: http://www.catalogueoflife.org/col/details/species/id/12dca9c49741815f82400bb7bff50553
- - Species searches: http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/
+ - Dataset pages: [http://www.catalogueoflife.org/col/details/database/id/8](http://www.catalogueoflife.org/col/details/database/id/8)
+ - Species pages: [http://www.catalogueoflife.org/col/details/species/id/12dca9c49741815f82400bb7bff50553](http://www.catalogueoflife.org/col/details/species/id/12dca9c49741815f82400bb7bff50553)
+ - Species searches: [http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/](http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/)
 
 #### New species identifiers
 The COL Checklist now includes a new set of persistent identifiers for species and higher taxa. 
@@ -36,7 +35,7 @@ or as part of a wider biodiversity knowledge graph.
 
 We maintain a [species ID mapping file](https://download.catalogue.life/col/legacy_id_map.tsv.gz) that allows you
 to update any local, older COL identifiers you might have. The COL API also offers a redirection service to the new
-species pages in case you need that, e.g. https://api.catalogueoflife.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553 
+species pages in case you need that, e.g. [https://api.catalogueoflife.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553](https://api.catalogueoflife.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553) 
 will take you to the [Abies alba portal page](https://www.catalogueoflife.org/data/taxon/8K9Y). 
 The API can also redirect you to the JSON API if you request JSON via an `Accept: application/json` header.
 
@@ -53,7 +52,7 @@ The parts of the taxonomic datasets that have been used in the COL Checklist can
 
 #### Feedback
 Improvements to this new portal will be made continuously, and we welcome any feedback on missing information or features, bugs, or suggestions for enhancements. 
-Please send us your comments and suggestions at feedback@catalogueoflife.org.
+Please send us your comments and suggestions at [feedback@catalogueoflife.org](mailto:feedback@catalogueoflife.org).
 
 #### Infrastructure collaboration
 The first products of the new COL infrastructure project were made possible by the collaboration and funds provided by 

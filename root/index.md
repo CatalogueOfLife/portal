@@ -13,7 +13,7 @@ partners:
     - image: "/images/partners/ITIS_logo.svg"
       link: "https://www.itis.gov/"
     - image: "/images/partners/logo-gbif.svg"
-      link: "https://gbif.org/"
+      link: "https://www.gbif.org/"
     - image: "/images/partners/alliance.png"
       link: "https://www.allianceforbio.org/"
 ---

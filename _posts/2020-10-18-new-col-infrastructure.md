@@ -3,11 +3,11 @@ layout: post
 title:  "New Catalogue of Life: infrastructure"
 author: "Olaf B&aacute;nki"
 date:   2020-10-18 02:19:12
-excerpt:
-  The Catalogue of Life has developed new infrastructure to support the COL Checklist and the management of checklist datasets
-categories: ["New COL"]
-images: images/posts/new-site.jpg
+excerpt: The Catalogue of Life has developed new infrastructure to support the COL Checklist and the management of checklist datasets
+categories: infrastructure
+images: images/posts/new_site.png
 ---
+
 #### Updated infrastructure
 The COL Secretariat has been working hard on an overhaul of the underlying digital infrastructure for the Catalogue of Life. This new infrastructure allows the Catalogue of Life to function more efficiently, to better facilitate the work of the taxonomic communities and provide a more sustainable service for other biodiversity information initiatives.
 
