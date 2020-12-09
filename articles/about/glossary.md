@@ -8,7 +8,6 @@ imageUrl: /images/banner/Xanthoria_parietina.jpg
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
 permalink: /about/glossary
 ---
-# Glossary
 
 ## Checklist Confidence
 An indication to give users a quick guide to the reliability of presented data, assigned by authors/editors of each database. The qualification only reflects data reliability in the Catalogue of Life, and may not be applicable to the original view of the database through its own website.

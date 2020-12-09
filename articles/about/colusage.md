@@ -8,7 +8,7 @@ imageUrl: /images/banner/Gillmeria_ochrodactyla.jpg
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
 permalink: /about/colusage
 ---
-# Using the Checklist
+
 This page provides guidance on how to use the content included in the COL Checklist, including API access, and on the importance of properly citing the data.
 
 ## Ways to access the COL Checklist

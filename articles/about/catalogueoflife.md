@@ -8,7 +8,7 @@ imageUrl: /images/banner/Podiceps_grisegena.jpg
 imageCaption: _Podiceps grisegena_ (Boddaert, 1783) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/33624738966)
 permalink: /about/catalogueoflife
 ---
-# What is Catalogue of Life?
+
 
 ## An international collaboration
 Catalogue of Life (COL) is a collaboration bringing together the effort and contributions of taxonomists and informaticians from around the world. 

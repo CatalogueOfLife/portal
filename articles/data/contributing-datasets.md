@@ -9,7 +9,6 @@ imageCaption: _Oedemera nobilis_ (Scopoli, 1763) - [Photo CC By Donald Hobern](h
 permalink: /data/contributing-datasets
 ---
 
-# Contributing datasets
 
 The data in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist have been provided by the resources listed below. 
 Most datasets include one or more sectors that feed into COL and cover all of the world's species in a particular group of organisms. 

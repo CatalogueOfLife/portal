@@ -1,14 +1,14 @@
 ---
 layout: content
 title: The COL community
-tagline: Collaborating to list the world's species
+tagline: A global collaboration to list the world's species
 section_id: about
 toc: true
 imageUrl: /images/banner/Laccaria_amethystina.jpg    
 imageCaption: _Laccaria amethystina_ (Huds.) Cooke - Photo CC By Jan Huijbers
 permalink: /about/colcommunity
 ---
-# A global collaboration
+
 This page explains the partnerships that enable the Catalogue of Life to build and share the COL Checklist. See [Roles and Responsibilities](#roles-and-responsibilities) below to see how you can help with COL's mission.
 
 ## Community-managed checklists

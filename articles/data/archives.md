@@ -7,7 +7,7 @@ imageUrl: /images/banner/Hyposmocoma_fractistriata.jpg
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
 permalink: /data/archives
 ---
-# COL Checklist Archives
+
 
 ## Historical versions of the COL Annual Checklist
 The Catalogue of Life Annual Checklist has been released each year since 2000 (excluding 2001).

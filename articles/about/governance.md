@@ -8,7 +8,7 @@ imageUrl: /images/banner/Tauraco_leucotis.jpg
 imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /about/governance
 ---
-# Governance
+
 Catalogue of Life (COL) was originally established as a partnership between [Species 2000](https://sp2000.org/) and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). Recently, the COL partnership has been strengthened through the involvement of the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/)). Species 2000 provides the residual legal body for Catalogue of Life, holding its Intellectual Property Rights, copyright, domain names, access licences, Memoranda of Understanding (MoUs), taking responsibility for continuity between major projects and providing the ongoing governance of Catalogue of Life. Species 2000 is an autonomous federation of taxonomic database custodians, involving taxonomists throughout the world. Our goal is to collate a uniform and validated index to the world's known species (plants, animals, fungi and microbes). Species 2000 is registered as a not-for-profit company limited by guarantee (registered in England No. 3479405). In the near future, the company will move from the UK to the Netherlands.
 
 Species 2000 / Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
