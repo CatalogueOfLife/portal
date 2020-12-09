@@ -2,7 +2,6 @@
 layout: post
 title:  DRAFT Example
 author: Markus Döring
-date:   2020-12-08 18:18:18
 categories: Draft
 ---
 
