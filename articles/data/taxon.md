@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Browse
+title: Taxon
 tagline: This would probably be a custom page
 section_id: data
 permalink: /data/taxon
@@ -21,7 +21,7 @@ class PublicTaxon extends React.Component {
 
       return e(
         ColBrowser.Taxon,
-        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}', pathToSearch: '{{ site.react.pathToSearch }}', pathToDataset: '{{ site.react.pathToDataset }}', pathToTaxon: '{{ site.react.pathToTaxon }}', auth: '{{ site.react.auth }}'}
+        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}', pathToSearch: '{{ site.react.pathToSearch }}', pathToDataset: '{{ site.react.pathToDataset }}', pathToTaxon: '{{ site.react.pathToTaxon }}', auth: '{{ site.react.auth }}', pageTitleTemplate: 'COL | __taxon__'}
       );
     }
 
