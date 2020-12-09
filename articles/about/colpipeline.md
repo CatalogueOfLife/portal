@@ -4,7 +4,7 @@ title: The COL data pipeline
 tagline: COL ChecklistBank and the COL Checklist
 section_id: about
 toc: true
-imageUrl: /images/banner/Pultenaea_procumbens.jpg    
+imageUrl: /images/species/Pultenaea_procumbens.jpg    
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /about/colpipeline
 ---

@@ -4,7 +4,7 @@ title: Using the COL Checklist
 tagline: Accessing and citing the Checklist
 section_id: about
 toc: true
-imageUrl: /images/banner/Gillmeria_ochrodactyla.jpg    
+imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
 permalink: /about/colusage
 ---

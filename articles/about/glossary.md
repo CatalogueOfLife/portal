@@ -4,7 +4,7 @@ title: Glossary
 tagline: Glossary of Terms
 section_id: about
 toc: true
-imageUrl: /images/banner/Xanthoria_parietina.jpg
+imageUrl: /images/species/Xanthoria_parietina.jpg
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
 permalink: /about/glossary
 ---

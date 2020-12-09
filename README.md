@@ -44,6 +44,7 @@ It takes around 5 minutes for the changes to show on the website.
 ├── css/ # Styling as provided by the theme
 ├── fonts/ # Where fonts are stored. Currently only the icon fonts
 ├── images/ # Will be copied verbatim to the public folder. Any image placed here, including subdirectories will be available in your templates
+│   ├── species/  images of species shown in the banner of articles should go here. 1800px width, sRGB and 80% jpeg
 ├── javascript/ # Will be copied verbatim to the public folder. To include it you have to add it (probably to /_includes/head or /_includes/footer)
 ├── nav-pages/ # Navigation pages for higher level menu items. Like '/resources' - it isn't really a page, but a placeholder to navigate to the children of a menu item
 ├── news/
@@ -105,6 +106,11 @@ You html goes here
 ```
 
 You might also want to read about [jekyll frontmatter](https://jekyllrb.com/docs/front-matter/)
+
+### Images
+Images configured in the head of an article should be placed in the `/images/species` 
+folder with a width of 1800px and stored as a jpeg with an 80% compression and an sRGB profile.
+
 
 ## Writing news stories
 All news stories are located in the `_posts` folder. Filenames are important. 
