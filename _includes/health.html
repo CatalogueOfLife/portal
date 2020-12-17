@@ -1,0 +1,35 @@
+
+<div id="health-warning" style="display: none"><div style="display: inline-block; vertical-align: middle; margin-right: 18px;"><div class="circle pulse tomato"></div></div><span >The system is under maintenance - you may encounter unexpected behaviour</span></div>
+<script>
+var interval = 30000
+var show = function (elem) {
+	elem.style.display = 'block';
+};
+
+var hide = function (elem) {
+	elem.style.display = 'none';
+};
+function getHealth(){
+var xhr = new XMLHttpRequest();
+xhr.onload = function () {
+    var healthWarining = document.getElementById("health-warning")
+	if (xhr.status >= 200 && xhr.status < 300) {
+		var background = JSON.parse(xhr.responseText);
+        if(background.maintenance){
+            show(healthWarining);
+        } else {
+            hide(healthWarining)
+        }
+	} else {
+        show(healthWarining)
+		//console.log(JSON.parse(xhr.responseText));
+	}
+
+};
+xhr.open('GET', 'https://api.catalogueoflife.org/admin/settings');
+xhr.send();
+}
+getHealth()
+setInterval(getHealth, interval);
+
+</script>
