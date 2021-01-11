@@ -3139,6 +3139,7 @@ body {
 }
 .col-version {
   margin-bottom: 10px;
+  display: flex
 }
 .modMilestone {
   font-size: 24px;
