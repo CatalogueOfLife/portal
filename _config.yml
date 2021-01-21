@@ -56,12 +56,12 @@ react:
 milestones:
   items:
     - image: Podarcis.jpg
-      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=A&limit=0&rank=species&status=accepted&status=provisionally%20accepted
+      count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=N&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
       title: Animalia
       bgcolor: 0480b5
       fgcolor: ccedfa
-      link: /index?taxonKey=A
+      link: /index?taxonKey=N
     - image: Pultenaea.jpg
       count: //api.catalogueoflife.org/dataset/3LR/nameusage/search?TAXON_ID=P&limit=0&rank=species&status=accepted&status=provisionally%20accepted
       selector: total
