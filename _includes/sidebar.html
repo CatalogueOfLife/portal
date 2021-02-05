@@ -4,7 +4,7 @@
     {% assign postsByYearMonth = site.posts | group_by_exp:"post", "post.date | date: '%Y %b'"  %}
     {% for yearMonth in postsByYearMonth %}
       <li>
-        <a href="/{{ yearMonth.items[0].date | date : '%Y' }}/{{ yearMonth.items[0].date | date : '%m' }}">{{ yearMonth.name }}</a>
+        <a href="/{{ yearMonth.items[0].date | date : '%Y' }}/{{ yearMonth.items[0].date | date : '%m' }}/index">{{ yearMonth.name }}</a>
         <span>({{yearMonth.items.size}})</span>
       </li>
     {% endfor %}
@@ -15,7 +15,7 @@
   <ul>
     {% for category in site.categories %}
       <li>
-        <a href="/category/{{category[0] | downcase | replace: ' ', '-'}}">{{ category[0] }}</a>
+        <a href="/category/{{category[0] | downcase | replace: ' ', '-'}}/index">{{ category[0] }}</a>
         <span>({{category[1].size}})</span>
       </li>
     {% endfor %}
