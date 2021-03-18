@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  The COL User Mailinglist
-author: "Markus D&omul;ring"
+author: "Markus D&ouml;ring"
 date:   2021-03-18 18:28:38
 excerpt: The COL User Mailinglist keeps you updated on API, infrastructure & content changes
 categories: API Communication
