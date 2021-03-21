@@ -32,6 +32,7 @@ module GetReleaseMetadata
       site.config['react']['datasetKey'] = md['current']['key']
 
       load(URI("#{api}/dataset/#{key}/source"), md, 'sources', user, pass)
+      load(URI("#{api}/dataset/#{key}/contribution"), md, 'contribution', user, pass)
     end
 
 
