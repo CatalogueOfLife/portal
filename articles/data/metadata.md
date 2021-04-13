@@ -17,28 +17,6 @@ This is version {{site.metadata.current.version}} of the COL Checklist.
 
 {{site.metadata.current.description}}
 
-
-## Editors
-Editors of the COL Checklist are:
-
-<div id="editors">  
-  <ul>
-  {% for e in site.metadata.current.editors %}
-    <li>{{e.givenName}} {{e.familyName}}</li>
-  {% endfor %}
-  </ul>
-</div>
-
-## Organisations
-<div id="organisations">  
-  <ul>
-  {% for org in site.metadata.current.organisations %}
-    <li>{{org.label}}</li>
-  {% endfor %}
-  </ul>
-</div>
-
-
 ## Recommended citation
 
 <i>{{site.metadata.current.citation}}</i>
