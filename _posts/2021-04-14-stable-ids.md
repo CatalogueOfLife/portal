@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  COL User Mailinglist
+title:  COL stable identifiers
 author: "Markus D&ouml;ring &amp; Geoff Ower"
 date:   2021-04-14 8:48:38
 excerpt: Stable identifiers for the Catalogue of Life
