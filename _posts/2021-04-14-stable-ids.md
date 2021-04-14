@@ -2,7 +2,7 @@
 layout: post
 title:  COL User Mailinglist
 author: "Markus D&ouml;ring &amp; Geoff Ower"
-date:   2021-04-14 10:48:38
+date:   2021-04-14 8:48:38
 excerpt: Stable identifiers for the Catalogue of Life
 categories: API identifier
 ---
@@ -20,6 +20,14 @@ It also forces a change in identifiers when
 In case there have been multiple previous IDs for the same name we prefer the ID from the oldest release to keep stability. 
 This can for example happen when we later realize a genus was included twice in COL 
 because it came in from different sources in different positions in the hierarchy - something we internally refer to as a _split genus_.
+
+The new identifiers try to be short and readable, avoiding characters that can easily be confused. 
+Because they are based on a set of 29 alphanumeric characters we call the encoding [LATIN29](https://github.com/CatalogueOfLife/backend/issues/491).
+By preventing the use of vowels we also avoid most real words and potentially offensive meanings in various languages.
+For the COL with currently ~4.2 million name usages we have a maximum length of 5 characters.
+An example of identifers are `P` for [Plantae](https://www.catalogueoflife.org/data/taxon/P) 
+or `4QHKG` for [Puma concolor](https://www.catalogueoflife.org/data/taxon/4QHKG). 
+We have reserved single character identifiers for [kingdoms](https://www.catalogueoflife.org/data/search?rank=kingdom) and manually assigned these.
 
 With every release we generate a small report of changes in identifiers. 
 These reports consist of the following files as you can see in the current [April 2021 edition](https://download.catalogueoflife.org/releases/3/38/):
