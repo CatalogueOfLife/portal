@@ -14,7 +14,7 @@ The new implementation is mostly also a name based system, but tries to keep the
 It also forces a change in identifiers when
 
  - an authorship was added
- - a major status change occurrs from accepted <-> synonym
+ - a major status change occurs from accepted <-> synonym
  - if the accepted name of a synonym changes
  
 In case there have been multiple previous IDs for the same name we prefer the ID from the oldest release to keep stability. 
@@ -39,7 +39,7 @@ These reports consist of the following files as you can see in the current [Apri
 
 The short report on potentially unstable identifiers intersects the created and deleted lists by grouping them on the canonical name without authorship.
 This allows us to review changes and spot potential problems with the algorithm. 
-The names listed in the April 2021 report look all correct as they usually have an addition in authorship, a status change or a synonyms parent change.
+The names listed in report of the April 2021 edition look correct as they usually have an addition in authorship, a status change or a synonyms parent change.
 We hope that these reports help users in tracking changes in COL.
 
 For users that want to migrate from the discontinued 2019 identifiers to the new system we provide an [ID mapping file](https://download.catalogueoflife.org/col/legacy_id_map.zip).
@@ -47,5 +47,5 @@ Since this April release the mapping also includes uninomials in which both the 
 Prior to issuing the 2021 annual edition, we plan on issuing another update to the ID mapping that will include a more complete mapping of old uninomial identifiers to new uninomial identifiers.
 
 
-If you find any issues with the new identifiers, please open a [bug ticket](https://github.com/CatalogueOfLife/backend/issues/new) or [email support](mailto:contact@catalogueoflife.org).
+If you find any issues with the new identifiers, please open a [bug ticket](https://github.com/CatalogueOfLife/backend/issues/new) or [email support](mailto:support@catalogueoflife.org).
 To stay up to date on the latest news, please sign up for the [COL user mailing list](https://lists.gbif.org/mailman/listinfo/col-users).
