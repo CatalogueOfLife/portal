@@ -2,7 +2,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% seo %}
+  
+  {% if page.seo_ssi %}
+  <!-- Begin SSI SEO -->
+<!--#comment Apache server side includes to inject SEO headers from the API -->
+<!--#if expr='v("REQUEST_URI") =~ m#data/taxon/(.+)# && $1 =~ /(.*)/' -->
+    <!--#set var="ID" value="$0" -->
+    <!--#include virtual="/_seo/taxon/${ID}" -->
+<!--#elif expr='v("REQUEST_URI") =~ m#data/dataset/(.+)# && $1 =~ /(.*)/' -->
+    <!--#set var="ID" value="$0" -->
+    <!--#include virtual="/_seo/source/${ID}" -->
+<!--#endif -->  
+  <!-- End SSI SEO -->
+  {% else %}
+    {% seo %}
+  {% endif %}
+
   {% if page.noindex %}
   <meta name="robots" content="noindex">
   {% endif %}

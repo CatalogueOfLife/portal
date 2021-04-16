@@ -8,6 +8,18 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 twitter_username: catalogueoflife
 facebook_username:  CatalogueOfLife
 
+# SEO plugin settings
+twitter:
+  username: catalogueoflife
+  card: summary
+social:
+  name: The Catalogue of Life
+  links:
+    - https://twitter.com/catalogueoflife
+    - https://www.facebook.com/CatalogueOfLife
+    - https://github.com/CatalogueOfLife
+logo: /images/col_square_logo.jpg
+
 # Build settings
 markdown: kramdown
 

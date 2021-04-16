@@ -4,6 +4,7 @@ title: Taxon
 tagline: This would probably be a custom page
 section_id: data
 permalink: /data/taxon
+seo_ssi: true
 ---
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">

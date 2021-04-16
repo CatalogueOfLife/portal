@@ -101,6 +101,8 @@ layout: default
 section_id: about # where does this belong in the menu (this is used to highlight the menu item)
 published: true # is this just a draft or should it be build - defaults to true
 permalink: /about/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
+noindex: false # Should this page be indexed by robots?
+seo_ssi: true # Turn off SEO plugin and use apache server side includes instead to inject data from the API for taxa and datasets
 ---
 You html goes here
 ```
