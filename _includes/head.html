@@ -5,7 +5,6 @@
   
   {% if page.seo_ssi %}
   <!-- Begin SSI SEO -->
-<!--#comment Apache server side includes to inject SEO headers from the API -->
 <!--#if expr='v("REQUEST_URI") =~ m#data/taxon/(.+)# && $1 =~ /(.*)/' -->
     <!--#set var="ID" value="$0" -->
     <!--#include virtual="/_seo/taxon/${ID}" -->
