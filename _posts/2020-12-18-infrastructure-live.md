@@ -2,7 +2,6 @@
 layout: post
 title:  New Catalogue of Life infrastructure Live
 author: "Chantal Huijbers"
-date:   2020-12-08 18:18:18
 excerpt: The new Catalogue of Life (COL) infrastructure is live on GBIF servers
 categories: Infrastructure API
 ---

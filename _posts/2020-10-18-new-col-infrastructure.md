@@ -2,7 +2,6 @@
 layout: post
 title:  "New Catalogue of Life: infrastructure"
 author: "Olaf B&aacute;nki"
-date:   2020-10-18 02:19:12
 excerpt: The Catalogue of Life has developed new infrastructure to support the COL Checklist and the management of checklist datasets
 categories: Infrastructure
 ---

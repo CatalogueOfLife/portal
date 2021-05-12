@@ -2,7 +2,6 @@
 layout: post
 title:  Catalogue of Life partnering to support conservation 
 author: "Donald Hobern"
-date:   2020-10-15 03:52:12
 images: images/posts/iubs-paper.jpg
 excerpt:
   The Catalogue of Life is contributing actively to the new IUBS Working Group on the Governance of Taxonomic Lists
