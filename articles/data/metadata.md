@@ -12,7 +12,6 @@ permalink: /data/metadata
 ## Version
 
 This is version {{site.metadata.current.version}} of the COL Checklist.
-Please see the [release notes](https://preview.catalogueoflife.org/2021/04/05/release) for what's new.
 
 ## Abstract
 
