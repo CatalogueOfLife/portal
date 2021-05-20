@@ -72,18 +72,17 @@ The format is a single ZIP archive that bundles various delimited text files:
  - [Taxon](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#taxon)
  - [Synonym](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#synonym)
  - [NameUsage](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#nameusage)
- - [TaxonConceptRelation](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#taxonconceptrelation)
- - [SpeciesInteraction](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesinteraction)
- - [SpeciesEstimate](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesestimate)
  - [Reference](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#reference)
- - [NameReference](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#namereference)
  - [TypeMaterial](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#typematerial)
  - [Distribution](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#distribution)
- - [Media](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#media)
  - [VernacularName](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#vernacularname)
+ - [Media](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#media)
+ - [SpeciesInteraction](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesinteraction)
+ - [TaxonConceptRelation](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#taxonconceptrelation)
+ - [SpeciesEstimate](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#speciesestimate)
  - [Treatments](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#treatment)
 
-A [metadata.yaml](https://github.com/CatalogueOfLife/coldp/blob/master/metadata.yaml) file can also be included to provide basic metadata about the entire dataset.
+A [metadata.yaml](https://github.com/CatalogueOfLife/coldp/blob/master/metadata.yaml) file should also be included to provide basic metadata about the entire dataset.
 For sharing structured bibliographic references the [BibTex](https://github.com/CatalogueOfLife/coldp#reference-bibtex) 
 and [CSL-JSON](https://github.com/CatalogueOfLife/coldp#reference-json-csl) format is also supported.
 
@@ -95,10 +94,29 @@ Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that
 
 Darwin Core Archives may include one or many data files, depending on the scope of the dataset published. As a minimum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, each record should include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
 
+COL ChecklistBank currently interprets the following DwC extensions:
+
+ - [gbif:VernacularName](https://rs.gbif.org/extension/gbif/1.0/vernacularname.xml)
+ - [gbif:Distribution](https://rs.gbif.org/extension/gbif/1.0/distribution.xml)
+ - [gbif:Reference](https://rs.gbif.org/extension/gbif/1.0/references.xml)
+ - [gbif:Multimedia](https://rs.gbif.org/extension/gbif/1.0/multimedia.xml)
+ - _coldwc:NameRelations_ An unpublished extension with fields similar to ColDP.NameRelation: relatedNameUsageID, relationType, publishedIn, publishedInID, relationRemarks.
+
+Data from all other DwC extensions is available via the [verbatim browser](https://data.catalogueoflife.org/dataset/1010/verbatim) though.
+
 ### Annual Checklist Exchange Format
 The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, 
 although the new ColDP format is recommended. 
 The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
+
+### TextTree
+[TextTree](https://github.com/gbif/text-tree) is a simple format to represent taxonomic trees using indented, plain text. Each row in a TextTree represent a scientific name. Each name can include the authorship and should be given a rank following the name in angular brackets. Synonyms are represented as direct, nested children that are prefixed by a * asterisk. The format focuses on the tree, is very human readable and is very lightweight. COL ChecklistBank archives every version of imported datasets as TextTree files which then drives various diff tools.
+
+### Excel
+COL ChecklistBank supports the upload and download of Excel spreadsheets as a variant for the ColDP and DwC-A formats.
+Worksheets with a header row are used instead of CSV files to represent a single entity like Taxon or VernacularName.
+
+Excel restricts the maximum amount of records to just above 1 million, so spreadsheets cannot be used to download the entire COL checklist.
 
 ## Citing the COL Checklist and data from ChecklistBank
 COL's goal is to make sure that the COL Checklist and all content published through ChecklistBank have stable web identifiers and can easily be cited. To support this aim, COL is moving to DOI-based citation tools for all checklist datasets. This work is still under development as of November 2020. In the meantime, please cite COL and its contributors using the [recommended citations](#recommended-citations) listed further down on this page.
