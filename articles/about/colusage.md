@@ -100,8 +100,7 @@ COL ChecklistBank currently interprets the following DwC extensions:
  - [gbif:Distribution](https://rs.gbif.org/extension/gbif/1.0/distribution.xml)
  - [gbif:Reference](https://rs.gbif.org/extension/gbif/1.0/references.xml)
  - [gbif:Multimedia](https://rs.gbif.org/extension/gbif/1.0/multimedia.xml)
- - _coldwc:NameRelations_ An unpublished extension with fields similar to ColDP.NameRelation: relatedNameUsageID, relationType, publishedIn, publishedInID, relationRemarks.
-
+ 
 Data from all other DwC extensions is available via the [verbatim browser](https://data.catalogueoflife.org/dataset/1010/verbatim) though.
 
 ### Annual Checklist Exchange Format
@@ -110,7 +109,7 @@ although the new ColDP format is recommended.
 The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
 
 ### TextTree
-[TextTree](https://github.com/gbif/text-tree) is a simple format to represent taxonomic trees using indented, plain text. Each row in a TextTree represent a scientific name. Each name can include the authorship and should be given a rank following the name in angular brackets. Synonyms are represented as direct, nested children that are prefixed by a * asterisk. The format focuses on the tree, is very human readable and is very lightweight. COL ChecklistBank archives every version of imported datasets as TextTree files which then drives various diff tools.
+[TextTree](https://github.com/gbif/text-tree) is a simple format to represent taxonomic trees using indented, plain text. Each row in a TextTree represent a scientific name. Each name can include the authorship and should be given a rank following the name in angular brackets. Synonyms are represented as direct, nested children that are prefixed by a * asterisk. The format focuses on the tree, is very human readable and lightweight. COL ChecklistBank archives every version of imported datasets as TextTree files which then drives various diff tools.
 
 ### Excel
 COL ChecklistBank supports the upload and download of Excel spreadsheets as a variant for the ColDP and DwC-A formats.
