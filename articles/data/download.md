@@ -1,16 +1,23 @@
 ---
 layout: content
-title: Previous versions
-tagline: Archived historical versions of the COL Checklist
+title: Download
+tagline: Current and historical versions of the COL Checklist
 section_id: data
 imageUrl: /images/species/Hyposmocoma_fractistriata.jpg    
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
-permalink: /data/archives
+permalink: /data/download
 ---
+
+## The current COL Checklist
+You can download the current version of the COL Checklist here: 
+ - [Darwin Core Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_dwca.zip)
+ - [COLDP Archive]((https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_coldp.zip)
+
+For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
 
 
 ## Historical versions of the COL Annual Checklist
-The Catalogue of Life Annual Checklist has been released each year since 2000 (excluding 2001).
+The Catalogue of Life Annual Checklist has been released each year since 2000 (excluding 2001 and 2020).
 
 The following links give access to historical versions of the COL Annual Checklist for each year from 2005 to 2019. MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin Core Archive ZIP files from 2012 to 2019.
 

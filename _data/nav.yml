@@ -21,9 +21,9 @@
     - name: Source datasets
       path: /data/source-datasets
       desc: "Browse the taxonomic datasets that make up the Catalogue"
-    - name: Previous versions
-      path: /data/archives
-      desc: "Archived historical versions of the COL Checklist"
+    - name: Download
+      path: /data/download
+      desc: "Current and historical versions of the COL Checklist"
 - name: About
   path: /about/catalogueoflife
   section_id: about
