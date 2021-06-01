@@ -8,7 +8,7 @@ imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donal
 permalink: /data/download
 ---
 
-## The current COL Checklist
+## The COL Checklist version {{site.metadata.current.version}}
 You can download the current version of the COL Checklist here: 
  - [Darwin Core Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_dwca.zip)
  - [COLDP Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_coldp.zip)
