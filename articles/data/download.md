@@ -11,7 +11,8 @@ permalink: /data/download
 ## The COL Checklist version {{site.metadata.current.version}}
 You can download the current version of the COL Checklist here: 
  - [Darwin Core Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_dwca.zip)
- - [COLDP Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_coldp.zip)
+ - [ColDP Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_coldp.zip)
+ - [TextTree](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.version}}_texttree.zip)
 
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
 
