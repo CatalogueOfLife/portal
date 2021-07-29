@@ -21,5 +21,5 @@ This is version {{site.metadata.current.version}} of the COL Checklist.
 
 {{site.metadata.current.citation}}
 
-Please also read the 
-<a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
+
+Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>

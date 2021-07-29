@@ -36,7 +36,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Nicolas Bailly** (Canada)
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano** (Argentina)
-* **Markus Doering** (Germany)
+* **Markus D&ouml;ring** (Germany)
 * **Anne Fuchs** (Australia)
 * **Stephen Garnett** (Australia)
 * **Donald Hobern** (Australia), Ex Officio
