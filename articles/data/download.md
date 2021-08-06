@@ -17,10 +17,10 @@ You can download the current version of the COL Checklist here:
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
 
 
-## Historical versions of the COL Annual Checklist
-The Catalogue of Life Annual Checklist has been released each year since 2000 (excluding 2001 and 2020).
+## Historical versions of the COL Checklist
+The Catalogue of Life Checklist has been released each year since 2000 (excluding 2001 and 2020). Every year, COL produces an annual version of the COL Checklist that receives long-term support and becomes part of the yearly archives. Monthly COL Checklists released between annual editions may not be kept indefinitely. These lose support once an annual COL Checklist is issued.
 
-The following links give access to historical versions of the COL Annual Checklist for each year from 2005 to 2019. MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin Core Archive ZIP files from 2012 to 2019.
+The following links give access to historical versions of the COL Checklist for each year from 2005 to 2019. MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin Core Archive ZIP files from 2012 to 2019.
 
 * [Annual Checklist 2019](/annual-checklist/2019) - 1,837,565 living and 63,419 extinct species ([Darwin Core Archive](http://download.catalogueoflife.org/col/annual/2019_dwca.zip), [MySQL](http://download.catalogueoflife.org/col/annual/2019_mysql.sql.gz))
 * [Annual Checklist 2018](/annual-checklist/2018) - 1,744,204 living and 59,284 extinct species ([Darwin Core Archive](http://download.catalogueoflife.org/col/annual/2018_dwca.zip), [MySQL](http://download.catalogueoflife.org/col/annual/2018_mysql.sql.gz))
@@ -42,7 +42,7 @@ The following links give access to historical versions of the COL Annual Checkli
 * Annual Checklist 2002 - 260,000 species
 * Annual Checklist 2000 - 220,000 species
 
-## Historical versions of the COL Monthly Checklist
+## Historical versions of the monthly COL Checklist editions
 
 The COL Checklist is updated throughout the year and snapshots are also available for many months from 2017 to the present. Changes in infrastructure have disrupted this series so some intervals are longer than monthly.
 
