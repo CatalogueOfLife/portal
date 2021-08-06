@@ -24,6 +24,7 @@ Species 2000, and thus the Catalogue of Life, is managed by the Board of Directo
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
 * **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
 * **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium), Catalogue of Life Global Team Chair, Ex Officio Member
+* **Dr Thomas Orrell** (Integrated Taxonomic Information System), COL Partnership, Ex Officio Member
 * **Dr Olaf B&aacute;nki** (Naturalis Biodiversity Center, Netherlands) Executive Secretary Species 2000 / Catalogue of Life, Ex Officio Member
 
 ## Global Team
@@ -96,4 +97,3 @@ The project team works closely with the Catalogue of Life Secretariat and its pa
 
 * **Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
 * **User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
-* **Senior developer** - Mr. Ayco Holleman - Naturalis Biodiversity Center - The Netherlands
