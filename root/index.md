@@ -39,7 +39,7 @@ partners:
 
         <div class='row'>
             <div class='full main-tree'>
-                <div class='col-version'><b><a href="/data/metadata">COL Version {{site.metadata.current.version}}</a></b>
+                <div class='col-version'><b><a href="/data/metadata">COL Version: {{site.metadata.current.version}}</a></b>
                 <span style='flex: 1'></span>
                <b><a href="/data/search">Advanced search <i class="fas fa-external-link-alt"></i></a></b>
                 </div>
