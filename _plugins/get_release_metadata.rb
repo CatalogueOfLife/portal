@@ -49,20 +49,31 @@ module GetReleaseMetadata
 
     def addAgentLabel(a)
       label = StringIO.new
-      label << a['family']
-      if a['given']
-        label << ", "
-        label << a['given']
-      end
-      if a['organisation']
-        label << " <i>("
-        if a['department']
-          label << a['department']
+      if a['family']
+        label << a['family']
+        if a['given']
           label << ", "
+          label << a['given']
         end
-        label << a['organisation']
-        label << "</i>)"
+        if a['organisation']
+          label << " <i>("
+          if a['department']
+            label << a['department']
+            label << ", "
+          end
+          label << a['organisation']
+          label << "</i>)"
+        end
+      else
+        if a['organisation']
+          if a['department']
+            label << a['department']
+            label << ", "
+          end
+          label << a['organisation']
+        end
       end
+  
       if a['note']
         label << " - <i>"
         label << a['note']

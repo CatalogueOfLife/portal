@@ -28,7 +28,7 @@ Please also read the <a href="/about/colusage#recommended-citations">recommended
 The Catalogue of Life thanks Naturalis in the Netherlands, [GBIF](https://www.gbif.org) and the Illinois Natural History Survey in the USA.
 We further thank all that contributed to the COL Checklist:
 
-<div id="contributors">  
+<div id="authors">  
   <ul>
   {% for a in site.metadata.current.creator %}
     <li>{{a.label}}
