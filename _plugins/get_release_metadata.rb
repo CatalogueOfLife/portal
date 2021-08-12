@@ -28,13 +28,48 @@ module GetReleaseMetadata
 
       
       load(URI("#{api}/dataset/#{key}"), md, 'current', user, pass)
+      addAgentLabels(md['current'])
       puts "Using release key #{md['current']['key']}"
       site.config['react']['datasetKey'] = md['current']['key']
 
       load(URI("#{api}/dataset/#{key}/source"), md, 'sources', user, pass)
-      load(URI("#{api}/dataset/3/contribution"), md, 'contribution', user, pass)
+      md['sources'].each { |d| addAgentLabels(d)}            
+
     end
 
+
+    def addAgentLabels(d)
+      if d['creator']
+        d['creator'].each { |a| addAgentLabel(a)}            
+      end
+      if d['contributor']
+        d['contributor'].each { |a| addAgentLabel(a)}            
+      end
+    end
+
+    def addAgentLabel(a)
+      label = StringIO.new
+      label << a['family']
+      if a['given']
+        label << ", "
+        label << a['given']
+      end
+      if a['organisation']
+        label << " <i>("
+        if a['department']
+          label << a['department']
+          label << ", "
+        end
+        label << a['organisation']
+        label << "</i>)"
+      end
+      if a['note']
+        label << " - <i>"
+        label << a['note']
+        label << "</i>"
+      end
+      a['label']=label.string
+    end
 
     def load(uri, cfg, target, user, pass)
       puts "Reading JSON from #{uri}"
