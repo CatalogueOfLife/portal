@@ -9,13 +9,17 @@ permalink: /data/download
 ---
 
 ## The COL Checklist version {{site.metadata.current.version}}
-You can download the current version of the COL Checklist here: 
+You can download the current version of the entire COL Checklist here: 
  - [ColDP Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.issued}}_coldp.zip)
  - [Darwin Core Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.issued}}_dwca.zip)
  - [ACEF Archive](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.issued}}_acef.zip)
  - [TextTree](https://download.catalogueoflife.org/col/monthly/{{site.metadata.current.issued}}_texttree.zip)
 
+Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
+
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
+
+COL ChecklistBank also offers [partial downloads](http://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 
 ## Historical versions of the COL Checklist
