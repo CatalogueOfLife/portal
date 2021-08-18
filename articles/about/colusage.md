@@ -60,7 +60,7 @@ However, we strongly recommend users to switch over to the new COL ChecklistBank
 
 ## Data formats
 
-### Catalogue of Life Data Package
+### Catalogue of Life Data Package (ColDP)
 For the new Catalogue of Life, the recommended exchange format for submitting data to and downloading data from the COL ChecklistBank 
 is the [Catalogue of Life Data Package](https://github.com/CatalogueOfLife/coldp) (ColDP), 
 a tabular text format with a standard set of files and columns and it is inspired by [Frictionless Data](https://frictionlessdata.io/). 
@@ -88,7 +88,7 @@ and [CSL-JSON](https://github.com/CatalogueOfLife/coldp#reference-json-csl) form
 The ColDP format was developed to overcome limitations in existing formats for sharing taxonomic information, particularly Darwin Core Archives and the Annual Checklist Exchange Format used previously in COL. 
 Darwin Core Archives and ACEF are still supported for data exchange to and from the Catalogue of Life ChecklistBank, but the [ColDP format supports a wider range of features](https://github.com/CatalogueOfLife/coldp#format-comparison). 
 
-### Darwin Core Archive
+### Darwin Core Archive (DwC-A)
 Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that makes use of the [Darwin Core](https://dwc.tdwg.org/list/) terms to produce a single, self-contained dataset for sharing species-level (checklist) data, species-occurrence data or sampling-event data. Each archive contains a set of text files, in standard comma- or tab-delimited format, along with a simple descriptor file (_meta.xml_) to document how the files are organised. The format is defined in the [Darwin Core Text Guidelines](https://dwc.tdwg.org/text/) (GBIF 2017).
 
 Darwin Core Archives may include one or many data files, depending on the scope of the dataset published. As a minimum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, each record should include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
@@ -102,7 +102,7 @@ COL ChecklistBank currently interprets the following DwC extensions:
  
 Data from all other DwC extensions is available via the [verbatim browser](https://data.catalogueoflife.org/dataset/1010/verbatim) though.
 
-### Annual Checklist Exchange Format
+### Annual Checklist Exchange Format (ACEF)
 The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, 
 although the new ColDP format is recommended. 
 The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
