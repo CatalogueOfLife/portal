@@ -27,7 +27,11 @@ module GetReleaseMetadata
         return
       end
 
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&limit=2&private=#{priv}"), user, pass)
+      priv = ""
+      if ! md['private']
+        priv = "&private=false"
+      end
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&limit=2#{priv}"), user, pass)
       md['current'] = rels['result'][0]
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
@@ -38,6 +42,7 @@ module GetReleaseMetadata
       md['sources'].each { |d| addAgentLabels(d)}            
 
       md['previous'] = rels['result'][1]      
+      puts "Previous release key #{md['previous']['key']}"
     end
 
 
