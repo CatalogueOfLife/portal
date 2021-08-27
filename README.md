@@ -125,12 +125,42 @@ YML frontmatter:
 ---
 layout: post
 title:  "Archaea updated" # what should headline be
-date:   2015-02-10 08:19:12
 categories: Release # how should this news story be categorised in the archive
 ---
 ```
 
-**More complex example**
+**Release example**
+```
+---
+layout: post
+title:  monthly release June 2021
+author: "Markus Döring"
+excerpt: Monthly release June 2021 of the Catalogue of Life
+categories: release
+---
+
+What's new in this edition (June 2021)?
+
+
+#### 4 new checklists
+
+ * [WoRMS Actiniaria](/data/dataset/1176)
+ * [WoRMS Nematoda, Nemys](/data/dataset/2302)
+ * [WoRMS Brachiopoda](/data/dataset/2299)
+ * [WoRMS Euphausiacea](/data/dataset/2301)
+
+
+#### 5 checklists have been updated
+
+ * [WoRMS Actiniaria](/data/dataset/1176)
+ * [WoRMS Amphipoda](/data/dataset/1202)
+ * [WoRMS Antipatharia](/data/dataset/1194)
+ * [WoRMS Appendicularia](/data/dataset/1178)
+ * [WoRMS Ascidiacea](/data/dataset/1186)
+```
+
+
+**More complex frontmatter**
 ```
 ---
 layout: post
