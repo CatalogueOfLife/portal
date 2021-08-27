@@ -16,6 +16,7 @@ module GetReleaseMetadata
       key = md['key']
       user = md['user']
       pass = md['pass']
+      priv = md['private']
 
       if !key
         warn "No project key".yellow
@@ -26,15 +27,17 @@ module GetReleaseMetadata
         return
       end
 
-      
-      load(URI("#{api}/dataset/#{key}"), md, 'current', user, pass)
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&limit=2&private=#{priv}"), user, pass)
+      md['current'] = rels['result'][0]
+      releaseKey = md['current']['key']
       addAgentLabels(md['current'])
-      puts "Using release key #{md['current']['key']}"
-      site.config['react']['datasetKey'] = md['current']['key']
+      puts "Using release key #{releaseKey}"
+      site.config['react']['datasetKey'] = releaseKey
 
-      load(URI("#{api}/dataset/#{key}/source"), md, 'sources', user, pass)
+      md['sources'] = load(URI("#{api}/dataset/#{releaseKey}/source"), user, pass)
       md['sources'].each { |d| addAgentLabels(d)}            
 
+      md['previous'] = rels['result'][1]      
     end
 
 
@@ -91,7 +94,7 @@ module GetReleaseMetadata
       a['label']=label.string
     end
 
-    def load(uri, cfg, target, user, pass)
+    def load(uri, user, pass)
       puts "Reading JSON from #{uri}"
       Net::HTTP.start(uri.host, uri.port,
         :use_ssl => uri.scheme == 'https', 
@@ -107,8 +110,7 @@ module GetReleaseMetadata
           warn "Bad JSON response #{resp.code}: #{resp.message}"
           next
         end
-        source = JSON.parse(resp.body)
-        cfg[target] = source
+        return JSON.parse(resp.body)
       end
     end
   end

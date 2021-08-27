@@ -97,7 +97,8 @@ milestones:
       link: /index?taxonKey=Z
 
 metadata:
-  key: 3LR
+  key: 3
+  private: false
   api: https://api.catalogueoflife.org
 
 

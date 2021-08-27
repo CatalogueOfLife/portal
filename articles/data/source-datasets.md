@@ -16,6 +16,8 @@ These result from collaboration and editing by many expert taxonomists, whose na
 
 A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
 
+A [detailed summary of sources and their changes to previous releases](https://data.catalogueoflife.org/dataset/{{ site.react.datasetKey }}/sourcemetrics?hideUnchanged=true&releaseKey={{ site.metadata.previous.key }}) is available in Checklist Bank.
+
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="datasetSearch"></div>
 </div>
