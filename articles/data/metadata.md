@@ -19,6 +19,10 @@ This is version {{site.metadata.current.version}} of the COL Checklist.
 
 ## Recommended citation
 
+<div id="bibtex" style="float: right;">
+<a href="https://api.catalogueoflife.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
+</div>
+
 {{site.metadata.current.citation}}
 
 Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
