@@ -11,7 +11,7 @@ permalink: /data/metadata
 
 ## Version
 
-This is version {{site.metadata.current.version}} of the COL Checklist.
+COL Checklist {{site.metadata.current.version}}: [doi:{{site.metadata.current.doi}}](https://doi.org/{{site.metadata.current.doi}})
 
 ## Abstract
 

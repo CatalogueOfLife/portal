@@ -38,7 +38,7 @@
       <div class='links'>
         <h4>Recent posts</h4>
         <ul>
-          {% for post in site.posts %}
+          {% for post in site.posts limit:5 %}
             <li><a href="{{post.url}}">{{post.title}}</a></li>
           {% endfor %}
         </ul>
@@ -56,7 +56,8 @@
     </div>  
   </div>
   <div class='creativecommons'>
-    <p>© 2020, Species 2000. This online database is copyrighted by Species 2000 on behalf of the Catalogue of Life partners.<br>
+    <p>COL Checklist {{site.metadata.current.version}}  <a href="https://doi.org/{{site.metadata.current.doi}}">doi:{{site.metadata.current.doi}}</a><br>
+      © 2020, Species 2000. This online database is copyrighted by Species 2000 on behalf of the Catalogue of Life partners.<br>
       Unless otherwise indicated, all other content offered under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, 
       Catalogue of Life, <a href="/data/metadata">{{site.metadata.current.version}}</a>.
     </p>
