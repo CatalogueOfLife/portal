@@ -6,7 +6,7 @@ excerpt: COL 20 years
 categories: General
 ---
 
-###*20 years of documenting life on Earth*
+### *20 years of documenting life on Earth*
 
 This year, 2021, marks our 20th anniversary and it is a time to celebrate! Milestones include reaching over 2 million accepted species and the completion of the new Catalogue of Life infrastructure.
 
