@@ -13,6 +13,8 @@ permalink: /data/metadata
 
 COL Checklist {{site.metadata.current.version}}: [doi:{{site.metadata.current.doi}}](https://doi.org/{{site.metadata.current.doi}})
 
+**ChecklistBank**: [{{site.metadata.current.key}}](https://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/about)
+
 ## Abstract
 
 {{site.metadata.current.description}}
@@ -27,10 +29,7 @@ COL Checklist {{site.metadata.current.version}}: [doi:{{site.metadata.current.do
 
 Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
 
-## Acknowledgements
-
-The Catalogue of Life thanks [Naturalis](https://www.naturalis.nl) in the Netherlands, [GBIF](https://www.gbif.org) and the [Illinois Natural History Survey](https://www.inhs.illinois.edu) in the USA.
-We further thank all that contributed to the COL Checklist:
+### Authors
 
 <div id="authors">  
   <ul>
@@ -38,5 +37,17 @@ We further thank all that contributed to the COL Checklist:
     <li>{{a.label}}</li>
   {% endfor %}
   </ul>
+</div>
+
+### Publisher
+
+<div id="publisher">  
+  {{site.metadata.current.publisher.label}}
+</div>
+
+### Contact
+
+<div id="contact">  
+  {{site.metadata.current.contact.label}}
 </div>
 

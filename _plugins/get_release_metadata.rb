@@ -53,6 +53,12 @@ module GetReleaseMetadata
       if d['contributor']
         d['contributor'].each { |a| addAgentLabel(a)}            
       end
+      if d['publisher']
+        addAgentLabel(d['publisher'])
+      end
+      if d['contact']
+        addAgentLabel(d['contact'])
+      end
     end
 
     def addAgentLabel(a)
