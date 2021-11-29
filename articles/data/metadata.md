@@ -11,9 +11,16 @@ permalink: /data/metadata
 
 ## Version
 
-COL Checklist {{site.metadata.current.version}}: [doi:{{site.metadata.current.doi}}](https://doi.org/{{site.metadata.current.doi}})
+<div id="version">  
+  Issued: <i>{{site.metadata.current.version}}</i>
+  <br/>
+  DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
+  <br/>
+  ChecklistBank: <a href="https://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
+  <br/>
+  <br/>
+</div>
 
-**ChecklistBank**: [{{site.metadata.current.key}}](https://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/about)
 
 ## Abstract
 
@@ -26,7 +33,7 @@ COL Checklist {{site.metadata.current.version}}: [doi:{{site.metadata.current.do
 </div>
 
 {{site.metadata.current.citation}}
-
+<br/>
 Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
 
 ### Authors
@@ -40,14 +47,5 @@ Please also read the <a href="/about/colusage#recommended-citations">recommended
 </div>
 
 ### Publisher
-
-<div id="publisher">  
-  {{site.metadata.current.publisher.label}}
-</div>
-
-### Contact
-
-<div id="contact">  
-  {{site.metadata.current.contact.label}}
-</div>
+{{site.metadata.current.publisher.label}}
 
