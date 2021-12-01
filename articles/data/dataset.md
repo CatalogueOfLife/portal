@@ -3,7 +3,7 @@ layout: default
 title: Dataset
 section_id: data
 permalink: /data/dataset
-seo_ssi: true
+seo_include: seo_dataset.html
 ---
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
