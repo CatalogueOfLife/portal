@@ -42,7 +42,11 @@ module GetReleaseMetadata
       md['sources'].each { |d| addAgentLabels(d)}            
 
       md['previous'] = rels['result'][1]      
-      puts "Previous release key #{md['previous']['key']}"
+      if md['previous']
+        puts "Previous release key #{md['previous']['key']}"
+      else
+        puts "No previous release key"
+      end
     end
 
 

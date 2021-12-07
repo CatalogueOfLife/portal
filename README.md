@@ -25,7 +25,6 @@ It takes around 5 minutes for the changes to show on the website.
 │   ├── default.html  # Templates used if you need complete freedom, but still want to inherit header and footer. Content is plain html
 │   ├── navPage.html  # Used for top level intermediate pages. Like '/resources' - it isn't really a page, but a placeholder to navigate to the children of a menu item
 │   ├── news.html     # Latest news
-│   ├── notFound.html # The 404 page template
 │   └── post.html     # Individual news stories
 ├── _posts_/ # RELEVANT FOR EDITORS - the news stories
 │   ├── 2013-11-14-my-story.md # individual news story prefixed with the date.

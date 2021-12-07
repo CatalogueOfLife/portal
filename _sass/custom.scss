@@ -85,29 +85,4 @@ a.inherit:hover {
     height: 80px;
     width: 1px;
   }
-/* 404 page */
-.page404 {
-    padding: 20px;
-    background-color: #889b9b;
-    background-image: url(/images/background/404/404.jpg);
-    background-size: cover;
-    color: white;
-    text-align: center;
-    h1 {
-        color: white;
-        margin: 100px auto 30px auto;
-        font-size: 70px;
-    }
-    p {
-        max-width: 400px;
-        margin: 20px auto;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .page404 {
-        h1 {
-            font-size: 30px;
-            margin: 40px auto 15px auto;
-        }
-    }
-}
+
