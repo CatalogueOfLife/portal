@@ -1,7 +1,7 @@
 ---
 # intentionally left blank so that jekyll activates liquid
 ---
-{% if jekyll.environment == "production" %}
+{% if jekyll.environment == "prod" %}
 Sitemap: /sitemap.xml
 
 Sitemap: /sitemap-aa.txt
