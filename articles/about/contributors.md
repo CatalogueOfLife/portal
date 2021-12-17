@@ -14,7 +14,8 @@ List of contributors to the Catalogue of Life Checklists that appeared since the
 
 <div id="contributors">  
   <ul>
-  {% for a in site.metadata.current.creator %}
+  {% assign sorted = site.metadata.current.creator | sort: 'family', "last" %}
+  {% for a in sorted %}
     <li>{{a.label}}</li>
   {% endfor %}
   </ul>
