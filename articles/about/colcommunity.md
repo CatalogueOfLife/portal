@@ -78,3 +78,4 @@ Users are urged to support COL in the following ways:
 * Recognise the limitations and any known issues associated with COL content, particularly noting where content has not yet been reviewed by a taxonomic community
 * Use the COL citation tools to give clear attribution for the COL Checklist and the work of contributing communities and individual taxonomists 
 * Submitting updates and corrections where issues are noted in the content of the COL Checklist
+
