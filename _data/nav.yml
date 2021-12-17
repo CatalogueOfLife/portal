@@ -37,6 +37,9 @@
     - name: "The COL community"
       path: /about/colcommunity
       desc: "Collaborating to list the world's species"
+    - name: "The COL contributors"
+      path: /about/contributors
+      desc: "All contributors to the COL Checklist"
     - name: Using the COL Checklist
       path: /about/colusage
       desc: "Accessing and citing the Checklist"
