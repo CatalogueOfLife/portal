@@ -116,6 +116,16 @@ Worksheets with a header row are used instead of CSV files to represent a single
 
 Excel restricts the maximum amount of records to just above 1 million, so spreadsheets cannot be used to download the entire COL checklist.
 
+### Newick
+[Newick](https://en.wikipedia.org/wiki/Newick_format) format is a way of representing graph-theoretical trees with edge lengths using parentheses and commas.
+It is often used with phylogenetic data.
+The New Hampshire eXtended format (which COL implements) uses Newick comments to encode additional key value pairs, e.g. the id, scientificName ond rank.
+
+### DOT
+[Graphviz DOT](http://www.graphviz.org/doc/info/lang.html) is a simple widely used format for representing graphs as nodes and edges. 
+ChecklistBank exports will include synonym and basionym relations in the final graph that can be rendered with many software tools.
+
+
 ## Citing the COL Checklist and data from ChecklistBank
 COL's goal is to make sure that the COL Checklist and all content published through ChecklistBank have stable web identifiers and can easily be cited. To support this aim, COL is moving to DOI-based citation tools for all checklist datasets. This work is still under development as of November 2020. In the meantime, please cite COL and its contributors using the [recommended citations](#recommended-citations) listed further down on this page.
 
