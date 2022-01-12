@@ -15,6 +15,7 @@ Most datasets include one or more sectors that feed into COL and cover all of th
 These result from collaboration and editing by many expert taxonomists, whose names are found in the information for each dataset.
 
 A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
+
 Living species refer to all accepted and provisionally accepted species.
 
 A [detailed summary of sources and their changes to previous releases](https://data.catalogueoflife.org/dataset/{{ site.react.datasetKey }}/sourcemetrics?hideUnchanged=true&releaseKey={{ site.metadata.previous.key }}) is available in Checklist Bank.
