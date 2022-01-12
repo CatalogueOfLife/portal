@@ -10,8 +10,7 @@ permalink: /about/contributors
 ---
 
 ## List of contributors
-List of contributors to the Catalogue of Life Checklists that appeared since the very beginning in 2000.
-
+List of the current Catalogue of Life contributors.
 <div id="contributors">  
   <ul>
   {% assign sorted = site.metadata.current.creator | sort: 'family', "last" %}
