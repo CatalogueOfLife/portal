@@ -1,9 +1,9 @@
 react:
-    auth: "colplus:sp2000"
+    auth: "colplus:t.2odvHnguHsEpn7Xwgv"
 
 metadata:
   key: 3
   private: true
   api: https://api.catalogueoflife.org
   user: colplus
-  pass: sp2000
+  pass: t.2odvHnguHsEpn7Xwgv
