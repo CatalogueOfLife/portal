@@ -4,6 +4,6 @@ react:
 metadata:
   key: 3
   private: true
-  api: https://api.catalogueoflife.org
+  api: https://api.checklistbank.org
   user: colplus
   pass: t.2odvHnguHsEpn7Xwgv
