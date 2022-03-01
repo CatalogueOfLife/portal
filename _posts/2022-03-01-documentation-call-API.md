@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Call for proposals for generation of COL API documentation
+title:  Call for proposals for COL API documentation
 author: "Chantal Huijbers"
 excerpt: COL Documentation Call
 categories: General
@@ -30,5 +30,7 @@ Please send your proposals to [support@catalogueoflife.org](mailto:support@catal
 - Indication available budget: €5-7k, to be negotiated
 
 For additional questions about this call, please contact [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
+
+Also see the [call for proposals for COLDP documentation](https://www.catalogueoflife.org/2022/03/01/documentation-call-COLDP).
 
 ![browser](/images/posts/col-gbif-logo.jpg)
