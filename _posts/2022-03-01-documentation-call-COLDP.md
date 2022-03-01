@@ -34,4 +34,6 @@ Please send your proposals to [support@catalogueoflife.org](mailto:support@catal
 
 For additional questions about this call, please contact [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
 
+Also see the [call for proposals for COL API documentation](https://www.catalogueoflife.org/2022/03/01/documentation-call-API).
+
 ![browser](/images/posts/col-gbif-logo.jpg)
