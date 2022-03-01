@@ -16,7 +16,7 @@ permalink: /data/metadata
   <br/>
   DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
   <br/>
-  ChecklistBank: <a href="https://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
+  ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
   <br/>
   <br/>
 </div>
@@ -29,7 +29,7 @@ permalink: /data/metadata
 ## Recommended citation
 
 <div id="bibtex" style="float: right;">
-<a href="https://api.catalogueoflife.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
+<a href="https://api.checklistbank.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
 </div>
 
 {{site.metadata.current.citation}}

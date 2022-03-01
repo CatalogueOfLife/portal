@@ -10,7 +10,7 @@ The Catalogue of Life (COL) Secretariat seeks proposals from qualified experts t
 
 The [COL Data Package](https://github.com/CatalogueOfLife/coldp) (COLDP) is a new exchange format for data to and from [ChecklistBank](https://www.checklistbank.org/), a joint initiative of COL and GBIF. This format was developed to overcome limitations in existing formats for sharing taxonomic information such as Darwin Core Archive (DwC-A) and the earlier COL submission format ACEF (Annual Checklist Exchange Format).
 
-To enable taxonomic communities to more easily submit their checklists to the ChecklistBank, we would like to review the current documentation and user guidelines of the COLDP standard. The [COLDP Github readme page](https://github.com/CatalogueOfLife/coldp) already provides information on the new format, but we would like to receive proposals to extend this with information such as:
+To enable taxonomic communities to more easily submit their checklists to ChecklistBank, we would like to review the current documentation and user guidelines of the COLDP standard. The [COLDP Github readme page](https://github.com/CatalogueOfLife/coldp) already provides information on the new format, but we would like to receive proposals to extend this with information such as:
 - Describing the differences between COLDP and DwC-A, and recommendations when to choose which standard when preparing taxonomic checklists;
 - Step by step guide on how to prepare data in COLDP format;
 - Information on how to clean up data before submission to ChecklistBank;

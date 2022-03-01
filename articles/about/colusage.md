@@ -45,23 +45,23 @@ Once a taxon has been found by either route, more information is available on th
 * **Link to original resource** (if available): this links to the corresponding species page in the original resource
 
 ### COL API
-The dynamic COL Checklist can be accessed through the JSON-based [COL ChecklistBank API](https://api.catalogueoflife.org/). 
+The dynamic COL Checklist can be accessed through the JSON-based [ChecklistBank API](https://api.checklistbank.org/). 
 The API is still under active development and not finalized, so small changes are still expected to take place before the release of version 1.0. 
-Authentication is via GBIF user accounts. Datasets in the ChecklistBank are accessible through dataset keys. 
-The latest version of the COL Checklist can always be accessed through the dataset Key [3LR](https://api.catalogueoflife.org/dataset/3LR). 
-More information on the new COL ChecklistBank will follow soon.
+Authentication is via GBIF user accounts. Datasets in ChecklistBank are accessible through dataset keys. 
+The latest version of the COL Checklist can always be accessed through the dataset Key [3LR](https://api.checklistbank.org/dataset/3LR). 
+More information on the new ChecklistBank will follow soon.
 
 ### Downloads
 The current and previous [COL Checklist can be downloaded](/data/download) in various formats and in parts, optionally specifying a root taxon retrieving just a subtree of the checklist.
 
 ### Deprecated legacy API
 To facilitate a smooth change-over to the new Catalogue of Life infrastructure, the deprecated legacy API for the dynamic monthly COL Checklists will remain available for some period. 
-However, we strongly recommend users to switch over to the new COL ChecklistBank API as soon as possible.
+However, we strongly recommend users to switch over to the new ChecklistBank API as soon as possible.
 
 ## Data formats
 
 ### Catalogue of Life Data Package (ColDP)
-For the new Catalogue of Life, the recommended exchange format for submitting data to and downloading data from the COL ChecklistBank 
+For the new Catalogue of Life, the recommended exchange format for submitting data to and downloading data from ChecklistBank 
 is the [Catalogue of Life Data Package](https://github.com/CatalogueOfLife/coldp) (ColDP), 
 a tabular text format with a standard set of files and columns and it is inspired by [Frictionless Data](https://frictionlessdata.io/). 
 The format is a single ZIP archive that bundles various delimited text files:
@@ -93,14 +93,14 @@ Darwin Core Archive (DwC-A) is a standard for biodiversity informatics data that
 
 Darwin Core Archives may include one or many data files, depending on the scope of the dataset published. As a minimum, they should include a required core data file with values for a standard set of Darwin Core terms. For checklist data, each record should include an identifier supplied as dwc:taxonID. The definitive list of core Taxon terms can be found in the [Darwin Core Taxon Extension](http://rs.gbif.org/core/dwc_taxon_2015-04-24.xml). For more information about preparation of a DwC-A, please refer to the GBIF [DwC-A How-to Guide](https://github.com/gbif/ipt/wiki/DwCAHowToGuide).
 
-COL ChecklistBank currently interprets the following DwC extensions:
+ChecklistBank currently interprets the following DwC extensions:
 
  - [gbif:VernacularName](https://rs.gbif.org/extension/gbif/1.0/vernacularname.xml)
  - [gbif:Distribution](https://rs.gbif.org/extension/gbif/1.0/distribution.xml)
  - [gbif:Reference](https://rs.gbif.org/extension/gbif/1.0/references.xml)
  - [gbif:Multimedia](https://rs.gbif.org/extension/gbif/1.0/multimedia.xml)
  
-Data from all other DwC extensions is available via the [verbatim browser](https://data.catalogueoflife.org/dataset/1010/verbatim) though.
+Data from all other DwC extensions is available via the [verbatim browser](https://www.checklistbank.org/dataset/1010/verbatim) though.
 
 ### Annual Checklist Exchange Format (ACEF)
 The previous data format used by COL, the Annual Checklist Exchange Format (ACEF), can still be used to submit data, 
@@ -108,10 +108,10 @@ although the new ColDP format is recommended.
 The [ACEF format](/images/acef/2014_CoL_Standard_Dataset_v7_23Sep2014.pdf) includes several tables with pre-defined fields ([list of tables and fields](/images/acef/List_of_tables_and_fields_2014.pdf), [entity relationship diagram](/images/acef/ERD_DataSubmissionFormat_29Sep2014.pdf)). Version 4 from 29 September 2014 is the latest release.
 
 ### TextTree
-[TextTree](https://github.com/gbif/text-tree) is a simple format to represent taxonomic trees using indented, plain text. Each row in a TextTree represent a scientific name. Each name can include the authorship and should be given a rank following the name in angular brackets. Synonyms are represented as direct, nested children that are prefixed by a * asterisk. The format focuses on the tree, is very human readable and lightweight. COL ChecklistBank archives every version of imported datasets as TextTree files which then drives various diff tools.
+[TextTree](https://github.com/gbif/text-tree) is a simple format to represent taxonomic trees using indented, plain text. Each row in a TextTree represent a scientific name. Each name can include the authorship and should be given a rank following the name in angular brackets. Synonyms are represented as direct, nested children that are prefixed by a * asterisk. The format focuses on the tree, is very human readable and lightweight. ChecklistBank archives every version of imported datasets as TextTree files which then drives various diff tools.
 
 ### Excel
-COL ChecklistBank supports the upload and download of Excel spreadsheets as a variant for the ColDP and DwC-A formats.
+ChecklistBank supports the upload and download of Excel spreadsheets as a variant for the ColDP and DwC-A formats.
 Worksheets with a header row are used instead of CSV files to represent a single entity like Taxon or VernacularName.
 
 Excel restricts the maximum amount of records to just above 1 million, so spreadsheets cannot be used to download the entire COL checklist.

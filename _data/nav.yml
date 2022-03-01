@@ -33,7 +33,7 @@
       desc: "The international community for listing species"
     - name: "The COL data pipeline"
       path: /about/colpipeline
-      desc: "COL ChecklistBank and the COL Checklist"
+      desc: "ChecklistBank and the COL Checklist"
     - name: "The COL community"
       path: /about/colcommunity
       desc: "Collaborating to list the world's species"

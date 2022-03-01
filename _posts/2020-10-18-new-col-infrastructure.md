@@ -20,16 +20,16 @@ This new infrastructure forms the backbone of the Browse and Search functions on
 
 ![browser](/images/posts/new_site.png)
 
-#### COL ChecklistBank
-COL has established COL ChecklistBank as its checklist store, powered by GBIF. 
-The COL Checklist is assembled out of data from the COL ChecklistBank. 
-In addition, COL ChecklistBank will serve as a public checklist repository that will bring together the latest versions of the checklists 
+#### ChecklistBank
+COL has established ChecklistBank as its checklist store, powered by GBIF. 
+The COL Checklist is assembled out of data from ChecklistBank. 
+In addition, ChecklistBank will serve as a public checklist repository that will bring together the latest versions of the checklists 
 for each taxonomic sector, along with thousands of other species checklists shared by researchers and other contributors. 
-In the near future, COL ChecklistBank will allow published checklists to be discoverable and citable in simple and standardised ways 
+In the near future, ChecklistBank will allow published checklists to be discoverable and citable in simple and standardised ways 
 and for these to be downloadable both in their original form and in a standard interpreted format. 
 All published checklists can be searched, browsed, downloaded or accessed via a standard Application Programming Interface (API). 
 
-COL ChecklistBank will serve as a rich resource for discovering how any scientific name has been used in different contexts. 
+ChecklistBank will serve as a rich resource for discovering how any scientific name has been used in different contexts. 
 Some of the names found in these checklists do not yet appear in any community-managed sector checklist, 
 so ChecklistBank will also help to address gaps in COL.
 

@@ -11,14 +11,14 @@ permalink: /data/download
 ## The COL Checklist version {{site.metadata.current.version}}
 You can download the current version of the entire COL Checklist here: 
 
- - [ColDP Archive](https://api.catalogueoflife.org/dataset/{{site.metadata.current.key}}/export.zip?format=ColDP)
- - [Darwin Core Archive](https://api.catalogueoflife.org/dataset/{{site.metadata.current.key}}/export.zip?format=DwCA)
- - [ACEF Archive](https://api.catalogueoflife.org/dataset/{{site.metadata.current.key}}/export.zip?format=ACEF)
- - [TextTree](https://api.catalogueoflife.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree)
+ - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=ColDP)
+ - [Darwin Core Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=DwCA)
+ - [ACEF Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=ACEF)
+ - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree)
 
 Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
-COL ChecklistBank also offers [partial downloads](http://data.catalogueoflife.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
+ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 
 ## Historical versions of the COL Checklist
@@ -29,9 +29,9 @@ These lose support once an annual COL Checklist is issued.
 
 The following links give access to historical versions of the COL Checklist for each year from 2005 to 2019. 
 MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin Core Archive ZIP files from 2012 to 2019.
-Since 2021 each release is available in 4 formats and kept for online access in [COL Checklist Bank](https://data.catalogueoflife.org/dataset?releasedFrom=3).
+Since 2021 each release is available in 4 formats and kept for online access in [COL Checklist Bank](https://www.checklistbank.org/dataset?releasedFrom=3).
 
-* [COL Checklist 2021](https://data.catalogueoflife.org/dataset/2328) - 1,898,157 living and 110,790 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2021_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2021_dwca.zip), [ACEF](https://download.catalogueoflife.org/col/annual/2021_acef.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2021_texttree.zip))
+* [COL Checklist 2021](https://www.checklistbank.org/dataset/2328) - 1,898,157 living and 110,790 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2021_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2021_dwca.zip), [ACEF](https://download.catalogueoflife.org/col/annual/2021_acef.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2021_texttree.zip))
 * [COL Checklist 2019](/annual-checklist/2019) - 1,837,565 living and 63,419 extinct species ([Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2019_dwca.zip), [MySQL](https://download.catalogueoflife.org/col/annual/2019_mysql.sql.gz))
 * [COL Checklist 2018](/annual-checklist/2018) - 1,744,204 living and 59,284 extinct species ([Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2018_dwca.zip), [MySQL](https://download.catalogueoflife.org/col/annual/2018_mysql.sql.gz))
 * [COL Checklist 2017](/annual-checklist/2017) - 1,664,506 living and 49,346 extinct species ([Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2017_dwca.zip), [MySQL](https://download.catalogueoflife.org/col/annual/2017_mysql.sql.gz))
