@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  COL stable identifiers
-author: "Markus D&ouml;ring &amp; Geoff Ower"
+author: "Markus D&ouml;ring"
 excerpt: Stable identifiers for the Catalogue of Life
 categories: API identifier
 ---
