@@ -13,3 +13,5 @@ group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-import'
 end
+
+gem "webrick", "~> 1.7"
