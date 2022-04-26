@@ -3,8 +3,9 @@ title: COL
 email: feedback@catalogueoflife.org
 description: > # this means to ignore newlines until "baseurl:"
   The Catalogue of Life
+# https://mademistakes.com/mastering-jekyll/site-url-baseurl/
+url: https://www.catalogueoflife.org
 baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: catalogueoflife
 facebook_username:  CatalogueOfLife
 
