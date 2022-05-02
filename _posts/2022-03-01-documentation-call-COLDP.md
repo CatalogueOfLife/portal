@@ -26,8 +26,7 @@ Please send your proposals to [support@catalogueoflife.org](mailto:support@catal
 - Project budget
 
 #### Key details
-- Proposal deadline: 21 March 2022
-- Start of contract: at the latest 21 April 2022 with first drafts due in June 2022 (preference will be given to earlier starts)
+- Start of contract: as soon as possible
 - Contract duration: maximum of 6 months from start of contract
 - Contract fees paid in two (2) instalments
 - Indication available budget: €5-7k, to be negotiated
