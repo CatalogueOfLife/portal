@@ -1,0 +1,12 @@
+---
+# intentionally left blank so that jekyll activates liquid
+---
+
+https://www.catalogueoflife.org/data/metadata
+https://www.catalogueoflife.org/data/browse
+https://www.catalogueoflife.org/data/search
+https://www.catalogueoflife.org/data/source-datasets
+https://www.catalogueoflife.org/data/download
+
+{% for src in site.metadata.sources %}
+https://www.catalogueoflife.org/data/dataset/{{src.key}}{% endfor %}
