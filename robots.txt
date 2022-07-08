@@ -2,6 +2,9 @@
 # intentionally left blank so that jekyll activates liquid
 ---
 
+User-agent: *
+crawl-delay: 0.1
+
 {% if jekyll.environment == "prod" %}
 Sitemap: /sitemap.xml
 Sitemap: /sitemap-datasets.txt
@@ -9,6 +12,5 @@ Sitemap: /sitemap-datasets.txt
 {% include sitemap-index.txt %}
 
 {% else %}
-User-agent: *
 Disallow: /
 {% endif %}
