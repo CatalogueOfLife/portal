@@ -1,57 +1,16 @@
 ---
 # intentionally left blank so that jekyll activates liquid
 ---
+
+User-agent: *
+crawl-delay: 0.1
+
 {% if jekyll.environment == "prod" %}
 Sitemap: /sitemap.xml
+Sitemap: /sitemap-datasets.txt
 
-Sitemap: /sitemap-aa.txt
-Sitemap: /sitemap-ab.txt
-Sitemap: /sitemap-ac.txt
-Sitemap: /sitemap-ad.txt
-Sitemap: /sitemap-ae.txt
-Sitemap: /sitemap-af.txt
-Sitemap: /sitemap-ag.txt
-Sitemap: /sitemap-ah.txt
-Sitemap: /sitemap-ai.txt
-Sitemap: /sitemap-aj.txt
-Sitemap: /sitemap-ak.txt
-Sitemap: /sitemap-al.txt
-Sitemap: /sitemap-am.txt
-Sitemap: /sitemap-an.txt
-Sitemap: /sitemap-ao.txt
-Sitemap: /sitemap-ap.txt
-Sitemap: /sitemap-aq.txt
-Sitemap: /sitemap-ar.txt
-Sitemap: /sitemap-as.txt
-Sitemap: /sitemap-at.txt
-Sitemap: /sitemap-au.txt
-Sitemap: /sitemap-av.txt
-Sitemap: /sitemap-aw.txt
-Sitemap: /sitemap-ax.txt
-Sitemap: /sitemap-ay.txt
-Sitemap: /sitemap-az.txt
-Sitemap: /sitemap-ba.txt
-Sitemap: /sitemap-bb.txt
-Sitemap: /sitemap-bc.txt
-Sitemap: /sitemap-bd.txt
-Sitemap: /sitemap-be.txt
-Sitemap: /sitemap-bf.txt
-Sitemap: /sitemap-bg.txt
-Sitemap: /sitemap-bh.txt
-Sitemap: /sitemap-bi.txt
-Sitemap: /sitemap-bj.txt
-Sitemap: /sitemap-bk.txt
-Sitemap: /sitemap-bl.txt
-Sitemap: /sitemap-bm.txt
-Sitemap: /sitemap-bn.txt
-Sitemap: /sitemap-bo.txt
-Sitemap: /sitemap-bp.txt
-Sitemap: /sitemap-bq.txt
-Sitemap: /sitemap-br.txt
-Sitemap: /sitemap-bs.txt
-Sitemap: /sitemap-bt.txt
+{% include sitemap-index.txt %}
 
 {% else %}
-User-agent: *
 Disallow: /
 {% endif %}
