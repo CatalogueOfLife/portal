@@ -30,10 +30,10 @@ The position involves a mix of the following tasks:
 
 #### Required qualifications
 
-- PhD or advanced degree in biodiversity sciences, preferably in taxonomy or with clear relation and affinity to taxonomy
+- Degree in biodiversity sciences, preferably in taxonomy or with clear relation and affinity to taxonomy
 - Experience in assembling taxonomic checklist(s)
-- Experience working with databases and comfort using SQL
-- Familiarity with XML, JSON and current data sharing standards
+- Experience in working with databases, APIs and comfort using SQL
+- Basic knowledge of a scripting language for data transformations (ETL), preferably Python
 - Knowledge of zoological and/or botanical nomenclatural codes
 - Demonstrable experience with voluntary networks, and people with varying cultural backgrounds
 - Fluency in English
@@ -42,6 +42,8 @@ The position involves a mix of the following tasks:
 #### Recommended and advantageous skills
 - Experience or demonstrated ability to work across multiple taxonomic groups
 - Enjoying working in an international team of specialists
+- Familiarity with DarwinCore or Frictionless Data
+- Experience with git and Github
 - Familiarity with relevant IT tools and data conversion scripts
 - Experience working alongside a software development team
 - User experience with taxonomic editing tools and cybertaxonomy
