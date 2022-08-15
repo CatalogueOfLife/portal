@@ -54,7 +54,7 @@ The contractor will work remotely under direct contract to the COL Secretariat v
 
 To apply, please send a curriculum vitae along with a cover letter, detailing your skills and qualifications and how you envisage adding value to ChecklistBank and Catalogue of Life. Candidates must submit applications in English via email to [contact@catalogueoflife.org](mailto: contact@catalogueoflife.org) by the **deadline of 23 September 2022**. Please indicate in the application where you saw this advertisement.
 
-Enquiries concerning the position can be addressed to Olaf Banki [olaf.banki@naturalis.nl](mailto: olaf.banki@naturalis.nl) or Joe Miller [jmiller@gbif.org](mailto: jmiller@gbif.org). 
+Enquiries concerning the position can be addressed to Olaf Banki ([olaf.banki@naturalis.nl](mailto: olaf.banki@naturalis.nl)) or Joe Miller ([jmiller@gbif.org](mailto: jmiller@gbif.org)). 
 
 <sup>1</sup> The Catalogue of Life (COL) is an international collaboration, bringing together taxonomists and informaticians from across the globe to build a catalogue of all the known world's species. The COL Checklist is underpinned by a global community of more than 500 experts, representing over 160 taxonomic datasets. The COL Checklist contains well over 2 million accepted species to date. COL supports a large user base from individual scientists to biodiversity data infrastructures to policy-maker initiatives. 
 
