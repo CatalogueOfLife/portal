@@ -52,7 +52,7 @@ The contractor will work remotely under direct contract to the COL Secretariat v
 
 #### Application procedure and deadline
 
-To apply, please send a curriculum vitae along with a cover letter, detailing your skills and qualifications and how you envisage adding value to ChecklistBank and Catalogue of Life. Candidates must submit applications in English via email to contact@catalogueoflife.org by the **deadline of 23 September 2022**. Please indicate in the application where you saw this advertisement.
+To apply, please send a curriculum vitae along with a cover letter, detailing your skills and qualifications and how you envisage adding value to ChecklistBank and Catalogue of Life. Candidates must submit applications in English via email to [contact@catalogueoflife.org] by the **deadline of 23 September 2022**. Please indicate in the application where you saw this advertisement.
 
 Enquiries concerning the position can be addressed to Olaf Banki [olaf.banki@naturalis.nl] or Joe Miller [jmiller@gbif.org]. 
 
