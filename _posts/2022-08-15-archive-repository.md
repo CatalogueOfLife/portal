@@ -14,7 +14,8 @@ Today we have started to store every data archive that was imported into Checkli
 together with metrics and a list of all included scientific names so CLB is capable to produce diffs between versions. 
 You cannot use the API to search and work with records from data of older versions (which we call an *import attempt*), but you can now access the original data as it was supplied.
 
-The ![import history](/images/posts/import-history.png) of every dataset gives you a quick overview about the changes, metrics, logs and access to the data.
+The import history of every dataset gives you a quick overview about the changes, metrics, logs and access to the data:
+![import history](/images/posts/import-history.png)
 
 You can access specific archives for a dataset by an attempt parameter through the API:
 https://api.checklistbank.org/dataset/2004/archive?attempt=13
