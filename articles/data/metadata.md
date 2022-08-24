@@ -7,6 +7,7 @@ section_id: data
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
 permalink: /data/metadata
+seo_include: seo_metadata.html
 ---
 
 ## Version
