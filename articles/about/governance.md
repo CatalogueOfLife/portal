@@ -55,13 +55,13 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Haylee Weaver** (Australia)
  
 #### Members of the Taxonomy Group
-* **Nicolas Bailly** (Canada), Chair
+* **Donald Hobern** (Australia), Chair
+* **Nicolas Bailly** (Canada)
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Thierry Bourgoin** (France), Ex Officio
 * **Maria Marta Cigliano,** (Argentina)
 * **Mark Costello** (New Zealand)
 * **Edward DeWalt,** (USA), Ex Officio
-* **Donald Hobern** (Australia)
 * **Jeyaraney Kathirithamby** (United Kingdom)
 * **David Nicolson** (USA)
 * **Thomas Orrell** (USA)
