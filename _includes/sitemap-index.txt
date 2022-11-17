@@ -1,50 +1,50 @@
-/sitemaps/sitemap-1.txt.gz
-/sitemaps/sitemap-2.txt.gz
-/sitemaps/sitemap-3.txt.gz
-/sitemaps/sitemap-4.txt.gz
-/sitemaps/sitemap-5.txt.gz
-/sitemaps/sitemap-6.txt.gz
-/sitemaps/sitemap-7.txt.gz
-/sitemaps/sitemap-8.txt.gz
-/sitemaps/sitemap-9.txt.gz
-/sitemaps/sitemap-10.txt.gz
-/sitemaps/sitemap-11.txt.gz
-/sitemaps/sitemap-12.txt.gz
-/sitemaps/sitemap-13.txt.gz
-/sitemaps/sitemap-14.txt.gz
-/sitemaps/sitemap-15.txt.gz
-/sitemaps/sitemap-16.txt.gz
-/sitemaps/sitemap-17.txt.gz
-/sitemaps/sitemap-18.txt.gz
-/sitemaps/sitemap-19.txt.gz
-/sitemaps/sitemap-20.txt.gz
-/sitemaps/sitemap-21.txt.gz
-/sitemaps/sitemap-22.txt.gz
-/sitemaps/sitemap-23.txt.gz
-/sitemaps/sitemap-24.txt.gz
-/sitemaps/sitemap-25.txt.gz
-/sitemaps/sitemap-26.txt.gz
-/sitemaps/sitemap-27.txt.gz
-/sitemaps/sitemap-28.txt.gz
-/sitemaps/sitemap-29.txt.gz
-/sitemaps/sitemap-30.txt.gz
-/sitemaps/sitemap-31.txt.gz
-/sitemaps/sitemap-32.txt.gz
-/sitemaps/sitemap-33.txt.gz
-/sitemaps/sitemap-34.txt.gz
-/sitemaps/sitemap-35.txt.gz
-/sitemaps/sitemap-36.txt.gz
-/sitemaps/sitemap-37.txt.gz
-/sitemaps/sitemap-38.txt.gz
-/sitemaps/sitemap-39.txt.gz
-/sitemaps/sitemap-40.txt.gz
-/sitemaps/sitemap-41.txt.gz
-/sitemaps/sitemap-42.txt.gz
-/sitemaps/sitemap-43.txt.gz
-/sitemaps/sitemap-44.txt.gz
-/sitemaps/sitemap-45.txt.gz
-/sitemaps/sitemap-46.txt.gz
-/sitemaps/sitemap-47.txt.gz
-/sitemaps/sitemap-48.txt.gz
-/sitemaps/sitemap-49.txt.gz
-/sitemaps/sitemap-50.txt.gz
+Sitemap: /sitemaps/sitemap-1.txt.gz
+Sitemap: /sitemaps/sitemap-2.txt.gz
+Sitemap: /sitemaps/sitemap-3.txt.gz
+Sitemap: /sitemaps/sitemap-4.txt.gz
+Sitemap: /sitemaps/sitemap-5.txt.gz
+Sitemap: /sitemaps/sitemap-6.txt.gz
+Sitemap: /sitemaps/sitemap-7.txt.gz
+Sitemap: /sitemaps/sitemap-8.txt.gz
+Sitemap: /sitemaps/sitemap-9.txt.gz
+Sitemap: /sitemaps/sitemap-10.txt.gz
+Sitemap: /sitemaps/sitemap-11.txt.gz
+Sitemap: /sitemaps/sitemap-12.txt.gz
+Sitemap: /sitemaps/sitemap-13.txt.gz
+Sitemap: /sitemaps/sitemap-14.txt.gz
+Sitemap: /sitemaps/sitemap-15.txt.gz
+Sitemap: /sitemaps/sitemap-16.txt.gz
+Sitemap: /sitemaps/sitemap-17.txt.gz
+Sitemap: /sitemaps/sitemap-18.txt.gz
+Sitemap: /sitemaps/sitemap-19.txt.gz
+Sitemap: /sitemaps/sitemap-20.txt.gz
+Sitemap: /sitemaps/sitemap-21.txt.gz
+Sitemap: /sitemaps/sitemap-22.txt.gz
+Sitemap: /sitemaps/sitemap-23.txt.gz
+Sitemap: /sitemaps/sitemap-24.txt.gz
+Sitemap: /sitemaps/sitemap-25.txt.gz
+Sitemap: /sitemaps/sitemap-26.txt.gz
+Sitemap: /sitemaps/sitemap-27.txt.gz
+Sitemap: /sitemaps/sitemap-28.txt.gz
+Sitemap: /sitemaps/sitemap-29.txt.gz
+Sitemap: /sitemaps/sitemap-30.txt.gz
+Sitemap: /sitemaps/sitemap-31.txt.gz
+Sitemap: /sitemaps/sitemap-32.txt.gz
+Sitemap: /sitemaps/sitemap-33.txt.gz
+Sitemap: /sitemaps/sitemap-34.txt.gz
+Sitemap: /sitemaps/sitemap-35.txt.gz
+Sitemap: /sitemaps/sitemap-36.txt.gz
+Sitemap: /sitemaps/sitemap-37.txt.gz
+Sitemap: /sitemaps/sitemap-38.txt.gz
+Sitemap: /sitemaps/sitemap-39.txt.gz
+Sitemap: /sitemaps/sitemap-40.txt.gz
+Sitemap: /sitemaps/sitemap-41.txt.gz
+Sitemap: /sitemaps/sitemap-42.txt.gz
+Sitemap: /sitemaps/sitemap-43.txt.gz
+Sitemap: /sitemaps/sitemap-44.txt.gz
+Sitemap: /sitemaps/sitemap-45.txt.gz
+Sitemap: /sitemaps/sitemap-46.txt.gz
+Sitemap: /sitemaps/sitemap-47.txt.gz
+Sitemap: /sitemaps/sitemap-48.txt.gz
+Sitemap: /sitemaps/sitemap-49.txt.gz
+Sitemap: /sitemaps/sitemap-50.txt.gz
