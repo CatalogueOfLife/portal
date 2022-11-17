@@ -6,6 +6,8 @@ User-agent: *
 crawl-delay: 0.1
 
 {% if jekyll.environment == "prod" %}
+Disallow: /annual-checklist
+
 Sitemap: /sitemap.xml
 Sitemap: /sitemap-datasets.txt
 
