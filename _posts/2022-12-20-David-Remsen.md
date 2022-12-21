@@ -8,7 +8,7 @@ categories: Obituary
 
 It is with great sadness that the Catalogue of Life Consortium has received the news of the passing away of David Remsen last Wednesday the 14th of December. David was a wonderful colleague and a dear friend to many of us. 
 
-![David Remsen](images/posts/David.jpg)
+![David Remsen](/images/posts/David.jpg)
 
 David has been chairing the information system group of the Catalogue of Life for over 8 years and was instrumental in affecting the innovations in the COL infrastructure and the development of [ChecklistBank](https://www.checklistbank.org/)<sup>1</sup>. He was a very driven and inspiring professional, always willing to explain the importance and complexities of species names. We thank Dave for his inspired leadership of the COL Information System Group, and his enthusiastic, driven approach to always strive for improvements. 
 
@@ -16,7 +16,7 @@ During his days as a program officer for the Electronic Catalogue of Names of Kn
 and started a series of Nomina meetings that shaped the thinking of many of us for years. 
 His ideas and visions will continue to inspire us.
 
-![Nomina III at Margret River, Western Australia](images/posts/Nomina-III.jpg)
+![Nomina III at Margret River, Western Australia](/images/posts/Nomina-III.jpg)
 
 David believed in the the transformative and key role of open species & biodiversity data in science and nature management. He actively promoted partnerships, collaboration and inclusiveness. He will be dearly missed. A true and dedicated member of the Catalogue of Life family.  
 
