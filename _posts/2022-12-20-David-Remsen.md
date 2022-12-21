@@ -10,7 +10,9 @@ It is with great sadness that the Catalogue of Life Consortium has received the 
 
 ![David Remsen](/images/posts/David.jpg)
 
-David has been chairing the information system group of the Catalogue of Life for over 8 years and was instrumental in affecting the innovations in the COL infrastructure and the development of [ChecklistBank](https://www.checklistbank.org/)<sup>1</sup>. He was a very driven and inspiring professional, always willing to explain the importance and complexities of species names. We thank Dave for his inspired leadership of the COL Information System Group, and his enthusiastic, driven approach to always strive for improvements. 
+David has been chairing the information system group of the Catalogue of Life for over 8 years and was instrumental in affecting the innovations in the COL infrastructure and the development of [ChecklistBank](https://www.checklistbank.org/). 
+He was a very driven and inspiring professional, always willing to explain the importance and complexities of species names. 
+We thank Dave for his inspired leadership of the COL Information System Group, and his enthusiastic, driven approach to always strive for improvements. 
 
 During his days as a program officer for the Electronic Catalogue of Names of Known Organisms (ECAT) at GBIF he layed the grounds for [ChecklistBank](https://www.checklistbank.org), the Global Names Architecture 
 and started a series of Nomina meetings that shaped the thinking of many of us for years. 
