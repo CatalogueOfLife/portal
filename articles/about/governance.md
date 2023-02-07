@@ -20,7 +20,6 @@ Species 2000, and thus the Catalogue of Life, is managed by the Board of Directo
 * **Prof. W. Alex Gray** (Computer Science & Informatics, United Kingdom), Company Secretary and Treasurer
 * **Mr Francisco (Tjess) Hernandez** (Data Centre Manager, Flanders Marine Institute (VLIZ), Belgium), Member of the Board
 * **Dr Keping Ma** (Professor of Plant Ecology in Institute of Botany, Chinese Academy of Sciences, China), Member of the Board
-* **Mr Jeroen Snijders** (Associate Director and CIO at Naturalis Biodiversity Center, Netherlands), Member of the Board, representing the host
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
 * **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
 * **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium), Catalogue of Life Global Team Chair, Ex Officio Member
@@ -40,7 +39,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Markus D&ouml;ring** (Germany)
 * **Anne Fuchs** (Australia)
 * **Stephen Garnett** (Australia)
-* **Donald Hobern** (Australia), Ex Officio
+* **Donald Hobern** (Australia)
 * **Tsuyoshi Hosoya** (Japan)
 * **David Nicolson** (USA)
 * **Li-Qiang Ji** (China)
@@ -86,9 +85,10 @@ Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiver
 * **Executive Secretary** - Dr. Olaf B&aacute;nki - Naturalis Biodiversity Center, The Netherlands
 * **International Engagement Officer** - Mr. Donald Hobern - Species 2000, Australia
 * **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
+* **Global Species Editor** - Ms. Diana Hernandez
+* **Global Species Editor** - Ms. Camila Plata
 * **Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
 * **Senior project manager** - Dr. Chantal Huijbers - Naturalis Biodiversity Center, The Netherlands
-* **Administrative and Finance Officer** - Ms. Mil de Reus - Naturalis Biodiversity Center, The Netherlands
 
 ## Infrastructure project team
 A dedicated project team works to build and expand the Catalogue of Life Infrastructure hosted and powered by GBIF. The aim is to develop Catalogue of Life as a joint infrastructure for names and taxonomy to create core services for biodiversity data initiatives such as the Global Biodiversity Information Facility, Biodiversity Heritage Library ([BHL](https://www.biodiversitylibrary.org/)), the Encyclopedia of Life ([EOL](https://eol.org/)), the International Barcode of Life ([iBOL](https://ibol.org/)), the Distributed System of Scientific Collections ([DiSSCo](https://www.dissco.eu/)), and the [LifeWatch ERIC](https://www.lifewatch.eu/), amongst others.
