@@ -48,3 +48,4 @@ Sitemap: /sitemaps/sitemap-47.txt.gz
 Sitemap: /sitemaps/sitemap-48.txt.gz
 Sitemap: /sitemaps/sitemap-49.txt.gz
 Sitemap: /sitemaps/sitemap-50.txt.gz
+Sitemap: /sitemaps/sitemap-51.txt.gz
