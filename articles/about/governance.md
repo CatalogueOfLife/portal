@@ -47,7 +47,6 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Thomas Pape** (Denmark)
 * **Richard Pyle** (USA)
 * **Lauren Raz** (Colombia)
-* **David Remsen** (USA)
 * **Jacek Swedo** (Poland)
 * **Leen Vandepitte** (Belgium), Chair
 * **Nina Wambiji** (Kenya)
@@ -74,7 +73,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Leen Vandepitte** (Belgium)
  
 #### Members of the Information Systems Group
-* **David Remsen** (USA), Chair
+* **Olaf Bánki** (NL), acting Chair
 * **Markus D&ouml;ring** (Germany)
 * **Tim Robertson** (Denmark)
 * **Bart Vanhoorne** (Belgium)
@@ -85,10 +84,10 @@ Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiver
 * **Executive Secretary** - Dr. Olaf B&aacute;nki - Naturalis Biodiversity Center, The Netherlands
 * **International Engagement Officer** - Mr. Donald Hobern - Species 2000, Australia
 * **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
-* **Global Species Editor** - Ms. Diana Hernandez
-* **Global Species Editor** - Ms. Camila Plata
+* **Global Species Catalogue Editor** - Ms. Diana Hernandez
+* **Global Species Catalogue Editor** - Ms. Camila Plata
 * **Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
-* **Senior project manager** - Dr. Chantal Huijbers - Naturalis Biodiversity Center, The Netherlands
+* Mr. Ari Örn is a volunteer with Species 2000 doing quality assurance checks on the ColDP archives each month 
 
 ## Infrastructure project team
 A dedicated project team works to build and expand the Catalogue of Life Infrastructure hosted and powered by GBIF. The aim is to develop Catalogue of Life as a joint infrastructure for names and taxonomy to create core services for biodiversity data initiatives such as the Global Biodiversity Information Facility, Biodiversity Heritage Library ([BHL](https://www.biodiversitylibrary.org/)), the Encyclopedia of Life ([EOL](https://eol.org/)), the International Barcode of Life ([iBOL](https://ibol.org/)), the Distributed System of Scientific Collections ([DiSSCo](https://www.dissco.eu/)), and the [LifeWatch ERIC](https://www.lifewatch.eu/), amongst others.
