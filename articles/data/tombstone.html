@@ -10,6 +10,23 @@ section_id: data
 permalink: /data/tombstone
 ---
 
+<style>
+.Component-label-0-2-2 {
+  color: rgba(0, 0, 0, 0.85);
+  display: block;
+}
+.Component-formItem-0-2-1 {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0;
+}
+.Component-smallMargin-0-2-6 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+</style>
+
 <div class='full parallax' style='position: relative; background-image: url({{page.imageUrl}}); color: #fff;'>
   <div class='row'>
     <div class='large-12 columns'>
@@ -23,7 +40,7 @@ permalink: /data/tombstone
 </div>
 
 
-<div class='full'>
+<div class='full' style="background-color: antiquewhite;">
   <div id="taxon" class="row">
     <div class="catalogue-of-life" style="padding: 24px; min-height: 280px; margin: 16px 0px; font-size: 12px;">
       <div class="ant-row">
@@ -50,6 +67,18 @@ permalink: /data/tombstone
           Last used in release <a href="https://www.checklistbank.org/dataset/${last.key?c}/taxon/${usage.getId()}">${last.alias!last.version}</a></span>
         </div>
       </div>
+     <#if usage.publishedIn??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Published in</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.publishedIn}</span>
+        </div>
+      </div>
+     </#if>
       <div class="ant-row Component-formItem-0-2-1">
         <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
           <div>
@@ -60,6 +89,18 @@ permalink: /data/tombstone
           <span class="Component-content-0-2-3">${usage.status} ${usage.rank}</span>
         </div>
       </div>
+     <#if usage.basionym??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Basionym</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.basionym.labelHtml?no_esc}</span>
+        </div>
+      </div>
+     </#if>
       <div class="ant-row Component-formItem-0-2-1">
         <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
           <div>
@@ -68,11 +109,11 @@ permalink: /data/tombstone
         </div>
         <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
           <span class="Component-content-0-2-3">
-            <div style="margin-top: -3px; margin-left: -3px;">
+            <div>
               <#list usage.classification as cl>
               <div style="float: left; margin-right: 3px;">
                 <span style="color: rgba(0, 0, 0, 0.45); font-size: 11px;">${cl.rank}: </span>
-                <a href="https://www.checklistbank.org/dataset/${last.key?c}/taxon/${cl.id}">${cl.name}</a> &gt;
+                ${cl.name} &gt;
               </div>
               </#list>
             </div>
