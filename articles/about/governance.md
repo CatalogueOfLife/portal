@@ -33,22 +33,19 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 
 
 #### Members of the Catalogue of Life Global Team
-* **Nicolas Bailly** (Canada)
+* **Leen Vandepitte** (Belgium), Chair
+* **Thomas Pape** (Denmark), Vice Chair
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano** (Argentina)
 * **Markus D&ouml;ring** (Germany)
 * **Anne Fuchs** (Australia)
 * **Stephen Garnett** (Australia)
 * **Donald Hobern** (Australia)
-* **Tsuyoshi Hosoya** (Japan)
 * **David Nicolson** (USA)
 * **Li-Qiang Ji** (China)
 * **Thomas Orrell** (USA)
-* **Thomas Pape** (Denmark)
 * **Richard Pyle** (USA)
 * **Lauren Raz** (Colombia)
-* **Jacek Swedo** (Poland)
-* **Leen Vandepitte** (Belgium), Chair
 * **Nina Wambiji** (Kenya)
 * **Haylee Weaver** (Australia)
  
@@ -77,6 +74,24 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Markus D&ouml;ring** (Germany)
 * **Tim Robertson** (Denmark)
 * **Bart Vanhoorne** (Belgium)
+
+#### Members of the Species List Governance Group
+* **Stephen Garnett** (Australia), Chair
+* **Olaf B&aacute;nki** (Netherlands), Ex Officio
+* **Saroj Barik** (India)
+* **Maria Marta Cigliano** (Argentina)
+* **Dalia Conde Ovando** (Denmark)
+* **Stijn Conix** (Belgium)
+* **Craig Hilton-Taylor** (UK)
+* **Donald Hobern** (Australia), Ex Officio
+* **Aaron Lien** (USA)
+* **Lauren Raz** (Colombia)
+* **Kevin Thiele** (Australia)
+* **Scott Thomson** (Brasil)
+* **Leen Vandepitte** (Belgium), Ex Officio
+* **Peter Paul van Dijk** (USA)
+* **Nina Wambiji** (Kenya)
+* **Anthony Whalen** (Australia)
 
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiversity Center hosts the secretariat, the Illinois Natural History Survey hosts the editorial office, and the Global Biodiversity Information Facility hosts the infrastructure.
