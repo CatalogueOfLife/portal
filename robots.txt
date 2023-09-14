@@ -8,8 +8,8 @@ crawl-delay: 0.1
 {% if jekyll.environment == "prod" %}
 Disallow: /annual-checklist
 
-Sitemap: /sitemap.txt
-Sitemap: /sitemap-datasets.txt
+Sitemap: https://www.catalogueoflife.org/sitemap.txt
+Sitemap: https://www.catalogueoflife.org/sitemap-datasets.txt
 
 {% include sitemap-index.txt %}
 
