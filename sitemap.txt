@@ -1,0 +1,20 @@
+---
+# intentionally left blank so that jekyll activates liquid
+---
+
+https://www.catalogueoflife.org/about/catalogueoflife
+https://www.catalogueoflife.org/about/colpipeline
+https://www.catalogueoflife.org/about/colcommunity
+https://www.catalogueoflife.org/about/contributors
+https://www.catalogueoflife.org/about/colusage
+https://www.catalogueoflife.org/about/governance
+https://www.catalogueoflife.org/about/funding
+https://www.catalogueoflife.org/about/glossary.html
+https://www.catalogueoflife.org/news/index
+https://www.catalogueoflife.org/category/api/index
+https://www.catalogueoflife.org/category/identifier/index
+https://www.catalogueoflife.org/2022/03/23/name-ids
+https://www.catalogueoflife.org/2021/04/14/stable-ids
+https://www.catalogueoflife.org/category/general/index
+https://www.catalogueoflife.org/category/release/index
+https://www.catalogueoflife.org/contact
