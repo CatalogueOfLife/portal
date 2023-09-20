@@ -80,11 +80,11 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Saroj Barik** (India)
 * **Maria Marta Cigliano** (Argentina)
-* **Dalia Conde Ovando** (Denmark)
 * **Stijn Conix** (Belgium)
 * **Craig Hilton-Taylor** (UK)
 * **Donald Hobern** (Australia), Ex Officio
 * **Aaron Lien** (USA)
+* **Dalia Conde Ovando** (Denmark)
 * **Lauren Raz** (Colombia)
 * **Kevin Thiele** (Australia)
 * **Scott Thomson** (Brasil)
@@ -92,6 +92,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Peter Paul van Dijk** (USA)
 * **Nina Wambiji** (Kenya)
 * **Anthony Whalen** (Australia)
+* **Frank Zachos** (Austria)
 
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. Naturalis Biodiversity Center hosts the secretariat, the Illinois Natural History Survey hosts the editorial office, and the Global Biodiversity Information Facility hosts the infrastructure.
