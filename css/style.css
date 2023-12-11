@@ -3913,6 +3913,10 @@ anchor {
     padding-bottom: 10px;
 }
 
+img.cbdr-logo  {
+  height: 48px !important;
+}
+
 .eu-logo .caption {
     font-family: Verdana, Arial, sans-serif;
     font-size: 10px;
