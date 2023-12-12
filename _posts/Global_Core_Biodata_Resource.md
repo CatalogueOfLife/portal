@@ -1,0 +1,25 @@
+---
+layout: post
+title: Catalogue of Life recognised as a Global Core Biodata Resource
+author: "Olaf Bánki"
+excerpt: A congratulations to the Catalogue of Life consortium!
+categories: Partnerships
+---
+
+[Catalogue of Life](https://www.catalogueoflife.org/) is a collaboration and data resource with the aim for a consistent and up-to-date listing of all the world’s known species. It's been in existence for over 27 years. At present 2,1 million described species are covered. A global community of more than 500 [taxonomic experts](https://www.catalogueoflife.org/about/contributors) is involved. The Catalogue of Life infrastructure, [ChecklistBank](https://www.checklistbank.org), contains close to 50k openly accessible taxonomic datasets. It also offers tooling for comparing taxonomic datasets and for building species lists.
+
+*The designation of Catalogue of Life as a crucial Global Core Biodata Resource is a recognition that the efforts to catalogue all described organisms by taxonomic experts worldwide are being seen and valued. Most of the world’s biodiversity data is validated through this work. Quality of data is essential for informed decision making and promoting the best possible science*, states Olaf Bánki, Executive Secretary of Catalogue of Life.
+
+A global index of all described organisms, covering all life on earth, is an essential datasource for science. Scientists are able to validate research data taxonomically, and biodiversity data infrastructures, like the [Global Biodiversity Information Facility](https://www.gbif.org), also a Global Core Biodata Resource, can provide access and discovery to species information by using Catalogue of Life. Uses of the Catalogue of Life go beyond science into a variety of domains, like health, legislation, border security, nature management, forestry, fisheries and agriculture. Also for the implementation of the Global Biodiversity Framework of the [Convention on Biological Diversity](https://cbd.int) trusted baseline information on species is required.
+
+Getting towards a complete global list of described organisms is still a challenge. Most efforts by taxonomic experts are done on a voluntary basis. Large parts of the required information like type specimens where species descriptions are based upon or literature with published descriptions, are still locked up in silo’s; remain undigitized. In addition, the same organisms have been described numerous times, resulting in multiple scientific names for the same organism, which need to be sorted out. Much more effort is required to scale up the global activity around the Catalogue of Life. Without proper species validation, large biodiversity data streams remain untrustworthy, potentially driving the wrong conclusions.
+
+Through its [Global Core Biodata Resource designation](https://globalbiodata.org/what-we-do/global-core-biodata-resources/list-of-current-global-core-biodata-resources/), the [Global Biodata Coalition](https://globalbiodata.org/) seeks to draw the attention of life science funders to the most critical of the global set of biodata resources and to better understand the challenges and needs for biodata resource long-term sustainability. The GCBRs are deposition databases and knowledge bases of fundamental importance to the global life sciences and biomedical research communities, providing open access and long-term preservation of key biological data. Sustained, long-term support for these databases is paramount, as their discontinuation would have a highly detrimental impact on the global research endeavour.
+ 
+Catalogue of life congratulates all the experts involved who contribute to the global species data resource, as well as key partners in getting data prepared, such as the [World Register of Marine Species](https://www.marinespecies.org/), the [Integrated Taxonomic Information System](https://www.itis.gov/), [TaxonWorks/Species Files](https://taxonworks.org/), the [World Flora Online](https://www.worldfloraonline.org/), the [Freshwater Animal Diversity Assessment](http://fada.biodiversity.be/), [Plazi](https://plazi.org/), [Zoobank](https://zoobank.org/), [IPNI](https://www.ipni.org/) and many others. A special congratulations to [LPSN](https://www.bacterio.net/) -List of Prokaryotic names with Standing in Nomenclature , who also received the recognition as a Global Core Biodata Resource.
+
+We thank all the funders in the period 2018 to 2023 for their support in making the Catalogue of Life endeavor possible. These include: the European Commission, Naturalis Biodiversity Center / Netherlands Biodiversity Information Facility, University of Illinois / Species Files, Chinese Academy of Sciences / Biodiversity Committee, Global Biodiversity Information Facility, Ministry of Education, Culture, and Science, Netherlands, Smithsonian Institution / Integrated Taxonomic Information System, Species 2000, Stichting ter Bevordering van Natuurwetenschappelijk Onderzoek.
+
+![Catalogue of LIfe Logo](/images/posts/col_logo.png)
+
+![Global Core Biodata Resource Logo](/images/posts/GCBR-Logo-RGB.svg)
