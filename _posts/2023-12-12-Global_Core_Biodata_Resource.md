@@ -20,6 +20,6 @@ Catalogue of life congratulates all the experts involved who contribute to the g
 
 We thank all the funders in the period 2018 to 2023 for their support in making the Catalogue of Life endeavor possible. These include: the European Commission, Naturalis Biodiversity Center / Netherlands Biodiversity Information Facility, University of Illinois / Species Files, Chinese Academy of Sciences / Biodiversity Committee, Global Biodiversity Information Facility, Ministry of Education, Culture, and Science, Netherlands, Smithsonian Institution / Integrated Taxonomic Information System, Species 2000, Stichting ter Bevordering van Natuurwetenschappelijk Onderzoek.
 
-![Catalogue of LIfe Logo](/images/posts/col_logo.png)
+![Catalogue of LIfe Logo](/images/posts/col_logo.svg)
 
 ![Global Core Biodata Resource Logo](/images/posts/GCBR-Logo-RGB.svg)
