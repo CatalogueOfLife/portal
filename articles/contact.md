@@ -14,7 +14,7 @@ permalink: /contact
         <div class='form'>
           <div class='row'>
             <div class="embed" id="contact-map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2447.3215710042055!2d4.471177615939021!3d52.164846579748534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5c6e420d64c0f%3A0x34beee6fe3741827!2sDarwinweg%202%2C%202333%20CR%20Leiden%2C%20Holland!5e0!3m2!1sda!2sdk!4v1603099880777!5m2!1sda!2sdk" width="640" height="400" frameborder="0" style="border:0; width: 100%" allowfullscreen=""></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9756.936302881788!2d5.005945617773553!3d52.311754880888934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60db161e340cd%3A0xd39abc567e687e8a!2sNoord%2C%20Pampuslaan%2059%2C%201382%20JM%20Weesp!5e0!3m2!1snl!2snl!4v1706105189105!5m2!1snl!2snl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
           </div>
         </div>
@@ -24,14 +24,15 @@ permalink: /contact
         <div class='contact-details'>
           <h4>Visitor address:</h4>
           <p>
-          Species 2000 Secretariat<br/>
-          Naturalis<br/>
-          Darwinweg 2<br/>
-          2333 CR Leiden<br/>
+          Catalogue of Life<br/>
+          Species 2000<br/>
+          Secretariat<br/>
+          Pampuslaan 59<br/>
+          1382 JM Weesp, Amsterdam<br/>
           The Netherlands
           </p>
           <h4>Our Phone:</h4>
-          <p><a href="tel:+31 (0)71 7519 362">+31 (0)71 7519 362</a></p>
+          New phone number soon to come</a></p>
           <h4>For questions, feedback and support:</h4>
           <p><a href="mailto:support@catalogueoflife.org">support@catalogueoflife.org</a></p>
           <h4>General enquiries:</h4>
