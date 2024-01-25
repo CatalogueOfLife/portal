@@ -32,7 +32,8 @@ permalink: /contact
           The Netherlands
           </p>
           <h4>Our Phone:</h4>
-          New phone number soon to come</a></p>
+          New phone number soon to come
+          </p>
           <h4>For questions, feedback and support:</h4>
           <p><a href="mailto:support@catalogueoflife.org">support@catalogueoflife.org</a></p>
           <h4>General enquiries:</h4>
