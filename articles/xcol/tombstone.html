@@ -1,0 +1,150 @@
+---
+layout: default
+noindex: true
+title: Deleted
+tagline: This name once existed but has been removed
+homeButtonTitle: Home
+imageUrl: /images/species/Raphus_cucullatus.jpg
+imageCaption: _Raphus cucullatus_ (Linnaeus, 1758) - [Photo CC By Museum of Comparative Zoology, Harvard University](https://mczbase.mcz.harvard.edu/MediaSet.cfm?media_id=74781)
+section_id: xcol
+permalink: /xcol/tombstone
+---
+
+<style>
+.Component-label-0-2-2 {
+  color: rgba(0, 0, 0, 0.85);
+  display: block;
+}
+.Component-formItem-0-2-1 {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0;
+}
+.Component-smallMargin-0-2-6 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+</style>
+
+<div class='full parallax' style='position: relative; background-image: url({{page.imageUrl}}); color: #fff;'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      {% include section-header.html title=page.title tagline=page.tagline color="#fff" class="big" %}
+    </div>
+  </div>
+  <div class='four spacing'></div>
+  <div class="caption caption-absolute">
+    {{ page.imageCaption | markdownify }}
+  </div>
+</div>
+
+
+<div class='full' style="background-color: antiquewhite;">
+  <div id="taxon" class="row">
+    <div class="catalogue-of-life" style="padding: 24px; min-height: 280px; margin: 16px 0px; font-size: 12px;">
+      <div class="ant-row">
+        <div class="ant-col"><h1 style="font-size: 30px; font-weight: 400; padding-left: 10px; display: inline-block; text-transform: none;">${usage.labelHtml?no_esc}</h1></div>
+      </div>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">COL Identifier</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.getId()}</span>
+        </div>
+      </div>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">History</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">        
+          <span class="Component-content-0-2-3">First issued in release <a href="https://www.checklistbank.org/dataset/${first.key?c}/taxon/${usage.getId()}">${first.alias!first.version}</a>. 
+          Last used in release <a href="https://www.checklistbank.org/dataset/${last.key?c}/taxon/${usage.getId()}">${last.alias!last.version}</a></span>
+        </div>
+      </div>
+     <#if usage.publishedIn??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Published in</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.publishedIn}</span>
+        </div>
+      </div>
+     </#if>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Checklist status</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.status} ${usage.rank}</span>
+        </div>
+      </div>
+     <#if usage.basionym??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Basionym</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">${usage.basionym.labelHtml?no_esc}</span>
+        </div>
+      </div>
+     </#if>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Classification</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">
+            <div>
+              <#list usage.classification as cl>
+              <div style="float: left; margin-right: 3px;">
+                <span style="color: rgba(0, 0, 0, 0.45); font-size: 11px;">${cl.rank}: </span>
+                ${cl.name} &gt;
+              </div>
+              </#list>
+            </div>
+          </span>
+        </div>
+      </div>
+     <#if source??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Source dataset</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3"><a href="https://www.checklistbank.org/dataset/${source.key?c}">${source.title}</a></span>
+        </div>
+      </div>
+     </#if>
+     <#if usage.link??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Link to original resource</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3"><a href="${usage.link}">${usage.link}</a></span>
+        </div>
+      </div>
+     </#if>
+    </div>
+  </div>
+  <div class='four spacing'></div>
+</div>

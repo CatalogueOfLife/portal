@@ -67,6 +67,13 @@ react:
     pathToSearch: "/data/search" # path to the search page for crosslinking between react components
     pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
 
+react_xcol:
+    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
+    pathToTaxon: "/xcol/taxon/" # path to the taxon page for crosslinking between react components
+    pathToTree: "/xcol/browse" # path to the tree browser for crosslinking between react components
+    pathToSearch: "/xcol/search" # path to the search page for crosslinking between react components
+    pathToDataset: "/xcol/dataset/" # path to the dataset page for crosslinking between react components
+
 milestones:
   items:
     - image: Podarcis.jpg
