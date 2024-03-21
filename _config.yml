@@ -60,13 +60,6 @@ col:
   defaultImageCaption: "[A description](https://www.some.org/where) would go here ([CC BY-NC 4.0](http://creativecommons.org/licenses/by-nc/4.0/))"
   datasetKey: 3
 
-react:
-    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
-    pathToTaxon: "/data/taxon/" # path to the taxon page for crosslinking between react components
-    pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
-    pathToSearch: "/data/search" # path to the search page for crosslinking between react components
-    pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
-
 milestones:
   items:
     - image: Podarcis.jpg
@@ -97,6 +90,22 @@ milestones:
       bgcolor: 2db261
       fgcolor: ecf7ef
       link: /index?taxonKey=Z
+
+react:
+    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
+    pathToTaxon: "/data/taxon/" # path to the taxon page for crosslinking between react components
+    pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
+    pathToSearch: "/data/search" # path to the search page for crosslinking between react components
+    pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
+    auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
+
+react_base:
+    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
+    pathToTaxon: "/beta-col/taxon/" # path to the taxon page for crosslinking between react components
+    pathToTree: "/beta-col/browse" # path to the tree browser for crosslinking between react components
+    pathToSearch: "/beta-col/search" # path to the search page for crosslinking between react components
+    pathToDataset: "/beta-col/dataset/" # path to the dataset page for crosslinking between react components
+    auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
 
 metadata:
   key: 3
