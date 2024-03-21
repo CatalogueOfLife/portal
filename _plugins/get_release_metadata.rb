@@ -12,7 +12,9 @@ module GetReleaseMetadata
 
     def generate(site)
       md = site.config['metadata']
+
       mdb = md.clone
+      mdb['private']=true # the xcol currently is only ever private
       site.config['metadata_base'] = mdb
 
       # swap RELEASE and XRELEASE once we go live!
@@ -41,11 +43,7 @@ module GetReleaseMetadata
         return
       end
 
-      priv = ""
-      if ! md['private']
-        priv = "&private=false"
-      end
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&limit=2#{priv}"), user, pass)
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&private=#{priv}{}&limit=2"), user, pass)
       md['current'] = rels['result'][0]
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
