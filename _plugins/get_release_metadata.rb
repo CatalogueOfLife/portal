@@ -12,6 +12,20 @@ module GetReleaseMetadata
 
     def generate(site)
       md = site.config['metadata']
+      mdb = md.clone
+      site.config['metadata_base'] = mdb
+
+      # swap RELEASE and XRELEASE once we go live!
+      releaseKey = generateOneRelease(md, 'RELEASE')
+      puts "Using release key #{releaseKey}"
+      site.config['react']['datasetKey']
+
+      releaseKey = generateOneRelease(mdb, 'XRELEASE')
+      puts "Using base release key #{releaseKey}"
+      site.config['react_base']['datasetKey']
+    end
+
+    def generateOneRelease(md, origin)
       api = md['api']
       key = md['key']
       user = md['user']
@@ -31,12 +45,10 @@ module GetReleaseMetadata
       if ! md['private']
         priv = "&private=false"
       end
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&limit=2#{priv}"), user, pass)
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&limit=2#{priv}"), user, pass)
       md['current'] = rels['result'][0]
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
-      puts "Using release key #{releaseKey}"
-      site.config['react']['datasetKey'] = releaseKey
 
       md['sources'] = load(URI("#{api}/dataset/#{releaseKey}/source"), user, pass)
       md['sources'].each { |d| addAgentLabels(d)}            
@@ -47,6 +59,7 @@ module GetReleaseMetadata
       else
         puts "No previous release key"
       end
+      return releaseKey
     end
 
 
