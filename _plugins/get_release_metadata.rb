@@ -11,23 +11,26 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      md = site.config['metadata']
+      md1 = site.config['metadata']
+      r1 = site.config['react']
 
-      mdb = md.clone
-      mdb['private']=true # the xcol currently is only ever private
-      site.config['metadata_base'] = mdb
+      md2 = md1.clone
+      md2['private']=true # the xcol currently is only ever private
+      r2 = r1.clone
+      site.config['metadata_base'] = md2
+      site.config['react_base'] = r2
 
       # swap RELEASE and XRELEASE once we go live!
-      releaseKey = generateOneRelease(md, 'RELEASE')
+      releaseKey = generateRelease(md1, 'RELEASE')
       puts "Using release key #{releaseKey}"
-      site.config['react']['datasetKey']
+      r1['datasetKey'] = releaseKey
 
-      releaseKey = generateOneRelease(mdb, 'XRELEASE')
+      releaseKey = generateRelease(md2, 'XRELEASE')
       puts "Using base release key #{releaseKey}"
-      site.config['react_base']['datasetKey']
+      r2['datasetKey'] = releaseKey
     end
 
-    def generateOneRelease(md, origin)
+    def generateRelease(md, origin)
       api = md['api']
       key = md['key']
       user = md['user']
