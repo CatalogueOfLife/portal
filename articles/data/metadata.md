@@ -13,11 +13,11 @@ seo_include: seo_metadata.html
 ## Version
 
 <div id="version">  
-  Issued: <i>{{site.metadata_base.current.version}}</i>
+  Issued: <i>{{site.metadata.current.version}}</i>
   <br/>
-  DOI: <a href="https://doi.org/{{site.metadata_base.current.doi}}">{{site.metadata_base.current.doi}}</a>
+  DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
   <br/>
-  ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata_base.current.key}}/about">{{site.metadata_base.current.key}}</a>
+  ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
   <br/>
   <br/>
 </div>
@@ -25,15 +25,15 @@ seo_include: seo_metadata.html
 
 ## Abstract
 
-{{site.metadata_base.current.description}}
+{{site.metadata.current.description}}
 
 ## Recommended citation
 
 <div id="bibtex" style="float: right;">
-<a href="https://api.checklistbank.org/dataset/{{ site.react_base.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
+<a href="https://api.checklistbank.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
 </div>
 
-{{site.metadata_base.current.citation}}
+{{site.metadata.current.citation}}
 <br/>
 Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
 
@@ -41,12 +41,12 @@ Please also read the <a href="/about/colusage#recommended-citations">recommended
 
 <div id="authors">  
   <ul>
-  {% for a in site.metadata_base.current.creator %}
+  {% for a in site.metadata.current.creator %}
     <li>{{a.label}}</li>
   {% endfor %}
   </ul>
 </div>
 
 ### Publisher
-{{site.metadata_base.current.publisher.label}}
+{{site.metadata.current.publisher.label}}
 

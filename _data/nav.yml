@@ -26,7 +26,7 @@
       desc: "Current and historical versions of the COL Checklist"
 - name: Beta COL
   path: /beta-col/search
-  section_id: data
+  section_id: beta-col
   children:
     - name: Search
       path: /beta-col/search
