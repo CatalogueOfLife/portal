@@ -32,7 +32,7 @@ class DatasetSearch extends React.Component {
   
       return e(
         ColBrowser.DatasetSearch,
-        { catalogueKey: '{{ site.react.datasetKey }}' ,  pathToDataset: '{{ site.react_xcol.pathToDataset }}', pathToSearch: '{{ site.react_xcol.pathToSearch }}', auth: '{{ site.react.auth }}'}
+        { catalogueKey: '{{ site.react.datasetKey }}' ,  pathToDataset: '{{ site.react.pathToDataset }}', pathToSearch: '{{ site.react.pathToSearch }}', auth: '{{ site.react.auth }}'}
       );
     }
   }

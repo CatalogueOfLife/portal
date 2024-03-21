@@ -9,7 +9,7 @@ imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](
 ---
 
 # Browse the Catalogue of Life Checklist
-Use this tree to explore the full classification from the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist. 
+Use this tree to explore the full classification from the current <a href="/data/metadata">version {{site.metadata_base.current.version}}</a> of the COL Checklist. 
 The **Find taxon** field allows for direct access using any name known to COL.
 
 
@@ -27,7 +27,7 @@ class PublicTree extends React.Component {
        
       return e(
         ColBrowser.Tree,
-        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}' , auth: '{{ site.react.auth }}', showTreeOptions: true}
+        { catalogueKey: '{{ site.react_base.datasetKey }}' , pathToTaxon: '{{ site.react_base.pathToTaxon }}', pathToDataset: '{{ site.react_base.pathToDataset }}' , auth: '{{ site.react_base.auth }}', showTreeOptions: true}
       );
     }
   }

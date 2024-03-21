@@ -10,12 +10,12 @@ permalink: /data/source-datasets
 ---
 
 
-The data in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist have been provided by the resources listed below.
+The data in the current <a href="/data/metadata">version {{site.metadata_base.current.version}}</a> of the COL Checklist have been provided by the resources listed below.
 
 Per data source the number of living and extinct species are indicated that contribute to the COL Checklist. These include all [accepted and provisionally accepted species]({{ site.url }}/about/glossary.html). Most datasets include one or more sectors that feed into COL and cover all of the world's species in a particular group of organisms. 
 These result from collaboration and editing by many expert taxonomists, whose names are found in the information for each dataset. A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
 
-Detailed statistics on species and other ranks can be found on the taxon pages, for example under [biota]({{ site.url }}/data/taxon/5T6MX). A [detailed summary of sources and their changes to previous releases](https://www.checklistbank.org/dataset/{{ site.react.datasetKey }}/sourcemetrics?hideUnchanged=true&releaseKey={{ site.metadata.previous.key }}) is available in Checklist Bank.
+Detailed statistics on species and other ranks can be found on the taxon pages, for example under [biota]({{ site.url }}/data/taxon/5T6MX). A [detailed summary of sources and their changes to previous releases](https://www.checklistbank.org/dataset/{{ site.react_base.datasetKey }}/sourcemetrics?hideUnchanged=true&releaseKey={{ site.metadata_base.previous.key }}) is available in Checklist Bank.
 
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="datasetSearch"></div>
@@ -32,7 +32,7 @@ class DatasetSearch extends React.Component {
   
       return e(
         ColBrowser.DatasetSearch,
-        { catalogueKey: '{{ site.react.datasetKey }}' ,  pathToDataset: '{{ site.react.pathToDataset }}', pathToSearch: '{{ site.react.pathToSearch }}', auth: '{{ site.react.auth }}'}
+        { catalogueKey: '{{ site.react_base.datasetKey }}' ,  pathToDataset: '{{ site.react_base.pathToDataset }}', pathToSearch: '{{ site.react_base.pathToSearch }}', auth: '{{ site.react_base.auth }}'}
       );
     }
   }

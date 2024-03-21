@@ -2,22 +2,22 @@
 layout: content
 title: Download
 tagline: Current and historical versions of the COL Checklist
-section_id: data
+section_id: xcol
 imageUrl: /images/species/Hyposmocoma_fractistriata.jpg    
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
-permalink: /data/download
+permalink: /xcol/download
 ---
 
-## The COL Checklist version {{site.metadata.current.version}}
+## The COL Checklist version {{site.metadata_base.current.version}}
 You can download the current version of the entire COL Checklist here: 
 
- - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP)
- - [Darwin Core Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA)
- - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree)
+ - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata_base.current.key}}/export.zip?extended=true&format=ColDP)
+ - [Darwin Core Archive](https://api.checklistbank.org/dataset/{{site.metadata_base.current.key}}/export.zip?extended=true&format=DwCA)
+ - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata_base.current.key}}/export.zip?format=TextTree)
 
 Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
-ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
+ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata_base.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 
 ## Historical versions of the COL Checklist

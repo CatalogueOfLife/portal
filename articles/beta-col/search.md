@@ -27,7 +27,7 @@ class PublicSearch extends React.Component {
   
       return e(
         ColBrowser.Search,
-        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react_xcol.pathToTaxon }}', auth: '{{ site.react.auth }}' }
+        { catalogueKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', auth: '{{ site.react.auth }}' }
       );
     }
   }
