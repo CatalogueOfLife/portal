@@ -2,14 +2,14 @@
 layout: content
 title: Search
 tagline: Find species and other taxa by name
-section_id: xcol
-permalink: /xcol/search
+section_id: beta-col
+permalink: /beta-col/search
 imageUrl: /images/species/Aphomia_sociella.jpg
 imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/18189103153)
 ---
 
 # Search the extended Catalogue of Life Checklist
-Use this search form to find any name in the current <a href="/xcol/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist.
+Use this search form to find any name in the current <a href="/beta-col/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist.
 
 
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">

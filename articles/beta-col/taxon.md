@@ -2,8 +2,8 @@
 layout: default
 title: Taxon
 tagline: This would probably be a custom page
-section_id: xcol
-permalink: /xcol/taxon
+section_id: beta-col
+permalink: /beta-col/taxon
 seo_include: seo_taxon.html
 ---
 

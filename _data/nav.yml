@@ -24,6 +24,25 @@
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the COL Checklist"
+- name: Beta COL
+  path: /beta-col/search
+  section_id: data
+  children:
+    - name: Search
+      path: /beta-col/search
+      desc: "Find species and other taxa by name"
+    - name: Browse
+      path: /beta-col/browse
+      desc: "Explore the catalogue of life through their classification"
+    - name: Metadata
+      path: /beta-col/metadata
+      desc: "Metadata about the Beta COL Checklist"
+    - name: Sources
+      path: /beta-col/sources
+      desc: "Browse the sourcess that make up the Beta COL"
+    - name: Download
+      path: /beta-col/download
+      desc: "Current and historical versions of the Beta COL Checklist"
 - name: About
   path: /about/catalogueoflife
   section_id: about

@@ -2,10 +2,10 @@
 layout: content
 title: Download
 tagline: Current and historical versions of the COL Checklist
-section_id: xcol
+section_id: beta-col
 imageUrl: /images/species/Hyposmocoma_fractistriata.jpg    
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
-permalink: /xcol/download
+permalink: /beta-col/download
 ---
 
 ## The COL Checklist version {{site.metadata.current.version}}

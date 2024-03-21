@@ -2,14 +2,14 @@
 layout: content
 title: Browse
 tagline: Explore the world's species through their classification
-section_id: xcol
-permalink: /xcol/browse
+section_id: beta-col
+permalink: /beta-col/browse
 imageUrl: /images/species/Patiriella_calcar.jpg
 imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/42551733071)
 ---
 
 # Browse the Catalogue of Life Checklist
-Use this tree to explore the full classification from the current <a href="/xcol/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist. 
+Use this tree to explore the full classification from the current <a href="/beta-col/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist. 
 The **Find taxon** field allows for direct access using any name known to COL.
 
 

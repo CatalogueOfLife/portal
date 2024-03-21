@@ -3,14 +3,14 @@ layout: content
 toc: false
 title: Source datasets
 tagline: Taxonomic communities contributing data to COL
-section_id: xcol
+section_id: beta-col
 imageUrl: /images/species/Oedemera_nobilis.jpg    
 imageCaption: _Oedemera nobilis_ (Scopoli, 1763) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
-permalink: /xcol/source-datasets
+permalink: /beta-col/sources
 ---
 
 
-The data in the current <a href="/xcol/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist have been provided by the resources listed below.
+The data in the current <a href="/beta-col/metadata">version {{site.metadata.current.version}}</a> of the COL Checklist have been provided by the resources listed below.
 
 Per data source the number of living and extinct species are indicated that contribute to the COL Checklist. These include all [accepted and provisionally accepted species]({{ site.url }}/about/glossary.html). Most datasets include one or more sectors that feed into COL and cover all of the world's species in a particular group of organisms. 
 These result from collaboration and editing by many expert taxonomists, whose names are found in the information for each dataset. A few datasets are listed as containing no species. These contribute to the higher classification for the Catalogue of Life.
