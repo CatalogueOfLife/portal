@@ -11,7 +11,26 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      md = site.config['metadata']
+      md1 = site.config['metadata']
+      r1 = site.config['react']
+
+      md2 = md1.clone
+      md2['private']=true # the xcol currently is only ever private
+      r2 = r1.clone
+      site.config['metadata_base'] = md2
+      site.config['react_base'] = r2
+
+      # swap RELEASE and XRELEASE once we go live!
+      releaseKey = generateRelease(md1, 'RELEASE')
+      puts "Using release key #{releaseKey}"
+      r1['datasetKey'] = releaseKey
+
+      releaseKey = generateRelease(md2, 'XRELEASE')
+      puts "Using base release key #{releaseKey}"
+      r2['datasetKey'] = releaseKey
+    end
+
+    def generateRelease(md, origin)
       api = md['api']
       key = md['key']
       user = md['user']
@@ -27,16 +46,10 @@ module GetReleaseMetadata
         return
       end
 
-      priv = ""
-      if ! md['private']
-        priv = "&private=false"
-      end
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&limit=2#{priv}"), user, pass)
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&private=#{priv}&limit=2"), user, pass)
       md['current'] = rels['result'][0]
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
-      puts "Using release key #{releaseKey}"
-      site.config['react']['datasetKey'] = releaseKey
 
       md['sources'] = load(URI("#{api}/dataset/#{releaseKey}/source"), user, pass)
       md['sources'].each { |d| addAgentLabels(d)}            
@@ -47,6 +60,7 @@ module GetReleaseMetadata
       else
         puts "No previous release key"
       end
+      return releaseKey
     end
 
 
