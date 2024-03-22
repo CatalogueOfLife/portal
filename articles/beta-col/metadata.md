@@ -2,7 +2,7 @@
 layout: content
 toc: false
 title: Metadata
-tagline: About the current XCOL Checklist
+tagline: About the current BETA COL Checklist
 section_id: beta-col
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)

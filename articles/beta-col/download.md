@@ -8,7 +8,7 @@ imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donal
 permalink: /beta-col/download
 ---
 
-## The COL Checklist version {{site.metadata_base.current.version}}
+## The BETA COL Checklist version {{site.metadata_base.current.version}}
 You can download the current version of the entire COL Checklist here: 
 
  - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata_base.current.key}}/export.zip?extended=true&format=ColDP)

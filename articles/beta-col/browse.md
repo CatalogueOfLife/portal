@@ -9,8 +9,8 @@ imageCaption: _Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](
 ---
 
 # Browse the Catalogue of Life Checklist
-Use this tree to explore the full classification from the current <a href="/beta-col/metadata">version {{site.metadata_base.current.version}}</a> of the COL Checklist. 
-The **Find taxon** field allows for direct access using any name known to COL.
+Use this tree to explore the full classification from the current <a href="/beta-col/metadata">version {{site.metadata_base.current.version}}</a> of the BETA COL Checklist. 
+The **Find taxon** field allows for direct access using any name known to the BETA COL.
 
 
 <div class="row" style="background: white; margin-top: 00px; margin-bottom: 00px">
