@@ -3,7 +3,7 @@ layout: default
 title: Dataset
 section_id: beta-col
 permalink: /beta-col/dataset
-seo_include: seo_dataset.html
+# seo_include: seo_dataset.html
 ---
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">

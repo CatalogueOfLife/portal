@@ -4,7 +4,7 @@ title: Taxon
 tagline: This would probably be a custom page
 section_id: beta-col
 permalink: /beta-col/taxon
-seo_include: seo_taxon.html
+# seo_include: seo_taxon.html
 ---
 
 <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
