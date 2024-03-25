@@ -8,8 +8,8 @@ imageUrl: /images/species/Aphomia_sociella.jpg
 imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/18189103153)
 ---
 
-# Search the extended Catalogue of Life Checklist
-Use this search form to find any name in the current <a href="/beta-col/metadata">version {{site.metadata_base.current.version}}</a> of the BETA COL Checklist.
+# Search the BETA Catalogue of Life Checklist
+Use this search form to find any name in the current <a href="/beta-col/metadata">version {{site.metadata_base.current.version}}</a> of the BETA COL Checklist. Merged taxa are marked with an <code>*</code>
 
 
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">

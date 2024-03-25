@@ -7,7 +7,7 @@ section_id: beta-col
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
 permalink: /beta-col/metadata
-seo_include: seo_metadata.html
+# seo_include: seo_metadata.html
 ---
 
 ## Version
