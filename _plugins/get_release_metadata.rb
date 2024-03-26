@@ -19,9 +19,9 @@ module GetReleaseMetadata
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
 
-      releaseKey = generateRelease(site.config['metadata_base'], 'XRELEASE')
-      puts "Using base release key #{releaseKey}"
-      site.config['react_base']['datasetKey'] = releaseKey
+      #releaseKey = generateRelease(site.config['metadata_base'], 'XRELEASE')
+      #puts "Using base release key #{releaseKey}"
+      #site.config['react_base']['datasetKey'] = releaseKey
     end
 
     def generateRelease(md, origin)
