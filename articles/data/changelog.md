@@ -9,6 +9,21 @@ imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://
 permalink: /data/changelog
 ---
 
+<style>
+  dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
+}
+</style>
+
 ## Current Version
 
 <div id="version">  
@@ -27,8 +42,9 @@ permalink: /data/changelog
 <div id="changes">  
 {% for r in site.changelog %}
   <h2><a href="https://www.checklistbank.org/dataset/{{r.d.key}}">{{r.d.alias}}</a></h2>
-  <span>{{r.d.created}}</span>
   <dl>
+      <dt>Created</dt>
+      <dd>{{r.d.created}}</dd>
       <dt>Sources</dt>
       <dd>{{r.sources}}</dd>
 
