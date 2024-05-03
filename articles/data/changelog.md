@@ -78,6 +78,3 @@ dd {
 </div>
 
 
-### Publisher
-{{site.metadata.current.publisher.label}}
-
