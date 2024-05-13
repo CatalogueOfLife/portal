@@ -13,7 +13,7 @@ You can download the current version of the entire COL Checklist here:
 
  - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP)
  - [Darwin Core Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA)
- - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree)
+ - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree)
 
 Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
