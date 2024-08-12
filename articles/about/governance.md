@@ -91,10 +91,10 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 Catalogue of Life is maintained by a distributed secretariat. The Global Biodiversity Information Facility is the administrative host as well as hosts the infrastructure, the Illinois Natural History Survey hosts part of the editorial office.
 
 * **COL Managing Director / Species 2000 Executive Secretary** - Dr. Olaf B&aacute;nki - The Netherlands
-* **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
-* **Global Species Catalogue Editor** - Ms. Diana Hernandez - Mexico
-* **Global Species Catalogue Editor** - Ms. Camila Plata - Colombia
-* **Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
+* **COL Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
+* **COL Editor** - Ms. Diana Hernandez - Mexico
+* **COL Editor** - Ms. Camila Plata - Colombia
+* **COL Database manager** - Dr. Geoff Ower - Illinois Natural History Survey, United States of America
 * Mr. Ari Örn is a volunteer with Catalogue of Life doing quality assurance checks on the ColDP archives each month 
 
 ## Infrastructure team
@@ -102,5 +102,5 @@ A dedicated GBIF team support the maintenance and expansion of the Catalogue of 
 
 The infrastructure team works closely with the Catalogue of Life Secretariat and its partners.
 
-* **Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
-* **User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
+* **COL Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
+* **COL User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark
