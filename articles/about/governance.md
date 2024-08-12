@@ -9,29 +9,16 @@ imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /about/governance
 ---
 
-Catalogue of Life (COL) was originally established as a partnership between [Species 2000](https://sp2000.org/) and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 a not-for-profit Catalogue of Life legal entity has been established. Catalogue of Life if a stichting under Dutch law with registration number KVK 86436481. Species 2000 also still exists as a not-for-profit company limited by guarantee (registered in England No. 3479405) with a board of directors. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
+Catalogue of Life (COL) was originally established as a partnership between [Species 2000] and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 a not-for-profit Catalogue of Life legal entity has been established. Catalogue of Life if a stichting under Dutch law with registration number KVK 86436481. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
 
 ## Board of Directors
-The Board of Directors deals with international policy and business issues, appoints new Directors, appoints and authorises 'The COL Global Team', including appointing the COL Global Team Chair, as well as setting up specific working groups and appoints and authorises the COL Managing Director and Species 2000 Executive Secretary.
+The Board of Directors deals with international policy and business issues, appoints new Directors, appoints and authorises 'The COL Global Team', including appointing the COL Global Team Chair, as well as setting up specific working groups and appoints and authorises the COL Managing Director.
 
 Catalogue of Life has the following board:
 
-* **Dr Peter Schalk** (Netherlands), Chair
+* **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Acting Chair
 * **Prof. W. Alex Gray** (United Kingdom), Treasurer
-* **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Secretary
-* **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, board member
-
-Species 2000 has the following board:
-
-* **Dr Peter Schalk** (Netherlands), Chair
-* **Prof. W. Alex Gray** (United Kingdom), Company Secretary
-* **Mr Francisco (Tjess) Hernandez** (Data Centre Manager, Flanders Marine Institute (VLIZ), Belgium), Member of the Board
-* **Dr Keping Ma** (Professor of Plant Ecology in Institute of Botany, Chinese Academy of Sciences, China), Member of the Board
-* **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Member of the Board
-* **Pr Thierry Bourgoin** (Mus&eacute;um National d'Histoire Naturelle, France), Member of the Board
-* **Mrs Leen Vandepitte** (Flanders Marine Institute, Belgium), Catalogue of Life Global Team Chair, Ex Officio Member
-* **Dr Thomas Orrell** (Integrated Taxonomic Information System), COL Partnership, Ex Officio Member
-* **Dr Olaf B&aacute;nki** (Netherlands) Executive Secretary Species 2000, Ex Officio Member
+* **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, Acting Secretary
 
 ## Global Team
 The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Directors, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
@@ -60,7 +47,6 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Donald Hobern** (Australia), Chair
 * **Nicolas Bailly** (Canada)
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
-* **Thierry Bourgoin** (France), Ex Officio
 * **Maria Marta Cigliano,** (Argentina)
 * **Mark Costello** (New Zealand)
 * **Edward DeWalt,** (USA), Ex Officio
@@ -74,7 +60,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Yuri Roskov** (USA), Ex Officio
 * **Michael Ruggiero** (USA)
 * **Jacek Szwedo** (Poland)
-* **Leen Vandepitte** (Belgium)
+* **Leen Vandepitte** (Belgium), Ex Officio
  
 #### Members of the Information Systems Group
 * **Olaf Bánki** (NL), acting Chair
@@ -104,7 +90,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. The Global Biodiversity Information Facility is the administrative host as well as hosts the infrastructure, the Illinois Natural History Survey hosts part of the editorial office.
 
-* **COL Managing Directors / Executive Secretary** - Dr. Olaf B&aacute;nki - The Netherlands
+* **COL Managing Director / Species 2000 Executive Secretary** - Dr. Olaf B&aacute;nki - The Netherlands
 * **Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
 * **Global Species Catalogue Editor** - Ms. Diana Hernandez - Mexico
 * **Global Species Catalogue Editor** - Ms. Camila Plata - Colombia
