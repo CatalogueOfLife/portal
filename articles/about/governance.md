@@ -9,7 +9,7 @@ imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /about/governance
 ---
 
-Catalogue of Life (COL) was originally established as a partnership between [Species 2000] and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 a not-for-profit Catalogue of Life legal entity has been established. Catalogue of Life if a stichting under Dutch law with registration number KVK 86436481. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
+Catalogue of Life (COL) was originally established as a partnership between Species 2000 and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 a not-for-profit Catalogue of Life legal entity has been established. Catalogue of Life if a stichting under Dutch law with registration number KVK 86436481. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
 
 ## Board of Directors
 The Board of Directors deals with international policy and business issues, appoints new Directors, appoints and authorises 'The COL Global Team', including appointing the COL Global Team Chair, as well as setting up specific working groups and appoints and authorises the COL Managing Director.
