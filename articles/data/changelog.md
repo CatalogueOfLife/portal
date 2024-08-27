@@ -2,7 +2,7 @@
 layout: content
 toc: false
 title: Changelog
-tagline: COL Checklist Version History
+tagline: Catalogue of Life Version History
 section_id: data
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
@@ -10,18 +10,18 @@ permalink: /data/changelog
 ---
 
 <style>
-  dl {
-  display: grid;
-  grid-template-columns: max-content auto;
-}
-
-dt {
-  grid-column-start: 1;
-}
-
-dd {
-  grid-column-start: 2;
-}
+  #changes h2 {
+    margin-top: 24px;
+  }
+  .date {
+    background-color: lightblue;
+    color: black;
+    padding: 2px 6px;
+  }
+  .stats {
+    text-decoration: underline;
+    color: black;
+  }  
 </style>
 
 ## Current Version
@@ -40,21 +40,17 @@ dd {
 ## Changes between monthly versions
 
 <div id="changes">  
-{% for r in site.changelog %}
+{% for r in site.changelog.entries %}
   <h2><a href="https://www.checklistbank.org/dataset/{{r.d.key}}">{{r.d.alias}}</a></h2>
-  <dl>
-      <dt>Created</dt>
-      <dd>{{r.d.created}}</dd>
-      <dt>Sources</dt>
-      <dd>{{r.sources}}</dd>
-
-      <dt>Families</dt>
-      <dd>{{r.imp.taxaByRankCount.family}}</dd>
-      <dt>Genera</dt>
-      <dd>{{r.imp.taxaByRankCount.genus}}</dd>
-      <dt>Species</dt>
-      <dd>{{r.imp.taxaByRankCount.species}}</dd>
-  </dl>
+  <p>
+    <span class="date">{{r.d.created | date_to_long_string}}</span> build from 
+    <span class="stats">{% include numf.html number=r.sources %}</span> sources.
+    <br/>
+    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.family %}</span> families, 
+    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.genus %}</span> genera and 
+    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.species %}</span> accepted species.
+  </p>
+ 
   {% if r.removed and r.removed.size != 0 %}
     <h4>Removed Sources</h4>
     <ul>

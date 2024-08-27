@@ -17,13 +17,16 @@
       desc: "Explore the catalogue of life through their classification"
     - name: Metadata
       path: /data/metadata
-      desc: "Metadata about the COL Checklist"
+      desc: "Metadata about the Catalogue of Life"
     - name: Source datasets
       path: /data/source-datasets
       desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Download
       path: /data/download
-      desc: "Current and historical versions of the COL Checklist"
+      desc: "Current and historical versions of the Catalogue of Life"
+    - name: Changelog
+      path: /data/changelog
+      desc: "Log of monthly changes to the Catalogue of Life"
 - name: About
   path: /about/catalogueoflife
   section_id: about
@@ -33,14 +36,14 @@
       desc: "The international community for listing species"
     - name: "The COL data pipeline"
       path: /about/colpipeline
-      desc: "ChecklistBank and the COL Checklist"
+      desc: "ChecklistBank and the Catalogue of Life"
     - name: "The COL community"
       path: /about/colcommunity
       desc: "Collaborating to list the world's species"
     - name: "The COL contributors"
       path: /about/contributors
-      desc: "All contributors to the COL Checklist"
-    - name: Using the COL Checklist
+      desc: "All contributors to the Catalogue of Life"
+    - name: Using the Catalogue of Life
       path: /about/colusage
       desc: "Accessing and citing the Checklist"
     - name: Governance

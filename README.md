@@ -4,8 +4,7 @@
 
 The website is build with [Jekyll](https://jekyllrb.com/). 
 If you want to run the project locally, then jekyll has a nice documentation of [how to get started](https://jekyllrb.com/docs/).
-`bundle install` and `bundle exec jekyll serve` should do the trick. Include `--draft` to also show draft posts.
-To build for prod set the jekyll environment appropriately:
+`bundle install` and `bundle exec jekyll serve` should do the trick. Include `--draft` to also show draft posts. To build for prod set the jekyll environment appropriately:
 `JEKYLL_ENV=prod bundle exec jekyll build`
 
 It is not necessary to run the project locally to change content. 

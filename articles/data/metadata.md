@@ -2,7 +2,7 @@
 layout: content
 toc: false
 title: Metadata
-tagline: About the current COL Checklist
+tagline: About the current Catalogue of Life
 section_id: data
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
@@ -35,7 +35,7 @@ seo_include: seo_metadata.html
 
 {{site.metadata.current.citation}}
 <br/>
-Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the COL Checklist.</a>
+Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
 
 ### Authors
 

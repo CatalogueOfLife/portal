@@ -99,12 +99,12 @@ react:
     pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
     auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
 
-react_base:
+react-x:
     datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
-    pathToTaxon: "/beta-col/taxon/" # path to the taxon page for crosslinking between react components
-    pathToTree: "/beta-col/browse" # path to the tree browser for crosslinking between react components
-    pathToSearch: "/beta-col/search" # path to the search page for crosslinking between react components
-    pathToDataset: "/beta-col/dataset/" # path to the dataset page for crosslinking between react components
+    pathToTaxon: "/data-x/taxon/" # path to the taxon page for crosslinking between react components
+    pathToTree: "/data-x/browse" # path to the tree browser for crosslinking between react components
+    pathToSearch: "/data-x/search" # path to the search page for crosslinking between react components
+    pathToDataset: "/data-x/dataset/" # path to the dataset page for crosslinking between react components
     auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
 
 metadata:
@@ -113,3 +113,6 @@ metadata:
   api: https://api.checklistbank.org
   user: coldeploy
   pass: g2o.d43svHngu4HsEp7Xwlo
+
+changelog:
+  limit: 1

@@ -31,7 +31,7 @@ Indicates whether a name is the preferred name for a species:
 ## Classification
 A list showing each of the higher taxa within which this species is included. The COL checklist is organised in a single management classification, using a hierarchy that reflects an integration of taxonomic opinion for the purpose of arranging species checklists from different providers into one classification system. The management classification includes higher ranks appropriate for each taxonomic group.
 
-## COL Checklist
+## Catalogue of Life
 A freely accessible global index of species, showing which species is referenced by any scientific name. The checklist is an aggregation of data provided by many taxonomic communities across the world.
 
 ## Distribution

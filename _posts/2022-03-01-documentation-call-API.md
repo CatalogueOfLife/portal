@@ -9,7 +9,7 @@ categories: General
 The Catalogue of Life (COL) Secretariat seeks proposals from qualified experts to prepare documentation on the usage of the COL API. 
 
 The new [COL API](https://api.checklistbank.org) went live in December 2020 as part of the [release of the new COL infrastructure](https://www.catalogueoflife.org/2020/12/18/infrastructure-live), and is still under active development in a joint collaboration between COL and GBIF. There is a need for a better understanding of the current usage of the API and development of user guidelines. The intended documentation should therefore focus on topics such as:
-- How can people use the API to access the COL Checklist and what kind of information can be accessed;
+- How can people use the API to access the Catalogue of Life and what kind of information can be accessed;
 - Step by step user guidelines including examples from current users;
 - How can we identify user requirements and possible improvements.
 The documentation should be understandable for both researchers and developers. We would also like to be able to use the documentation for workshops and training of COL API users.

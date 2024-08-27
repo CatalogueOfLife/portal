@@ -2,7 +2,7 @@
 layout: post
 title:  "New Catalogue of Life: infrastructure"
 author: "Olaf B&aacute;nki"
-excerpt: The Catalogue of Life has developed new infrastructure to support the COL Checklist and the management of checklist datasets
+excerpt: The Catalogue of Life has developed new infrastructure to support the Catalogue of Life and the management of checklist datasets
 categories: Infrastructure
 ---
 
@@ -13,7 +13,7 @@ This new infrastructure allows the Catalogue of Life to function more efficientl
 One of the major benefits of the new Catalogue of Life is the ability to serve directly as the taxonomic structure for the Global Biodiversity Information Facility (GBIF) and other biodiversity data initiatives. 
 GBIF uses COL as the core of its taxonomic backbone. 
 To ensure that all biodiversity data mediated through the GBIF network is properly handled, 
-GBIF has extended the COL Checklist with additional taxonomic datasets to fill data gaps and increase the pool of scientific names. 
+GBIF has extended the Catalogue of Life with additional taxonomic datasets to fill data gaps and increase the pool of scientific names. 
 By joining efforts, GBIF and COL are now working to deliver a single integrated taxonomic and names infrastructure.
 
 This new infrastructure forms the backbone of the Browse and Search functions on the new COL website.
@@ -22,7 +22,7 @@ This new infrastructure forms the backbone of the Browse and Search functions on
 
 #### ChecklistBank
 COL has established ChecklistBank as its checklist store, powered by GBIF. 
-The COL Checklist is assembled out of data from ChecklistBank. 
+The Catalogue of Life is assembled out of data from ChecklistBank. 
 In addition, ChecklistBank will serve as a public checklist repository that will bring together the latest versions of the checklists 
 for each taxonomic sector, along with thousands of other species checklists shared by researchers and other contributors. 
 In the near future, ChecklistBank will allow published checklists to be discoverable and citable in simple and standardised ways 

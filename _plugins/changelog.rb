@@ -14,13 +14,13 @@ module ChangeLog
 
       api = site.config['metadata']['api']
       key = site.config['metadata']['key']
-
+      limit = site.config['changelog']['limit']
       log = []
-      site.config['changelog'] = log
+      site.config['changelog']['entries'] = log
 
       # iterate over all releases and produce a changelog for each version change
       # TODO: include deleted releases
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=RELEASE&private=false&limit=100"))
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=RELEASE&private=false&limit=#{limit}"))
       puts "Found #{rels['total']} releases"
       rels['result'].each_with_index do | d, idx |
         prev = rels['result'][idx+1]

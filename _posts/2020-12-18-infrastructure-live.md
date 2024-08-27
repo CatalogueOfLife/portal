@@ -13,12 +13,12 @@ These products help the Catalogue of Life to provide better support for the work
 and a more sustainable service for users such as biodiversity information initiatives.
 
 #### COL Portal
-The Catalogue of Life Checklist is now integrated in the new [portal](http://www.catalogueoflife.org), 
+The Catalogue of Life is now integrated in the new [portal](http://www.catalogueoflife.org), 
 which includes the following features, where users can:
- - View the current version of the COL Checklist through the homepage, 
+ - View the current version of the Catalogue of Life through the homepage, 
 or the [search](http://www.catalogueoflife.org/data/search) and [browse](http://www.catalogueoflife.org/data/browse) pages under Data.
  - Look up the metadata of a dataset on the [contributing datasets](http://www.catalogueoflife.org/data/contributing-datasets) page.
- - Access all [previous versions](http://www.catalogueoflife.org/data/archives) of the monthly and annual COL Checklists through their original interface at that time.
+ - Access all [previous versions](http://www.catalogueoflife.org/data/archives) of the monthly and annual Catalogue of Lifes through their original interface at that time.
 
 We have maintained the most important URLs of the previous portal and setup redirections to the new site:
  - Dataset pages: [http://www.catalogueoflife.org/col/details/database/id/8](http://www.catalogueoflife.org/col/details/database/id/8)
@@ -26,8 +26,8 @@ We have maintained the most important URLs of the previous portal and setup redi
  - Species searches: [http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/](http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/)
 
 #### New species identifiers
-The COL Checklist now includes a new set of persistent identifiers for species and higher taxa. 
-Establishing these identifiers and making them stable across versions of the COL Checklist will enable users 
+The Catalogue of Life now includes a new set of persistent identifiers for species and higher taxa. 
+Establishing these identifiers and making them stable across versions of the Catalogue of Life will enable users 
 to build their own solutions against COL without needing to rebuild databases for each new version. 
 Stable identifiers will also allow COL to fit seamlessly into linked open data solutions such as Wikidata 
 or as part of a wider biodiversity knowledge graph. 
@@ -39,7 +39,7 @@ will take you to the [Abies alba portal page](https://www.catalogueoflife.org/da
 The API can also redirect you to the JSON API if you request JSON via an "Accept: application/json" header.
 
 #### COL API
-The latest version of the COL Checklist can be accessed through the [ChecklistBank API](https://api.checklistbank.org). 
+The latest version of the Catalogue of Life can be accessed through the [ChecklistBank API](https://api.checklistbank.org). 
 The API is still under active development and not finalized, so small changes are still expected to take place. 
 The legacy API and website URLs will be retained for some time to ensure a smooth transition from the legacy to the new COL infrastructure.
 
@@ -47,7 +47,7 @@ The legacy API and website URLs will be retained for some time to ensure a smoot
 [ChecklistBank](https://www.checklistbank.org) will serve as a common repository for publishing 
 and making available authoritative taxonomic checklists. 
 Here the taxonomic datasets can be further investigated in full for example in their original (verbatim) format. 
-The parts of the taxonomic datasets that have been used in the COL Checklist can also further be investigated.
+The parts of the taxonomic datasets that have been used in the Catalogue of Life can also further be investigated.
 
 #### Feedback
 Improvements to this new portal will be made continuously, and we welcome any feedback on missing information or features, bugs, or suggestions for enhancements. 
