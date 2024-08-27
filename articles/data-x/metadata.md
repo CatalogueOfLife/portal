@@ -1,15 +1,15 @@
 ---
 layout: content
 toc: false
-title: Metadata
-tagline: About the current Catalogue of Life
+title: XRelease Metadata
+tagline: About the current Catalogue of Life XRelease
 section_id: data-x
 imageUrl: /images/species/Asplenium_trichomanes.jpg
 imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
 permalink: /data-x/metadata
 ---
 
-## Version
+## XRelease Version
 
 <div id="version">  
   Issued: <i>{{site.metadata-x.current.version}}</i>
