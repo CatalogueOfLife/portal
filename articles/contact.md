@@ -25,7 +25,6 @@ permalink: /contact
           <h4>Visitor address:</h4>
           <p>
           Catalogue of Life<br/>
-          Species 2000<br/>
           Secretariat<br/>
           Pampuslaan 59<br/>
           1382 JM Weesp, Amsterdam<br/>
