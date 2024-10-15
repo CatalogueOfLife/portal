@@ -27,8 +27,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 
 
 #### Members of the Catalogue of Life Global Team
-* **Leen Vandepitte** (Belgium), Chair
-* **Thomas Pape** (Denmark), Vice Chair
+* **Thomas Pape** (Denmark), Chair
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano** (Argentina)
 * **Markus D&ouml;ring** (Germany)
@@ -59,13 +58,12 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **David Nicolson** (USA)
 * **Thomas Orrell** (USA)
 * **Geoffrey Ower** (USA), Ex Officio
-* **Thomas Pape** (Denmark)
+* **Thomas Pape** (Denmark), Ex Officio
 * **Richard Pyle** (USA)
 * **Tony Rees** (Australia)
 * **Yuri Roskov** (USA), Ex Officio
 * **Michael Ruggiero** (USA)
 * **Jacek Szwedo** (Poland)
-* **Leen Vandepitte** (Belgium), Ex Officio
  
 #### Members of the Information Systems Group
 * **Olaf Bánki** (NL), acting Chair
@@ -83,10 +81,10 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Donald Hobern** (Australia), Ex Officio
 * **Aaron Lien** (USA)
 * **Dalia Conde Ovando** (Denmark)
+* **Thomas Pape** (Denmark), Ex Officio
 * **Lauren Raz** (Colombia)
 * **Kevin Thiele** (Australia)
 * **Scott Thomson** (Brasil)
-* **Leen Vandepitte** (Belgium), Ex Officio
 * **Peter Paul van Dijk** (USA)
 * **Nina Wambiji** (Kenya)
 * **Anthony Whalen** (Australia)
@@ -95,7 +93,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. The Global Biodiversity Information Facility is the administrative host as well as hosts the infrastructure, the Illinois Natural History Survey hosts part of the editorial office.
 
-* **COL Managing Director / Species 2000 Executive Secretary** - Dr. Olaf B&aacute;nki - The Netherlands
+* **COL Managing Director** - Dr. Olaf B&aacute;nki - The Netherlands
 * **COL Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
 * **COL Editor** - Ms. Diana Hernandez - Mexico
 * **COL Editor** - Ms. Camila Plata - Colombia
