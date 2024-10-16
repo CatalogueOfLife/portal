@@ -75,19 +75,19 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Stephen Garnett** (Australia), Chair
 * **Olaf B&aacute;nki** (Netherlands), Ex Officio
 * **Saroj Barik** (India)
+* **Les Christidis** (Australia)
 * **Maria Marta Cigliano** (Argentina)
 * **Stijn Conix** (Belgium)
+* **Haylee Crawford-Wheeler** (Australia)
 * **Craig Hilton-Taylor** (UK)
 * **Donald Hobern** (Australia), Ex Officio
+* **Ronell Klopper** (South Africa)
 * **Aaron Lien** (USA)
-* **Dalia Conde Ovando** (Denmark)
 * **Thomas Pape** (Denmark), Ex Officio
 * **Lauren Raz** (Colombia)
-* **Kevin Thiele** (Australia)
 * **Scott Thomson** (Brasil)
 * **Peter Paul van Dijk** (USA)
 * **Nina Wambiji** (Kenya)
-* **Anthony Whalen** (Australia)
 * **Frank Zachos** (Austria)
 
 ## Secretariat
