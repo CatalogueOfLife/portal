@@ -37,6 +37,12 @@ seo_include: seo_metadata.html
 <br/>
 Please also read the <a href="/about/colusage#recommended-citations">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
 
+### License
+<a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" /> Creative Commons Attribution 4.0 International</a>
+
+### Publisher
+{{site.metadata.current.publisher.label}}
+
 ### Authors
 
 <div id="authors">  
@@ -46,7 +52,4 @@ Please also read the <a href="/about/colusage#recommended-citations">recommended
   {% endfor %}
   </ul>
 </div>
-
-### Publisher
-{{site.metadata.current.publisher.label}}
 
