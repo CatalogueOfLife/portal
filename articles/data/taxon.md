@@ -45,8 +45,8 @@ seo_include: seo_taxon.html
       var url = window.location.href;
       var taxID = url.match(/taxon\/([0-9A-Z]+)/)[1]
       console.log(taxID);
-      jQuery.ajax({
-          url: "http://localhost:8080/dataset/{{ site.react.datasetKey }}/nameusage/"+taxID+"/feedback",
+      jQuery.ajax({        
+          url: "{{ site.metadata.api }}/dataset/{{ site.react.datasetKey }}/nameusage/"+taxID+"/feedback",
           data : text,
           contentType : 'application/json',
           type : 'POST',
