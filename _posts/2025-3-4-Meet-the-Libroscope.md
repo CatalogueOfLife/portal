@@ -36,7 +36,7 @@ appropriate ethical and legal frameworks;
 * Dedicated funding from research and infrastructure grants will be reserved for
 ensuring access to biodiversity data and knowledge.
 
-![Disentis Roadmap Logo](/images/posts/Disentis-cover.webp)
+![Disentis Roadmap Logo](/images/posts/Disentis-cover.jpg)
 
 
 
