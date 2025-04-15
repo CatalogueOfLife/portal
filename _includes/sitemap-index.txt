@@ -34,3 +34,10 @@ Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-33.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-34.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-35.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-36.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-37.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-38.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-39.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-40.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-41.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-42.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-43.txt.gz
