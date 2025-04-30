@@ -64,9 +64,22 @@ permalink: /data/tombstone
         </div>
         <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">        
           <span class="Component-content-0-2-3">First issued in release <a href="https://www.checklistbank.org/dataset/${first.key?c}/taxon/${usage.getId()}">${first.alias!first.version}</a>. 
-          Last used in release <a href="https://www.checklistbank.org/dataset/${last.key?c}/taxon/${usage.getId()}">${last.alias!last.version}</a></span>
+          Last used in release <a href="https://www.checklistbank.org/dataset/${last.key?c}/taxon/${usage.getId()}">${last.alias!last.version}</a>.
+          </span>
         </div>
       </div>
+     <#if annualRelease??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style=""></div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">        
+          <span class="Component-content-0-2-3">Appears in annual releases: 
+              <#list annualReleases as r>
+                <a href="https://www.checklistbank.org/dataset/${r.key?c}/taxon/${usage.getId()}">${r.alias!r.version}</a><#sep>, </#sep>
+              </#list>            
+          </span>
+        </div>
+      </div>
+     </#if>
      <#if usage.publishedIn??>
       <div class="ant-row Component-formItem-0-2-1">
         <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
@@ -144,6 +157,26 @@ permalink: /data/tombstone
         </div>
       </div>
      </#if>
+     <#if alternatives??>
+      <div class="ant-row Component-formItem-0-2-1">
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-5" style="">
+          <div>
+            <dt class="Component-label-0-2-2">Alternative names</dt>
+          </div>
+        </div>
+        <div class="ant-col Component-smallMargin-0-2-6 ant-col-sm-24 ant-col-md-19" style="">
+          <span class="Component-content-0-2-3">
+            <div>
+              <#list alternatives as alt>
+                <span class="Component-content-0-2-3">
+                  <a href="https://www.checklistbank.org/dataset/${usage.datasetKey?c}/nameusage/${alt.getId()}">${alt.labelHtml?no_esc}</a>
+                </span>
+              </#list>
+            </div>
+          </span>
+        </div>
+      </div>
+     </#if>      
     </div>
   </div>
   <div class='four spacing'></div>
