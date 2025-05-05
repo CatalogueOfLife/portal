@@ -169,7 +169,7 @@ permalink: /data/tombstone
             <div>
               <#list alternatives as alt>
                 <span class="Component-content-0-2-3">
-                  <a href="https://www.checklistbank.org/dataset/${usage.datasetKey?c}/nameusage/${alt.getId()}">${alt.labelHtml?no_esc}</a>
+                  <a href="https://www.checklistbank.org/dataset/{{ site.react.datasetKey }}/nameusage/${alt.getId()}">${alt.labelHtml?no_esc}</a>
                 </span><br/>
               </#list>
             </div>
