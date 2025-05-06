@@ -169,7 +169,7 @@ permalink: /data/tombstone
             <div>
               <#list alternatives as alt>
                 <span class="Component-content-0-2-3">                  
-                  <a href="{{ site.react.pathToTaxon }}/${alt.getId()}">${alt.labelHtml?no_esc}</a>
+                  <a href="{{ site.react.pathToTaxon }}${alt.getId()}">${alt.labelHtml?no_esc}</a>
                 </span><br/>
               </#list>
             </div>
