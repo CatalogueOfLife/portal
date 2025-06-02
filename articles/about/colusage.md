@@ -47,7 +47,7 @@ Once a taxon has been found by either route, more information is available on th
 ### COL API
 The dynamic Catalogue of Life can be accessed through the JSON-based [ChecklistBank API](https://www.checklistbank.org/about/API). 
 Authentication is via GBIF user accounts. In order to access datasets in ChecklistBank you need to know their integer dataset key first. 
-See the Datasets section in the API introduction to learn about dataset keys of COL releases.
+See the [Datasets section](https://www.checklistbank.org/about/API#datasets) in the API introduction to learn about dataset keys for COL releases.
 
 ### Downloads
 The current and previous [Catalogue of Life can be downloaded](/data/download) in various formats and in parts, optionally specifying a root taxon retrieving just a subtree of the checklist.
