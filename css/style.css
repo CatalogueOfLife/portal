@@ -1,13 +1,13 @@
 @charset "UTF-8";@font-face {
   font-family: "Steelfish";
   src: url('../fonts/steelfish/steelfish_eb-webfont.eot');
-  src: url('../fonts/steelfish/steelfish_eb-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/steelfish/steelfish_eb-webfont.woff') format('woff'), url('../fonts/steelfish/steelfish eb.otf') format('opentype');
+  src: url('../fonts/steelfish/steelfish_eb-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/steelfish/steelfish_eb-webfont.woff') format('woff'), url('../fonts/steelfish/steelfish eb.ttf') format('truetype');
   font-weight: 800;
 }
 @font-face {
   font-family: "Steelfish";
   src: url('../fonts/steelfish/steelfish_bd-webfont.eot');
-  src: url('../fonts/steelfish/steelfish_bd-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/steelfish/steelfish_bd-webfont.woff') format('woff'), url('../fonts/steelfish/steelfish bd.otf') format('opentype');
+  src: url('../fonts/steelfish/steelfish_bd-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/steelfish/steelfish_bd-webfont.woff') format('woff'), url('../fonts/steelfish/steelfish bd.ttf') format('truetype');
   font-weight: bold;
 }
 /*!
@@ -3898,7 +3898,8 @@ anchor {
 }
 
 .partners img {
-    width: 200px;
+    width: 140px;
+    height: 64px;
 }
 
 .eu-logo {

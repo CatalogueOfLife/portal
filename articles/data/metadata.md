@@ -30,7 +30,7 @@ seo_include: seo_metadata.html
 ## Recommended citation
 
 <div id="bibtex" style="float: right;">
-<a href="https://api.checklistbank.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/bibtex_logo.png" style="height: 32px;"></a>
+<a href="https://api.checklistbank.org/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/logos/bibtex_logo.png" style="height: 32px;"></a>
 </div>
 
 {{site.metadata.current.citation}}

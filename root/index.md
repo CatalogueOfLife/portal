@@ -8,14 +8,14 @@ section_id: home
 partners:
   title: Our partners
   partners:
-    - image: "/images/partners/species-2000.png"
-      link: "https://sp2000.org/"
-    - image: "/images/partners/ITIS_logo.svg"
+    - image: "/images/logos/Smithsonian.svg"
+      link: "https://www.si.edu/"
+    - image: "/images/logos/ITIS_logo.svg"
       link: "https://www.itis.gov/"
-    - image: "/images/partners/logo-gbif.svg"
+    - image: "/images/logos/logo-gbif.svg"
       link: "https://www.gbif.org/"
-    - image: "/images/partners/alliance.png"
-      link: "https://www.allianceforbio.org/"
+    - image: "/images/logos/INHS2.png"
+      link: "https://inhs.illinois.edu/"
 ---
 
 <div class='full'>

@@ -22,6 +22,6 @@ Development efforts are currently focused on preparing the first production rele
 
 *"Our collaboration with Catalogue of Life remains critically important for delivering on the original vision of GBIF and enabling users to navigate and put to use vast quantities of biodiversity information,"* said [Joe Miller](https://orcid.org/0000-0002-5788-9010), GBIF’s executive secretary. *"Our work to date on ChecklistBank is an important step toward making it much easier for GBIF nodes and our wider community to prepare and share more nationally and thematically relevant checklist datasets."*
 
-![Catalogue of Life and GBIF Logo](/images/posts/col-gbif-logo.jpg)
+![Catalogue of Life and GBIF Logo](/images/logo/col-gbif-logo.jpg)
 
-![Global Core Biodata Resource Logo](/images/posts/GCBR-Logo-RGB.svg)
+![Global Core Biodata Resource Logo](/images/logo/GCBR-Logo-RGB.svg)

@@ -62,7 +62,7 @@ Enquiries concerning the position can be addressed to Olaf Banki ([olaf.banki@na
 
 <sup>2</sup> The Global Biodiversity Information Facility (GBIF) has the mission to make occurrences of all living organisms on earth available online. GBIF is an inter-governmental organisation, in majority financed by countries. The GBIF community and governance contains country representatives as well as international organisation representatives. GBIF supports a large user base. More than 2 scientific publications are published on a daily basis with the use of GBIF mediated occurrence data.
 
-![browser](/images/posts/col-gbif-logo.jpg)
+![browser](/images/logos/col-gbif-logo.jpg)
 ![browser](/images/posts/Supported-by-Bickl.png)
 
 

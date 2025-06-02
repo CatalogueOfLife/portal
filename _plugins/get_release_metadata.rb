@@ -11,17 +11,9 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      site.config['metadata-x'] = site.config['metadata'].clone
-      site.config['metadata-x']['private'] = true # we only use private xreleases also on prod until we go live
-
-      # swap RELEASE and XRELEASE once we go live!
       releaseKey = generateRelease(site.config['metadata'], 'RELEASE')
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
-
-      releaseKey = generateRelease(site.config['metadata-x'], 'XRELEASE')
-      puts "Using release key #{releaseKey} for /data-x"
-      site.config['react-x']['datasetKey'] = releaseKey
     end
 
     def generateRelease(md, origin)
@@ -84,7 +76,7 @@ module GetReleaseMetadata
         if a['orcid']
           label << ' <a href="https://orcid.org/'
           label << a['orcid']
-          label << '"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>'
+          label << '"><img alt="ORCID logo" src="/images/logos/orcid_16x16.png" width="16" height="16" /></a>'
         end
       end
 

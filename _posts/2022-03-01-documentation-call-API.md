@@ -32,4 +32,4 @@ For additional questions about this call, please contact [support@catalogueoflif
 
 Also see the [call for proposals for COLDP documentation](https://www.catalogueoflife.org/2022/03/01/documentation-call-COLDP).
 
-![browser](/images/posts/col-gbif-logo.jpg)
+![browser](/images/logos/col-gbif-logo.jpg)

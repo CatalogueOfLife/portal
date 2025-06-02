@@ -19,7 +19,7 @@ social:
     - https://twitter.com/catalogueoflife
     - https://www.facebook.com/CatalogueOfLife
     - https://github.com/CatalogueOfLife
-logo: /images/col_square_logo.jpg
+logo: /images/logos/col_square_logo.jpg
 
 # Build settings
 markdown: kramdown
@@ -97,14 +97,6 @@ react:
     pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
     pathToSearch: "/data/search" # path to the search page for crosslinking between react components
     pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
-    auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
-
-react-x:
-    datasetKey:  # Will be set via the metadata loading plugin - which dataset should the tree and search components use?
-    pathToTaxon: "/data-x/taxon/" # path to the taxon page for crosslinking between react components
-    pathToTree: "/data-x/browse" # path to the tree browser for crosslinking between react components
-    pathToSearch: "/data-x/search" # path to the search page for crosslinking between react components
-    pathToDataset: "/data-x/dataset/" # path to the dataset page for crosslinking between react components
     auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
 
 metadata:

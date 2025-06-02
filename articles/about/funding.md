@@ -12,9 +12,9 @@ permalink: /about/funding
 ## Secretariat and infrastructure
 
 <div class="partners">
-    <a href="https://www.gbif.org/" target="_null"><img src="/images/partners/GBIF-2015-full.png"></a>
-    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/partners/INHS.jpg"></a>
-    <a href="https://si.edu/" target="_null"><img src="/images/partners/Smithsonian.svg"></a>
+    <a href="https://www.gbif.org/" target="_null"><img src="/images/logos/GBIF-2015-full.png"></a>
+    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/logos/INHS.jpg"></a>
+    <a href="https://si.edu/" target="_null"><img src="/images/logos/Smithsonian.svg"></a>
 </div>
 
 The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
@@ -26,7 +26,7 @@ Catalogue of Life is involved in several projects:
 * **[BiCIKL](https://bicikl-project.eu/)**: A European Commission funded project Biodiversity Community Integrated Knowledge Library aimed at connecting infrastructures to enable researchers to access services across the biodiversity data lifecycle. Catalogue of Life and ChecklistBank form the main taxonomic service and framework to connect participating infrastructures. (participation through Species 2000).
 
 ## Past investments
-<div class="eu-logo"><a href="https://https://europa.eu/european-union/index_en/" target="_null"><img src="/images/partners/EU.svg"></a><div class="caption">Co-funded by<br/>the European Union</div></div>
+<div class="eu-logo"><a href="https://https://europa.eu/european-union/index_en/" target="_null"><img src="/images/logos/EU.svg"></a><div class="caption">Co-funded by<br/>the European Union</div></div>
 
 For years, the University of Reading as well as Naturalis Biodiversity Center financed a large part of the operational costs of Species 2000. Species 2000 / Catalogue of Life has also been involved in several projects financed by the European Commission. It is estimated that in its 28 years of existence, 20 million euro investment originating from the following projects (including from the EU):
 
