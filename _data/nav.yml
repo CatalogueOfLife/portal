@@ -34,6 +34,9 @@
     - name: "The Catalogue of Life"
       path: /about/catalogueoflife
       desc: "The international community for listing species"
+    - name: "The eXtended Release"
+      path: /about/xrelease
+      desc: "The Catalogue of Life eXtended Release"
     - name: "The COL data pipeline"
       path: /about/colpipeline
       desc: "ChecklistBank and the Catalogue of Life"

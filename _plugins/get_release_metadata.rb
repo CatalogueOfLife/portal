@@ -11,17 +11,18 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      releaseKey = generateRelease(site.config['metadata'], 'RELEASE')
+      releaseKey = generateRelease(site.config['metadata'])
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
     end
 
-    def generateRelease(md, origin)
+    def generateRelease(md)
       api = md['api']
       key = md['key']
       user = md['user']
       pass = md['pass']
       priv = md['private']
+      origin = md['origin']
 
       if !key
         warn "No project key".yellow

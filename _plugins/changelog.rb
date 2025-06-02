@@ -14,13 +14,14 @@ module ChangeLog
 
       api = site.config['metadata']['api']
       key = site.config['metadata']['key']
+      origin = site.config['metadata']['origin']
       limit = site.config['changelog']['limit']
       log = []
       site.config['changelog']['entries'] = log
 
       # iterate over all releases and produce a changelog for each version change
       # TODO: include deleted releases
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=RELEASE&private=false&limit=#{limit}"))
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&private=false&limit=#{limit}"))
       puts "Found #{rels['total']} releases"
       rels['result'].each_with_index do | d, idx |
         prev = rels['result'][idx+1]
@@ -60,8 +61,8 @@ module ChangeLog
       srcKeys2 = sourcePrev.map { |s| s['key'] }
       removed = srcKeys2 - srcKeys1
       added   = srcKeys1 - srcKeys2
-      chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s['alias']} : []
-      chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s['alias']} : []
+      chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
+      chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
       return chg
     end
 

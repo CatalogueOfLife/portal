@@ -13,7 +13,7 @@ seo_include: seo_metadata.html
 ## Version
 
 <div id="version">  
-  Issued: <i>{{site.metadata.current.version}}</i>
+  Issued: <i>{{site.metadata.current.issued}}</i>
   <br/>
   DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
   <br/>

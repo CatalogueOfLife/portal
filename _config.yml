@@ -102,9 +102,9 @@ react:
 metadata:
   key: 3
   private: false
+  origin: RELEASE
   api: https://api.checklistbank.org
   user: coldeploy
   pass: g2o.d43svHngu4HsEp7Xwlo
-
 changelog:
   limit: 100

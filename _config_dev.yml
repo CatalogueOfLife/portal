@@ -1,2 +1,5 @@
 url: https://www.dev.catalogueoflife.org
 future: true
+
+metadata:
+  origin: XRELEASE
