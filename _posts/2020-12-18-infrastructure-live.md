@@ -17,7 +17,7 @@ The Catalogue of Life is now integrated in the new [portal](http://www.catalogue
 which includes the following features, where users can:
  - View the current version of the Catalogue of Life through the homepage, 
 or the [search](http://www.catalogueoflife.org/data/search) and [browse](http://www.catalogueoflife.org/data/browse) pages under Data.
- - Look up the metadata of a dataset on the [contributing datasets](http://www.catalogueoflife.org/data/contributing-datasets) page.
+ - Look up the metadata of a dataset on the [source datasets](http://www.catalogueoflife.org/data/source-datasets) page.
  - Access all [previous versions](http://www.catalogueoflife.org/data/archives) of the monthly and annual Catalogue of Lifes through their original interface at that time.
 
 We have maintained the most important URLs of the previous portal and setup redirections to the new site:
@@ -32,7 +32,7 @@ to build their own solutions against COL without needing to rebuild databases fo
 Stable identifiers will also allow COL to fit seamlessly into linked open data solutions such as Wikidata 
 or as part of a wider biodiversity knowledge graph. 
 
-We maintain a [species ID mapping file](https://download.checklistbank.org/col/legacy_id_map.tsv.gz) that allows you
+We maintain a [species ID mapping file](https://download.checklistbank.org/col/legacy_id_map.zip) that allows you
 to update any local, older COL identifiers you might have. The COL API also offers a redirection service to the new
 species pages in case you need that, e.g. [https://api.checklistbank.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553](https://api.checklistbank.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553) 
 will take you to the [Abies alba portal page](https://www.catalogueoflife.org/data/taxon/8K9Y). 
