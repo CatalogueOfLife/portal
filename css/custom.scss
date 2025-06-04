@@ -8,3 +8,22 @@
 .full {
   min-height: 30vh;
 }
+
+body {
+  color: #444;
+}
+.links a {
+  color: #555;
+}
+.top-bar-section ul li > a {
+  color: #555;  
+}
+.top-bar-section ul li.active:not(.has-form) a:not(.button) {
+  color: #333;
+}
+.top-bar-section ul li.active:not(.has-form) a:not(.button):hover {
+  color: #333;
+}
+.top-bar-section ul li:hover:not(.has-form) > a {
+  color: #333;
+}

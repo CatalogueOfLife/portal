@@ -615,7 +615,7 @@ a {
   transition-duration: 0.3s;
 }
 a:hover {
-  color: #999;
+  color: #666;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1048,7 +1048,7 @@ form input.error, form textarea.error {
   padding: 0 10px;
 }
 .pager a {
-  color: #999;
+  color: #666;
 }
 .pager a:hover {
   color: #F9CE06;
@@ -1085,7 +1085,7 @@ form input.error, form textarea.error {
 }
 .comments-wrapper ul.comments .meta .datetime {
   font-size: 0.875rem;
-  color: #999;
+  color: #666;
 }
 
 #comments-form {
@@ -1104,7 +1104,7 @@ form input.error, form textarea.error {
   line-height: 1.8em;
 }
 .links a {
-  color: #999;
+  color: #666;
 }
 .links a:hover {
   color: #333;
@@ -1438,7 +1438,7 @@ form input.error, form textarea.error {
   font-size: 0.78571rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #ccc;
+  color: #999;
   margin-bottom: 5px;
 }
 .modBlogPost .tags {
@@ -1478,7 +1478,7 @@ form input.error, form textarea.error {
   font-size: 0.78571rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #ccc;
+  color: #999;
 }
 .modBlogPost.big h3 {
   font-size: 2.5rem;
@@ -1499,7 +1499,7 @@ form input.error, form textarea.error {
   opacity: 1;
 }
 .modBlogPost.big blockquote {
-  color: #ccc;
+  color: #999;
   font-style: italic;
   letter-spacing: 1px;
   font-size: 1.7rem;

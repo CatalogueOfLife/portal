@@ -16,13 +16,13 @@ partners:
       link: "https://www.si.edu/"
 ---
 
-<div class="row partners">
+<div class="row partners" style="justify-content: left;">
 {% for partner in page.partners %}
     <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}" height="48"></a>
 {% endfor %}
 </div>
 <div class='spacing'></div>
-
+<br/>
 
 ## Secretariat and infrastructure
 The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
