@@ -1,13 +1,19 @@
 ---
 layout: content
-title: The COL data pipeline
-tagline: ChecklistBank and the Catalogue of Life
+title: Constructing the Catalogue
+tagline: How the Catalogue of Life is created
 section_id: about
 toc: true
 imageUrl: /images/species/Pultenaea_procumbens.jpg    
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
-permalink: /about/colpipeline
+permalink: /about/assembly
 ---
+
+## TODO:
+ - complete rewrite
+ - focus only on how COL is constructed, not CLB
+ - explain base & extended version
+ - updating names in XR, secondary sources
 
 ![COL data pipeline](/images/col_pipeline.png "COL data pipeline")
 

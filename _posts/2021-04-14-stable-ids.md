@@ -3,7 +3,7 @@ layout: post
 title:  COL stable identifiers
 author: "Markus D&ouml;ring"
 excerpt: Stable identifiers for the Catalogue of Life
-categories: API identifier
+categories: API Identifier
 ---
 
 With the migration to the new infrastructure in December 2020, Catalogue of Life has also switched to a new algorithm to generate stable identifiers for name usages. 

@@ -3,7 +3,7 @@ layout: post
 title:  COL User Mailinglist
 author: "Markus D&ouml;ring"
 excerpt: The COL User Mailinglist keeps you updated on API, infrastructure & content changes
-categories: API Communication
+categories: API Documentation
 ---
 
 Using a new API for the first time isn't always easy. We encourage all users of the Catalogue of Life

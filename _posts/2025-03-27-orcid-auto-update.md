@@ -3,7 +3,7 @@ layout: post
 title:  COL DOIs &amp; ORCIDs
 author: "Markus D&ouml;ring"
 excerpt: Adding COL releases as works to your ORCID profile
-categories: DOI ORCID metadata citation
+categories: DOI ORCID Metadata Identifier
 ---
 
 Catalogue of Life issues a distinct DOI for every release which embeds a lot of metadata.

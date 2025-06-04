@@ -1472,7 +1472,7 @@ form input.error, form textarea.error {
   width: 97%;
 }
 .modBlogPost.big .content {
-  padding: 50px 40px;
+  padding: 20px 40px; 
 }
 .modBlogPost.big .info {
   font-size: 0.78571rem;

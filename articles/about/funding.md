@@ -7,16 +7,24 @@ toc: true
 imageUrl: /images/species/Macropus_giganteus.jpg
 imageCaption: _Macropus giganteus_ Shaw, 1790 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/4033452983)
 permalink: /about/funding
+partners:
+    - image: "/images/logos/logo-gbif.svg"
+      link: "https://www.gbif.org/"
+    - image: "/images/logos/INHS.png"
+      link: "https://inhs.illinois.edu/"
+    - image: "/images/logos/Smithsonian.svg"
+      link: "https://www.si.edu/"
 ---
 
-## Secretariat and infrastructure
-
-<div class="partners">
-    <a href="https://www.gbif.org/" target="_null"><img src="/images/logos/GBIF-2015-full.png"></a>
-    <a href="https://inhs.illinois.edu/" target="_null"><img src="/images/logos/INHS.jpg"></a>
-    <a href="https://si.edu/" target="_null"><img src="/images/logos/Smithsonian.svg"></a>
+<div class="row partners">
+{% for partner in page.partners %}
+    <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}" height="48"></a>
+{% endfor %}
 </div>
+<div class='spacing'></div>
 
+
+## Secretariat and infrastructure
 The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), and the **[Smithsonian Institution](https://si.edu/)**. In the near future, Catalogue of Life will roll out a new financial mechanism for covering its operational costs. The new model is aimed at reaching more financial stability and making sure COL is carried and steered by the main international biodiversity data initiatives that make use of COL's services for their core activities.   
 
 ## Project funding

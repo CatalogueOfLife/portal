@@ -3,7 +3,7 @@ layout: post
 title:  Call for proposals for COL API documentation
 author: "Chantal Huijbers"
 excerpt: COL Documentation Call
-categories: General
+categories: General Jobs
 ---
 
 The Catalogue of Life (COL) Secretariat seeks proposals from qualified experts to prepare documentation on the usage of the COL API. 
@@ -30,6 +30,6 @@ Please send your proposals to [support@catalogueoflife.org](mailto:support@catal
 
 For additional questions about this call, please contact [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
 
-Also see the [call for proposals for COLDP documentation](https://www.catalogueoflife.org/2022/03/01/documentation-call-COLDP).
+Also see the [call for proposals for ColDP documentation](https://www.catalogueoflife.org/2022/03/01/documentation-call-COLDP).
 
 ![browser](/images/logos/col-gbif-logo.jpg)

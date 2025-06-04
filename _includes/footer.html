@@ -14,20 +14,20 @@
       <div class='links'>
         <h4>Links</h4>
         <ul>
-          <li><a href="/about/colusage#col-api">COL API</a></li>
-          <li><a href="/data/browse">Browse the Catalogue of Life</a></li>
+          <li><a href="/use/api">COL API</a></li>
+          <li><a href="/contribute/feedback">Feedback</a></li>
           <li><a href="https://www.checklistbank.org/">ChecklistBank</a></li>
         </ul>
       <div class='spacing'></div>
       <ul class='socials'>
         <li>
-          <a href='https://www.facebook.com/{{site.facebook_username}}/'>
-            <i class='fa-brands fa-facebook'></i>
+          <a href='https://www.linkedin.com/company/{{site.linkedin_username}}'>
+            <i class='fa-brands fa-linkedin'></i>
           </a>
         </li>
         <li>
-          <a href='https://twitter.com/{{site.twitter_username}}'>
-            <i class='fa-brands fa-twitter'></i>
+          <a href='https://www.facebook.com/{{site.facebook_username}}/'>
+            <i class='fa-brands fa-facebook'></i>
           </a>
         </li>
       </ul>
@@ -38,7 +38,7 @@
       <div class='links'>
         <h4>Recent posts</h4>
         <ul>
-          {% for post in site.posts limit:5 %}
+          {% for post in site.posts limit:4 %}
             <li><a href="{{post.url}}">{{post.title}}</a></li>
           {% endfor %}
         </ul>
@@ -55,8 +55,8 @@
     </div>  
   </div>
   <div class='creativecommons'>
-    <p>Catalogue of Life {{site.metadata.current.version}}  <a href="https://doi.org/{{site.metadata.current.doi}}">doi:{{site.metadata.current.doi}}</a><br>
-      © 2022, Catalogue of Life.<br>
+    <p>© 2025, Catalogue of Life.<br>
+      Catalogue of Life {{site.metadata.current.version}}  <a href="https://doi.org/{{site.metadata.current.doi}}">doi:{{site.metadata.current.doi}}</a><br>
       Unless otherwise indicated, all other content offered under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, 
       Catalogue of Life, <a href="/data/metadata">{{site.metadata.current.version}}</a>.
     </p>
@@ -72,7 +72,9 @@
   <div class='creativecommons'>
     <h4>Disclaimer</h4>
     <p>
-      The Catalogue of Life cannot guarantee the accuracy or completeness of the information in the Catalogue of Life. <br>Be aware that the Catalogue of Life is still incomplete and undoubtedly contains errors. <br>Catalogue of Life, nor any contributing database can be made liable for any direct or indirect damage arising out of the use of Catalogue of Life services.
+      The Catalogue of Life cannot guarantee the accuracy or completeness of the information in the Catalogue of Life. <br>
+      Be aware that the Catalogue of Life is still incomplete and undoubtedly contains errors. <br>
+      Catalogue of Life, nor any contributing database can be made liable for any direct or indirect damage arising out of the use of Catalogue of Life services.
     </p>
   </div>
   <div class='spacing'></div>

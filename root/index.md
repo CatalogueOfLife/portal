@@ -2,20 +2,15 @@
 layout: default
 permalink: /
 section_id: home
-
-
-
 partners:
-  title: Our partners
-  partners:
-    - image: "/images/logos/Smithsonian.svg"
-      link: "https://www.si.edu/"
-    - image: "/images/logos/ITIS_logo.svg"
-      link: "https://www.itis.gov/"
-    - image: "/images/logos/logo-gbif.svg"
-      link: "https://www.gbif.org/"
-    - image: "/images/logos/INHS2.png"
-      link: "https://inhs.illinois.edu/"
+  - image: "/images/logos/Smithsonian.svg"
+    link: "https://www.si.edu/"
+  - image: "/images/logos/ITIS_logo.svg"
+    link: "https://www.itis.gov/"
+  - image: "/images/logos/logo-gbif.svg"
+    link: "https://www.gbif.org/"
+  - image: "/images/logos/INHS.png"
+    link: "https://inhs.illinois.edu/"
 ---
 
 <div class='full'>
@@ -89,7 +84,7 @@ partners:
   <div class='spacing' style='background-color: #ccc; height: 2px;'></div>
   <div class='spacing'></div>
   <div class="row partners">
-    {% for partner in page.partners.partners %}
+    {% for partner in page.partners %}
         <a href="{{partner.link}}" target="_blank"><img src="{{partner.image}}" height="48"></a>
     {% endfor %}
   </div>

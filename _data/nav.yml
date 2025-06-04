@@ -2,11 +2,8 @@
 # 'path' is the url it will take you to when clicked
 # 'section_id' is the id of the top level menu item. 
 # 'desc' is the description that will show on the higher level navigation pages. E.g. https://col-website-demo.netlify.com/about
-- name: Home
-  path: /
-  section_id: home
 - name: Data
-  path: /data/search
+  path: /data
   section_id: data
   children:
     - name: Search
@@ -21,46 +18,89 @@
     - name: Source datasets
       path: /data/source-datasets
       desc: "Browse the taxonomic datasets that make up the Catalogue"
+    - name: Metrics
+      path: /data/metrics
+      desc: "Metrics about the Catalogue of Life"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"
     - name: Changelog
       path: /data/changelog
-      desc: "Log of monthly changes to the Catalogue of Life"
+      desc: "Log of changes between all releases of the Catalogue of Life"
+
+- name: Use
+  path: /use
+  section_id: use
+  children:
+    - name: "Data access"
+      path: /use/access
+      desc: "How to access the Catalogue of Life in various ways"
+    - name: "Citing"
+      path: /use/citing
+      desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
+    - name: "Identifier"
+      path: /use/identifier
+      desc: "Identifiers used in the Catalogue of Life"
+    - name: "Name matching"
+      path: /use/matching
+      desc: "Match & link your names to COL"
+    - name: "COL API"
+      path: /use/api
+      desc: "Programmatically access the Catalogue of Life"
+    - name: "ChecklistBank"
+      path: https://www.checklistbank.org
+      desc: "ChecklistBank"
+
+- name: Contribute 
+  path: /contribute 
+  section_id: contribute
+  children:
+    - name: "Contributors"
+      path: /contribute/contributors
+      desc: "All contributors to the Catalogue of Life"
+    - name: "Publish data"
+      path: /contribute/publish
+      desc: "How to publish data"
+    - name: "Known gaps"
+      path: /contribute/gaps
+      desc: "Help to fill the known gaps in Catalogue of Life"
+    - name: "Feedback"
+      path: /contribute/feedback
+      desc: "How to tell us about missing data or problems with it"
+    - name: Contact 
+      path: /contribute/contact
+      desc: "How to tell us about missing data or problems with it"
+
 - name: About
-  path: /about/catalogueoflife
+  path: /about
   section_id: about
   children:
-    - name: "The Catalogue of Life"
+    - name: Catalogue of Life
       path: /about/catalogueoflife
-      desc: "The international community for listing species"
-    - name: "The eXtended Release"
-      path: /about/xrelease
-      desc: "The Catalogue of Life eXtended Release"
-    - name: "The COL data pipeline"
-      path: /about/colpipeline
-      desc: "ChecklistBank and the Catalogue of Life"
-    - name: "The COL community"
-      path: /about/colcommunity
-      desc: "Collaborating to list the world's species"
-    - name: "The COL contributors"
-      path: /about/contributors
-      desc: "All contributors to the Catalogue of Life"
-    - name: Using the Catalogue of Life
-      path: /about/colusage
-      desc: "Accessing and citing the Checklist"
+      desc: "What is the Catalogue of Life?"
+    - name: Assembly
+      path: /about/assembly
+      desc: "How the Catalogue of Life is constructed"
     - name: Governance
       path: /about/governance
       desc: "Leadership and committees"
     - name: Funding
       path: /about/funding
       desc: "Catalogue of Life funders and funding"
+    - name: Community
+      path: /about/community
+      desc: "Collaborating to list the world's species"
     - name: Glossary
-      path: /about/glossary.html
+      path: /about/glossary
       desc: "Glossary of terms"
+
 - name: News 
-  path: /news/index
+  path: /news
   section_id: news
-- name: Contact 
-  path: /contact
-  section_id: contact
+  children:
+    - name: News
+      path: /news/index
+      desc: "Latest updates"
+    - name: Releases
+      path: /category/release/index
+      desc: "Releases"

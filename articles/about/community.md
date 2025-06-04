@@ -6,7 +6,7 @@ section_id: about
 toc: true
 imageUrl: /images/species/Laccaria_amethystina.jpg    
 imageCaption: _Laccaria amethystina_ (Huds.) Cooke - Photo CC By Jan Huijbers
-permalink: /about/colcommunity
+permalink: /about/community
 ---
 
 This page explains the partnerships that enable the Catalogue of Life to build and share the Catalogue of Life. See [Roles and Responsibilities](#roles-and-responsibilities) below to see how you can help with COL's mission.

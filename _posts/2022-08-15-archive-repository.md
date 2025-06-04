@@ -3,7 +3,7 @@ layout: post
 title:  Data repository
 author: "Markus D&ouml;ring"
 excerpt: Storing all dataset archives
-categories: API ChecklistBank Archive
+categories: API ChecklistBank
 ---
 
 Today we improved the capabilities of [ChecklistBank (CLB)](https://www.checklistbank.org/) to be a better data repository.

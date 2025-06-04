@@ -136,7 +136,7 @@ layout: post
 title:  monthly release June 2021
 author: "Markus Döring"
 excerpt: Monthly release June 2021 of the Catalogue of Life
-categories: release
+categories: Release
 ---
 
 What's new in this edition (June 2021)?

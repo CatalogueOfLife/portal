@@ -6,17 +6,14 @@ description: > # this means to ignore newlines until "baseurl:"
 # https://mademistakes.com/mastering-jekyll/site-url-baseurl/
 url: https://www.catalogueoflife.org
 baseurl: "" # the subpath of your site, e.g. /blog/
-twitter_username: catalogueoflife
-facebook_username:  CatalogueOfLife
+facebook_username: CatalogueOfLife
+linkedin_username: catalogue-of-life
 
 # SEO plugin settings
-twitter:
-  username: catalogueoflife
-  card: summary
 social:
   name: The Catalogue of Life
   links:
-    - https://twitter.com/catalogueoflife
+    - https://www.linkedin.com/company/catalogue-of-life
     - https://www.facebook.com/CatalogueOfLife
     - https://github.com/CatalogueOfLife
 logo: /images/logos/col_square_logo.jpg
