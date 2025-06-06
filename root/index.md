@@ -13,8 +13,10 @@ partners:
     link: "https://inhs.illinois.edu/"
 ---
 
-<div class='full'>
-  <div class='row introduction'>The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists - <a href="/about/catalogueoflife.html">Learn more</a></div>
+<div class='full' id="homepage">
+  <div class='row'>
+    <div class="introduction">The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists - <a href="/about/catalogueoflife.html">Learn more</a></div>
+  </div>
   <div class='row'>
     <div class="medium-8 columns" style="background: white; margin-top: 20px;">
         <div class='row kingdoms'>
@@ -34,10 +36,6 @@ partners:
 
         <div class='row'>
             <div class='full main-tree'>
-                <div class='col-version'><b><a href="/data/metadata">COL Version: {{site.metadata.current.version}}</a></b>
-                <span style='flex: 1'></span>
-               <b><a href="/data/search">Advanced search <i class="fas fa-external-link-alt"></i></a></b>
-                </div>
                 <div id="tree" class="catalogue-of-life"></div>
             </div>
             <script >
@@ -62,23 +60,37 @@ partners:
         </div>
     </div>
     <div class='medium-4 columns'>
-    {% for post in site.posts %}
-      {% if forloop.index > 3 %}
-        {% break %}
-      {% endif %}
+      <br/>
+      <h3>Current Release</h3>
+      <div id="version">
+        Issued: <i>{{site.metadata.current.issued}}</i>
+        <br/>
+        DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
+        <br/>
+        ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
+      </div>
+      <br/>
+      <br/>
 
-      <div class='row'>
-        <div class='mod modBlogPost'>
-          <div class='content'>
-            <p class='date'>{{post.date | date: "%B %d, %Y" }}</p>
-            <h4><a href="{{post.url}}">{{post.title}}</a></h4>
-            <p>{{post.excerpt}}</p>
-          </div>
-        </div>
+      <h3>Documentation</h3>
+      <p>
+       The <span class="xr-icon" style="">XR</span> icon indicates additional content from the eXtended Release which are not present in the scrutinized base release.
+       If you never heard about the XR, start by reading about the <a href="/about/assembly">different releases</a> COL provides.
+      </p>
+      <br/>
+      
+      <div class='links'>
+        <h3>Recent News</h3>
+        <ul class="posticon">
+          {% for post in site.posts limit:8  %}
+          <li class="hang">
+            <a href='{{post.url}}'>{{post.title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
       </div>
 
-    {% endfor %}
-    </div>
+  </div>
 
   </div>
   <div class='spacing' style='background-color: #ccc; height: 2px;'></div>

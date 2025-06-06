@@ -60,3 +60,5 @@ a [metadata.yaml](https://catalogueoflife.github.io/coldp/metadata.yaml) file to
 
 The ColDP format was developed to overcome limitations in existing formats for sharing taxonomic information, particularly Darwin Core Archives and the Annual Checklist Exchange Format used previously in COL. 
 Darwin Core Archives and ACEF are still supported for data exchange to and from the Catalogue of LifeBank, but the [ColDP format supports a wider range of features](https://github.com/CatalogueOfLife/coldp#format-comparison). 
+
+![ColDP Schema](https://catalogueoflife.github.io/coldp/docs/schema.png)

@@ -21,7 +21,7 @@ logo: /images/logos/col_square_logo.jpg
 # Build settings
 markdown: kramdown
 
-paginate: 5
+paginate: 10
 paginate_path: "news/page:num"
 
 exclude: ["vendor", "/theme-examples", "/**/README.md", "bundle"]

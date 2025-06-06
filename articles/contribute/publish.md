@@ -26,5 +26,14 @@ permalink: /contribute/publish
 
 ## Publish data on ChecklistBank
 
+### Catalogue of Life Data Package (ColDP)
+For Catalogue of Life, the recommended exchange format for submitting data to ChecklistBank 
+is the [Catalogue of Life Data Package](https://catalogueoflife.github.io/coldp/) (ColDP), 
+a tabular text format with a standard set of files and columns. 
+The format is a single ZIP archive that bundles data in various delimited text files together with 
+a [metadata.yaml](https://catalogueoflife.github.io/coldp/metadata.yaml) file to provide basic metadata about the entire dataset.
+
+![ColDP Schema](https://catalogueoflife.github.io/coldp/docs/schema.png)
+
 
 ## Editorial uptake

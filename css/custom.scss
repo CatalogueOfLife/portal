@@ -27,3 +27,35 @@ body {
 .top-bar-section ul li:hover:not(.has-form) > a {
   color: #333;
 }
+
+.hang {
+  margin-left: 20px; 
+  text-indent: -20px;
+}
+.xr-icon {
+  background: #f9f0ff;
+  border-color: #d3adf7;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+  color: #722ed1;
+  cursor: default;
+  display: inline-block;
+  font-family: monospace;
+  font-feature-settings: "tnum";
+  font-variant: tabular-nums;
+  font-weight: 500;
+  list-style: none;
+  opacity: 1;
+  ox-sizing: border-box;
+  padding: 2px; 
+  transition: all .3s cubic-bezier(.78,.14,.15,.86);  
+  vertical-align: middle;
+  white-space: nowrap;
+  line-height: 1.0;
+  height: auto;
+}
+
+#homepage .introduction {
+  text-align: left;
+  padding-left: 16px;
+}

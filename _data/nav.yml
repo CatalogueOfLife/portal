@@ -35,8 +35,8 @@
     - name: "Data access"
       path: /use/access
       desc: "How to access the Catalogue of Life in various ways"
-    - name: "Citing"
-      path: /use/citing
+    - name: "Citations"
+      path: /use/citation
       desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
     - name: "Identifier"
       path: /use/identifier
