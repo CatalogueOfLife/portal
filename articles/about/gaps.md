@@ -2,11 +2,11 @@
 layout: content
 title: Known Gaps
 tagline: Content gaps in the Catalogue of Life
-section_id: contribute
+section_id: about
 toc: true
 imageUrl: /images/species/Sphyraena_viridensis.jpg    
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
-permalink: /contribute/gaps
+permalink: /about/gaps
 ---
 
 ## TODO:

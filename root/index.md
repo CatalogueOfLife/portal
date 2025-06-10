@@ -83,7 +83,7 @@ partners:
         <h3>Recent News</h3>
         <ul class="posticon">
           {% for post in site.posts limit:8  %}
-          <li class="hang">
+          <li>
             <a href='{{post.url}}'>{{post.title}}</a>
           </li>
           {% endfor %}

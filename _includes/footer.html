@@ -12,11 +12,10 @@
     </div>
     <div class='large-3 medium-3 columns'>
       <div class='links'>
-        <h4>Links</h4>
+        <h4>Contact Us</h4>
         <ul>
-          <li><a href="/use/api">COL API</a></li>
-          <li><a href="/contribute/feedback">Feedback</a></li>
-          <li><a href="https://www.checklistbank.org/">ChecklistBank</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/feedback">Feedback</a></li>
         </ul>
       <div class='spacing'></div>
       <ul class='socials'>
@@ -36,37 +35,35 @@
     </div>
     <div class='large-3 medium-3 columns'>
       <div class='links'>
-        <h4>Recent posts</h4>
+        <h4>Resources</h4>
         <ul>
-          {% for post in site.posts limit:4 %}
-            <li><a href="{{post.url}}">{{post.title}}</a></li>
-          {% endfor %}
+          <li><a href="/howto/access">Data Access</a></li>
+          <li><a href="/tools/api">COL API</a></li>
+          <li><a href="https://www.checklistbank.org/">ChecklistBank</a></li>
         </ul>
       </div>
       <div class='spacing'></div>
     </div>
     <div class='large-3 medium-3 columns'>
-      <h4>Contact us</h4>
+      <h4>Version</h4>
       <ul>
-        <li>Email: <a href="mailto:contact@catalogueoflife.org">contact@catalogueoflife.org</a></li>
-        <li>Catalogue of Life Secretariat, Pampuslaan 59, 1382 JM Weesp, Amsterdam, The Netherlands</li>
+        <li><a href="/data/metadata">{{site.metadata.current.version}}</a></li>
+        <li>Issued: <i>{{site.metadata.current.issued}}</i></li>
+        <li>DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a></li>
+        <li>ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a></li>
       </ul>
       <div class='spacing'></div>
     </div>  
   </div>
   <div class='creativecommons'>
     <p>© 2025, Catalogue of Life.<br>
-      Catalogue of Life {{site.metadata.current.version}}  <a href="https://doi.org/{{site.metadata.current.doi}}">doi:{{site.metadata.current.doi}}</a><br>
-      Unless otherwise indicated, all other content offered under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, 
-      Catalogue of Life, <a href="/data/metadata">{{site.metadata.current.version}}</a>.
+      Unless otherwise indicated, all other content offered under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     </p>
   </div>
   <div class='spacing'></div>
-  <div class='creativecommons'>
-    <img alt="" src="{{site.url}}/images/logos/GCBR-Logo-White.svg" class="cbdr-logo"/>
-    <p>
-      Catalogue of Life is a Global Core Biodata Resource
-    </p>
+  <div class='creativecommons' id="GCBR">
+      <img alt="" src="{{site.url}}/images/logos/GCBR-Logo-White.svg" class="cbdr-logo"/>
+      <div style="display: inline-block; text-align: left; vertical-align: top; padding-left: 20px;"><a href="/about/catalogueoflife">Catalogue of Life</a> <br/>is a Global Core Biodata Resource</div>
   </div>
   <div class='spacing'></div>
   <div class='creativecommons'>

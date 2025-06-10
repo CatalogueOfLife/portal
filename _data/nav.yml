@@ -16,7 +16,7 @@
       path: /data/metadata
       desc: "Metadata about the Catalogue of Life"
     - name: Source datasets
-      path: /data/source-datasets
+      path: /data/sources
       desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Metrics
       path: /data/metrics
@@ -28,48 +28,33 @@
       path: /data/changelog
       desc: "Log of changes between all releases of the Catalogue of Life"
 
-- name: Use
-  path: /use
-  section_id: use
+- name: How To
+  path: /howto
+  section_id: howto
   children:
     - name: "Data access"
-      path: /use/access
+      path: /howto/access
       desc: "How to access the Catalogue of Life in various ways"
     - name: "Citations"
-      path: /use/citation
+      path: /howto/citation
       desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
-    - name: "Identifier"
-      path: /use/identifier
-      desc: "Identifiers used in the Catalogue of Life"
-    - name: "Name matching"
-      path: /use/matching
-      desc: "Match & link your names to COL"
-    - name: "COL API"
-      path: /use/api
-      desc: "Programmatically access the Catalogue of Life"
+    - name: "Contribute data"
+      path: /howto/contribute
+      desc: "How to publish data"
+
+- name: Tools 
+  path: /tools
+  section_id: tools
+  children:
     - name: "ChecklistBank"
       path: https://www.checklistbank.org
       desc: "ChecklistBank"
-
-- name: Contribute 
-  path: /contribute 
-  section_id: contribute
-  children:
-    - name: "Contributors"
-      path: /contribute/contributors
-      desc: "All contributors to the Catalogue of Life"
-    - name: "Publish data"
-      path: /contribute/publish
-      desc: "How to publish data"
-    - name: "Known gaps"
-      path: /contribute/gaps
-      desc: "Help to fill the known gaps in Catalogue of Life"
-    - name: "Feedback"
-      path: /contribute/feedback
-      desc: "How to tell us about missing data or problems with it"
-    - name: Contact 
-      path: /contribute/contact
-      desc: "How to tell us about missing data or problems with it"
+    - name: "Name matching"
+      path: /tools/matching
+      desc: "Match & link your names to COL"
+    - name: "COL API"
+      path: /tools/api
+      desc: "Programmatically access the Catalogue of Life"
 
 - name: About
   path: /about
@@ -81,26 +66,25 @@
     - name: Assembly
       path: /about/assembly
       desc: "How the Catalogue of Life is constructed"
+    - name: Identifier
+      path: /about/identifier
+      desc: "Identifiers used in the Catalogue of Life"
+    - name: "Known gaps"
+      path: /about/gaps
+      desc: "Help to fill the known gaps in Catalogue of Life"
+    - name: "Contributors"
+      path: /about/contributors
+      desc: "All contributors to the Catalogue of Life"
     - name: Governance
       path: /about/governance
       desc: "Leadership and committees"
     - name: Funding
       path: /about/funding
       desc: "Catalogue of Life funders and funding"
-    - name: Community
-      path: /about/community
-      desc: "Collaborating to list the world's species"
     - name: Glossary
       path: /about/glossary
       desc: "Glossary of terms"
 
 - name: News 
-  path: /news
+  path: /news/index
   section_id: news
-  children:
-    - name: News
-      path: /news/index
-      desc: "Latest updates"
-    - name: Releases
-      path: /category/release/index
-      desc: "Releases"

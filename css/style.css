@@ -1428,12 +1428,6 @@ form input.error, form textarea.error {
 .modBlogPost .content {
   padding: 10px 20px;
 }
-.modBlogPost h4 a {
-  color: #333;
-}
-.modBlogPost h4 a:hover {
-  color: #0480b5;
-}
 .modBlogPost .date {
   font-size: 0.78571rem;
   text-transform: uppercase;
@@ -1482,12 +1476,6 @@ form input.error, form textarea.error {
 }
 .modBlogPost.big h3 {
   font-size: 2.5rem;
-}
-.modBlogPost.big h3 a {
-  color: #333;
-}
-.modBlogPost.big h3 a:hover {
-  color: #0480b5;
 }
 .modBlogPost.big h4 {
   font-size: 1.7rem;
@@ -3912,11 +3900,6 @@ anchor {
 .eu-logo img {
     width: 120px;
     padding-bottom: 10px;
-}
-
-img.cbdr-logo  {
-  height: 48px !important;
-  margin-bottom: 10px;
 }
 
 .eu-logo .caption {

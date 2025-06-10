@@ -2,11 +2,11 @@
 layout: content
 title: COL Citations
 tagline: Citing the Catalogue of Life and it's sources
-section_id: use
+section_id: howto
 toc: true
 imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
-permalink: /use/citation
+permalink: /howto/citation
 ---
 
 ## TODO:

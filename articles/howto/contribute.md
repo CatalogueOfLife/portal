@@ -2,11 +2,11 @@
 layout: content
 title: How to Publish
 tagline: How to publish data for Catalogue of Life
-section_id: contribute
+section_id: howto
 toc: true
 imageUrl: /images/species/Sphyraena_viridensis.jpg    
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
-permalink: /contribute/publish
+permalink: /howto/contribute
 ---
 
 ## TODO:

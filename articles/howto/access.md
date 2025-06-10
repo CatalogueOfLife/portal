@@ -2,15 +2,16 @@
 layout: content
 title: Using the Catalogue of Life
 tagline: Accessing and citing the Catalogue of Life
-section_id: use
+section_id: howto
 toc: true
 imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
-permalink: /use/access
+permalink: /howto/access
 ---
 ## TODO:
  - how to identify merged information
  - how to restrict searches to base / x only
+ - annual vs monthly release
 
 ## Ways to access the Catalogue of Life
 The Catalogue of Life is constantly evolving through monthly updates. Persistent name identifiers will enable the user to track changes in scientific names. Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. Monthly Catalogue of Lifes released between annual editions may not be kept indefinitely. These lose support once an annual Catalogue of Life is issued.   
