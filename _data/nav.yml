@@ -81,15 +81,18 @@
     - name: Assembly
       path: /procedures/assembly
       desc: "How the Catalogue of Life is constructed"
+    - name: Releases
+      path: /procedures/releases
+      desc: "Glossary of terms"
     - name: Identifier
       path: /procedures/identifier
       desc: "Identifiers minted in the Catalogue of Life"
-    - name: Glossary
-      path: /procedures/glossary
-      desc: "Glossary of terms"
-    - name: Glossary
-      path: /procedures/glossary
-      desc: "Glossary of terms"
+    - name: Quality Checks
+      path: /procedures/quality
+      desc: "Quality Assurance and Quality Control"
+    - name: Classifcation
+      path: /procedures/classification
+      desc: "Classifcation and names"
     - name: Glossary
       path: /procedures/glossary
       desc: "Glossary of terms"
@@ -116,9 +119,6 @@
     - name: What is COL
       path: /about/catalogueoflife
       desc: "What is the Catalogue of Life?"
-    - name: "Known gaps"
-      path: /about/gaps
-      desc: "Help to fill the known gaps in Catalogue of Life"
     - name: Governance
       path: /about/governance
       desc: "Leadership and committees"
