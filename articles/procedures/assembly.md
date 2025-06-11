@@ -2,11 +2,11 @@
 layout: content
 title: Constructing the Catalogue
 tagline: How the Catalogue of Life is created
-section_id: about
+section_id: procedures
 toc: true
 imageUrl: /images/species/Pultenaea_procumbens.jpg    
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
-permalink: /about/assembly
+permalink: /procedures/assembly
 ---
 
 ## TODO:
@@ -14,6 +14,8 @@ permalink: /about/assembly
  - focus only on how COL is constructed, not CLB
  - explain base & extended version
  - updating names in XR, secondary sources
+ - source priorities (link to actual prio list)
+ - filtering/blocking of names
 
 ![COL data pipeline](/images/col_pipeline.png "COL data pipeline")
 

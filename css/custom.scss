@@ -61,6 +61,11 @@ ul.posticon li {
   text-align: left;
   padding-left: 16px;
 }
+#homepage #bibtex{
+  position: relative;
+  top: -39px;
+  left: 150px;
+}
 
 img.cbdr-logo  {
   height: 42px !important;
@@ -79,4 +84,10 @@ img.cbdr-logo  {
 }
 .modBlogPost h3 a:hover {
   color: #135471;
+}
+
+/* source list component */
+#datasetSearch .ant-table-content span.ant-tag.ant-tag-purple {
+    margin-left: -21px;
+    margin-bottom: 2px;
 }

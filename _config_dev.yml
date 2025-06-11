@@ -3,3 +3,4 @@ future: true
 
 metadata:
   origin: XRELEASE
+  private: true

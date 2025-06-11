@@ -63,14 +63,15 @@ partners:
       <br/>
       <h3>Current Release</h3>
       <div id="version">
-        Issued: <i>{{site.metadata.current.issued}}</i>
-        <br/>
-        DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
-        <br/>
-        ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
+        <div>
+          Issued: <i>{{site.metadata.current.issued}}</i>
+          <br/>
+          DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
+        </div>
+        <div id="bibtex">
+          <a href="{{ site.metadata.api }}/dataset/{{ site.react.datasetKey }}.bib"><img src="/images/logos/bibtex_logo.png" style="height: 32px; margin-left: 8px;"></a>
+        </div>
       </div>
-      <br/>
-      <br/>
 
       <h3>Documentation</h3>
       <p>

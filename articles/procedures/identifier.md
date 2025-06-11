@@ -1,12 +1,12 @@
 ---
 layout: content
 title: Stable Identifier
-tagline: Stable identifier for names in the Catalogue of Life
-section_id: about
+tagline: Stable identifier minted by the Catalogue of Life
+section_id: procedures
 toc: true
 imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
-permalink: /about/identifier
+permalink: /procedures/identifier
 ---
 
 ## TODO:

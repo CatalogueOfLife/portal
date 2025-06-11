@@ -12,18 +12,21 @@
     - name: Browse
       path: /data/browse
       desc: "Explore the catalogue of life through their classification"
-    - name: Metadata
-      path: /data/metadata
-      desc: "Metadata about the Catalogue of Life"
     - name: Source datasets
       path: /data/sources
       desc: "Browse the taxonomic datasets that make up the Catalogue"
-    - name: Metrics
-      path: /data/metrics
-      desc: "Metrics about the Catalogue of Life"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"
+    - name: Metadata
+      path: /data/metadata
+      desc: "Metadata about the Catalogue of Life"
+    - name: Metrics
+      path: /data/metrics
+      desc: "Metrics about the Catalogue of Life"
+    - name: Gaps
+      path: /data/gaps
+      desc: "Known gaps in the Catalogue of Life"
     - name: Changelog
       path: /data/changelog
       desc: "Log of changes between all releases of the Catalogue of Life"
@@ -32,15 +35,24 @@
   path: /howto
   section_id: howto
   children:
-    - name: "Data access"
+    - name: "Access data"
       path: /howto/access
       desc: "How to access the Catalogue of Life in various ways"
-    - name: "Citations"
-      path: /howto/citation
+    - name: "Cite data"
+      path: /howto/cite
       desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
     - name: "Contribute data"
       path: /howto/contribute
       desc: "How to publish data"
+    - name: "Provide feedback"
+      path: /howto/feedback
+      desc: "feedback"
+    - name: "Get support"
+      path: /howto/support
+      desc: "support"
+    - name: "Organize your data"
+      path: /howto/backbone
+      desc: "Use COL as the taxonomic backbone for your data"
 
 - name: Tools 
   path: /tools
@@ -55,36 +67,65 @@
     - name: "COL API"
       path: /tools/api
       desc: "Programmatically access the Catalogue of Life"
+    - name: "Editing platforms"
+      path: /tools/editing
+      desc: "Taxonomic editing platforms"
+    - name: "GBIF IPT"
+      path: /tools/ipt
+      desc: "Use the IPT to publish taxonomic data"
+
+- name: Procedures
+  path: /procedures
+  section_id: procedures
+  children:
+    - name: Assembly
+      path: /procedures/assembly
+      desc: "How the Catalogue of Life is constructed"
+    - name: Identifier
+      path: /procedures/identifier
+      desc: "Identifiers minted in the Catalogue of Life"
+    - name: Glossary
+      path: /procedures/glossary
+      desc: "Glossary of terms"
+    - name: Glossary
+      path: /procedures/glossary
+      desc: "Glossary of terms"
+    - name: Glossary
+      path: /procedures/glossary
+      desc: "Glossary of terms"
+
+- name: Community
+  path: /community
+  section_id: community
+  children:
+
+    - name: Contributors
+      path: /community/contributors
+      desc: "All contributors to the Catalogue of Life"
+    - name: Roles
+      path: /community/roles
+      desc: "Roles & responsibilities"
+    - name: Affiliations
+      path: /community/affiliations
+      desc: "Affiliations"
 
 - name: About
   path: /about
   section_id: about
   children:
-    - name: Catalogue of Life
+    - name: What is COL
       path: /about/catalogueoflife
       desc: "What is the Catalogue of Life?"
-    - name: Assembly
-      path: /about/assembly
-      desc: "How the Catalogue of Life is constructed"
-    - name: Identifier
-      path: /about/identifier
-      desc: "Identifiers used in the Catalogue of Life"
     - name: "Known gaps"
       path: /about/gaps
       desc: "Help to fill the known gaps in Catalogue of Life"
-    - name: "Contributors"
-      path: /about/contributors
-      desc: "All contributors to the Catalogue of Life"
     - name: Governance
       path: /about/governance
       desc: "Leadership and committees"
     - name: Funding
       path: /about/funding
       desc: "Catalogue of Life funders and funding"
-    - name: Glossary
-      path: /about/glossary
-      desc: "Glossary of terms"
+    - name: News
+      path: /news/index
+      desc: "Latest news"
 
-- name: News 
-  path: /news/index
-  section_id: news
