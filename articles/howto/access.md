@@ -12,6 +12,8 @@ permalink: /howto/access
  - how to identify merged information
  - how to restrict searches to base / x only
  - annual vs monthly release
+ - download filters in CLB incl simple vs extended format!
+ 
 
 ## Ways to access the Catalogue of Life
 The Catalogue of Life is constantly evolving through monthly updates. Persistent name identifiers will enable the user to track changes in scientific names. Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. Monthly Catalogue of Lifes released between annual editions may not be kept indefinitely. These lose support once an annual Catalogue of Life is issued.   

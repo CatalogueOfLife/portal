@@ -12,7 +12,7 @@
     - name: Browse
       path: /data/browse
       desc: "Explore the catalogue of life through their classification"
-    - name: Source datasets
+    - name: Sources
       path: /data/sources
       desc: "Browse the taxonomic datasets that make up the Catalogue"
     - name: Download

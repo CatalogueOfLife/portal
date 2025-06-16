@@ -91,3 +91,13 @@ img.cbdr-logo  {
     margin-left: -21px;
     margin-bottom: 2px;
 }
+
+/* taxon details name heading */
+#taxon div.ant-row:first-child span.ant-tag-purple {
+    position: relative;
+    left: -17px;
+    top: 37px;
+}
+#taxon h1 {
+    display: block !important;
+}

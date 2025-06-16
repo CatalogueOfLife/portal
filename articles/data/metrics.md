@@ -10,13 +10,15 @@ permalink: /data/metrics
 ---
 
 ## TODO:
- - pie chart breaking down [Eukaryota](https://www.checklistbank.org/dataset/309864/taxon/CS5HF)
  - number of accepted families, genera, species (over time of releases ???)
  - names by type
  - names by status
  - vernaculars by lang
 
-## Metrics
+## Metrics 
+
+
+### Composition of Eukaryota
 
 <div class='full'>
 	<div id="breakdown" class="catalogue-of-life">chart</div>
@@ -25,29 +27,12 @@ permalink: /data/metrics
 <script >
     'use strict';
 	
-
-	const d = {
-		"key": 3,
-		"title": "my COL",
-		"version": "version",
-		"doi": "1234",
-		"url": "url"
-	};
-	const tax = {
-		"id": "CS5HF",
-		"name": {
-			"rank": "domain",
-			"scientificName": "Eukaryota"
-		}
-	};
-
-	console.log(tax);
     const e = React.createElement;
 
     class EukaryoteChart extends React.Component {
         render() {
 	      return e(
-            ColBrowser.TaxonBreakdown,{ taxon: tax, datasetKey: '{{ site.react.datasetKey }}' , rank: 'phylum', pathToTaxon: '{{ site.react.pathToTaxon }}', dataset: d }
+            ColBrowser.TaxonBreakdown, { taxonId: "CS5HF", datasetKey: '{{ site.react.datasetKey }}' , pathToTaxon: "/data/taxon/"}
 	      );	  
 		}
     }

@@ -19,7 +19,6 @@ class PublicTaxon extends React.Component {
 
     render() {
 
-
       return e(
         ColBrowser.Taxon,
         { catalogueKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}', pathToSearch: '{{ site.react.pathToSearch }}', pathToDataset: '{{ site.react.pathToDataset }}', pathToTaxon: '{{ site.react.pathToTaxon }}', auth: '{{ site.react.auth }}', pageTitleTemplate: 'COL | __taxon__'}
