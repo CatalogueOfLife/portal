@@ -15,18 +15,25 @@
   <meta name="robots" content="noindex">
   {% endif %}
 
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
   <link rel="stylesheet" href="{{ "/css/foundation.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/fontello.css" | prepend: site.baseurl }}">
-  <!--
-  <link rel="stylesheet" href="{{ "/css/font-awesome.css" | prepend: site.baseurl }}">
-  -->
   <link rel="stylesheet" href="{{ "/css/custom.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CatalogueOfLife/portal-components@latest/umd/main.css">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,300" media="screen" rel="stylesheet" type="text/css" />
+
   <script src="{{ "/javascripts/libs.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script src="{{ "/javascripts/masonry.pkgd.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script src="{{ "/javascripts/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script src="{{ "/javascripts/slick.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script src="{{ "/javascripts/json2.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js" ></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/gh/CatalogueOfLife/portal-components@latest/umd/col-browser.min.js" ></script>
+  <script defer data-domain="catalogueoflife.org" src="https://plausible.io/js/script.js"></script>
   <script>
     // terrificjs bootstrap
     (function($) {
@@ -43,14 +50,4 @@
         });
     })(Tc.$);
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,300" media="screen" rel="stylesheet" type="text/css" />
-  <script src="{{ "/javascripts/masonry.pkgd.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <script src="{{ "/javascripts/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <script src="{{ "/javascripts/slick.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <script src="{{ "/javascripts/json2.js" | prepend: site.baseurl }}" type="text/javascript"></script>
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-  <script src="https://unpkg.com/react@16/umd/react.production.min.js" ></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" ></script>
-  <script src="https://cdn.jsdelivr.net/gh/CatalogueOfLife/portal-components@latest/umd/col-browser.min.js" ></script>
-  <!-- <script src="https://kit.fontawesome.com/9660302c12.js" crossorigin="anonymous"></script> -->
 </head>
