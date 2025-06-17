@@ -1,12 +1,12 @@
 ---
 layout: content
-title: The COL contributors
-tagline: A list of all contributors to the Catalogue of Life
-section_id: community
-toc: true
+title: The COL community
+tagline: The community behind Catalogue of Life
+section_id: about
+toc: false
 imageUrl: /images/species/Sphyraena_viridensis.jpg    
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
-permalink: /community/contributors
+permalink: /about/community
 ---
 
 ## List of contributors

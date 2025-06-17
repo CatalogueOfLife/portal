@@ -2,11 +2,11 @@
 layout: content
 title: Glossary
 tagline: Glossary of Terms
-section_id: procedures
+section_id: building
 toc: true
 imageUrl: /images/species/Xanthoria_parietina.jpg
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
-permalink: /procedures/glossary
+permalink: /building/glossary
 ---
 
 ## TODO:

@@ -9,12 +9,9 @@
     - name: Search
       path: /data/search
       desc: "Find species and other taxa by name"
-    - name: Browse
-      path: /data/browse
-      desc: "Explore the catalogue of life through their classification"
     - name: Sources
       path: /data/sources
-      desc: "Browse the taxonomic datasets that make up the Catalogue"
+      desc: "Browse the underlying source datasets that make up the Catalogue"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"
@@ -24,9 +21,6 @@
     - name: Metrics
       path: /data/metrics
       desc: "Metrics about the Catalogue of Life"
-    - name: Gaps
-      path: /data/gaps
-      desc: "Known gaps in the Catalogue of Life"
     - name: Changelog
       path: /data/changelog
       desc: "Log of changes between all releases of the Catalogue of Life"
@@ -38,21 +32,18 @@
     - name: "Access data"
       path: /howto/access
       desc: "How to access the Catalogue of Life in various ways"
-    - name: "Cite data"
-      path: /howto/cite
-      desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
     - name: "Contribute data"
       path: /howto/contribute
       desc: "How to publish data"
-    - name: "Provide feedback"
-      path: /howto/feedback
-      desc: "feedback"
-    - name: "Get support"
-      path: /howto/support
-      desc: "support"
-    - name: "Organize your data"
-      path: /howto/backbone
-      desc: "Use COL as the taxonomic backbone for your data"
+    - name: "Cite data"
+      path: /howto/cite
+      desc: "Citing the Catalogue of Life and it's sources with or without DOIs"
+    - name: "Use Cases"
+      path: /howto/use_cases
+      desc: "How COL can help you"
+    - name: "Contact us"
+      path: /howto/contact
+      desc: "Contact us for support, feedback or anything else"
 
 - name: Tools 
   path: /tools
@@ -70,47 +61,32 @@
     - name: "Editing platforms"
       path: /tools/editing
       desc: "Taxonomic editing platforms"
-    - name: "GBIF IPT"
-      path: /tools/ipt
-      desc: "Use the IPT to publish taxonomic data"
+    - name: "Publishing Tools"
+      path: /tools/publishing
+      desc: "Tools for publishing taxonomic or nomenclatural data"
 
-- name: Procedures
-  path: /procedures
+- name: Building COL
+  path: /building
   section_id: procedures
   children:
     - name: Assembly
-      path: /procedures/assembly
+      path: /building/assembly
       desc: "How the Catalogue of Life is constructed"
     - name: Releases
-      path: /procedures/releases
+      path: /building/releases
       desc: "Glossary of terms"
     - name: Identifier
-      path: /procedures/identifier
+      path: /building/identifier
       desc: "Identifiers minted in the Catalogue of Life"
-    - name: Quality Checks
-      path: /procedures/quality
-      desc: "Quality Assurance and Quality Control"
     - name: Classifcation
-      path: /procedures/classification
+      path: /building/classification
       desc: "Classifcation and names"
+    - name: Gaps
+      path: /building/gaps
+      desc: "Known gaps in the Catalogue of Life"
     - name: Glossary
-      path: /procedures/glossary
+      path: /building/glossary
       desc: "Glossary of terms"
-
-- name: Community
-  path: /community
-  section_id: community
-  children:
-
-    - name: Contributors
-      path: /community/contributors
-      desc: "All contributors to the Catalogue of Life"
-    - name: Roles
-      path: /community/roles
-      desc: "Roles & responsibilities"
-    - name: Affiliations
-      path: /community/affiliations
-      desc: "Affiliations"
 
 - name: About
   path: /about
@@ -125,6 +101,9 @@
     - name: Funding
       path: /about/funding
       desc: "Catalogue of Life funders and funding"
+    - name: Community
+      path: /about/community
+      desc: "The community behind Catalogue of Life "
     - name: News
       path: /news/index
       desc: "Latest news"

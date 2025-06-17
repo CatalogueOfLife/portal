@@ -6,7 +6,7 @@ section_id: howto
 toc: true
 imageUrl: /images/species/Sphyraena_viridensis.jpg    
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
-permalink: /howto/feedback
+permalink: /howto/contact
 ---
 
 ## TODO:
@@ -15,6 +15,9 @@ permalink: /howto/feedback
  - suggest new publications / databases to be included
  - How sources are notified
  - remove contact page in favor of this one?
+ - tutorials
+ - mailinglist
+ - mail contact
 
 ## Feedback
 

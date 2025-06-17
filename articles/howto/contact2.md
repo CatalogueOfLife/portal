@@ -2,10 +2,10 @@
 layout: content
 title: Contact us
 tagline: Our location and how to message the Catalogue of Life
-section_id: about
+section_id: howto
 imageUrl: /images/species/Limosa_lapponica_Calidris_canutus.jpg    
 imageCaption: _Limosa lapponica_ (Linnaeus, 1758) and _Calidris canutus_ (Linnaeus, 1758) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
-permalink: /about/contact
+permalink: /howto/contact
 ---
 
   <div class='full'>
