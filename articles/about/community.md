@@ -14,8 +14,10 @@ List of the current Catalogue of Life contributors.
 
 <div id="contributors">  
   <ul>
+    <!--
   {% assign sorted = site.metadata.current.creator | sort: 'family', "last" %}
-  {% for a in sorted %}
+    -->
+  {% for a in site.metadata.current.creator %}
     <li>{{a.label}}</li>
   {% endfor %}
   </ul>
