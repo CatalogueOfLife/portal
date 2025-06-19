@@ -1,11 +1,10 @@
 url: https://preview.catalogueoflife.org
 react:
-    auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
+    auth: "col-preview-portal:RXY7BdP-w!Fkat8g"
 
 metadata:
   key: 3
   private: true
   api: https://api.checklistbank.org
-  user: coldeploy
-  pass: g2o.d43svHngu4HsEp7Xwlo
-  # email: col@mailinator.com
+  user: col-preview-portal
+  pass: RXY7BdP-w!Fkat8g

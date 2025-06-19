@@ -103,8 +103,6 @@ metadata:
   key: 3
   private: false
   api: https://api.checklistbank.org
-  user: coldeploy
-  pass: g2o.d43svHngu4HsEp7Xwlo
 
 changelog:
   limit: 100
