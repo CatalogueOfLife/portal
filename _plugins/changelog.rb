@@ -12,6 +12,7 @@ module ChangeLog
 
     def generate(site)
 
+      puts "Building changelog ..."
       api = site.config['metadata']['api']
       key = site.config['metadata']['key']
       origin = site.config['metadata']['origin']

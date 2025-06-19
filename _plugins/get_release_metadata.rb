@@ -11,6 +11,7 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
+      puts "Looking up latest release..."
       releaseKey = generateRelease(site.config['metadata'])
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
