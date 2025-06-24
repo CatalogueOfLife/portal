@@ -41,3 +41,7 @@ Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-40.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-41.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-42.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-43.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-44.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-45.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-46.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-47.txt.gz
