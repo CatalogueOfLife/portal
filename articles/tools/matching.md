@@ -28,31 +28,31 @@ The matching service provided currently uses the [GBIF matching API](https://tec
 In the future we expect also ChecklistBank matching services to be provided in containers.
 
 You can list all available matching containers from the GBIF image registry:
-```
-https://docker.gbif.org/v2/matching-ws/tags/list
-```
 
-The image tags are made up of several pieces of information:
-```
-{taxonomy}-{architecture}-{datasetKey}-{date}-{time}
-xcol-arm64-308651-20250516-145444
-```
-So the image above exposes the COL eXtended Release with datasetKey=308651 and was build on the 16th of May 2025.
+`https://docker.gbif.org/v2/matching-ws/tags/list`
+
+The image tags are made up of several pieces of information: 
+
+`{taxonomy}-{architecture}-{datasetKey}-{date}-{time}`
+
+So the image `xcol-arm64-308651-20250516-145444` exposes the COL eXtended Release with [datasetKey=308651](https://www.checklistbank.org/dataset/308651) and was build on the 16th of May 2025.
+
+
 You can also pull and run the latest COL XR like this
-
 ```
 # use arm64 instead of amd64 on a mac with apple silicon
 docker pull docker.gbif.org/matching-ws:xcol-amd64-latest
 # exposes the service on port 8080
-docker run -d -p 8080:8080 --name xcol docker.gbif.org/matching-ws:xcol-amd64-latest
+docker run -d -p 8080:8080 --name colxr docker.gbif.org/matching-ws:xcol-amd64-latest
 ```
 
+<br/>
 You can then access the matching service locally using the current v1 GBIF API:
-```
-curl -s "http://localhost:8080/v1/species/match?name=Oenanthe&authorship=L.&rank=genus&kingdom=Plantae&verbose=true"
-```
 
-The service also exposes a [new v2 API](https://github.com/CatalogueOfLife/backend/blob/master/matching-ws/src/main/java/life/catalogue/matching/controller/MatchController.java#L39), 
+`curl -s "http://localhost:8080/v1/species/match?name=Oenanthe&authorship=L.&rank=genus&kingdom=Plantae&verbose=true"`
+
+
+The service also exposes a [new v2 API](https://techdocs.gbif-test.org/en/openapi/v1/species#/Searching%20names/matchNames), 
 which adopts more Darwin Core terminology and a different response.
 V2 has not been officially released yet and it might still (slightly) change:
 ```
