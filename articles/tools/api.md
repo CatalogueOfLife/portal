@@ -9,15 +9,21 @@ imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [
 permalink: /tools/api
 ---
 
-# TODO
- - R lib
 
- 
 ## COL API
-The content included in the Catalogue of Life can be openly accessed through the JSON-based [ChecklistBank API](https://www.checklistbank.org/about/API). 
-For a few things like bulk downloads authentication is required via a GBIF/ChecklistBank user account. 
-In order to access releases in ChecklistBank, you first need to know their integer dataset key. 
-See the [Datasets section](https://www.checklistbank.org/about/API#datasets) in the API introduction to learn about dataset keys for COL releases.
+The content included in the Catalogue of Life can be openly accessed through the [ChecklistBank API](https://www.checklistbank.org/about/API). 
+For a few things, e.g. custom downloads, authentication is required via a [GBIF](https://www.gbif.org/)/[ChecklistBank](https://www.checklistbank.org/) user account. 
+
+### COL Releases in ChecklistBank
+ChecklistBank (CLB) hosts a wide range of datasets including all sources the [Catalogue of Life is assembled](/building/assembly) from.
+Most datasets in ChecklistBank are not related to the Catalogue of Life at all.
+
+The COL [working draft](https://www.checklistbank.org/dataset/3) and many [releases from COL](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created) 
+are available and accessible through the API.
+In order to access releases or any other dataset in ChecklistBank, you first need to know their integer dataset key. 
+Read the [Datasets section](https://www.checklistbank.org/about/API#datasets) in the API introduction to learn about dataset keys for COL releases.
+
 
 ### Local matching containers
-With every release of COL we provide docker containers for name matching, that can be used locally without depending on our online services.
+With every release of COL XR we also provide [docker containers for name matching](/tools/matching#docker-containers), 
+that can be used locally without depending on our online services.

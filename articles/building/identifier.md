@@ -9,7 +9,7 @@ imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [
 permalink: /building/identifier
 ---
 
-## TODO:
+## TODO Markus:
  - how we coin stable ids
  - link to blog posts
  - name vs taxon identifiers
