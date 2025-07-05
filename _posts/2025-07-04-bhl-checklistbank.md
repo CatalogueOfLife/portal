@@ -6,9 +6,8 @@ excerpt: BHL is seeking new hosting partners
 categories: BHL infrastructure literature identifier integration
 ---
 
-## Call for Support
+<div class="right"><a href="https://about.biodiversitylibrary.org/call-for-support/" target="_new"><img src="https://github.com/user-attachments/assets/99fce041-ff97-46ff-829d-57ab08dbb3d9" width="350"></a></div><h1>Call for Support</h1>
 
-<div class="right"><a href="https://about.biodiversitylibrary.org/call-for-support/" target="_new"><img src="https://github.com/user-attachments/assets/99fce041-ff97-46ff-829d-57ab08dbb3d9" width="350"></a></div>
 The [Biodiversity Heritage Library (BHL)](https://www.biodiversitylibrary.org) is the world’s largest open-access digital library of biodiversity literature and archives. BHL plays a vital role in the development of Catalogue of Life (COL) because COL data contributors heavily rely on BHL to conduct the scientific research needed to build taxonomic and nomenclatural databases. [BHL is currently seeking new partners](https://blog.biodiversitylibrary.org/2025/06/transition-update-2-call-for-support-now-open.html) to support and sustain this essential infrastructure following the [Smithsonian Institution’s decision](https://blog.biodiversitylibrary.org/2025/04/new-future-for-bhl.html) to conclude its 20 year role as BHL’s host on January 1, 2026\. Finding new partners to sustain BHL’s future is extremely important. Please help share BHL’s [Call for Support](https://about.biodiversitylibrary.org/call-for-support/) widely.
 
 ## Integrating BHL with COL
