@@ -57,7 +57,7 @@ which adopts more Darwin Core terminology and a different response.
 V2 has not been officially released yet and it might still (slightly) change:
 ```
 # return metadata about the indexed data
-curl -s "http://localhost:8080/metadata"
+curl -s "http://localhost:8080/v2/species/match/metadata"
 
 # new v2 matching 
 curl -s "http://localhost:8080/v2/species/match?scientificName=Oenanthe&scientificNameAuthorship=L.&taxonRank=genus&kingdom=Plantae&verbose=true"
