@@ -8,15 +8,38 @@ imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donal
 permalink: /data/download
 ---
 
-## The Catalogue of Life version {{site.metadata.current.version}}
-You can download the current version of the entire Catalogue of Life here: 
+<h2 class="text-center">Current Version of the Catalogue of Life</h2>
 
- - [ColDP Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP)
- - [Darwin Core Archive](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA)
- - [TextTree](https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree)
+<div class="row">
+  <div class="large-6 columns">
+	<ul class="pricing-table">
+	  <li class="title">Extended Release</li>
+	  <li class="price">Version {{site.metadata.current.version}}</li>
+	  <li class="description">The <a href="/building/releases#extended">extended release</a> aims at maximum completeness and <a href="/building/assembly">programmatically integrates many more sources</a> to cover gaps in the base release and adding molecular names.</li>
+	  <li class="bullet-item">2.112.211 Names</li>
+	  <li class="bullet-item">2.512.000 Species</li>
+	  <li class="bullet-item">2.000 Sources</li>
+	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
+	  <li class="cta-button"><a class="button" href="#">Download</a></li>
+	</ul>	
+  </div>
+  <div class="large-6 columns">
+	<ul class="pricing-table">
+	  <li class="title">Base Release</li>
+	  <li class="price">Version {{site.metadata.current.version}}</li>
+	  <li class="description">The <a href="/building/releases#base">base release</a> aims at highest accurracy and is hand made from only scrutinized, global sources.</li>
+	  <li class="bullet-item">132.133 Names</li>
+	  <li class="bullet-item">1.994.030 Species</li>
+	  <li class="bullet-item">187 Sources</li>
+	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
+	  <li class="cta-button"><a class="button" href="#">Download</a></li>
+	</ul>
+  </div>	
+</div>
+
 
 Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
-For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/monthly/).
+For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/).
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 
@@ -31,6 +54,7 @@ MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin
 Since 2021 each release is available in 3 formats and kept for online access in [Catalogue of Life Bank](https://www.checklistbank.org/dataset?releasedFrom=3&reverse=false&sortBy=created).
 
 
+* [Catalogue of Life 2025](https://www.checklistbank.org/dataset/COL25) - 2,068,366 living and 152,871 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2025_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2025_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2025_txtree.zip))
 * [Catalogue of Life 2024](https://www.checklistbank.org/dataset/COL24) - 2,025,351 living and 147,120 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2024_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2024_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2024_txtree.zip))
 * [Catalogue of Life 2023](https://www.checklistbank.org/dataset/COL23) - 1,827,305 living and 132,309 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2023_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2023_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2023_txtree.zip))
 * [Catalogue of Life 2022](https://www.checklistbank.org/dataset/COL22) - 1,726,835 living and 110,790 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2022_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2022_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2022_txtree.zip))
