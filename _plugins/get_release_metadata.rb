@@ -11,19 +11,28 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      puts "Looking up latest release..."
-      releaseKey = generateRelease(site.config['metadata'])
+      # copy for base release metadata
+      site.config['base-metadata']=(site.config['metadata']).clone;
+      
+      puts "Looking up latest XRelease..."
+      releaseKey = generateRelease(site.config['metadata'], 'XRELEASE')
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
+
+      puts "test Base Release"
+      puts site.config['base-metadata']
+
+      puts "Looking up latest Base Release..."
+      baseKey = generateRelease(site.config['base-metadata'], 'RELEASE')
+      puts "Using base release key #{baseKey}"
     end
 
-    def generateRelease(md)
+    def generateRelease(md, origin)
       api = md['api']
       key = md['key']
       user = md['user']
       pass = md['pass']
       priv = md['private']
-      origin = md['origin']
 
       if !key
         warn "No project key".yellow
@@ -39,6 +48,12 @@ module GetReleaseMetadata
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
 
+      metrics = load(URI("#{api}/dataset/#{releaseKey}/import"), user, pass)
+      md['metrics'] = metrics[0]
+
+      
+      md['publisher-sources'] = load(URI("#{api}/dataset/#{releaseKey}/source?inclPublisherSources=true"), user, pass)
+      
       md['sources'] = load(URI("#{api}/dataset/#{releaseKey}/source"), user, pass)
       md['sources'].each { |d| addAgentLabels(d)}            
 

@@ -15,10 +15,12 @@ permalink: /data/download
 	<ul class="pricing-table">
 	  <li class="title">Extended Release</li>
 	  <li class="price">Version {{site.metadata.current.version}}</li>
-	  <li class="description">The <a href="/building/releases#extended">extended release</a> aims at maximum completeness and <a href="/building/assembly">programmatically integrates many more sources</a> to cover gaps in the base release and adding molecular names.</li>
-	  <li class="bullet-item">2.112.211 Names</li>
-	  <li class="bullet-item">2.512.000 Species</li>
-	  <li class="bullet-item">2.000 Sources</li>
+	  <li class="description">The <a href="/building/releases#extended">extended release</a> aims at maximum completeness 
+	  	and <a href="/building/assembly">programmatically integrates many more sources</a> to cover gaps in the base release and adding molecular names.
+	  </li>
+	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
+	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.taxaByRankCount.species}}</span> Species</li>
+	  <li class="bullet-item"><span class="number">{{site.metadata.sources | size}}</span> + <span class="number">{{site.metadata.publisher-sources | size}}</span> Publisher Sources</li>
 	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
 	  <li class="cta-button"><a class="button" href="#">Download</a></li>
 	</ul>	
@@ -26,12 +28,14 @@ permalink: /data/download
   <div class="large-6 columns">
 	<ul class="pricing-table">
 	  <li class="title">Base Release</li>
-	  <li class="price">Version {{site.metadata.current.version}}</li>
-	  <li class="description">The <a href="/building/releases#base">base release</a> aims at highest accurracy and is hand made from only scrutinized, global sources.</li>
-	  <li class="bullet-item">132.133 Names</li>
-	  <li class="bullet-item">1.994.030 Species</li>
-	  <li class="bullet-item">187 Sources</li>
-	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
+	  <li class="price">Version {{site.base-metadata.current.version}}</li>
+	  <li class="description">The <a href="/building/releases#base">base release</a> aims at highest accurracy and is hand made from only scrutinized, global sources. 
+	  It <i>excludes</i> all information marked up with the XR icon.
+	  </li>
+	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.nameCount}}</span> Names</li>
+	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.taxaByRankCount.species}}</span> Species</li>
+	  <li class="bullet-item"><span class="number">{{site.base-metadata.sources | size}}</span> Sources</li>
+	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
 	  <li class="cta-button"><a class="button" href="#">Download</a></li>
 	</ul>
   </div>	
@@ -84,3 +88,26 @@ Since 2021 each release is available in 3 formats and kept for online access in 
 The Catalogue of Life is updated throughout the year and snapshots are also available for many months from 2017 to the present. Changes in infrastructure have disrupted this series so some intervals are longer than monthly.
 
 * [Monthly Checklist Archive](https://download.catalogueoflife.org/col/monthly/)
+
+
+
+<script >
+'use strict';
+
+function numberWithCommas(value) {
+	//return value.toLocaleString()
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function updateNumericValues() {
+    const myNumber = document.querySelectorAll('.number');
+    myNumber.forEach((e) => {
+        const numericValue = e.textContent;
+    	console.log(numericValue);
+        const formattedValue = numberWithCommas(numericValue);
+        e.textContent = formattedValue;
+    });
+ }
+
+ updateNumericValues();
+</script>

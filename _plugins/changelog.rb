@@ -15,7 +15,7 @@ module ChangeLog
       puts "Building changelog ..."
       api = site.config['metadata']['api']
       key = site.config['metadata']['key']
-      origin = site.config['metadata']['origin']
+      origin = 'XRELEASE'
       limit = site.config['changelog']['limit']
       log = []
       site.config['changelog']['entries'] = log
