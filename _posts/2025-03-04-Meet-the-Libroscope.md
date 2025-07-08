@@ -6,7 +6,7 @@ excerpt: A new vision for ‘liberating’ data from biodiversity publications
 categories: Partnerships
 ---
 
-[Catalogue of Life](https://catalogueoflife.org) is amongst the first signatories dedicated to fully leveraging biodiversity knowledge from research publications within an open science framework by 2035. 
+[Catalogue of Life](https://www.catalogueoflife.org) is amongst the first signatories dedicated to fully leveraging biodiversity knowledge from research publications within an open science framework by 2035. 
 
 Some of the world’s leading institutions, experts and scientific infrastructures relating to biodiversity information are uniting around a new 10-year roadmap to ‘liberate’ data presently trapped in research publications.
 
