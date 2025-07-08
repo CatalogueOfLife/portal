@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Spotlighting Biodiversity Heritage Library's Call for Support & new integration with COL
+title:  Biodiversity Heritage Library's Call for Support & integration with COL
 author: "Geoff Ower & Dmitry Mozzherin"
 excerpt: BHL is seeking new hosting partners
 categories: BHL infrastructure literature identifier integration
