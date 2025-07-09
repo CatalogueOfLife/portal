@@ -27,7 +27,7 @@ It takes around 5 minutes for the changes to show on the website.
 │   ├── navPage.html  # Used for top level intermediate pages. Like '/resources' - it isn't really a page, but a placeholder to navigate to the children of a menu item
 │   ├── news.html     # Latest news
 │   └── post.html     # Individual news stories
-├── _posts_/ # RELEVANT FOR EDITORS - the news stories
+├── _posts/ # RELEVANT FOR EDITORS - the news stories
 │   ├── 2013-11-14-my-story.md # individual news story prefixed with the date.
 │   └── ...
 ├── _sass/ # Styling as provided by the theme
@@ -37,10 +37,12 @@ It takes around 5 minutes for the changes to show on the website.
 ├── _site/ # Jekyll compiles the site to this folder
 ├── articles/ # RELEVANT FOR EDITORS - this is where all content but news stories go
 │   ├── about/ content under the menu item 'about' should be placed here
-│   │   ├── acknowledgements.md # the pages located here will show up under the url '/articles/about/filename' - unless the yml frontmatter defines another url using the permalink attribute
+│   │   ├── {filename}.md # the pages located here will show up under the url '/articles/about/{filename}' - unless the yml frontmatter defines another url using the permalink attribute
 │   │   └── ...
-│   ├── data/
-│   └── contact.md
+│   ├── building/ # content under the menu item 'building' should be placed here
+│   ├── data/     # pages that use the portal-components to render dynamic pages using the checklistbank API
+│   ├── howto/    # content under the menu item 'howto' should be placed here
+│   └── tools/    # content under the menu item 'tools' should be placed here
 ├── css/ # Styling as provided by the theme
 ├── fonts/ # Where fonts are stored. Currently only the icon fonts
 ├── images/ # Will be copied verbatim to the public folder. Any image placed here, including subdirectories will be available in your templates
@@ -68,6 +70,38 @@ _data/nav.yml # for editing the menu
 _posts/       # for creating news stories
 articles/     # for writing articles. By default urls will reflect the folder structure. can be overwritten with permalinks
 ```
+
+### Working with Github
+Simple changes like a typo in a word can be corrected through the github website, but all other changes should really be done locally with a text editor and then committed to github.
+For this some basic knowledge of working with git is required, see resources below.
+
+Theree are many text editors you can use, e.g. [SublimeText](https://www.sublimetext.com/), [Notepad++](https://notepad-plus-plus.org/), [UltraEdit](https://www.ultraedit.com/), 
+[TextMate](https://macromates.com/), [Vim](https://www.vim.org/download.php), [BBEdit](https://www.barebones.com/products/bbedit/) and many more.
+If you do not yet have any favorite we recommend [Visual Studio Code](https://code.visualstudio.com/) which runs on Mac & Windows, has [git integration](https://code.visualstudio.com/docs/sourcecontrol/overview)
+and syntax highlighting for many formats including Markdown and [TextTree](https://marketplace.visualstudio.com/items?itemName=GBIF.texttree&ssr=false#review-details).
+
+First checkout the github repo locally using the terminal:
+> git clone git@github.com:CatalogueOfLife/portal.git
+
+To work on the development brach do this:
+> cd portal
+> git checkout dev
+
+Now you can work in your editor of choice and later commit changes back to github via the terminal. This will give you an overview of the changed files
+> git status
+
+This will add new files not yet included in the project
+> git add \_posts/2025-12-24-merry-christmas.md
+
+This will commit changed files to github
+> git commit -am "Leave a comment here what you have done. E.g. Updated the governance pages to describe the taxonomy group"
+> git push
+
+Some git introductions if you have never used it before:
+ - [Introduction to Git for Technical Writers](https://benbarksdale.netlify.app/docs/guides/introduction-to-git-for-technical-writers/)
+ - [Git with VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
+ - [A layman’s introduction to Git](https://webtuu.com/blog/04/a-laymans-introduction-to-git)
+
 
 ## Writing articles
 When editing and adding articles there are 2 templates to choose from: `content` and `default`. 
