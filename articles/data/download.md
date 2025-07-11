@@ -20,9 +20,9 @@ permalink: /data/download
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.taxaByRankCount.species}}</span> Species</li>
-	  <li class="bullet-item"><span class="number">{{site.metadata.sources | size}}</span> + <span class="number">{{site.metadata.publisher-sources | size}}</span> Publisher Sources</li>
+	  <li class="bullet-item"><span class="number">{{site.metadata.sources | size}}</span> Sources + <span class="number">{{site.metadata.publisher-sources | size}}</span> Publisher Sources</li>
 	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
-	  <li class="cta-button"><a class="button" href="#">Download</a></li>
+	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
 	</ul>	
   </div>
   <div class="large-6 columns">
@@ -36,21 +36,21 @@ permalink: /data/download
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.taxaByRankCount.species}}</span> Species</li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.sources | size}}</span> Sources</li>
 	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
-	  <li class="cta-button"><a class="button" href="#">Download</a></li>
+	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
 	</ul>
   </div>	
 </div>
 
 
-Please read the [information on the available formats](/about/colusage#data-formats) if you are unlcear which one to use.
+Please read ChecklistBank's [information on the available formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use.
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/).
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 
-## Historical versions of the Catalogue of Life
+## Annual versions of the Catalogue of Life
 The Catalogue of Life has been released each year since 2000 (excluding 2001 and 2020). 
 Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. 
-Monthly Catalogue of Lifes released between annual editions may not be kept indefinitely. 
+Monthly Catalogue of Lifes released between annual editions will not be kept indefinitely. 
 These lose support once an annual Catalogue of Life is issued.
 
 The following links give access to historical versions of the Catalogue of Life for each year from 2005 to 2019. 
@@ -83,7 +83,7 @@ Since 2021 each release is available in 3 formats and kept for online access in 
 * Catalogue of Life 2002 - 260,000 species
 * Catalogue of Life 2000 - 220,000 species
 
-## Historical versions of the monthly Catalogue of Life editions
+## Monthly versions of the Catalogue of Life
 
 The Catalogue of Life is updated throughout the year and snapshots are also available for many months from 2017 to the present. Changes in infrastructure have disrupted this series so some intervals are longer than monthly.
 

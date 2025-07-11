@@ -5,3 +5,6 @@ metadata:
   private: true
   user: col-dev-portal
   pass: kR8RfVrpWMz_s2f2
+
+changelog:
+  limit: 3
