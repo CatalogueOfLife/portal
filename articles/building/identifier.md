@@ -15,8 +15,8 @@ permalink: /building/identifier
 We are currently rewriting this page. For now please read our two blog posts on stable idenfiers.
 The latest one from 2022 explaining changes which are currently effective and deployed, while the original one from 2021 explains more basics and the initial procedure we started out with for a few month:
 
- - https://www.catalogueoflife.org/2022/03/23/name-ids
- - https://www.catalogueoflife.org/2021/04/14/stable-ids
+ - [https://www.catalogueoflife.org/2022/03/23/name-ids](https://www.catalogueoflife.org/2022/03/23/name-ids)
+ - [https://www.catalogueoflife.org/2021/04/14/stable-ids](https://www.catalogueoflife.org/2021/04/14/stable-ids)
 
 
 {% comment %} 
