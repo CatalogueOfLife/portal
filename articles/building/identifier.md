@@ -9,6 +9,17 @@ imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [
 permalink: /building/identifier
 ---
 
+
+## Identifiers in the Catalogue of Life
+
+We are currently rewriting this page. For now please read our two blog posts on stable idenfiers.
+The latest one from 2022 explaining changes which are currently effective and deployed, while the original one from 2021 explains more basics and the initial procedure we started out with for a few month:
+
+ - https://www.catalogueoflife.org/2022/03/23/name-ids
+ - https://www.catalogueoflife.org/2021/04/14/stable-ids
+
+
+{% comment %} 
 ## TODO Markus:
  - how we coin stable ids
  - link to blog posts
@@ -18,4 +29,4 @@ permalink: /building/identifier
  - stable across releases
  - identifiers can change in XR vs base release. new id from XR will also be used in based release once the names is added there
  - id reports
-
+{% endcomment %}
