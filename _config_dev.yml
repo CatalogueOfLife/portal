@@ -3,6 +3,6 @@ future: true
 
 metadata:
   origin: XRELEASE
-  private: true
+  private: false
   user: col-dev-portal
   pass: kR8RfVrpWMz_s2f2
