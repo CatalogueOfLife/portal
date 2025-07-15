@@ -21,7 +21,11 @@ permalink: /data/download
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.taxaByRankCount.species}}</span> Species</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.sources | size}}</span> Sources + <span class="number">{{site.metadata.publisher-sources | size}}</span> Publisher Sources</li>
-	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
+	  <li class="bullet-item">
+	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree">TextTree</a>
+	  </li>
 	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
 	</ul>	
   </div>
@@ -35,7 +39,10 @@ permalink: /data/download
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.taxaByRankCount.species}}</span> Species</li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.sources | size}}</span> Sources</li>
-	  <li class="bullet-item"><a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - <a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=TextTree">TextTree</a></li>
+	  <li class="bullet-item">
+	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?format=TextTree">TextTree</a></li>
 	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
 	</ul>
   </div>	
