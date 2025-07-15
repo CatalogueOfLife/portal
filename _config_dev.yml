@@ -2,7 +2,7 @@ url: https://www.dev.catalogueoflife.org
 future: true
 
 metadata:
-  private: true
+  private: false
   user: col-dev-portal
   pass: kR8RfVrpWMz_s2f2
 
