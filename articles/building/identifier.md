@@ -29,4 +29,5 @@ The latest one from 2022 explaining changes which are currently effective and de
  - stable across releases
  - identifiers can change in XR vs base release. new id from XR will also be used in based release once the names is added there
  - id reports
+ - other items
 {% endcomment %}
