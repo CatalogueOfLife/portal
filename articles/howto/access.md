@@ -42,7 +42,6 @@ By default you will access **All** the catalogue names, including those coming f
 Click on the name of your interest to access the relevant details page.
 
 ## Taxon Page
-### tercer nivel
 
 Once a taxon has been found by either route, more information is available on the taxon details page. Information available may include:
 
