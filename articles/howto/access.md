@@ -21,13 +21,7 @@ The Catalogue of Life is updated on a monthly basis. The latest version can alwa
 
 For a more structured exploration of the Catalogue go to [Search](/data/search), where you would be able to:
 
-# titulo nivel 1
-## titulo nivel2
-### titulo nivel 3
-
-**texto en negrilla**
-
-- Use the **search** box to type a scientific name or any other attribute parts of it, such as author name or year. Searches are case-insensitive. 
+- Use the **search** box to type a scientific name or any other attribute parts of it, such as author name or year. Searches are case-insensitive.
 - Use the **higher taxon** box to constraint your search to names within the selected group. This returns a full list of matching scientific names, including synonyms and higher ranks.
 - Use the **source dataset** box to constraint your search to names provided by a specific Catalogue or checklist (i. e. WoRMS, ITIS, WFO.)
 
@@ -48,6 +42,7 @@ By default you will access **All** the catalogue names, including those coming f
 Click on the name of your interest to access the relevant details page.
 
 ## Taxon Page
+### tercer nivel
 
 Once a taxon has been found by either route, more information is available on the taxon details page. Information available may include:
 
