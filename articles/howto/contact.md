@@ -27,16 +27,11 @@ You can suggest sources via GitHub or by emailing us at [support@catalogueoflife
 
 ## Contact Details
 
-### For questions, feedback and support
-[support@catalogueoflife.org](mailto:support@catalogueoflife.org)
+**For questions, feedback and support:** [support@catalogueoflife.org](mailto:support@catalogueoflife.org)
+**General enquiries:** [contact@catalogueoflife.org](mailto:contact@catalogueoflife.org)
+**Mailing List:** We maintain a [maling list](https://lists.gbif.org/mailman/listinfo/col-users) with very low traffic for user questions and important announcements.
 
-### General enquiries
-[contact@catalogueoflife.org](mailto:contact@catalogueoflife.org)
-
-### Mailing List
-We maintain a [maling list](https://lists.gbif.org/mailman/listinfo/col-users) with very low traffic for user questions and important announcements:
-
-### Visitor address
+**Visitor address**
 
 >  Catalogue of Life Secretariat
 <br/>
