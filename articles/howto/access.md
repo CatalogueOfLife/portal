@@ -1,67 +1,64 @@
 ---
 layout: content
-title: Using the Catalogue of Life
-tagline: Accessing and citing the Catalogue of Life
+title: ACCESS DATA
+tagline: How to navigate and use the Catalogue of Life
 section_id: howto
 toc: true
 imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
 permalink: /howto/access
 ---
-## TODO:
- - how to identify merged information
- - how to restrict searches to base / x only
- - annual vs monthly release
- - download filters in CLB incl simple vs extended format!
- 
 
-## Ways to access the Catalogue of Life
-The Catalogue of Life is constantly evolving through monthly updates. Persistent name identifiers will enable the user to track changes in scientific names. Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. Monthly Catalogue of Lifes released between annual editions may not be kept indefinitely. These lose support once an annual Catalogue of Life is issued.   
+The Catalogue of Life is updated on a monthly basis. The latest version can always be accessed through the website.
 
-The latest version of the Catalogue of Life can always be accessed through the COL website through the [Browse](/data/browse) and [Search](/data/search) tools and through the application programming interface (API). Historic annual Catalogue of Lifes can be accessed through web services, Darwin Core Archive downloads, and MySQL dumps.
+## Browse 
 
-### Browse and Search
-[Browsing the Catalogue of Life](/data/browse) offers an intuitive way to explore the Catalogue of Life, providing a visual perspective on the diversity of organisms that are included. Starting from the highest level of the taxonomic hierarchy (the kingdom), it is possible to:
- 
-* Expand the next level of the tree using the <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg> button to show taxa included within each group
-* Continue working down the tree to locate a species or other taxon (the tree only shows the accepted names)
-* Click on the name of any species or other taxon to access the relevant details page
-* Expand multiple branches of the hierarchy to visualise relationships between taxa
-* Use the **Find taxon** search field to go directly to a named taxon in the tree (including synonyms as well as accepted names)
+[Browsing](/)  is an intuitive way to visualise and explore in a tree view the diversity of organisms that are included on the Catalogue of Life. Starting from the highest level of the taxonomic hierarchy, use the arrows at the start of any name to expand or collapse the tree. Work down the tree to locate a species. Conversely, use the Find taxon search field to go directly to a taxon within the tree. You can search using both accepted and synonym names, although only the accepted names are displayed on the tree. Searching a synonym taxon will redirect you to its accepted name in COL.  Click on the name of your interest to access the relevant details page.
 
-Alternatively, the [Search](/data/search) function supports searching by name for any species or taxon in the Catalogue of Life:
+[Gif of a quick browse]
 
-* The **input search text** box supports taxon names or any other attribute parts of the name, such as author name or year. Searches are case-insensitive. Names matching the search term are returned below. 
-* The **higher taxon** box adds a filter to return only names from within the selected group. This returns a full list of matching scientific names, including synonyms and higher ranks. 
-* Results can be ordered by **Status** (accepted/synonym) or **Rank**
-* Further filters are available for **Rank** and **Status** or (under **Advanced**) for **Nomenclatural status** or **Name type**
-* Also under **Advanced**, the **Name field** option allows searches to be narrowed to particular parts of the name (e.g. genus, specific epithet or nomenclatural code)
+## Search
+
+For a more structured exploration of the Catalogue go to [Search](/data/search), where you would be able to:
+
+- Use the **search** box to type a scientific name or any other attribute parts of it, such as author name or year. Searches are case-insensitive. 
+- Use the **higher taxon** box to constraint your search to names within the selected group. This returns a full list of matching scientific names, including synonyms and higher ranks.
+- Use the **source dataset** box to constraint your search to names provided by a specific Catalogue or checklist (i. e. WoRMS, ITIS, WFO.)
+
+You will also find dropdown menus like Status and Rank to further filter your search. Explore all available options by clicking on Advance. Every menu allows you to select more than one option.
+
+[Gif of using search]. 
+
+You can also choose the way your search matches the results:
+
+- Exact: returns results only if the search term and name are identical.
+- Words: returns results that match one or several entire words in any order.
+- Prefix: returns results where the text starts with a specific prefix.
+- Fuzzy: returns results that are similar to words of the search text.
+
+
+By default you will access **All** the catalogue names, including those coming from authoritative vetted sources and from regional, national or policy- relevant sources ([check Assembly for more details.](/building/assembly)) To search only within the vetted sources select **Base**, to search within the other sources select **Extended**. You can always  identify the names coming from regional, national or policy- relevant sources by the XR icon next to them. 
+
+Click on the name of your interest to access the relevant details page.
+
+## Taxon Page
 
 Once a taxon has been found by either route, more information is available on the taxon details page. Information available may include:
-* **Name**: the complete scientific name for the species, including authorship
-* **Checklist status**: current status of the name
-* **Synonyms**: a list of synonyms for a species or taxon
-* **Classification**: a list showing each of the higher taxa within which this species is included within the consensus taxonomy established for the Catalogue of Life
-* **Vernacular names**: a list of common names for the species
-* **Distribution** (if available): a list of regions and countries in which the species is recorded
-* **Environment** (if available): in which the species is known to occur, e.g. marine, freshwater, terrestrial
-* **Source database**: link to the page that describes the source database for the species record.
-* **Link to original resource** (if available): this links to the corresponding species page in the original resource
 
-### Downloads
-The current and previous [Catalogue of Life can be downloaded](/data/download) in various formats and in parts, optionally specifying a root taxon retrieving just a subtree of the checklist.
+- **Identifier**: Persistent identifier of that name within COL, this enables the user to track changes in scientific names between releases.
+- **Name**: The complete scientific name for the species, including authorship.
+- **Checklist status**: Current status of the name
+- **Nomenclatural status**: Any relevant note regarding the status of the name .
+- **Synonyms and combinations**: a list of synonyms or alternative combinations registered for a taxon.
+- **Basionym**: The original combination of the name.
+- **Classification**: List displaying the higher-level taxa under which the taxon is nested.
+- **Vernacular names**: If available, a list of common names for the taxon.
+- **Distribution**: If available,  a list of regions and countries in which the taxon is recorded
+- **Environment**: If available,  in which  environment the species is known to occur, i.e. marine, freshwater, terrestrial, brackish.
+- **Taxonomic scrutiny**: Name and date of the person that last scrutinized the taxon.
+- **Source**: Link to the page that describes the source database for the species record.
+- **Link to original source**: If available,  this links to the corresponding species page in the original source
+- **Secondary Sources**: Link to additional sources that complement the taxon page information.
+- **References**: Bibliography references of the taxon name.
 
-## Data formats
-Through ChecklistBank the Catalogue is available in [various formats](https://www.checklistbank.org/about/formats).
-
-### Catalogue of Life Data Package (ColDP)
-For Catalogue of Life, the recommended exchange format for submitting data to and downloading data from ChecklistBank 
-is the [Catalogue of Life Data Package](https://catalogueoflife.github.io/coldp/) (ColDP), 
-a tabular text format with a standard set of files and columns and it is inspired by [Frictionless Data](https://frictionlessdata.io/). 
-The format is a single ZIP archive that bundles data in various delimited text files together with 
-a [metadata.yaml](https://catalogueoflife.github.io/coldp/metadata.yaml) file to provide basic metadata about the entire dataset.
-
-The ColDP format was developed to overcome limitations in existing formats for sharing taxonomic information, particularly Darwin Core Archives and the Annual Checklist Exchange Format used previously in COL. 
-Darwin Core Archives and ACEF are still supported for data exchange to and from the Catalogue of LifeBank, but the [ColDP format supports a wider range of features](https://github.com/CatalogueOfLife/coldp#format-comparison). 
-
-![ColDP Schema](https://catalogueoflife.github.io/coldp/docs/schema.png)
+ 
