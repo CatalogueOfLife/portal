@@ -70,6 +70,6 @@ The latest version of Catalogue of Life and the monthly an Annual version can al
   - [Catalogue of Life eXtended Release latest version](https://www.checklistbank.org/dataset/3LXR/about)
   - [Catalogue of Life eXtended Base latest version](https://www.checklistbank.org/dataset/3LR/about)
   - [All versions](https://www.checklistbank.org/dataset?limit=50&offset=0&releasedFrom=3&sortBy=created)
-- [The application programming interface (API)]()
+- [The application programming interface (API)](/tools/api)
 - [Monthly archive](https://download.checklistbank.org/col/monthly/)
 - [Annual archive](https://download.checklistbank.org/col/annual/)
