@@ -9,8 +9,11 @@ imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](h
 ---
 
 # Search the Catalogue of Life
-Use this search form to find any name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life.
+Find any scientific name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life.
 
+The Catalogue of Life includes information with different gradients of quality. The base release is verified by taxonomic experts specifically for COL. The eXtended Release includes extra data from other sources (indicated with the XR icon). Read about the [different releases]/building/releases COL provides. 
+
+Explore two new features: **Content** to switch between releases, and  **Filter by source dataset** to constraint your search to names provided by a specific data [source]/data/sources.
 
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="search"></div>
