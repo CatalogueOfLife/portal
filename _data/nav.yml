@@ -9,18 +9,18 @@
     - name: Search
       path: /data/search
       desc: "Find species and other taxa by name"
-    - name: Sources
-      path: /data/sources
-      desc: "Browse the underlying source datasets that make up the Catalogue"
-    - name: Download
-      path: /data/download
-      desc: "Current and historical versions of the Catalogue of Life"
     - name: Metadata
       path: /data/metadata
       desc: "Metadata about the Catalogue of Life"
+    - name: Sources
+      path: /data/sources
+      desc: "Browse the underlying source datasets that make up the Catalogue"
     - name: Metrics
       path: /data/metrics
       desc: "Metrics about the Catalogue of Life"
+    - name: Download
+      path: /data/download
+      desc: "Current and historical versions of the Catalogue of Life"
     - name: Changelog
       path: /data/changelog
       desc: "Log of changes between all releases of the Catalogue of Life"
