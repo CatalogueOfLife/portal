@@ -7,9 +7,11 @@ imageUrl: /images/species/Hyposmocoma_fractistriata.jpg
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
 permalink: /data/download
 ---
-Download the **full latest** release of the Catalogue of Life, updated monthly.
+
 
 <h2 class="text-center">Current Version of the Catalogue of Life</h2>
+
+Download the **full latest** release of the Catalogue of Life, updated monthly.
 
 <div class="row">
   <div class="large-6 columns">
