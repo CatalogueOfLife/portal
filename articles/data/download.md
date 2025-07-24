@@ -61,7 +61,7 @@ You can easily download data for a specific taxon or taxonomic group, such as an
 On each taxon’s page, click  the download icon. This option redirects you to a pre-filled download form the Catalogue of Life’s infrastructure, ChecklistBank.
 Example for [Myriapoda](https://www.dev.catalogueoflife.org/?taxonKey=OCSWRquk49fU2p015OioZ)
 
-You can  also customise your download directly in ChecklistBank by following these steps:
+You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/) by following these steps:
 1. Log in to ChecklistBank using your GBIF account. Don’t have one? You can register at gbif.org 
 2. In the left  menu, go to Datasets where you can look for the COL version of your preference.
 3. The list of available releases begins with the most recent, choose the one you prefer.
