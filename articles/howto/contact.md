@@ -14,7 +14,8 @@ permalink: /howto/contact
 To report an issue with a name or taxon, use the Feedback button at the bottom right of any taxon page. Please include details and references if available. Your input creates a public GitHub issue you can track. You may also share your email for private follow-up by the COL secretariat.
 GitHub users can report issues directly in the data repository
 
-
+<img src="/images/gif/Feedback.gif" alt="Feedback" loading="lazy">
+ 
 {% comment %} [screenshot feedback button and pop up window]{% endcomment %}
 
 
