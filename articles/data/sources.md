@@ -2,7 +2,7 @@
 layout: content
 toc: false
 title: Source datasets
-tagline: Taxonomic communities contributing data to COL
+tagline: A Global Network of Taxonomic Contributors
 section_id: data
 imageUrl: /images/species/Oedemera_nobilis.jpg    
 imageCaption: _Oedemera nobilis_ (Scopoli, 1763) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
