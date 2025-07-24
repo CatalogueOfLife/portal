@@ -15,6 +15,7 @@ The Catalogue of Life is updated on a monthly basis. The latest version can alwa
 
 [Browsing](/)  is an intuitive way to visualise and explore in a tree view the diversity of organisms that are included on the Catalogue of Life. Starting from the highest level of the taxonomic hierarchy, use the arrows at the start of any name to expand or collapse the tree. Work down the tree to locate a species. Conversely, use the Find taxon search field to go directly to a taxon within the tree. You can search using both accepted and synonym names, although only the accepted names are displayed on the tree. Searching a synonym taxon will redirect you to its accepted name in COL.  Click on the name of your interest to access the relevant details page.
 
+
 <img src="/images/gif/Browse.gif" alt="Browse" loading="lazy">
 
 
@@ -28,7 +29,7 @@ For a more structured exploration of the Catalogue go to [Search](/data/search),
 
 You will also find dropdown menus like Status and Rank to further filter your search. Explore all available options by clicking on Advance. Every menu allows you to select more than one option.
 
-[Gif of using search]. 
+<img src="/images/gif/Search.gif" alt="Search" loading="lazy">
 
 You can also choose the way your search matches the results:
 
