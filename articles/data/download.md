@@ -1,12 +1,13 @@
 ---
 layout: content
 title: Download
-tagline: Current and historical versions of the Catalogue of Life
+tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
 imageUrl: /images/species/Hyposmocoma_fractistriata.jpg    
 imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
 permalink: /data/download
 ---
+Download the **full latest** release of the Catalogue of Life, updated monthly.
 
 <h2 class="text-center">Current Version of the Catalogue of Life</h2>
 
@@ -15,8 +16,8 @@ permalink: /data/download
 	<ul class="pricing-table">
 	  <li class="title">Extended Release</li>
 	  <li class="price">Version {{site.metadata.current.version}}</li>
-	  <li class="description">The <a href="/building/releases#extended">extended release</a> aims at maximum completeness 
-	  	and <a href="/building/assembly">programmatically integrates many more sources</a> to cover gaps in the base release and adding molecular names.
+	  <li class="description">The COL <a href="/building/releases#extended">extended release</a> maximises completeness 
+	  	by <a href="/building/assembly">programmatically integrating additional sources</a> to fill gaps in the Base Release including molecular identifiers.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.taxaByRankCount.species}}</span> Species</li>
@@ -33,7 +34,7 @@ permalink: /data/download
 	<ul class="pricing-table">
 	  <li class="title">Base Release</li>
 	  <li class="price">Version {{site.base-metadata.current.version}}</li>
-	  <li class="description">The <a href="/building/releases#base">base release</a> aims at highest accurracy and is hand made from only scrutinized, global sources. 
+	  <li class="description">The COL <a href="/building/releases#base">Base Release</a> prioritises accurracy and only includes scrutinized, global sources. 
 	  It <i>excludes</i> all information marked up with the XR icon.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.nameCount}}</span> Names</li>
@@ -49,7 +50,7 @@ permalink: /data/download
 </div>
 
 
-Please read ChecklistBank's [information on the available formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use.
+Not sure which format to choose? Check out the ChecklistBank's information on the [available formats](https://www.checklistbank.org/about/formats).
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/).
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
