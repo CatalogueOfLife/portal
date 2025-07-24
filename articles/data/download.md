@@ -9,7 +9,7 @@ permalink: /data/download
 ---
 
 
-<h2 class="text-center">Current Version of the Catalogue of Life</h2>
+<h2 class="text-left">Current Version of the Catalogue of Life</h2>
 
 Download the **full latest** release of the Catalogue of Life, updated monthly.
 
@@ -56,17 +56,34 @@ Not sure which format to choose? Check out the ChecklistBank's information on th
 For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/).
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
+## Looking for just a part of the Catalogue of Life?
+You can easily download data for a specific taxon or taxonomic group, such as an order, family, or any other rank.
+On each taxon’s page, click  the download icon. This option redirects you to a pre-filled download form the Catalogue of Life’s infrastructure, ChecklistBank.
+Example for [Myriapoda](https://www.dev.catalogueoflife.org/?taxonKey=OCSWRquk49fU2p015OioZ)
 
-## Annual versions of the Catalogue of Life
-The Catalogue of Life has been released each year since 2000 (excluding 2001 and 2020). 
-Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. 
-Monthly Catalogue of Lifes released between annual editions will not be kept indefinitely. 
-These lose support once an annual Catalogue of Life is issued.
+You can  also customise your download directly in ChecklistBank by following these steps:
+1. Log in to ChecklistBank using your GBIF account. Don’t have one? You can register at gbif.org 
+2. In the left  menu, go to Datasets where you can look for the COL version of your preference.
+3. The list of available releases begins with the most recent, choose the one you prefer.
+4. In the left menu, click Download.
+5. Refine your download with the advanced filters: 
+	*  Taxon of your interest 
+	*  Archive format
+	*  Fields to include
+	* Minimum rank for search: Family, Genus, or Species
+	* Exclude ranks below a selected level
+	* Exclude synonyms
+	* Extinct only ( filter)
+Please read the information on the available [data formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use. 
 
-The following links give access to historical versions of the Catalogue of Life for each year from 2005 to 2019. 
-MySQL dump files can be downloaded for each version from 2005 to 2019 and Darwin Core Archive ZIP files from 2012 to 2019.
-Since 2021 each release is available in 3 formats and kept for online access in [Catalogue of Life Bank](https://www.checklistbank.org/dataset?releasedFrom=3&reverse=false&sortBy=created).
+## Monthly and annual versions
 
+**Monthly versions:** Catalogue of Life is released monthly between annual versions.  Monthly versions will not be kept indefinitely and lose support once an annual Catalogue of Life is issued. You can explore the [Monthly Checklist Archive](https://download.catalogueoflife.org/col/monthly/) for versions since 2017 to the month before the current release. Some months are missing due to changes in infrastructure, which affected the regular publishing schedule.
+
+**Annual versions:** Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. Are available in different formats. Since 2021 the annual versions remain permanently accessible via [ChecklistBank](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created).
+
+The following links give access to annual versions of the Catalogue from 2005 to 2019. 
+MySQL dump files are available for versions from 2005 to 2019. Darwin Core Archive ZIP files from 2012 to 2019.
 
 * [Catalogue of Life 2025](https://www.checklistbank.org/dataset/COL25) - 2,068,366 living and 152,871 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2025_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2025_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2025_txtree.zip))
 * [Catalogue of Life 2024](https://www.checklistbank.org/dataset/COL24) - 2,025,351 living and 147,120 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2024_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2024_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2024_txtree.zip))
@@ -92,12 +109,6 @@ Since 2021 each release is available in 3 formats and kept for online access in 
 * Catalogue of Life 2003 - 304,000 species
 * Catalogue of Life 2002 - 260,000 species
 * Catalogue of Life 2000 - 220,000 species
-
-## Monthly versions of the Catalogue of Life
-
-The Catalogue of Life is updated throughout the year and snapshots are also available for many months from 2017 to the present. Changes in infrastructure have disrupted this series so some intervals are longer than monthly.
-
-* [Monthly Checklist Archive](https://download.catalogueoflife.org/col/monthly/)
 
 
 
