@@ -9,8 +9,6 @@ permalink: /data/download
 ---
 
 
-<h2 class="text-left">Current Version of the Catalogue of Life</h2>
-
 Download the **full latest** release of the Catalogue of Life, updated monthly.
 
 <div class="row">
