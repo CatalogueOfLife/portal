@@ -8,90 +8,103 @@ imageUrl: /images/species/Pultenaea_procumbens.jpg
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /building/assembly
 ---
+The Catalogue of Life (COL) is the most comprehensive initiative to bring together basic species information from diverse data sources into a single, hierarchically structured global list of named species.
 
-## TODO:
- - complete rewrite
- - focus only on how COL is constructed, not CLB
- - explain base & extended version
- - updating names in XR, secondary sources
- - source priorities (link to actual prio list)
- - filtering/blocking of names
+The assembly takes place on Catalogue of Life’s data infrastructure ChecklistBank using its project functionality. The editorial team manages the Catalogue by integrating diverse taxonomic datasets. They apply editorial decisions to resolve overlaps, eliminate conflicts, and harmonise data across sources. As datasets evolve and new taxonomic insights emerge, editors update rules to maintain consistency and reflect changes. This approach keeps the Catalogue coherent and current, while preserving the original content provided by contributing communities.
 
-![COL data pipeline](/images/col_pipeline.png "COL data pipeline")
 
-## Species lists
-COL aims to improve all aspects of the management of taxonomic checklist data. 
-COL's primary deliverable is the Catalogue of Life (with all its versions). 
-The primary inputs to the Catalogue of Life are the sector checklists provided by contributing taxonomic communities. 
-However, there are many other sources and uses for taxonomic checklists. 
-These may summarise taxonomic publications, or they may have a geographic focus (national species lists), 
-summarise local biodiversity (park checklists, etc.), or list species that share a common attribute 
-or importance (Red Lists, invasive species lists, etc.). 
-The authors and maintainers of these lists have the same requirements as those communities that contribute sectors to the Catalogue of Life. 
-In many cases, the expertise encapsulated within these checklists may contribute additional names, synonyms or novel species concepts 
-that should be captured within the Catalogue of Life.
+## Taxonomic Checklists: The Foundation of the Catalogue of Life
+Taxonomic checklists are the essential building blocks of the Catalogue. They are created by taxonomic communities and independent experts. Their scope may vary from global coverage to regional or thematic lists of species. The content may also differ in detail and format. It can include basic name information to richly annotated databases. Regardless of their origin, they must be available in ChecklistBank before their integration into the Catalogue.
+The Taxonomy Group and editorial team jointly assess each candidate list to determine its suitability as a **global source**. These sources will serve as the authoritative reference for a specific taxonomic or biological group. The assessment consider the following general criteria:
 
-## ChecklistBank
-COL therefore aims to support the publication and curation of all these checklists and to provide a platform for their consistent discovery, 
-use and citation. 
-GBIF has for some time maintained ChecklistBank as its repository for its community to share checklist data. 
-COL and GBIF have united their capabilities to build [ChecklistBank](https://www.checklistbank.org) as the consistent foundation and repository 
-for all COL datasets and any other publicly published species lists.
+ 1.  Aim to include **all known species within a group**, along with all published names that have been used to refer to them.
+ 2.  Provide **essential information for each taxon name** (e.g. authorship, status, synonyms, references).
+ 3.  Maintained in a standardised, structured format (ideally in a database or repository) that supports **long-term preservation** and easy data extraction.
+ 4.  Reflect **taxonomic and nomenclatural consistency** based on a synoptic view of the group, ideally reviewed by recognised taxonomic experts.
+ 5.  Openness to **collaborate actively with the editorial team** to address questions, resolve issues, and consider suggestions for adding new information. 
+ 6.  Be publicly available under a **CC-0 or CC-by** license that ensures free and simple reuse.
 
-## Benefits of using ChecklistBank
-All authors of species lists are encouraged to publish their work through ChecklistBank. 
-Every dataset published this way will receive a DOI for ready citation and will be accessible through the same interfaces and API as the Catalogue of Life, 
-ensuring that the contents of any checklist can be used within a wide range of biodiversity software and tools. 
-COL will track and report uses and citation of each checklist. 
-Where relevant, publishing information to ChecklistBank will accelerate corresponding updates to the Catalogue of Life.
+Checklists that don’t meet all criteria may still be considered during the second phase of the Catalogue of Life assembly.
 
-## Constructing the Catalogue of Life
-The illustration at the top of this page shows the key stages in the construction of the Catalogue of Life:
 
-### 1: Preparing and curating checklists
-[Taxonomic communities](roles#roles-and-responsibilities) (and individual taxonomists) prepare and develop checklists for a variety of purposes using a wide selection of software and tools. 
-Some of these checklists aim to provide a clear and consistent view of all the species known from a given taxonomic group. 
-In other cases, the checklist may be geographically scoped (a national species list, a checklist for a protected area, etc.) 
-or may be thematically structured (invasive or threatened species, known consumers of a particular plant, etc.). 
-Checklists may only contain the names of the included species or may contain rich detail on the naming and classification for each species 
-or even include other information on the species in question (descriptions, distribution, links to multimedia, etc.). 
-As a result, the source datasets may be as simple as a spreadsheet or text file or they may be maintained as complex databases. 
-Before checklists can be shared with COL, they need to be organised in one of the formats that COL recognises and can interpret.
+## Building the Catalogue of Life
+Bringing together independent checklists into unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
 
-### 2: Publishing to ChecklistBank
-The taxonomic community can publish a checklist to the web either 
-(2a) by directly uploading it to ChecklistBank along with metadata describing its content 
-or (2b) by publishing elsewhere on the Internet (for example through the [World Register of Marine Species](http://www.marinespecies.org/), WoRMS, 
-the [Integrated Taxonomic Information System](https://www.itis.gov/), ITIS 
-or [TaxonWorks](http://taxonworks.org/)) in a form that COL can consume and then registering the dataset in ChecklistBank. 
-In the latter case, ChecklistBank will maintain a local copy to ensure that users can always review how COL has interpreted the original data.
+Below is a description of the process in **two phases**, from data mobilisation to publishing the assembled catalogue.
 
-### 3: Standard processing
-Regardless of the original data format, ChecklistBank generates a standardised interpretation in the COL Data Package (ColDP) format. 
-Both the original and the interpreted versions are exposed to users, in close coordination with the data publishers. 
-The ColDP format supports the generation of standardised views and access via the COL API. 
-Every dataset in ChecklistBank is assigned a unique Digital Object Identifier (DOI) to support easy standardised citation. 
+ 
+## Phase 1 – Integration of Authoritative Global Checklists
+### Data Conversion Pipelines
+Original checklists exist in a variety of formats—from web platforms and editing tools to spreadsheets and text documents. The COL editorial team carries out the necessary time consuming work to mobilise these datasets into ChecklistBank. This involves reviewing, cleaning, and converting raw data into the COLDP format or other standard formats. The absence of structured editing environments or non-standardised data structures often requires additional processing by the editorial team. Structural and content issues are resolved in close coordination with data providers. Once standardised, the datasets are published in ChecklistBank and ready for the assembly process.
 
-### 4: Building the Catalogue of Life
-The COL Workbench is a web-based processing tool that allows the COL editorial team to standardise 
-and automate construction of the Catalogue of Life from checklists published to ChecklistBank. 
-The Catalogue of Life is constructed following defined rules that identify which checklists have been selected as the best available sectors 
-for different groups and that address issues resulting from processing these checklists. 
-Once the sector checklists have been composed to form the reviewed sections of the Catalogue of Life, 
-the COL Workbench uses automated processes to insert missing taxa and names found in secondary sources. 
-All content added in this way is marked as unreviewed and can be excluded from online views and through the API. 
-It is clearly indicated that it has not been endorsed by the taxonomic community responsible for the sector. 
-Names added in this way are shared with the relevant taxonomic community so that they can be formally evaluated 
-and either accepted, rejected or processed correctly. 
+### Management Classification
+The Management Classification is a minimal taxonomic tree that serves as the attachment point for incoming source datasets. It is developed and maintained by the editorial team, with regular refinements supported by the Taxonomy Group and/or contributing taxonomic experts.
 
-### 5: Accessing and using the data
-[Users](roles#the-role-of-users) are able to use standard tools and interfaces to access, browse, download and cite 
-(5a) the Catalogue of Life and 
-(5b) any other checklists in ChecklistBank. 
-For the Catalogue of Life, users can access either the comprehensive view (including unreviewed automated additions) 
-or just the content that has been formally reviewed by a sector community. 
-Historical versions of the Catalogue of Life, including Annual Checklist versions, can also be accessed from ChecklistBank. 
-Records in the Catalogue of Life link back to the source checklists inside ChecklistBank. 
-Whether using the web interface, downloaded copies or the API, users are guided to cite all content using standard DOIs. 
-COL monitors use of these DOIs to facilitate reporting to the contributing communities and other data sources on the use of the content.
+### Editorial Decisions
+Data sources are cross-referenced with existing Catalogue of Life (COL) content to detect overlaps and assess taxonomic alignment. The results guide:
+- Identification of overlaps and gaps to determine if a data source should be split into multiple _**attach sectors**_.
+- Placement of _**attach sectors**_ in the taxonomic hierarchy to ensure consistency and avoid duplication or taxonomic conflicts during the assembly.
+- Minimal editing to harmonise content and standardise data across the catalogue.
+
+### Assembly Process
+The whole assembly process runs in monthly cycles to:
+- Incorporate updates from existing sources
+- Add newly accepted source datasets
+- Remove or replace outdated or unmaintained sources
+- Monitor stability and synchronise _attach sectors_
+- Implement tooling updates and improvements
+- Adjust editorial decisions at name and sector levels
+- Resolve internal assembly errors
+- Address issues reported by users
+- Generate persistent identifiers for every scientific name
+
+### Outcome
+The result is the **Catalogue of Life Base Release**, published on the website, in ChecklistBank, and accessible via API. Every name has its own persistent  [identifier](/building/identifier).
+The Catalogue is widely used as a [reference](/howto/use_cases) across biodiversity platforms.
+
+
+## Phase 2: Integration of Additional Taxa and Data
+This phase enhances the Base Release by addressing persistent gaps—particularly in underrepresented taxonomic groups. It incorporates content from over 57,000 overlapping taxonomic and nomenclatural sources. It enriches existing names with supplementary data. Importantly, the original information from the global sources in the Base Release remains unchanged.
+
+The additional data to be integrated in this phase include:
+- Names from family level downwards
+- Recently described species
+- Synonyms
+- Fossil taxa
+- Molecular identifiers (e.g. BINs, OTUs)
+- Literature references and vernacular names
+- Additional metadata from overlapping sources
+
+### Sources to include
+- Global multi-taxa checklists that address gaps left by existing global data sources
+- Regional and national checklists
+- Policy-relevant lists (e.g. invasive or threatened species)
+- Molecular data sources (e.g. species hypotheses, BINs, OTUs)
+- Species lists extracted from digitised scientific literature (e.g. PLAZI, Biodiversity Data Journal)
+
+### Editorial Decisions
+Selection of new source datasets to consider:
+- High counts of accepted names and synonyms
+- Coverage of taxonomic gaps within COL
+- Recent updates and active maintenance
+- Open data licensing (CC BY or CC0)
+
+Further decisions include:
++ Evaluating dataset quality and readiness for integration
++ Selecting data sources (or subsets) as _**merge sectors**_ —mainly contributing from family level downward
++ Prioritising the inclusion order of _**merge sectors**_
++ Configuring rules to block recurring name errors or unreliable content from digitised literature
+
+### Assembly Process
+The assembly runs directly after the publication of the COL Base Release aiming for:
+- Updating the list of data sources to include or exclude
+- Incorporating changes from previously merged sources
+- Adjusting editorial decisions at both name and sector levels
+- Applying tooling enhancements
+- Monitoring stability and synchronising sectors
+- Resolving internal errors
+- Addressing issues or user feedback from previous versions
+
+### Outcome
+The result is the **Catalogue of Life eXtended Release (XR)**, published on the website, in ChecklistBank, and accessible via the API. Every merged name is assigned a persistent [identifier](/building/identifier).
 
