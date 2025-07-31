@@ -106,5 +106,5 @@ The assembly runs directly after the publication of the COL Base Release aiming 
 - Addressing issues or user feedback from previous versions
 
 ### Outcome
-The result is the **Catalogue of Life eXtended Release (XR)**, published on the website, in ChecklistBank, and accessible via the API. Every merged name is assigned a persistent [identifier](/building/identifier).
+The result is the **Catalogue of Life eXtended Release (COL XR)**, published on the website, in ChecklistBank, and accessible via the API. Every merged name is assigned a persistent [identifier](/building/identifier).
 
