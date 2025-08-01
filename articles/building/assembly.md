@@ -19,11 +19,16 @@ The Taxonomy Group and editorial team jointly assess each candidate list to dete
 
  1.  Aim to include **all known species within a group**, along with all published names that have been used to refer to them.
  2.  Provide **essential information for each taxon name** (e.g. authorship, status, synonyms, references).
- 3.  Maintained in a standardised, structured format (ideally in a database or repository) that supports **long-term preservation** and easy data extraction.
- 4.  Reflect **taxonomic and nomenclatural consistency** based on a synoptic view of the group, ideally reviewed by recognised taxonomic experts.
- 5.  Openness to **collaborate actively with the editorial team** to address questions, resolve issues, and consider suggestions for adding new information. 
- 6.  Be publicly available under a **CC-0 or CC-by** license that ensures free and simple reuse.
+ 3.  Should take responsibility for a **complete taxonomic or biological group**
+ 4.  Maintained in a standardised, structured format (ideally in a database or repository) that supports **long-term preservation** and easy data extraction.
+ 5.  Reflect **taxonomic and nomenclatural consistency** based on a synoptic view of the group, ideally reviewed by recognised taxonomic experts.
+ 6.  Species lists should be **maintained and updated** as new taxonomic treatments are published or errors are detected.
+ 7.  Openness to collaborate actively with **all relevant taxonomists** aiming to support the global list 
+ 8.  Openness to **collaborate actively with the editorial team** to address questions, resolve issues, and consider suggestions for adding new information. 
+ 9.  Be publicly available under a **CC-0 or CC-by** license that ensures free and simple reuse.
 
+
+A broader description of these criteria is provided in the article `[Towards a global list of accepted species VI: The Catalogue of Life](https://doi.org/10.1007/s13127-021-00516-w)
 Checklists that don’t meet all criteria may still be considered during the second phase of the Catalogue of Life assembly.
 
 
