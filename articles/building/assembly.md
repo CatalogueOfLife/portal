@@ -19,7 +19,7 @@ The Taxonomy Group and editorial team jointly assess each candidate list to dete
 
  1.  Aim to include **all known species within a group**, along with all published names that have been used to refer to them.
  2.  Provide **essential information for each taxon name** (e.g. authorship, status, synonyms, references).
- 3.  Should take responsibility for a **complete taxonomic or biological group**
+ 3.  Take responsibility for a **complete taxonomic or biological group**
  4.  Maintained in a standardised, structured format (ideally in a database or repository) that supports **long-term preservation** and easy data extraction.
  5.  Reflect **taxonomic and nomenclatural consistency** based on a synoptic view of the group, ideally reviewed by recognised taxonomic experts.
  6.  Species lists should be **maintained and updated** as new taxonomic treatments are published or errors are detected.
