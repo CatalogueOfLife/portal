@@ -14,7 +14,7 @@ The assembly takes place on Catalogue of Life’s data infrastructure ChecklistB
 
 
 ## Taxonomic Checklists: The Foundation of the Catalogue of Life
-Taxonomic checklists are the essential building blocks of the Catalogue. They are created by taxonomic communities and independent experts. Their scope may vary from global coverage to regional or thematic lists of species. The content may also differ in detail and format. It can include basic name information to richly annotated databases. Regardless of their origin, they must be available in ChecklistBank before their integration into the Catalogue.
+Taxonomic checklists are the essential building blocks of the Catalogue. They are created by taxonomic communities and independent experts. Their scope may vary from global coverage to regional or national lists of species. The content may also differ in detail and format. It can include basic name information to richly annotated databases. Regardless of their origin, they must be available in ChecklistBank before their integration into the Catalogue.
 The Taxonomy Group and editorial team jointly assess each candidate list to determine its suitability as a **global source**. These sources will serve as the authoritative reference for a specific taxonomic or biological group. The assessment consider the following general criteria:
 
  1.  Aim to include **all known species within a group**, along with all published names that have been used to refer to them.
@@ -47,7 +47,7 @@ The Management Classification is a minimal taxonomic tree that serves as the att
 
 ### Editorial Decisions
 Data sources are cross-referenced with existing Catalogue of Life (COL) content to detect overlaps and assess taxonomic alignment. The results guide:
-- Identification of overlaps and gaps to determine if a data source should be split into multiple _**attach sectors**_.
+- Identification of overlaps and gaps to determine if a data source should be split into multiple taxonomic groups – _**attach sectors**_.
 - Placement of _**attach sectors**_ in the taxonomic hierarchy to ensure consistency and avoid duplication or taxonomic conflicts during the assembly.
 - Minimal editing to harmonise content and standardise data across the catalogue.
 
@@ -74,7 +74,7 @@ This phase enhances the Base Release by addressing persistent gaps—particularl
 The additional data to be integrated in this phase include:
 - Names from family level downwards
 - Recently described species
-- Synonyms
+- Synonyms and missing combinations
 - Fossil taxa
 - Molecular identifiers (e.g. BINs, OTUs)
 - Literature references and vernacular names
