@@ -46,7 +46,7 @@
       desc: "Contact us for support, feedback or anything else"
 
 - name: Tools 
-  #path: /tools
+  path: /tools
   section_id: tools
   children:
     - name: "ChecklistBank"
@@ -66,7 +66,7 @@
       desc: "Tools for publishing taxonomic or nomenclatural data"
 
 - name: Building COL
-  #path: /building
+  path: /building
   section_id: procedures
   children:
     - name: Assembly
@@ -89,7 +89,7 @@
       desc: "Glossary of terms"
 
 - name: About
-  #path: /about
+  path: /about
   section_id: about
   children:
     - name: What is COL
