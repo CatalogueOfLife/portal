@@ -76,7 +76,7 @@ The additional data to be integrated in this phase include:
 - Recently described species
 - Synonyms and missing combinations
 - Fossil taxa
-- Molecular identifiers (e.g. [BINs](https://bins.boldsystems.org/index.php/Public_BarcodeIndexNumber_Home], species hypothesis)
+- Molecular identifiers (e.g. [BIN](https://bins.boldsystems.org/index.php/Public_BarcodeIndexNumber_Home), species hypothesis)
 - Literature references and vernacular names
 - Additional metadata from overlapping sources
 
@@ -85,7 +85,7 @@ The additional data to be integrated in this phase include:
 - Regional and national checklists
 - Policy-relevant lists (e.g. invasive or threatened species)
 - Molecular data sources (e.g. [BOLD](https://boldsystems.org/), [UNITE](https://unite.ut.ee/))
-- Species lists extracted from digitised scientific literature (e.g. [PLAZI[https://plazi.org/treatmentbank/), [Biodiversity Data Journal](https://bdj.pensoft.net/))
+- Species lists extracted from digitised scientific literature (e.g. [PLAZI](https://plazi.org/treatmentbank/), [Biodiversity Data Journal](https://bdj.pensoft.net/))
 
 ### Editorial Decisions
 Selection of new source datasets to consider:
