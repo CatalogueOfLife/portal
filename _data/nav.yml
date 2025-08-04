@@ -72,6 +72,9 @@
     - name: Assembly
       path: /building/assembly
       desc: "How the Catalogue of Life is constructed"
+    - name: Data Quality
+      path: /building/quality
+      desc: "Data Quality"
     - name: Releases
       path: /building/releases
       desc: "Glossary of terms"
