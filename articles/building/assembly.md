@@ -68,7 +68,7 @@ The Catalogue is widely used as a [reference](/howto/use_cases) across biodivers
 
 
 ## Phase 2: Integration of Additional Taxa and Data
-This phase enhances the Base Release by addressing persistent gaps—particularly in underrepresented taxonomic groups. It incorporates content from over 57,000 overlapping taxonomic and nomenclatural sources. It enriches existing names with supplementary data. Importantly, the original information from the global sources in the Base Release remains unchanged.
+This phase enhances the COL Base Release by addressing persistent gaps—particularly in underrepresented taxonomic groups. It incorporates content from over 57,000 potentially overlapping taxonomic and nomenclatural sources. It enriches existing names with supplementary data. Importantly, the original information from the global sources in the Base Release remains unchanged.
 
 The additional data to be integrated in this phase include:
 - Names from family level downwards
