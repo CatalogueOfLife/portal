@@ -8,18 +8,18 @@ imageUrl: /images/species/Pultenaea_procumbens.jpg
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /building/assembly
 ---
-The Catalogue of Life (COL) is the most comprehensive initiative to bring together basic species information from diverse data sources into a single, hierarchically structured global list of named species.
+The Catalogue of Life (COL) is the most comprehensive initiative in bringing basic species information from diverse data sources together into a single, hierarchically structured global list of named species.
 
-The assembly takes place on Catalogue of Life’s data infrastructure [ChecklistBank](https://www.checklistbank.org) using its project functionality. The editorial team manages the Catalogue by integrating diverse taxonomic datasets. They apply editorial decisions to resolve overlaps, eliminate conflicts, and harmonise data across sources. As datasets evolve and new taxonomic insights emerge, editors update rules to maintain consistency and reflect changes. This approach keeps the Catalogue coherent and current, while preserving the original content provided by contributing communities.
+The assembly takes place on Catalogue of Life’s data infrastructure [ChecklistBank](https://www.checklistbank.org) using its project functionality. The editorial team manages the Catalogue by integrating diverse taxonomic data sources. They apply editorial decisions to resolve overlaps, eliminate conflicts, and harmonise data across sources. As datasets evolve and new taxonomic insights emerge, editors update rules to maintain consistency and reflect changes. This approach keeps the Catalogue coherent and current, while preserving the original content provided by contributing communities.
 
 
 ## Taxonomic Checklists: The Foundation of the Catalogue of Life
 Taxonomic checklists are the essential building blocks of the Catalogue. They are created by taxonomic communities and independent experts. Their scope may vary from global coverage to regional or national lists of species. The content may also differ in detail and format. It can include basic name information to richly annotated databases. Regardless of their origin, they must be available in [ChecklistBank](https://www.checklistbank.org/) before their integration into the Catalogue.
-The Taxonomy Group and editorial team jointly assess each candidate list to determine its suitability as a **global source**. These sources will serve as the authoritative reference for a specific taxonomic or biological group. The assessment consider the following general criteria:
+The Taxonomy Group and editorial team jointly assess each candidate list to determine its suitability as a **global source** criteria described in [Hobern et al, 2021](https://doi.org/10.1007/s13127-021-00516-w). These sources will serve as the authoritative reference for a specific taxonomic or biological group. The assessment considers the following general criteria:
 
  1.  Aim to include **all known species within a group**, along with all published names that have been used to refer to them.
  2.  Provide **essential information for each taxon name** (e.g. authorship, status, synonyms, references).
- 3.  Take responsibility for a **complete taxonomic or biological group**
+ 3.  Take **responsibility for a complete group** (taxonomic or biological)
  4.  Maintained in a standardised, structured format (ideally in a database or repository) that supports **long-term preservation** and easy data extraction.
  5.  Reflect **taxonomic and nomenclatural consistency** based on a synoptic view of the group, ideally reviewed by recognised taxonomic experts.
  6.  Species lists should be **maintained and updated** as new taxonomic treatments are published or errors are detected.
@@ -28,19 +28,18 @@ The Taxonomy Group and editorial team jointly assess each candidate list to dete
  9.  Be publicly available under a **[CC-0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC-BY](https://creativecommons.org/licenses/by/4.0/)** license that ensures free and simple reuse.
 
 
-A broader description of these criteria is provided in the article `[Towards a global list of accepted species VI: The Catalogue of Life](https://doi.org/10.1007/s13127-021-00516-w)
-Checklists that don’t meet all criteria may still be considered during the second phase of the Catalogue of Life assembly.
+A broader description of these criteria is provided in `[Hobern et al, 2021](https://doi.org/10.1007/s13127-021-00516-w)
+Checklists that don’t meet all criteria may still be considered. For example, during the second phase of the Catalogue of Life assembly.
 
 
-## Building the Catalogue of Life
-Bringing together independent checklists into unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
+# Building the Catalogue of Life
+Bringing together independent checklists into a unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
 
-Below is a description of the process in **two phases**, from data mobilisation to publishing the assembled catalogue.
-
+This section describes the **two phases** involved in building the Catalogue of Life—from preparing and standardising data to publishing the Base and eXtended Releases.
  
 ## Phase 1 – Integration of Authoritative Global Checklists
 ### Data Conversion Pipelines
-Original checklists exist in a variety of formats—from web platforms and editing tools to spreadsheets and text documents. The COL editorial team carries out the necessary time consuming work to mobilise these datasets into [ChecklistBank](https://www.checklistbank.org/). This involves reviewing, cleaning, and converting raw data into the [COLDP](https://catalogueoflife.github.io/coldp/) format or other standard formats. The absence of structured editing environments or non-standardised data structures often requires additional processing by the editorial team. Structural and content issues are resolved in close coordination with data providers. Once standardised, the datasets are published in [ChecklistBank](https://www.checklistbank.org/) and ready for the assembly process.
+Original checklists exist in a variety of formats—from web platforms and editing tools to spreadsheets and text documents. The COL editorial team undertakes the time-consuming work of mobilising these datasets into [ChecklistBank](https://www.checklistbank.org/). This process involves reviewing, cleaning, and converting raw data into the [ColDP](https://catalogueoflife.github.io/coldp/) format or other recognised standard. In some cases, the lack of structured editing environments or the use of non-standardised data structures requires additional processing. This work is made possible through the close collaboration  with data providers,  who not only curate and maintain the original checklists but also assist in resolving structural and content-related issues. Once standardised, the datasets are published in [ChecklistBank](https://www.checklistbank.org/) and ready for the assembly process. 
 
 ### Management Classification
 The Management Classification is a minimal taxonomic tree that serves as the attachment point for incoming source datasets. It is developed and maintained by the editorial team, with regular refinements supported by the Taxonomy Group and/or contributing taxonomic experts.
