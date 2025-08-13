@@ -11,11 +11,11 @@ permalink: /building/quality
 
 The Catalogue of Life places a strong emphasis on ensuring the integrity, accuracy, and consistency of its taxonomic data by applying a multi-step quality assurance workflow. This quality process addresses challenges inherent to working with raw data from diverse sources often provided in non-standardized formats, and ensures that data is thoroughly validated before inclusion, though some issues may still remain or be improved over time. Here we highlight some of the key moments of the  process where quality assurance is applied.
 
-## Quality Assurance at the origin 
+## Quality Assurance at the Origin 
 
 Data is submitted in a variety of raw formats and processed through custom pipelines that convert it into the standardized [ColDP format](github.com/CatalogueOfLife/coldp). During this stage, common issues such as non-standard data structures, Excel-induced autocorrect errors, and ambiguous internal codes are identified and addressed. Detected issues are communicated back to data providers for correction, while the pipelines are updated to prevent the recurrence of errors and improve data quality over time.
 
-## Quality Assurance during the assembly process
+## Quality Assurance During the Assembly Process
 
 During the [assembly process](/building/assembly) of the Catalogue of Life in ChecklistBank, data quality is maintained through a series of structured checks. Issues are reviewed and categorized based on who should address them: IT developers, data providers, or COL editors. Common problems like invalid identifiers, formatting errors, and outdated decisions are systematically resolved. Each dataset also undergoes a  review of its metadata (such as version, source, and authorship) and taxonomic classification, with checks for completeness, empty taxa, misclassifications, and duplicates. Quality control continues after assembly through regular updates, including monthly comparisons between dataset versions. ChecklistBank tools and metrics help detect new or lingering issues, allowing for timely corrections and ongoing improvements.
 
