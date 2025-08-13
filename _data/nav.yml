@@ -14,9 +14,9 @@
     - name: Sources
       path: /data/sources
       desc: "Browse the underlying source datasets that make up the Catalogue"
-    - name: Metrics
-      path: /data/metrics
-      desc: "Metrics about the Catalogue of Life"
+    # - name: Metrics
+    #   path: /data/metrics
+    #   desc: "Metrics about the Catalogue of Life"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"
@@ -55,12 +55,12 @@
     - name: "COL API"
       path: /tools/api
       desc: "Programmatically access the Catalogue of Life"
-    - name: "Editing platforms"
-      path: /tools/editing
-      desc: "Taxonomic editing platforms"
-    - name: "Publishing Tools"
-      path: /tools/publishing
-      desc: "Tools for publishing taxonomic or nomenclatural data"
+   # - name: "Editing platforms"
+   #   path: /tools/editing
+   #   desc: "Taxonomic editing platforms"
+   # - name: "Publishing Tools"
+   #   path: /tools/publishing
+   #   desc: "Tools for publishing taxonomic or nomenclatural data"
 
 - name: Building COL
   section_id: procedures
@@ -80,9 +80,9 @@
     - name: Classifcation
       path: /building/classification
       desc: "Classifcation and names"
-    - name: Gaps
-      path: /building/gaps
-      desc: "Known gaps in the Catalogue of Life"
+   # - name: Gaps
+   #   path: /building/gaps
+   #   desc: "Known gaps in the Catalogue of Life"
     - name: Glossary
       path: /building/glossary
       desc: "Glossary of terms"
