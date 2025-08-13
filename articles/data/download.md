@@ -63,7 +63,7 @@ On each taxon’s page, click the download icon, next to the taxon identifier or
 
 Example for [Myriapoda](/data/taxon/CW2TY)
 
-<img src="/images/gif/Download-01.gif" alt="Dowload Myriapoda" loading="lazy" width="300">
+<img src="/images/gif/Download-01.gif" alt="Dowload Myriapoda" loading="lazy" width="600">
 
 
 You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/) by following these steps:
