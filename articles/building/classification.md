@@ -9,7 +9,7 @@ imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https
 permalink: /building/classification
 ---
 
-## Scientific names: a foundation for biodiversity
+## Scientific Names: a Foundation for Biodiversity
 
 For centuries, taxonomists have named and classified living and extinct organisms using internationally accepted rules. These scientific names, organised in a hierarchy, reflect evolutionary relationships and structure our understanding of biodiversity.
 
@@ -23,7 +23,7 @@ To name a new species, a taxonomist must describe how it differs from related sp
 As research progresses, taxonomists may revise species boundaries—splitting one species into several, merging others, or reassigning them to new genera or ranks. These taxonomic decisions reflect scientific interpretation and are separate from nomenclature.
 Nomenclatural codes guide how names should be handled when classifications change. For example, a species epithet can be combined with a new genus name if the classification shifts. Over time, some names—though valid under nomenclatural rules—are no longer considered accepted by taxonomists and become synonyms of the currently recognised name. This reflects the evolving nature of taxonomy and our deepening understanding of biodiversity.
 
-## Codes of nomenclature 
+## Codes of Nomenclature 
 
 The naming of species is governed by international codes, each tailored to a specific group of organisms:
 
@@ -43,7 +43,7 @@ Serving as the foundation within the ChecklistBank project, this classification 
 Spanning from domain to genus, the backbone ensures consistency in assembling the Catalogue. Each dataset also includes metadata describing its internal classification.
 
 
-## Names from Molecular and Sequence-Based Data**
+## Names from Molecular and Sequence-Based Data
 
 In addition to traditional taxonomic naming based on morphology, molecular analyses of specific DNA or RNA regions have introduced new ways to recognise and group organisms. These methods generate species hypotheses (SH) or operational taxonomic units (OTUs)—clusters based on sequence similarity.
 
