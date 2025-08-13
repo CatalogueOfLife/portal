@@ -75,8 +75,7 @@ partners:
 
       <h3>Documentation</h3>
       <p>
-       The <span class="xr-icon" style="">XR</span> icon indicates additional content from the eXtended Release which are not present in the scrutinized base release.
-       If you never heard about the XR, start by reading about the <a href="/about/assembly">different releases</a> COL provides.
+       The Catalogue of Life includes information with different gradients of quality. The base release is verified by taxonomic experts specifically for COL. The eXtended Release includes extra data from other sources (indicated with the  <span class="xr-icon" style="">XR</span>  icon). Read about the <a href="/about/assembly">different releases</a> COL provides.
       </p>
       <br/>
       
