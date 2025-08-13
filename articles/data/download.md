@@ -55,9 +55,16 @@ For versions from previous months, please visit the [COL downloads site](https:/
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 ## Looking for just a part of the Catalogue of Life?
+
 You can easily download data for a specific taxon or taxonomic group, such as an order, family, or any other rank.
-On each taxon’s page, click  the download icon. This option redirects you to a pre-filled download form the Catalogue of Life’s infrastructure, ChecklistBank.
-Example for [Myriapoda](/taxon/CW2TY)
+
+On each taxon’s page, click the download icon, next to the taxon identifier or at the bottom of the page. This option redirects you to a pre-filled download form the Catalogue of Life’s infrastructure, ChecklistBank.
+
+
+Example for [Myriapoda](/data/taxon/CW2TY)
+
+<img src="/images/gif/Browse.gif" alt="Dowload Myriapoda" loading="lazy">
+
 
 You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/) by following these steps:
 
