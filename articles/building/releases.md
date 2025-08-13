@@ -11,12 +11,12 @@ permalink: /building/releases
 
 The Catalogue of Life offers releases that reflect different levels of quality: the Base and the eXtended Release. Throughout the year, these releases are updated in several versions: monthly and annual. Understanding the differences between these releases and their versions will help you navigate the Catalogue more effectively and choose the one best suited to your needs.
 
-**How to  quickly decide what to use?**
+**How to  Quickly Decide What to Use?**
 
 - Need the most complete list across all taxonomic groups? *->* Use the Catalogue of Life eXtended Release (XR).
 - Looking for the highest accuracy and long-term, expert-vetted information? *->* Go with the Base Release.
 - Want the most up-to-date information? *->* Check out our monthly version (base or eXtended), always available on the website and in the Catalogue of Life ChecklistBank.
--Prefer stability for long-term analyses? *->* Choose the Annual stable version (base or eXtended) with ongoing support. A historical archive of all annual versions is available for all users.
+- Prefer stability for long-term analyses? *->* Choose the Annual stable version (base or eXtended) with ongoing support. A historical archive of all annual versions is available for all users.
 
 For a more informed decision keep reading and also check the [assembly page](/building/assembly).
 
@@ -26,7 +26,7 @@ The Catalogue of Life **Base Release** is an assembly of non-overlapping, expert
 
 [Plus a comparison table of the main differences]
 
-**Annual and monthly versions**
+**Annual and Monthly Versions**
 
 To keep the Catalogue up to date with the latest taxonomic views from our data providers, we publish **monthly versions**. The accumulated monthly changes are reflected in the **annual version**.  This version receives stable long-term support  in COL’s data infrastructure. For this stable version, we take extra care to avoid introducing changes that could lead to errors. Annual versions of the catalogue have been published since 2000 (excluding 2001 and 2020). As soon as a new annual version goes live, previous monthly versions lose active support in ChecklistBank. 
 
