@@ -20,7 +20,7 @@ Already familiar with the Global Biodiversity Information Facility (GBIF) publis
 Alternatively, you can publish or create a dataset directly in ChecklistBank. For more data-savvy users, it’s also possible to host your own archive on GitHub and connect it to ChecklistBank, using one of our templates. We are currently developing a detailed tutorial to guide you through the publishing process. In the meantime, our support desk is available to assist you every step of the way.
 Once your data is available on ChecklistBank, please [let us know](/howto/contact) so we can evaluate it for integration into the Catalogue of Life.
 
-## Support COL’s data management
+## Support COL’s Data Management
 
 The advisory bodies of the Catalogue of Life, together with our secretariat, play complementary roles in guiding decisions around data management. But for these decisions to truly reflect global biodiversity across all regions, organisms, and taxonomic backgrounds, we are constantly looking to expand the expertise and diversity within our community.
 
@@ -36,7 +36,7 @@ If you’re interested in contributing to the Catalogue of Life’s development,
 We welcome all contributions, whether regional, thematic, or technical, to help build a Catalogue that truly represents the diversity of life and the global community working to document it. [Please contact us.](/howto/contact)
 
 
-## Recurrent or one time reviewer
+## Recurrent or One Time Reviewer
 
 Several levels of quality checks are in place. Both at the data source level by our data providers and at the aggregation level within the Catalogue of Life. Building a catalogue of all known species names is a daunting task. We strive for accuracy, but errors can occur. That’s why we highly value external reviewers. Whether you are a regular user of the Catalogue of Life or visiting for the first time. If you spot an error, gap, name misuse, want to suggest a new source dataset, or any other issue. Please report your feedback via our [GitHub repository](https://github.com/CatalogueOfLife/data), by email or directly via the [feedback button on each taxon page](/howto/contact#feedback-on-a-name-or-taxon).
 
