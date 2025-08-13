@@ -3,7 +3,7 @@ layout: content
 title: COL API
 tagline: Programmatically access the Catalogue of Life
 section_id: tools
-toc: true
+toc: false
 imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
 permalink: /tools/api
