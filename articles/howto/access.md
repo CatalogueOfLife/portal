@@ -64,7 +64,7 @@ Once a taxon has been found by either route, more information is available on th
 - **References**: Bibliography references of the taxon name.
 
  
-## Other forms of access
+## Other Forms of Access
 
 The latest version of Catalogue of Life and the monthly an Annual version can also be accessed through:
 
