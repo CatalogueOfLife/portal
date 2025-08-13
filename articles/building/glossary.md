@@ -9,6 +9,7 @@ imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](
 permalink: /building/glossary
 ---
 
+{% comment %}
 ## TODO:
  - NameField def wrong
  - NameType incomplete
@@ -17,6 +18,8 @@ permalink: /building/glossary
  - extend glossary
  	- doi
  	- BIN / SH
+{% endcomment %}
+
 
 ## Classification
 A list showing each of the higher taxa within which this species is included. The COL checklist is organised in a single management classification, using a hierarchy that reflects an integration of taxonomic opinion for the purpose of arranging species checklists from different providers into one classification system. The management classification includes higher ranks appropriate for each taxonomic group.
