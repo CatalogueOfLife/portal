@@ -15,7 +15,7 @@ Some sources contribute in multiple ways and may appear more than once in the li
 
 The XR icon indicates sources that only contribute to the **eXtended Release**. You can choose to include or exclude these sources from the list using the checkbox. Read about the [different releases](/building/releases) COL provides. 
 
-Detailed changes of sources between versions can be viewed on the [Changelog](/data/changelog) 
+Detailed changes of sources between versions can be viewed on the [Changelog](/data/changelog). 
 
 <div class="row" style="background: white; margin-top: 0px; margin-bottom: 0px">
   <div id="datasetSearch"></div>
