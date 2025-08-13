@@ -11,7 +11,7 @@ permalink: /howto/use_cases
 
 The Catalogue of Life and its infrastructure are used in many ways to support biodiversity science, policy, and data management. The use cases and showcases highlighted here offer a glimpse of COL’s impact on taxonomic harmonisation, collection management, policy reporting, and data quality improvement, with even more examples found in scientific literature and community contributions.
 
-## Taxonomically represent data holdings
+## Taxonomically Represent Data Holdings
 The Catalogue of life is being used to taxonomically harmonise data and enable the discovery and use of biodiversity data of various data infrastructures.
 
 _Show cases_
@@ -19,7 +19,7 @@ _Show cases_
   
 - The Barcode of Life (BOL) also uses the Catalogue of Life as the foundation for its taxonomic view, which helps organize 16.5 million public DNA barcode records. Both organizations are collaborating to integrate taxonomic feedback from BOL’s users and taxonomy experts into the Catalogue of Life.
 
-## Validated policy-relevant species data
+## Validated Policy-Relevant Species Data
 The Catalogue of Life is used to harmonise species data across policies, countries, and reporting frameworks, ensuring consistency and accuracy in decision-making.
 
 _Show cases_
