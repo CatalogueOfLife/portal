@@ -32,7 +32,7 @@ A broader description of these criteria is provided in `[Hobern et al, 2021](htt
 Checklists that don’t meet all criteria may still be considered. For example, during the second phase of the Catalogue of Life assembly.
 
 
-# Building the Catalogue of Life
+## Building the Catalogue of Life
 Bringing together independent checklists into a unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
 
 This section describes the **two phases** involved in building the Catalogue of Life—from preparing and standardising data to publishing the Base and eXtended Releases.
