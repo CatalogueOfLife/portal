@@ -26,7 +26,7 @@
       desc: "Log of changes between all releases of the Catalogue of Life"
 
 - name: How To
-  "path: /howto
+  path: /howto
   section_id: howto
   children:
     - name: "Access data"
