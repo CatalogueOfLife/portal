@@ -17,7 +17,7 @@ The Identifier format for names usages and logic are designed to be:
 - Non-ambiguous, avoiding similar-looking characters and vowels to prevent offensive or real words.
 - Hierarchically meaningful, with special one-character IDs reserved for kingdoms
 
-An example of identifiers are P for Plantae and 4QHKG for Puma concolor
+An example of identifiers are P for [Plantae](/data/taxon/P) and 4QHKG for [Puma concolor](/data/taxon/4QHKG)
 
 
 Every COL version has a small report of changes in identifiers to help users monitor updates. These reports are useful to to assess the stability of identifiers and adjust accordingly:
