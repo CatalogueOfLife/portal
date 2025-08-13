@@ -9,7 +9,7 @@ imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring]
 permalink: /howto/contact
 ---
 
-## Feedback on a name or taxon
+## Feedback on a Name or Taxon
 
 To report an issue with a name or taxon, use the Feedback button at the bottom right of any taxon page. Please include details and references if available. Your input creates a public GitHub issue you can track. You may also share your email for private follow-up by the COL secretariat.
 GitHub users can report issues directly in the data repository
