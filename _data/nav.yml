@@ -49,9 +49,9 @@
     - name: "ChecklistBank"
       path: /tools/checklistbank
       desc: "ChecklistBank"
-    - name: "Name matching"
-      path: /tools/matching
-      desc: "Match & link your names to COL"
+  #  - name: "Name matching"
+  #   path: /tools/matching
+  #   desc: "Match & link your names to COL"
     - name: "COL API"
       path: /tools/api
       desc: "Programmatically access the Catalogue of Life"
