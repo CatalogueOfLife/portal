@@ -29,19 +29,19 @@ or `4QHKG` for [Puma concolor](https://www.catalogueoflife.org/data/taxon/4QHKG)
 We have reserved single character identifiers for [kingdoms](https://www.catalogueoflife.org/data/search?rank=kingdom) and manually assigned these.
 
 With every release we generate a small report of changes in identifiers. 
-These reports consist of the following files as you can see in the current [April 2021 edition](https://download.catalogueoflife.org/releases/3/38/):
+These [reports](https://download.checklistbank.org/releases/3/) consist of the following files as you can see in the [April 2021 edition](https://download.checklistbank.org/releases/3/38/):
 
- - [created.tsv](https://download.catalogueoflife.org/releases/3/38/created.tsv) a list of identifiers with names that have been newly minted in this release and did not exist before
- - [deleted.tsv](https://download.catalogueoflife.org/releases/3/38/deleted.tsv) a list of identifiers with names that have been removed in this release but did exist in the previous release
- - [resurrected.tsv](https://download.catalogueoflife.org/releases/3/38/resurrected.tsv) a list of identifiers with names that have been added in this release and did not exist in the previous release, but which had been used in some older, previous release already
- - [unstable.txt](https://download.catalogueoflife.org/releases/3/38/unstable.txt) a short report of potentially unstable identifiers
+ - [created.tsv](https://download.checklistbank.org/releases/3/38/created.tsv) a list of identifiers with names that have been newly minted in this release and did not exist before
+ - [deleted.tsv](https://download.checklistbank.org/releases/3/38/deleted.tsv) a list of identifiers with names that have been removed in this release but did exist in the previous release
+ - [resurrected.tsv](https://download.checklistbank.org/releases/3/38/resurrected.tsv) a list of identifiers with names that have been added in this release and did not exist in the previous release, but which had been used in some older, previous release already
+ - [unstable.txt](https://download.checklistbank.org/releases/3/38/unstable.txt) a short report of potentially unstable identifiers
 
 The short report on potentially unstable identifiers intersects the created and deleted lists by grouping them on the canonical name without authorship.
 This allows us to review changes and spot potential problems with the algorithm. 
 The names listed in the April 2021 report look all correct as they usually have an addition in authorship, a status change or a synonyms parent change.
 We hope that these reports help users in tracking changes in COL.
  
-For users that want to migrate from the discontinued 2019 identifiers to the new system we provide an [ID mapping file](https://download.catalogueoflife.org/col/legacy_id_map.zip).
+For users that want to migrate from the discontinued 2019 identifiers to the new system we provide an [ID mapping file](https://download.checklistbank.org/col/legacy_id_map.zip).
 Since this April release the mapping also includes uninomials in which both the parent and child names are matched to avoid issues with homonyms. 
 Prior to issuing the 2021 annual edition, we plan on issuing another update to the ID mapping that will include a more complete mapping of old uninomial identifiers to new uninomial identifiers.
 

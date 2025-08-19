@@ -101,7 +101,8 @@ Catalogue of Life is maintained by a distributed secretariat. The Global Biodive
 * Mr. Ari Örn is a volunteer with Catalogue of Life doing quality assurance checks on the ColDP archives each month 
 
 ## Infrastructure team
-A dedicated GBIF team support the maintenance and expansion of the Catalogue of Life Infrastructure, [ChecklistBank](https://checklistbank.org). ChecklistBank is both core infrastructure for Catalogue of Life and the Global Biodiversity Information Facility.
+A dedicated GBIF team support the maintenance and expansion of the Catalogue of Life Infrastructure. 
+[ChecklistBank](https://checklistbank.org) is both core infrastructure for Catalogue of Life and the Global Biodiversity Information Facility.
 
 The infrastructure team works closely with the Catalogue of Life Secretariat and its partners.
 
