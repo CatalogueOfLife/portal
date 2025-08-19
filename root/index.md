@@ -61,7 +61,7 @@ partners:
     </div>
     <div class='medium-4 columns'>
       <br/>
-      <h3>Current Release</h3>
+      <h3>Current Version</h3>
       <div id="version">
         <div>
           Issued: <i>{{site.metadata.current.issued}}</i>
