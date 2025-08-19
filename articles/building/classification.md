@@ -36,7 +36,7 @@ These codes define how scientific names must be published and maintained. Taxono
 
 ## Taxonomic Backbone of the Catalogue of Life
 
-The Catalogue of Life is structured around a management classification based on the framework proposed by Ruggiero et al., 2015. This backbone is regularly updated by editors, supported by the Taxonomy group. 
+The Catalogue of Life is structured around a management classification based on the framework proposed by [Ruggiero et al., 2015](https://doi.org/10.1371/journal.pone.0119248). This backbone is regularly updated by editors, supported by the Taxonomy group. 
 
 Serving as the foundation within the ChecklistBank project, this classification enables global datasets to be integrated at appropriate taxonomic levels, depending on their scope and alignment with the higher taxonomy.
 
