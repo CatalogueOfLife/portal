@@ -24,7 +24,6 @@ For a more informed decision keep reading and also check the [assembly page](/bu
 
 The Catalogue of Life **Base Release** is an assembly of non-overlapping, expert-curated global species checklists, organized according to the Catalogue’s management classification. The building process of this release ensures a higher level of quality, as most data sources are maintained and updated regularly by taxonomic experts. However, since many taxa still lack a vetted or up-to-date checklist, this approach leaves several gaps. To address this, the Catalogue of Life **eXtended Release (COL XR)** is built on top of the Base Release. This release is programmatically enhanced, integrating information from more than 57,000 overlapping taxonomic and nomenclatural sources including global, regional, national, and management datasets, as well as digitized literature. This process also enriches the existing names with information such as authorships, references, and vernacular names. It also adds molecular data, such as barcode index numbers or operational taxonomic units. Higher taxonomy is being added in selected groups with important gaps. Meanwhile, the information from the global data sources of the Catalogue of Life base release remains unmodified. This enhanced process is continuously evolving and undergoing quality control checks by COL editors and its community. 
 
-[Plus a comparison table of the main differences]
 
 ## Annual and Monthly Versions
 
