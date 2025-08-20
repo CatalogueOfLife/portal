@@ -16,7 +16,7 @@ Download the **full latest** release of the Catalogue of Life, updated monthly.
 	<ul class="pricing-table">
 	  <li class="title">Extended Release</li>
 	  <li class="price">Version {{site.metadata.current.version}}</li>
-	  <li class="description">The COL <a href="/building/releases#extended">extended release</a> maximises completeness 
+	  <li class="description">The COL <a href="/building/releases#extended">eXtended Release</a> maximises completeness 
 	  	by <a href="/building/assembly">programmatically integrating additional sources</a> to fill gaps in the Base Release including molecular identifiers.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
@@ -51,7 +51,7 @@ Download the **full latest** release of the Catalogue of Life, updated monthly.
 
 
 Not sure which format to choose? Check out the ChecklistBank's information on the [available formats](https://www.checklistbank.org/about/formats).
-For versions from previous months, please visit the [COL downloads site](https://download.catalogueoflife.org/col/).
+For versions from previous months, please visit [COL's archive](https://download.catalogueoflife.org/col/).
 ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 ## Looking for just a part of the Catalogue of Life?
