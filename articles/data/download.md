@@ -9,7 +9,7 @@ permalink: /data/download
 ---
 
 
-Download the **full latest** release of the Catalogue of Life, updated monthly.
+Download the **full latest** release of the Catalogue of Life, updated monthly or scroll down to download our [past releases](#past-releases).
 
 <div class="row">
   <div class="large-6 columns">
@@ -83,14 +83,16 @@ You can  also customise your download directly in [ChecklistBank](https://www.ch
 
 Please read the information on the available [data formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use. 
 
-## Monthly and annual versions
 
-**Monthly versions:** Catalogue of Life is released monthly between annual versions.  Monthly versions will not be kept indefinitely and lose support once an annual Catalogue of Life is issued. You can explore the [Monthly Checklist Archive](https://download.catalogueoflife.org/col/monthly/) for versions since 2017 to the month before the current release. Some months are missing due to changes in infrastructure, which affected the regular publishing schedule.
+## Past Releases
+We archive all our releases which can be downloaded from our [annual](https://download.catalogueoflife.org/col/annual/) or [monthly](https://download.catalogueoflife.org/col/monthly/) archive.
+[Annual versions](/building/releases#annual-and-monthly-versions) of the catalogue have been published since 2000.
 
-**Annual versions:** Every year, COL produces an annual version of the Catalogue of Life that receives long-term support and becomes part of the yearly archives. Are available in different formats. Since 2021 the annual versions remain permanently accessible via [ChecklistBank](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created).
+Since 2021 the annual versions remain permanently accessible via [ChecklistBank](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created) and it's API,
+while we only keep monthly versions in ChecklistBank for a year.
 
-The following links give access to annual versions of the Catalogue from 2005 to 2019. 
-MySQL dump files are available for versions from 2005 to 2019. Darwin Core Archive ZIP files from 2012 to 2019.
+For quick access we list here all available downloads of the annual versions of the Catalogue. 
+For releases before 2012 only MySQL dump files are available.
 
 * [Catalogue of Life 2025](https://www.checklistbank.org/dataset/COL25) - 2,068,366 living and 152,871 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2025_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2025_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2025_txtree.zip))
 * [Catalogue of Life 2024](https://www.checklistbank.org/dataset/COL24) - 2,025,351 living and 147,120 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2024_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2024_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2024_txtree.zip))

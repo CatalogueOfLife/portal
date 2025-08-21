@@ -48,20 +48,11 @@ permalink: /data/changelog
   }  
 </style>
 
-## Current Version
 
-<div id="version">  
-  Issued: <i>{{site.metadata.current.version}}</i>
-  <br/>
-  DOI: <a href="https://doi.org/{{site.metadata.current.doi}}">{{site.metadata.current.doi}}</a>
-  <br/>
-  ChecklistBank: <a href="https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/about">{{site.metadata.current.key}}</a>
-  <br/>
-  <br/>
-</div>
+## Changes between COL releases
 
-
-## Changes between monthly versions
+The Catalogue of Life has been released continuously since 2000 and you can [download](/data/download#past-releases) copies of all annual versions.
+Since 2021, when the catalogue was first produced in ChecklistBank, we also keep a changelog of all our releases:
 
 <div id="changes">  
 {% for r in site.changelog.entries %}
