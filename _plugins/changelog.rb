@@ -40,9 +40,7 @@ module ChangeLog
           rel={}
           d = load(URI("#{api}/dataset/#{key}"))
           d.delete('source') # remove some heavy dataset props
-          rel['key']       = key
           rel['dataset']   = d
-          rel['attempt']   = d['attempt']
           rel['metrics']   = load(URI("#{api}/dataset/3/import/#{d['attempt']}"))
           rel['sources']   = load(URI("#{api}/dataset/#{key}/source"))
           pub = load(URI("#{api}/dataset/#{key}/sector/publisher"))['result']
@@ -64,13 +62,37 @@ module ChangeLog
 
       # sort keys
       prev=nil
+      prevAnnual=nil
+      prevX=nil
+      prevXAnnual=nil
       keys.sort.each do | key |
-        r = rels[key]
-        unless prev.nil?
-          log.append( prepareChange(r, prev) )
+        r = interpret(key, rels[key])
+        if r['extended']
+          if r['annual']
+            log.append( prepareChange(r, prevXAnnual) )
+            prevXAnnual = r
+          else
+            log.append( prepareChange(r, prevX) )
+            prevX = r
+          end
+        else
+          if r['annual']
+            log.append( prepareChange(r, prevAnnual) )
+            prevAnnual = r
+          else
+            log.append( prepareChange(r, prev) )
+            prev = r
+          end
         end
-        prev = r
       end
+    end
+
+
+    def interpret(key, r)
+      r['key']      = key
+      r['attempt']  = r['dataset']['attempt']
+      r['extended'] = r['dataset']['origin'] == 'XRELEASE'
+      r['annual']   = r['dataset']['version']
     end
 
 
