@@ -69,7 +69,7 @@ You can [download](/data/download) the current and all past versions of the Cata
 
 
 ## Other Forms of Access
-The latest version of Catalogue of Life and the monthly an Annual version can also be accessed through:
+The latest version of Catalogue of Life and the monthly and Annual version can also be accessed through:
 
 - COL’s infrastructure CheckslistBank
   - [Catalogue of Life eXtended Release, latest version](https://www.checklistbank.org/dataset/3LXR/about)
