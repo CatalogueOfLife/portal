@@ -10,7 +10,7 @@ permalink: /howto/cite
 ---
 
 
-Catalogue of Life offers the following elements to ensure scientific transparency and reproducibility:
+The Catalogue of Life offers the following elements to ensure scientific transparency and reproducibility:
 
 - Each version has its own DOI and includes a citation of all contributing sources.
 - Every name has its own unique identifier that links to the corresponding record in a source. 
@@ -24,13 +24,14 @@ Monitoring use of these DOIs will enable our entity community to demonstrate the
 
 ## Recommended citations
 
-Please use the following recommended citation:
+**Please use the following recommended citation:**
 
 <div id="citation">
 {{site.metadata.current.citation}}
 </div>
 
-Please use the following recommended citations for the individual datasets contributing to the Catalogue of Life:
+**Please use the following recommended citations for the individual datasets contributing to the Catalogue of Life:**
+
 
 <div class="sources">
 	{% assign sources = site.metadata.sources | sort: "alias" %}
