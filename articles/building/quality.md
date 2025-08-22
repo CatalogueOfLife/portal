@@ -13,7 +13,7 @@ The Catalogue of Life places a strong emphasis on ensuring the integrity, accura
 
 ## Quality Assurance at the Origin 
 
-Data is submitted in a variety of raw formats and processed through custom pipelines that convert it into the standardized [ColDP format](github.com/CatalogueOfLife/coldp). During this stage, common issues such as non-standard data structures, Excel-induced autocorrect errors, and ambiguous internal codes are identified and addressed. Detected issues are communicated back to data providers for correction, while the pipelines are updated to prevent the recurrence of errors and improve data quality over time.
+Data is submitted in a variety of raw formats and processed through custom pipelines that convert it into the standardized [ColDP format](https://catalogueoflife.github.io/coldp/). During this stage, common issues such as non-standard data structures, Excel-induced autocorrect errors, and ambiguous internal codes are identified and addressed. Detected issues are communicated back to data providers for correction, while the pipelines are updated to prevent the recurrence of errors and improve data quality over time.
 
 ## Quality Assurance During the Assembly Process
 
@@ -21,7 +21,7 @@ During the [assembly process](/building/assembly) of the Catalogue of Life in Ch
 
 ## Quality Assurance COL eXtended Release
 
-Additional sources included in the Catalogue of Life eXtended Release also go through an initial quality check before being added. However, due to the nature of these sources, ongoing quality improvement with data custodians may not always be possible. When feasible, issues are reported back and corrected at the source. If not, editors may block parts, or the source to prevent errors from reaching the final release. Special care is taken to avoid name duplications caused by differences across sources. Community taxonomic experts also contribute by occasionally reviewing the release, which allows us to refine the data sources selection.
+Additional sources included in the Catalogue of Life eXtended Release also go through an initial quality check before being added. However, due to the nature of these sources, ongoing quality improvement with data custodians may not always be possible. When feasible, issues are reported back and corrected at the source. If not, editors may block parts of a data source, or the entire data source to prevent errors from reaching the final release. Special care is taken to avoid name duplications caused by differences across sources. Community taxonomic experts also contribute by occasionally reviewing the release, which allows us to refine the data sources selection.
 
 Due to the more dynamic nature of this release, quality is less stringent than in the COL Base Release but completeness is higher. On the other hand, issues can be addressed faster, thus with the editorial and community input quality tends to improve over time.
 
