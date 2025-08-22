@@ -12,56 +12,90 @@ module ChangeLog
 
     def generate(site)
 
-      puts "Building changelog ..."
+      Dir.chdir("_data/releases")
+      puts "Building changelog from data dir #{Dir.pwd}"
+
       api = site.config['metadata']['api']
-      key = site.config['metadata']['key']
-      origin = 'XRELEASE'
-      limit = site.config['changelog']['limit']
+      pkey = site.config['metadata']['key']
       log = []
       site.config['changelog']['entries'] = log
 
-      # iterate over all releases and produce a changelog for each version change
-      # TODO: include deleted releases
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&private=false&limit=#{limit}"))
-      puts "Found #{rels['total']} releases"
-      rels['result'].each_with_index do | d, idx |
-        prev = rels['result'][idx+1]
-        unless prev.nil?
-          log.append( prepareChange(api, d, prev) )
+      # first read all local files and then look for newer releases since the last one
+      keys = []
+      rels = {}
+      Dir.each_child(Dir.pwd) do |fn| 
+        key = File.basename(fn, File.extname(fn)).to_i
+        puts "Found #{key}"
+        keys.append(key)
+        file = File.open("#{fn}")
+        rels[key]=JSON.load(file)
+      end
+
+      # now look for all releases since
+      relKeys = load(URI("#{api}/dataset/keys?releasedFrom=#{pkey}&private=false&inclDeleted=true"))
+      relKeys.each do | key |
+        unless keys.include? key
+          keys.append(key)
+          puts "Load new release #{key}"
+          rel={}
+          d = load(URI("#{api}/dataset/#{key}"))
+          d.delete('source') # remove some heavy dataset props
+          rel['key']       = key
+          rel['dataset']   = d
+          rel['attempt']   = d['attempt']
+          rel['metrics']   = load(URI("#{api}/dataset/3/import/#{d['attempt']}"))
+          rel['sources']   = load(URI("#{api}/dataset/#{key}/source"))
+          pub = load(URI("#{api}/dataset/#{key}/sector/publisher"))['result']
+          unless pub.nil?
+            pub.each do | p |
+              metrics = load(URI("#{api}/dataset/#{key}/sector/publisher/#{p['id']}/metrics"))              
+              cnt = metrics['datasetCount']
+              p['datasets'] = cnt
+              p['metrics'] = metrics
+            end
+            rel['publisher'] = pub.reject { |p| p['datasets'] == 0 }
+          end
+          rels[key]=rel
+          # store on fs
+          json = JSON.generate(rel)
+          File.write("#{key}.json", json)
         end
+      end
+
+      # sort keys
+      prev=nil
+      keys.sort.each do | key |
+        r = rels[key]
+        unless prev.nil?
+          log.append( prepareChange(r, prev) )
+        end
+        prev = r
       end
     end
 
-    def prepareChange(api, d, prev)
-      k1 = d['key']
+
+    def prepareChange(rel, prev)
+      k1 =  rel['key']
       k2 = prev['key']
       puts "  Change: #{k1} vs #{k2}"
       chg = {}
-      chg['d']=d
+      chg['rel']=rel
       chg['prev']=prev
-      imp  = load(URI("#{api}/dataset/3/import/#{d['attempt']}"))
-      impPrev = load(URI("#{api}/dataset/3/import/#{prev['attempt']}"))
-      chg['imp']     = imp
-      chg['impPrev'] = impPrev
       # usagesCount,species/genera/families changed taxaByRankCount & extinctTaxaByRankCount
 
-      # source changes
-      source     = load(URI("#{api}/dataset/#{k1}/source"))
-      sourcePrev = load(URI("#{api}/dataset/#{k2}/source"))
-      chg['sources'] = source.length()
       # map from key to source
       src = {}
-      sourcePrev.each do | s |
+      rel['sources'].each do | s |
         src[s['key']]=s
       end
-      source.each do | s |
+      prev['sources'].each do | s |
         src[s['key']]=s
       end
       # diff sources
-      srcKeys1 = source.map { |s| s['key'] }
-      srcKeys2 = sourcePrev.map { |s| s['key'] }
-      removed = srcKeys2 - srcKeys1
-      added   = srcKeys1 - srcKeys2
+      srcKeys     =  rel['sources'].map { |s| s['key'] }
+      srcKeysPrev = prev['sources'].map { |s| s['key'] }
+      removed = srcKeysPrev - srcKeys
+      added   = srcKeys - srcKeysPrev
       chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
       chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
       return chg

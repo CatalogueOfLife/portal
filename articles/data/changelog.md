@@ -55,20 +55,20 @@ The Catalogue of Life has been released continuously since 2000 and you can [dow
 Since 2021, when the catalogue was first produced in ChecklistBank, we also keep a changelog of all our releases:
 
 <div id="changes">  
-{% for r in site.changelog.entries %}
-  <h2 id="r-{{r.d.alias}}"><a href="https://www.checklistbank.org/dataset/{{r.d.key}}">{{r.d.alias}}</a></h2>
+{% for log in site.changelog.entries %}
+  <h2 id="r-{{log.rel.dataset.alias}}"><a href="https://www.checklistbank.org/dataset/{{log.rel.key}}">{{log.rel.dataset.alias}}</a></h2>
   <p>
-    <span class="date">{{r.d.created | date_to_long_string}}</span> build from 
-    <span class="stats">{% include numf.html number=r.sources %}</span> sources.
+    <span class="date">{{log.rel.dataset.created | date_to_long_string}}</span> build from 
+    <span class="stats">{% include numf.html number=log.sources %}</span> sources.
     <br/>
-    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.family %}</span> families, 
-    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.genus %}</span> genera and 
-    <span class="stats">{% include numf.html number=r.imp.taxaByRankCount.species %}</span> accepted species.
+    <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.family %}</span> families, 
+    <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.genus %}</span> genera and 
+    <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.species %}</span> accepted species.
   </p>
 
-  {% if r.removed and r.removed.size != 0 %}
+  {% if log.removed and log.removed.size != 0 %}
     {% assign show_src = true %}
-  {% elsif r.added and r.added.size != 0 %}
+  {% elsif log.added and log.added.size != 0 %}
     {% assign show_src = true %}
   {% else %}
     {% assign show_src = false %}
@@ -78,10 +78,10 @@ Since 2021, when the catalogue was first produced in ChecklistBank, we also keep
   <p class="stats">Source changes:</p>
   <p>
     <ul>
-    {% for src in r.added %}
+    {% for src in log.added %}
       <li><span class="add">+</span> <a href="https://www.checklistbank.org/dataset/{{r.d.key}}/source/{{src.key}}">{{src.alias}}</a></li>
     {% endfor %}
-    {% for src in r.removed %}
+    {% for src in log.removed %}
       <li><span class="remove">-</span> <a href="https://www.checklistbank.org/dataset/{{r.prev.key}}/source/{{src.key}}">{{src.alias}}</a></li>
     {% endfor %}
     </ul>
