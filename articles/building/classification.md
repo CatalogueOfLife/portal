@@ -34,13 +34,9 @@ The naming of species is governed by international codes, each tailored to a spe
 
 These codes define how scientific names must be published and maintained. Taxonomists follow them when describing new species, ensuring names are valid, traceable, and part of the formal scientific record. The codes also include rules for correcting errors, resolving disputes, and suppressing confusing names—making nomenclature a structured, rule-based system for managing species names.
 
-## Taxonomic Backbone of the Catalogue of Life
+## Catalogue of Life management classification
 
-The Catalogue of Life is structured around a management classification based on the framework proposed by [Ruggiero et al., 2015](https://doi.org/10.1371/journal.pone.0119248). This backbone is regularly updated by editors, supported by the Taxonomy group. 
-
-Serving as the foundation within the ChecklistBank project, this classification enables global datasets to be integrated at appropriate taxonomic levels, depending on their scope and alignment with the higher taxonomy.
-
-Spanning from domain to genus, the backbone ensures consistency in assembling the Catalogue. Each dataset also includes metadata describing its internal classification.
+The Catalogue of Life (COL) uses a management classification maintained down to the family level, providing a stable structure for integrating datasets. This management classification uses the classification proposed by [Ruggiero et al., 2015](https://doi.org/10.1371/journal.pone.0119248), as a starting point, which has been adapted to meet the practical needs of COL. It also allows data sources to determine the appropriate attachment points for their data within the hierarchy. This means that, in practice, that several elemets coexist: the original Ruggiero et al. classification, the COLspecific adaptations, and the specific placements chosen by data sources. Within the ChecklistBank project, this classification serves as the reference structure to ensure consistency when assembling the Catalogue, while each dataset retains metadata describing its internal classification.
 
 
 ## Names from Molecular and Sequence-Based Data
