@@ -22,7 +22,7 @@ permalink: /building/glossary
 
 
 ## Classification
-A list showing each of the higher taxa within which this species is included. The COL checklist is organised in a single management classification, using a hierarchy that reflects an integration of taxonomic opinion for the purpose of arranging species checklists from different providers into one classification system. The management classification includes higher ranks appropriate for each taxonomic group.
+A list showing each of the higher taxa within which this species is included. The COL is organised in a single management classification, using a hierarchy that reflects an integration of taxonomic opinion for the purpose of arranging species checklists from different providers into one classification system. The management classification includes higher ranks appropriate for each taxonomic group.
 
 ## Distribution
 A list of regions and countries in which the species is recorded as provided by the taxonomic community that contributed the data to the checklist.
@@ -44,9 +44,6 @@ An option to restrict search to *Virus* names or to exclude them (*Scientific*).
 ## Nomenclatural Status
 One of the supported nomenclatural status values, indicating the status of the name under the relevant nomenclatural code (the set of rules for naming organisms within a given kingdom):
  *Acceptable*, *Unacceptable*, *Established*, *Not Established*, *Manuscript*, *Rejected*, *Doubtful*, *Conserved*.
-
-## Secondary sources
-tbd 
 
 ## Taxonomic Scrutiny
 Information on the most recent review of the species or infraspecific taxon by taxonomic experts. It includes the name(s) of the taxonomic expert or editor (scrutinizer), who is responsible for the taxonomic concept accepted in the source dataset and the date when the expert or editor assessed the record. 
