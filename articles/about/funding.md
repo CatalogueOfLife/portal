@@ -38,7 +38,9 @@ Catalogue of Life is involved in several projects:
 
 * **Mobilisation and use of species lists relevant for the Netherlands via the new Catalogue of Life infrastructure**: A project funded through the Netherlands Biodiversity Information Facility, with a focus on training work shops on using the COL infrastructure, ChecklistBank. In addition, the focus was to mobilise several species lists with relevance for the Netherlands. Project has been completed in 2024.  
 
+
 <div class="eu-logo"><a href="https://europa.eu/european-union/index_en/" target="_null"><img src="/images/logos/EU.svg"></a><div class="caption">Co-funded by<br/>the European Union</div></div>
+
 
 For years, the University of Reading as well as Naturalis Biodiversity Center financed a part of the operational costs for building the Catalogue of Life. Through these and other legal entities, such as Species 2000, involvement in several projects financed by the European Commission were secured. It is estimated that in its 28 years of existence, 20 million euro investment originating from the following projects (including from the EU):
 
