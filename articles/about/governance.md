@@ -9,7 +9,7 @@ imageCaption: _Tauraco leucotis_ (Rüppell, 1835) - Photo CC By Jan Huijbers
 permalink: /about/governance
 ---
 
-Catalogue of Life (COL) was originally established as a partnership between Species 2000 and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 a not-for-profit Catalogue of Life legal entity has been established. Catalogue of Life if a stichting under Dutch law with registration number KVK 86436481. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
+Catalogue of Life (COL) was originally established as a partnership between Species 2000 and the Integrated Taxonomic Information System ([ITIS](https://www.itis.gov/)). In 2022 the not-for-profit Catalogue of Life Foundation was established. Catalogue of Life if a stichting (foundation) under Dutch law with registration number KVK 86436481. Catalogue of Life is governed by a Board of Directors, an advisory body called the Catalogue of Life Global Team (including associated working groups), and a distributed secretariat.
 
 ## Board of Directors
 The Board of Directors deals with international policy and business issues, appoints new Directors, appoints and authorises 'The COL Global Team', including appointing the COL Global Team Chair, as well as setting up specific working groups and appoints and authorises the COL Managing Director.
@@ -17,11 +17,11 @@ The Board of Directors deals with international policy and business issues, appo
 Catalogue of Life has the following board:
 
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Acting Chair
-* **Prof. W. Alex Gray** (United Kingdom), Treasurer
-* **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, Acting Secretary
+* **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, Acting Secretary & Treasurer
+* **Prof. W. Alex Gray** (United Kingdom), board member
 
 ## Global Team
-The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Directors, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
+The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Managing Director, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
 
 Working Groups (max. 15 persons) may be set up by the COL Global Team for special aspects. Three working groups currently exist for Taxonomy, Information Systems, and species list governance. The working groups are each led by a member of the COL Global Team but may include co-opted non-members.
 
@@ -91,7 +91,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 * **Frank Zachos** (Austria)
 
 ## Secretariat
-Catalogue of Life is maintained by a distributed secretariat. The Global Biodiversity Information Facility is the administrative host as well as hosts the infrastructure, the Illinois Natural History Survey hosts part of the editorial office.
+Catalogue of Life is maintained by a distributed secretariat. The core actitivties are executed through the Catalogue of Life Foundation. The Foundation collaborates in sustainable partnerships. The Global Biodiversity Information Facility is the host and co-developper of the COL infrastructure, ChecklistBank. The Illinois Natural History Survey, University of ILlinois, Species Files group hosts part of the editorial office.
 
 * **COL Managing Director** - Dr. Olaf B&aacute;nki - The Netherlands
 * **COL Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
