@@ -45,7 +45,9 @@ module ChangeLog
           d = load(URI("#{api}/dataset/#{key}"))
           d.delete('source') # remove some heavy dataset props
           rel['dataset']   = d
-          rel['metrics']   = load(URI("#{api}/dataset/3/import/#{d['attempt']}"))
+          m = load(URI("#{api}/dataset/3/import/#{d['attempt']}"))
+          puts m
+          rel['metrics'] = m
           rel['sources']   = load(URI("#{api}/dataset/#{key}/source"))
           pub = load(URI("#{api}/dataset/#{key}/sector/publisher"))['result']
           unless pub.nil?
@@ -105,6 +107,30 @@ module ChangeLog
     end
 
 
+    def diffString(x1, x2)
+      if x2.nil?
+        return ''
+      elsif x1<x2
+        return "(+#{intcomma(x2-x1)})"
+      else
+        return "(#{intcomma(x2-x1)})"
+      end
+    end
+
+    def intcomma(value, delimiter=".")
+      begin
+        orig = value.to_s
+        delimiter = delimiter.to_s
+      rescue Exception => e
+        puts "#{e.class} #{e}"
+        return value
+      end
+
+      copy = orig.strip
+      copy = orig.gsub(/^(-?\d+)(\d{3})/, "\\1#{delimiter}\\2")
+      orig == copy ? copy : intcomma(copy, delimiter)
+    end
+
     def prepareChange(rel, prev)
       k1 =  rel['key']
       chg = {}
@@ -125,7 +151,17 @@ module ChangeLog
         k2 = prev['key']
         puts "  Change: #{k1} vs #{k2}"
         chg['prev']=prev
-        # map from key to source
+        # diff metrics
+        begin
+          if prev['metrics']['taxaByRankCount'] and rel['metrics']['taxaByRankCount']
+            chg['diffFamily']  = diffString(prev['metrics']['taxaByRankCount']['family'],  rel['metrics']['taxaByRankCount']['family'])
+            chg['diffGenus']   = diffString(prev['metrics']['taxaByRankCount']['genus'],   rel['metrics']['taxaByRankCount']['genus'])
+            chg['diffSpecies'] = diffString(prev['metrics']['taxaByRankCount']['species'], rel['metrics']['taxaByRankCount']['species'])
+          end
+        rescue Exception
+          puts "  --> failed!"
+        end
+        # diff sources
         src = {}
         prev['sources'].each do | s |
           src[s['key']]=s
@@ -133,7 +169,6 @@ module ChangeLog
         rel['sources'].each do | s |
           src[s['key']]=s
         end
-        # diff sources
         srcKeys     =  rel['sources'].map { |s| s['key'] }
         srcKeysPrev = prev['sources'].map { |s| s['key'] }
         removed = srcKeysPrev - srcKeys
@@ -141,6 +176,11 @@ module ChangeLog
         chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
         chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
         chg['hasChange'] = removed || added
+        puts "---"
+        puts added
+        puts removed
+        puts removed || added
+        puts "--------"
         # publisher
         pubs = {}
         pKeys=[]
@@ -165,7 +205,6 @@ module ChangeLog
       end
       return chg
     end
-
 
     def load(uri)
       puts "Reading JSON from #{uri}"
