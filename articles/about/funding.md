@@ -25,7 +25,7 @@ partners:
 <br/>
 
 ## Secretariat and infrastructure
-The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the Catalogue of Life Founadation, the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), and the **[Smithsonian Institution](https://si.edu/)**.   
+The operational costs of the Catalogue of Life Secretariat and infrastructure are at present carried by an international consortium consisting of the Catalogue of Life Foundation, the **[Global Biodiversity Information Facility](https://www.gbif.org/)** (GBIF), **[Illinois Natural History Survey](https://inhs.illinois.edu/)** (INHS), and the **[Smithsonian Institution](https://si.edu/)**.   
 
 ## Project funding
 Catalogue of Life is involved in several projects:
