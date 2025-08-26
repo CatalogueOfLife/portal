@@ -59,23 +59,16 @@ Since 2021, when the catalogue was first produced in ChecklistBank, we also keep
   <h2 id="r-{{log.rel.dataset.alias}}"><a href="https://www.checklistbank.org/dataset/{{log.rel.key}}">{{log.rel.dataset.alias}}</a></h2>
   <p>
     <span class="date">{{log.rel.dataset.created | date_to_long_string}}</span> build from 
-    <span class="stats">{% include numf.html number=log.sources %}</span> sources.
+    <span class="stats">{% include numf.html number=log.rel.srcCnt %}</span> sources{% if log.rel.publisher and log.rel.publisher.size > 0 %} and <span class="stats">{% include numf.html number=log.rel.publisher.size %}</span> publisher{% endif %}.
     <br/>
     <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.family %}</span> families, 
     <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.genus %}</span> genera and 
     <span class="stats">{% include numf.html number=log.rel.metrics.taxaByRankCount.species %}</span> accepted species.
   </p>
 
-  {% if log.removed and log.removed.size != 0 %}
-    {% assign show_src = true %}
-  {% elsif log.added and log.added.size != 0 %}
-    {% assign show_src = true %}
-  {% else %}
-    {% assign show_src = false %}
-  {% endif %}
  
-  {% if show_src %}
-  <p class="stats">Source changes:</p>
+  {% if log.hasChange and log.prev %}
+  <p>Source changes since <a href="#r-{{log.prev.dataset.alias}}">{{log.prev.dataset.alias}}</a>:</p>
   <p>
     <ul>
     {% for src in log.added %}
@@ -86,6 +79,27 @@ Since 2021, when the catalogue was first produced in ChecklistBank, we also keep
     {% endfor %}
     </ul>
   </p>
+  {% else %}
+  <p>No sources changed since <a href="#r-{{log.prev.dataset.alias}}">{{log.prev.dataset.alias}}</a></p>
+  {% endif %}
+
+
+  {% if log.rel.extended and log.prev %} 
+    {% if log.hasPubChange %}
+    <p>Publisher changes since <a href="#r-{{log.prev.dataset.alias}}">{{log.prev.dataset.alias}}</a>:</p>
+    <p>
+      <ul>
+      {% for src in log.p-added %}
+        <li><span class="add">+</span> <a href="https://www.checklistbank.org/dataset/{{r.d.key}}/source/{{src.key}}">{{src.alias}}</a></li>
+      {% endfor %}
+      {% for src in log.p-removed %}
+        <li><span class="remove">-</span> <a href="https://www.checklistbank.org/dataset/{{r.prev.key}}/source/{{src.key}}">{{src.alias}}</a></li>
+      {% endfor %}
+      </ul>
+    </p>
+    {% else %}
+    <p>No publisher changed since <a href="#r-{{log.prev.dataset.alias}}">{{log.prev.dataset.alias}}</a></p>
+    {% endif %}
   {% endif %}
 
 {% endfor %}

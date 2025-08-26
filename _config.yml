@@ -101,4 +101,6 @@ metadata:
   private: false
   api: https://api.checklistbank.org
 changelog:
-  limit: 100
+  exclude:
+    - 303391
+

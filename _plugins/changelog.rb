@@ -17,8 +17,8 @@ module ChangeLog
 
       api = site.config['metadata']['api']
       pkey = site.config['metadata']['key']
+      excludes = site.config['changelog']['exclude']
       log = []
-      site.config['changelog']['entries'] = log
 
       # first read all local files and then look for newer releases since the last one
       keys = []
@@ -26,15 +26,19 @@ module ChangeLog
       Dir.each_child(Dir.pwd) do |fn| 
         key = File.basename(fn, File.extname(fn)).to_i
         puts "Found #{key}"
-        keys.append(key)
-        file = File.open("#{fn}")
-        rels[key]=JSON.load(file)
+        if excludes.include? key
+          puts "  excluded"
+        else
+          keys.append(key)
+          file = File.open("#{fn}")
+          rels[key]=JSON.load(file)
+        end
       end
 
       # now look for all releases since
       relKeys = load(URI("#{api}/dataset/keys?releasedFrom=#{pkey}&private=false&inclDeleted=true"))
       relKeys.each do | key |
-        unless keys.include? key
+        unless keys.include? key or excludes.include? key or key < 2242 # the first 20.12 release!
           keys.append(key)
           puts "Load new release #{key}"
           rel={}
@@ -73,53 +77,92 @@ module ChangeLog
             prevXAnnual = r
           else
             log.append( prepareChange(r, prevX) )
-            prevX = r
           end
+          prevX = r
         else
           if r['annual']
             log.append( prepareChange(r, prevAnnual) )
             prevAnnual = r
           else
             log.append( prepareChange(r, prev) )
-            prev = r
           end
+          prev = r
         end
       end
+
+      # finally set and reverse log entries
+      site.config['changelog']['entries'] = log.reverse
     end
 
 
     def interpret(key, r)
       r['key']      = key
       r['attempt']  = r['dataset']['attempt']
-      r['extended'] = r['dataset']['origin'] == 'XRELEASE'
-      r['annual']   = r['dataset']['version']
+      r['extended'] = r['dataset']['origin'] == 'xrelease'
+      r['annual']   = r['dataset']['version'].start_with?("Annual")
+      r['srcCnt']   = r['sources'] ? r['sources'].length : "unknown"
+      return r
     end
 
 
     def prepareChange(rel, prev)
       k1 =  rel['key']
-      k2 = prev['key']
-      puts "  Change: #{k1} vs #{k2}"
       chg = {}
       chg['rel']=rel
-      chg['prev']=prev
-      # usagesCount,species/genera/families changed taxaByRankCount & extinctTaxaByRankCount
 
-      # map from key to source
-      src = {}
-      rel['sources'].each do | s |
-        src[s['key']]=s
+      if prev.nil?
+        puts "  First: #{k1}"
+        chg['prev']=nil
+        chg['removed'] = []
+        chg['added']   = rel['sources'] ? rel['sources'].sort_by{|s| s.fetch('alias', '')} : []
+        chg['hasChange'] = true
+        # publisher
+        chg['premoved'] = []
+        chg['padded']   = rel['publisher'] ? rel['publisher'].sort_by{|s| s.fetch('alias', '')} : []
+        chg['hasPubChange'] = true
+
+      else
+        k2 = prev['key']
+        puts "  Change: #{k1} vs #{k2}"
+        chg['prev']=prev
+        # map from key to source
+        src = {}
+        prev['sources'].each do | s |
+          src[s['key']]=s
+        end
+        rel['sources'].each do | s |
+          src[s['key']]=s
+        end
+        # diff sources
+        srcKeys     =  rel['sources'].map { |s| s['key'] }
+        srcKeysPrev = prev['sources'].map { |s| s['key'] }
+        removed = srcKeysPrev - srcKeys
+        added   = srcKeys - srcKeysPrev
+        chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
+        chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
+        chg['hasChange'] = removed || added
+        # publisher
+        pubs = {}
+        pKeys=[]
+        pKeysPrev=[]
+        if prev['publisher']
+          prev['publisher'].each do | s |
+            pubs[s['id']]=s
+          end
+          pKeysPrev = prev['publisher'].map { |s| s['id'] }
+        end
+        if rel['publisher']
+          rel['publisher'].each do | s |
+            pubs[s['id']]=s
+          end
+          pKeys = rel['publisher'].map { |s| s['id'] }
+        end
+        premoved = pKeysPrev - pKeys
+        padded   = pKeys - pKeysPrev
+        chg['premoved'] = premoved ? premoved.map { |k| pubs[k] } .sort_by{|s| s.fetch('title', '')} : []
+        chg['padded']   = padded ? padded.map { |k| pubs[k] } .sort_by{|s| s.fetch('title', '')} : []
+        chg['hasPubChange'] = premoved || padded
       end
-      prev['sources'].each do | s |
-        src[s['key']]=s
-      end
-      # diff sources
-      srcKeys     =  rel['sources'].map { |s| s['key'] }
-      srcKeysPrev = prev['sources'].map { |s| s['key'] }
-      removed = srcKeysPrev - srcKeys
-      added   = srcKeys - srcKeysPrev
-      chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
-      chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
       return chg
     end
 
