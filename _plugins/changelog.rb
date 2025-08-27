@@ -175,12 +175,10 @@ module ChangeLog
         added   = srcKeys - srcKeysPrev
         chg['removed'] = removed ? removed.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
         chg['added']   = added ? added.map { |k| src[k] } .sort_by{|s| s.fetch('alias', '')} : []
-        chg['hasChange'] = removed || added
-        puts "---"
-        puts added
-        puts removed
-        puts removed || added
-        puts "--------"
+        chg['hasChange'] = (removed.size + added.size) > 0
+        unless chg['hasChange']
+          puts " --> no change"
+        end
         # publisher
         pubs = {}
         pKeys=[]
