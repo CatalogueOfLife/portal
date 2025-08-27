@@ -103,4 +103,5 @@ metadata:
 changelog:
   exclude:
     - 303391
+    - 291968
 

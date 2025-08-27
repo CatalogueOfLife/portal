@@ -12,8 +12,8 @@ module ChangeLog
 
     def generate(site)
 
-      Dir.chdir("_data/releases")
-      puts "Building changelog from data dir #{Dir.pwd}"
+      dir = Pathutil.new(__dir__).join("..", "_data", "releases")
+      puts "Building changelog from data dir #{dir}"
 
       api = site.config['metadata']['api']
       pkey = site.config['metadata']['key']
@@ -23,7 +23,7 @@ module ChangeLog
       # first read all local files and then look for newer releases since the last one
       keys = []
       rels = {}
-      Dir.each_child(Dir.pwd) do |fn| 
+      dir.children do |fn| 
         key = File.basename(fn, File.extname(fn)).to_i
         puts "Found #{key}"
         if excludes.include? key
