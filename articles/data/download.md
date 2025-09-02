@@ -9,7 +9,7 @@ permalink: /data/download
 ---
 
 
-Download the **full latest** release of the Catalogue of Life, updated monthly or scroll down to download our [past releases](#past-releases).
+Download the **full latest** release of the Catalogue of Life updated monthly or scroll down to download our [past releases](#past-releases).
 
 <div class="row">
   <div class="large-6 columns">
