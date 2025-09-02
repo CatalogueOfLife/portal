@@ -11,9 +11,10 @@ permalink: /data/sources
 
 
 The Catalogue of Life (COL) is built through collaboration and careful editing by taxonomic experts. Explore here the data sources that make this possible and find out how many families, genera, and species each source has contributed to the Catalogue. 
+
 Some sources contribute in multiple ways and may appear more than once in the list. You can also browse sources grouped by publishers, many of which include several datasets. Sources without species data provide higher-level classifications (like genera and above), references, or vernacular names. 
 
-The XR icon indicates sources that only contribute to the **eXtended Release**. You can choose to include or exclude these sources from the list using the checkbox. Read about the [different releases](/building/releases) COL provides. 
+The XR icon indicates sources that only contribute to the **eXtended Release**. You can choose to include or exclude these sources from the list using the checkbox next to the XR icon. Read about the [different releases](/building/releases) COL provides. 
 
 Detailed changes of sources between versions can be viewed on the [Changelog](/data/changelog). 
 
