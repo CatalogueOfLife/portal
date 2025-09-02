@@ -34,7 +34,7 @@ Download the **full latest** release of the Catalogue of Life updated monthly or
 	<ul class="pricing-table">
 	  <li class="title">Base Release</li>
 	  <li class="price">Version {{site.base-metadata.current.version}}</li>
-	  <li class="description">The COL <a href="/building/releases#base">Base Release</a> prioritises accurracy and only includes scrutinized, global sources. 
+	  <li class="description">The COL <a href="/building/releases#base">Base Release</a> prioritises accuracy and only includes scrutinized, global sources. 
 	  It <i>excludes</i> all information marked up with the XR icon.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.nameCount}}</span> Names</li>
