@@ -49,11 +49,11 @@ permalink: /data/changelog
 </style>
 
 
-## Changes between COL releases
+## Changes in COL releases
 
-The Catalogue of Life has been released continuously since 2000 and you can [download](/data/download#past-releases) copies of all annual versions.
-Since 2021, when the catalogue was first produced in [ChecklistBank](https://www.checklistbank.org/), we also keep a changelog of all our releases:
+This section provides a chronological record of significant updates to the Catalogue of Life data sources,  including additions of new sources and removals of existing ones in both the Base and eXtended Releases.
 
+You can [download](/data/download#past-releases) copies of annual and monthly versions.
 
 <div id="changes">  
 {% for log in site.changelog.entries %}
