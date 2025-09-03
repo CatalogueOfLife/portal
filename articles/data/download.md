@@ -69,8 +69,8 @@ Example for [Myriapoda](/data/taxon/CW2TY)
 You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/) by following these steps:
 
 1. Log in to ChecklistBank using your GBIF account. Don’t have one? You can register at [gbif.org](https://www.gbif.org/).
-2. In the left menu, go to Datasets where you can look for the COL version of your preference.
-3. The list of available releases begins with the most recent, choose the one you prefer.
+2. In the left menu, go to Datasets and click on the blue button “COL Releases”.
+3. A list of the available releases will be displayed. It begins with the most recent, choose the one you prefer.
 4. In the left menu, click Download.
 5. Refine your download with the advanced filters: 
 	- Taxon of your interest 
