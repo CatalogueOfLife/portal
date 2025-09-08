@@ -38,9 +38,9 @@ We welcome all contributions, whether regional, thematic, or technical, to help 
 
 ## Recurrent or One Time Reviewer
 
-Several levels of quality checks are in place. Both at the data source level by our data providers and at the aggregation level within the Catalogue of Life. Building a Catalogue of all known species names is a daunting task. We strive for accuracy, but errors can occur. That’s why we highly value external reviewers. Whether you are a regular user of the Catalogue of Life or visiting for the first time. If you spot an error, gap, name misuse, want to suggest a new source dataset, or any other issue. Please report your feedback via our [GitHub repository](https://github.com/CatalogueOfLife/data), by email or directly via the [feedback button on each taxon page](/howto/contact#feedback-on-a-name-or-taxon).
+Several levels of quality checks are in place. Both at the data source level by our data providers and at the aggregation level within the Catalogue of Life. Building a Catalogue of all known species names is a daunting task. We strive for accuracy, but errors can occur. That’s why we highly value external reviewers. Whether you are a regular user of the Catalogue of Life or visiting for the first time. If you spot an error, gap, name misuse, want to suggest a new source dataset, or any other issue. Please report your feedback via our [GitHub repository](https://github.com/CatalogueOfLife/data/issues), by email or directly via the [feedback button on each taxon page](/howto/contact#feedback-on-a-name-or-taxon).
 
-
+https://github.com/CatalogueOfLife/data/issues
 
 {% comment %}
 
