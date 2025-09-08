@@ -4,7 +4,7 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: images/species/Tauraco_leucotis.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/73792684/large.jpeg
 imageCaption: _Suricata suricatta_ (Schreber, 1776) - [Photo CC By Justin Ponder](https://www.inaturalist.org/photos/73792684?size=large)
 ---
 
