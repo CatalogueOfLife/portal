@@ -4,7 +4,7 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: images/species/_original/Suricata suricatta.jpeg
+imageUrl: images/species/Suricata_suricatta.jpeg
 imageCaption: _Suricata suricatta_ (Schreber, 1776) - [Photo CC By Justin Ponder](https://www.inaturalist.org/photos/73792684?size=large)
 ---
 
