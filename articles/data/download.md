@@ -3,8 +3,8 @@ layout: content
 title: Download
 tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
-imageUrl: /images/species/Hyposmocoma_fractistriata.jpg    
-imageCaption: _Hyposmocoma fractistriata_  Walsingham, 1907 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/13442602504)
+imageUrl: https://www.inaturalist.org/photos/195194743?size=large
+imageCaption: _Zarhipis integripennis_  (LeConte, 1874) - [Photo CC BY Cricket Raspet](https://www.inaturalist.org/photos/195194743)
 permalink: /data/download
 ---
 
