@@ -4,7 +4,7 @@ title: DATA QUALITY
 tagline: A workflow to achieving quality 
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/474415009/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/473223516/large.jpeg
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /building/quality
 ---
