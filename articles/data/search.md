@@ -4,8 +4,8 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: /images/species/Aphomia_sociella.jpg
-imageCaption: _Aphomia sociella_, Linnaeus, 1758 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/18189103153)
+imageUrl: images/species/_original/Suricata suricatta.jpeg
+imageCaption: _Suricata suricatta_ (Schreber, 1776) - [Photo CC By Justin Ponder](https://www.inaturalist.org/photos/73792684?size=large)
 ---
 
 Find any scientific name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life, [learn How To](/howto/access#search).
