@@ -5,7 +5,7 @@ tagline:
 section_id: building
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/460700800/large.jpg
-imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
+imageCaption: _Notophthalmus viridescens_ (Rafinesque, 1820) - [Photo CC By Matt Felperin](https://www.inaturalist.org/observations/256892605)
 permalink: /building/classification
 ---
 
