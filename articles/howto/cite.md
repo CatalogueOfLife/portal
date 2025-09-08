@@ -4,8 +4,8 @@ title: CITE DATA
 tagline: Acknowledging our community of taxonomic experts
 section_id: howto
 toc: false
-imageUrl: /images/species/Gillmeria_ochrodactyla.jpg    
-imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/551572531/large.jpg
+imageCaption: _Rhipidomys bezerrensis_, Campos, Percequillo, & Langguth in Campos, Percequillo, G. B. de Miranda, & Langguth, 2022 - [Photo CC By Thomaz de Carvalho Callado ]([https://www.flickr.com/photos/dhobern/14304880198](https://www.inaturalist.org/observations/305890973))
 permalink: /howto/cite
 ---
 
