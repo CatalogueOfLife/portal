@@ -5,7 +5,7 @@ tagline: How the Biodiversity Community Benefits from the Catalogue of Life
 section_id: howto
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/554532091/large.jpg
-imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
+imageCaption: Short-legged Springtails - [Photo CC By Claus Giloi](https://www.inaturalist.org/observations/307433214)
 permalink: /howto/use_cases
 ---
 
