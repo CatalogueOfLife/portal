@@ -4,7 +4,7 @@ title: Glossary
 tagline: Glossary of Terms
 section_id: building
 toc: true
-imageUrl: https://www.inaturalist.org/observations/288689017
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/519194835/large.jpg
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
 permalink: /building/glossary
 ---
