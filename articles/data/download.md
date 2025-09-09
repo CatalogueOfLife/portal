@@ -3,7 +3,7 @@ layout: content
 title: Download
 tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
-imageUrl: https://www.inaturalist.org/photos/195194743?size=large
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/195194743/large.jpeg
 imageCaption: _Zarhipis integripennis_  (LeConte, 1874) - [Photo CC BY Cricket Raspet](https://www.inaturalist.org/photos/195194743)
 permalink: /data/download
 ---
