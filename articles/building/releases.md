@@ -4,7 +4,7 @@ title: RELEASES
 tagline: Different flavors of the Catalogue of Life to better suit our community
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/563557190/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/498444704/large.jpg
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /building/releases
 ---
