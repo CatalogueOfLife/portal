@@ -4,7 +4,7 @@ title: WHAT IS COL
 tagline: Connecting Global Taxonomy for Science and Society
 section_id: about
 toc: false
-imageUrl: /images/species/Podiceps_grisegena.jpg    
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564459673/large.jpg  
 imageCaption: _Podiceps grisegena_ (Boddaert, 1783) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/33624738966)
 permalink: /about/catalogueoflife
 ---
