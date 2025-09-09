@@ -5,7 +5,7 @@ tagline: Catalogue’s of Life infrastructure
 section_id: tools
 toc: false
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/103581431/large.jpeg
-imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC0 Dag Endresen](https://www.inaturalist.org/photos/328148831)
+imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC0 Claudia Schipp](https://www.inaturalist.org/photos/103581431)
 permalink: /tools/checklistbank
 ---
 
