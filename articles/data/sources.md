@@ -4,8 +4,8 @@ toc: false
 title: Source datasets
 tagline: A Global Network of Taxonomic Contributors
 section_id: data
-imageUrl: https://www.batcon.org/wp-content/uploads/2023/04/love_story_1.jpg
-imageCaption: _Oedemera nobilis_ (Scopoli, 1763) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/501232586/large.jpeg
+imageCaption: _Leptonycteris nivalis_ (Saussure, 1860)- [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
 permalink: /data/sources
 ---
 
