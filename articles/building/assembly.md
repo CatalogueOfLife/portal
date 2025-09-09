@@ -4,7 +4,7 @@ title: Constructing the Catalogue
 tagline: How the Catalogue of Life is created
 section_id: building
 toc: true
-imageUrl: /images/species/Pultenaea_procumbens.jpg    
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/468127613/large.jpg 
 imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
 permalink: /building/assembly
 ---
