@@ -4,8 +4,8 @@ toc: false
 title: Metadata
 tagline: About the current Catalogue of Life
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564545909/large.jpg
-imageCaption: _Misumena vatia_ (Clerck, 1757) - [Photo CC BY Marcel_Pepin](https://www.inaturalist.org/observations/312666211)
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/560367231/large.jpg
+imageCaption: _Hemitrichia decipiens_ (Pers.) García-Cunch., J.C.Zamora & Lado, 2022 - [Photo CC BY Dmitry Ivanov](https://www.inaturalist.org/photos/560367231)
 permalink: /data/metadata
 seo_include: seo_metadata.html
 ---
