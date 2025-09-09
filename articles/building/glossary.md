@@ -5,7 +5,7 @@ tagline: Glossary of Terms
 section_id: building
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/561617382/large.jpg
-imageCaption: _Tockus leucomelas_  (M. H. K. Lichtenstein, 1842) - [Photo CC By Paul Hoekman](https://www.inaturalist.org/observations/288689017)
+imageCaption: _ochemiea tetrancistra_ (Engelm.) P.B.Breslin & Majure - [Photo CC By colorful-corvid](https://www.inaturalist.org/observations/311130967)
 permalink: /building/glossary
 ---
 
