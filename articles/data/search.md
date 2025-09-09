@@ -4,8 +4,8 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/558460932/large.jpg
-imageCaption: _Diadumene lineata_ (Verrill, 1869)- [Photo CC 0 Scott](https://www.inaturalist.org/photos/558460932)
+imageUrl: images/species/Helophilus_trivittatus.jpg
+imageCaption: _Helophilus trivittatus_ (Fabricius, 1805)- [Photo CC BY Ian Ballam](https://www.inaturalist.org/photos/564561705)
 ---
 
 Find any scientific name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life, [learn How To](/howto/access#search).
