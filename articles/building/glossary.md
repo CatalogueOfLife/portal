@@ -4,7 +4,7 @@ title: Glossary
 tagline: Glossary of Terms
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/519194835/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/561617382/large.jpg
 imageCaption: _Tockus leucomelas_  (M. H. K. Lichtenstein, 1842) - [Photo CC By Paul Hoekman](https://www.inaturalist.org/observations/288689017)
 permalink: /building/glossary
 ---
