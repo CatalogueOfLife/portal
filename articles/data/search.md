@@ -5,7 +5,7 @@ tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564548888/large.jpg
-imageCaption: _Helophilus trivittatus_ (Fabricius, 1805)- [Photo CC BY Ian Ballam](https://www.inaturalist.org/photos/564561705)
+imageCaption:  Coenagrion puella_ (Linnaeus, 1758)- [Photo CC BY Claude Kolwelter](https://www.inaturalist.org/photos/564548888)
 ---
 
 Find any scientific name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life, [learn How To](/howto/access#search).
