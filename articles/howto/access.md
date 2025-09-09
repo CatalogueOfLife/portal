@@ -5,7 +5,7 @@ tagline: How to navigate and use the Catalogue of Life
 section_id: howto
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/544414126/large.jpg
-imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
+imageCaption: _Campanula petiolata_ A.DC. - [Photo CC By Zach Earl](https://www.inaturalist.org/observations/302092436)
 permalink: /howto/access
 ---
 
