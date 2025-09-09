@@ -4,7 +4,7 @@ title: The COL community
 tagline: A global collaboration to list the world's species
 section_id: about
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/550084688/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/380404809/large.jpg
 imageCaption: _Ginglymostoma cirratum_ (Bonnaterre, 1788) - [Photo CC BY Amelia Tauber](https://www.inaturalist.org/photos/550084688)
 permalink: /about/community
 ---
