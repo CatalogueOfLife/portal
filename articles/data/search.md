@@ -4,7 +4,7 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564561705/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564548888/large.jpg
 imageCaption: _Helophilus trivittatus_ (Fabricius, 1805)- [Photo CC BY Ian Ballam](https://www.inaturalist.org/photos/564561705)
 ---
 
