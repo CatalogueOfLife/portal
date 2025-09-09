@@ -4,7 +4,7 @@ title: Glossary
 tagline: Glossary of Terms
 section_id: building
 toc: true
-imageUrl: /images/species/Xanthoria_parietina.jpg
+imageUrl: https://www.inaturalist.org/observations/288689017
 imageCaption: _Xanthoria parietina_  (L.) Th. Fr. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/35565323443)
 permalink: /building/glossary
 ---
