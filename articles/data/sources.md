@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f8048cb-53d9-43b8-b049-e69c83d319e1" />---
+---
 layout: content
 toc: false
 title: Source datasets
