@@ -4,8 +4,8 @@ title: CONTACT US
 tagline: Your ideas, questions, and feedback matter to us
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/530690185/large.jpg
-imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
+imageUrl: https://www.inaturalist.org/observations/294818911
+imageCaption: _Gazella arabica_ (Lichtenstein, 1827) - [Photo CC By Mahomed Desai](https://www.inaturalist.org/observations/87857259)
 permalink: /howto/contact
 ---
 
