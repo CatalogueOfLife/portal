@@ -1,10 +1,10 @@
----
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f8048cb-53d9-43b8-b049-e69c83d319e1" />---
 layout: content
 toc: false
 title: Source datasets
 tagline: A Global Network of Taxonomic Contributors
 section_id: data
-imageUrl: /images/species/Oedemera_nobilis.jpg    
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/543135802/large.jpg
 imageCaption: _Oedemera nobilis_ (Scopoli, 1763) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/8738737007)
 permalink: /data/sources
 ---
