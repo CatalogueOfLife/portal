@@ -4,7 +4,7 @@ title: The COL community
 tagline: A global collaboration to list the world's species
 section_id: about
 toc: true
-imageUrl: https://www.inaturalist.org/photos/550084688?size=large 
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/550084688/large.jpg
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
 permalink: /about/community
 ---
