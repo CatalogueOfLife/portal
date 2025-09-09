@@ -5,7 +5,7 @@ title: Metadata
 tagline: About the current Catalogue of Life
 section_id: data
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/559741249/large.jpg
-imageCaption: _Hemitrichia decipiens_ (Pers.) García-Cunch., J.C.Zamora & Lado, 2022 - [Photo CC BY Dmitry Ivanov](https://www.inaturalist.org/photos/560367231)
+imageCaption: _Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY  relew](https://www.inaturalist.org/photos/559741249)
 permalink: /data/metadata
 seo_include: seo_metadata.html
 ---
