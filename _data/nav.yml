@@ -77,7 +77,7 @@
     - name: Identifier
       path: /building/identifier
       desc: "Identifiers minted in the Catalogue of Life"
-    - name: Classifcation
+    - name: Classification
       path: /building/classification
       desc: "Classifcation and names"
    # - name: Gaps
