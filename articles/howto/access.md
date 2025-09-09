@@ -4,7 +4,7 @@ title: ACCESS DATA
 tagline: How to navigate and use the Catalogue of Life
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/362043140/large.jpg 
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/357001777/large.jpg
 imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
 permalink: /howto/access
 ---
