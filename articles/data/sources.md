@@ -4,7 +4,7 @@ toc: false
 title: Source datasets
 tagline: A Global Network of Taxonomic Contributors
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/462987135/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564561705/large.jpg
 imageCaption: _Uroderma convexum_ Lyon, 1902- [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/photos/462987135)
 permalink: /data/sources
 ---
