@@ -5,7 +5,7 @@ tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/548565784/original.jpg
-imageCaption:  _Coenagrion puella_ (Linnaeus, 1758)- [Photo CC BY Claude Kolwelter](https://www.inaturalist.org/photos/564548888)
+imageCaption:  _Fratercula arctica_ (Linnaeus, 1758)- [Photo CC BY Kalvin Chan](https://www.inaturalist.org/photos/548565784)
 ---
 
 Find any scientific name in the current <a href="/data/metadata">version {{site.metadata.current.version}}</a> of the Catalogue of Life, [learn How To](/howto/access#search).
