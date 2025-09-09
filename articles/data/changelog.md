@@ -4,8 +4,8 @@ toc: false
 title: Changelog
 tagline: Catalogue of Life Version History
 section_id: data
-imageUrl: /images/species/Asplenium_trichomanes.jpg
-imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/561393090/large.jpg
+imageCaption: _Physarum viride_ (Bull.) Pers., 1795 - [Photo CC BY Tannar Coolhaas](https://www.inaturalist.org/photos/561393090)
 permalink: /data/changelog
 ---
 
