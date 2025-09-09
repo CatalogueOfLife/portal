@@ -4,7 +4,7 @@ title: CONTRIBUTE DATA
 tagline: Help us improve the Catalogue of Life 
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/448955173/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/421806093/large.jpeg
 imageCaption: _Sphyraena viridensis_ Cuvier, 1829 - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/87857259)
 permalink: /howto/contribute
 ---
