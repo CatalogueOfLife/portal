@@ -5,7 +5,7 @@ tagline: Helping you find the names you need, whenever you need them
 section_id: building
 toc: false
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/497711351/large.jpg
-imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
+imageCaption: _Agalychnis callidryas_ (Cope, 1862) - [Photo CC By Charlie Nadeau](https://www.inaturalist.org/observations/277180479)
 permalink: /building/identifier
 ---
 
