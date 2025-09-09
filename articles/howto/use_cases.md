@@ -4,8 +4,8 @@ title: USE CASES
 tagline: How the Biodiversity Community Benefits from the Catalogue of Life
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/553084011/large.jpg 
-imageCaption: Short-legged Springtails - [Photo CC By Claus Giloi](https://www.inaturalist.org/observations/307433214)
+imageUrl: https://www.inaturalist.org/observations/306680003
+imageCaption: _Tambja verconis_ (Basedow & Hedley, 1905) - [Photo CC By Peter Crowcroft](https://www.inaturalist.org/observations/307433214)
 permalink: /howto/use_cases
 ---
 
