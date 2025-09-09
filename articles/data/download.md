@@ -4,7 +4,7 @@ title: Download
 tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/563326284/large.jpg
-imageCaption: _Utetheisa pulchella_ (Linnaeus, 1758) - [Photo CC BY  euqirneto](https://www.inaturalist.org/photos/564564558)
+imageCaption: _Amanita muscaria_ (L.) Lam. - [Photo CC BY Олеся](https://https://www.inaturalist.org/photos/563326284)
 permalink: /data/download
 ---
 
