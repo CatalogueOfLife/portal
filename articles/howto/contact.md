@@ -5,7 +5,7 @@ tagline: Your ideas, questions, and feedback matter to us
 section_id: howto
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/341624657/large.jpeg
-imageCaption: _Gazella arabica_ (Lichtenstein, 1827) - [Photo CC By Mahomed Desai](https://www.inaturalist.org/observations/87857259)
+imageCaption: _Gazella arabica_ (Lichtenstein, 1827) - [Photo CC By otomops](https://www.inaturalist.org/observations/194360728)
 permalink: /howto/contact
 ---
 
