@@ -5,7 +5,7 @@ tagline: How the Catalogue of Life is created
 section_id: building
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/39673505/large.jpeg
-imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/5073041283)
+imageCaption: _Mycena kuurkacea_ Grgur. - [Photo CC By Matt Campbell](https://www.inaturalist.org/observations/25602056)
 permalink: /building/assembly
 ---
 The Catalogue of Life (COL) is the most comprehensive initiative in bringing basic species information from diverse data sources together into a single hierarchically structured global list of named species.
