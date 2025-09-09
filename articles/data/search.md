@@ -4,7 +4,7 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/495513810/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/563688111/large.jpg
 imageCaption:  _Coenagrion puella_ (Linnaeus, 1758)- [Photo CC BY Claude Kolwelter](https://www.inaturalist.org/photos/564548888)
 ---
 
