@@ -4,7 +4,7 @@ title: CONTRIBUTE DATA
 tagline: Help us improve the Catalogue of Life 
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/421806093/large.jpeg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/103647771/large.jpg
 imageCaption: _Paruroctonus boreus_ (Girard, 1854) - [Photo CC By Caleb Catto](https://www.inaturalist.org/observations/237043199)
 permalink: /howto/contribute
 ---
