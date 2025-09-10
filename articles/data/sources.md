@@ -5,7 +5,7 @@ title: Source datasets
 tagline: A Global Network of Taxonomic Contributors
 section_id: data
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/536697905/original.jpg
-imageCaption: _Uroderma convexum_ Lyon, 1902- [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/photos/462987135)
+imageCaption: _Nyctalus leisleri_ (Kuhl, 1817)- [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/observations/297984115)
 permalink: /data/sources
 ---
 
