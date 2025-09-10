@@ -4,7 +4,7 @@ title: Funding
 tagline: Catalogue of Life funders and funding
 section_id: about
 toc: true
-imageUrl: https://github.com/user-attachments/assets/a58490c3-a8e7-4147-b743-f7f51fefe314
+imageUrl:  https://inaturalist-open-data.s3.amazonaws.com/photos/272456082/large.jpg
 imageCaption: _Macropus giganteus_ Shaw, 1790 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/4033452983)
 permalink: /about/funding
 partners:
