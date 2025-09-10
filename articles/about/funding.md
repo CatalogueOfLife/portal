@@ -1,4 +1,4 @@
-<img width="678" height="1024" alt="imagen" src="https://github.com/user-attachments/assets/6b5534fe-2e95-411e-95d0-222e30073019" />---
+---
 layout: content
 title: Funding
 tagline: Catalogue of Life funders and funding
