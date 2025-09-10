@@ -5,7 +5,7 @@ tagline: Programmatically access the Catalogue of Life
 section_id: tools
 toc: false
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/177503717/large.jpeg
-imageCaption: _Gillmeria ochrodactyla_ ([Denis & Schifferm&uuml;ller], 1775) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/14304880198)
+imageCaption: _Scleropodium touretii_ (Brid.) L.F. Koch - [Photo CC By NC Brian Starzomski ](https://www.inaturalist.org/observations/105749836)
 permalink: /tools/api
 ---
 
