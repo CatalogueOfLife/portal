@@ -5,7 +5,7 @@ tagline: Catalogue’s of Life infrastructure
 section_id: tools
 toc: false
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/115171378/large.jpg
-imageCaption: _Pultenaea procumbens_ A.Cunn. - [Photo CC0 Claudia Schipp](https://www.inaturalist.org/photos/103581431)
+imageCaption: _Gosodesmus claremontus_ Chamberlin, 1922 - [Photo CC0 Ken-ichi Ueda](https://www.inaturalist.org/observations/70803805)
 permalink: /tools/checklistbank
 ---
 
