@@ -4,7 +4,7 @@ title: DATA QUALITY
 tagline: A workflow to achieving quality 
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/527402864/large.jpg
+imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/511339410/large.jpg
 imageCaption: _Sepioteuthis australis_ Quoy & Gaimard, 1832 - [Photo CC By Luca Davenport-Thomas](https://www.inaturalist.org/observations/263421246)
 permalink: /building/quality
 ---
