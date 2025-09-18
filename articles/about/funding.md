@@ -5,7 +5,7 @@ tagline: Catalogue of Life funders and funding
 section_id: about
 toc: true
 imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/272456082/large.jpg
-imageCaption: _Macropus giganteus_ Shaw, 1790 - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/4033452983)
+imageCaption: _Bletia spicata_ (Walter) Sosa & M.W.Chase - [Photo CC By Alan Rockefeller](https://www.inaturalist.org/observations/157592867)
 permalink: /about/funding
 partners:
     - image: "/images/logos/logo-gbif.svg"
