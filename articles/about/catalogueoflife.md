@@ -18,6 +18,6 @@ A world where biodiversity data is connected, harmonized and accessible, enablin
 
 ## Mision
 
-To forge a global community driven authoritative catalogue of species, through an infrastructure that supports open data publishing and use.
+To forge a global community that manages an authoritative catalogue of species, through an infrastructure that supports open data publishing and use.
 
 
