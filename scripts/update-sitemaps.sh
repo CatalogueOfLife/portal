@@ -18,8 +18,8 @@ API=https://api.checklistbank.org
 
 if [ -z "$KEY" ]
 then
-  echo "Retrieve latest public release"
-  KEY=$(curl -s "$API/dataset/3LR.json" | jq ".key")
+  echo "Retrieve latest public XRelease"
+  KEY=$(curl -s "$API/dataset/3LXR.json" | jq ".key")
   echo "  $KEY"
 fi
 
