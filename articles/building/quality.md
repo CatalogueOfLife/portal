@@ -4,7 +4,7 @@ title: DATA QUALITY
 tagline: A workflow to achieving quality 
 section_id: building
 toc: true
-imageUrl: /images/species/Octopus_vulgaris.jpeg
+imageUrl: /images/species/Octopus_vulgaris.jpg
 imageCaption: _Octopus vulgaris_ Cuvier, 1797 - [Photo CC By Ben Jobson](https://www.inaturalist.org/observations/191862203)
 permalink: /building/quality
 ---

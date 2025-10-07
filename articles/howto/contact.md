@@ -4,7 +4,7 @@ title: CONTACT US
 tagline: Your ideas, questions, and feedback matter to us
 section_id: howto
 toc: true
-imageUrl: /images/species/Gazella_arabica.jpeg
+imageUrl: /images/species/Gazella_arabica.jpg
 imageCaption: _Gazella arabica_ (Lichtenstein, 1827) - [Photo CC By otomops](https://www.inaturalist.org/observations/194360728)
 permalink: /howto/contact
 ---

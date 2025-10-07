@@ -4,7 +4,7 @@ title: Constructing the Catalogue
 tagline: How the Catalogue of Life is created
 section_id: building
 toc: true
-imageUrl: /images/species/Mycena_kuurkacea.jpeg
+imageUrl: /images/species/Mycena_kuurkacea.jpg
 imageCaption: _Mycena kuurkacea_ Grgur. - [Photo CC By Matt Campbell](https://www.inaturalist.org/observations/25602056)
 permalink: /building/assembly
 ---
