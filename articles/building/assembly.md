@@ -12,6 +12,9 @@ The Catalogue of Life (COL) is the most comprehensive initiative in bringing bas
 
 The assembly takes place on Catalogue of Life's infrastructure [ChecklistBank](https://www.checklistbank.org) using its project functionality. The editorial team manages the Catalogue by integrating diverse taxonomic data sources. They apply editorial decisions to resolve overlaps, eliminate conflicts, and harmonise data across sources. As datasets evolve and new taxonomic insights emerge, editors update rules to maintain consistency and reflect changes. This approach keeps the Catalogue coherent and current, while preserving the original content provided by contributing communities.
 
+Bringing together independent checklists into a unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
+
+This section describes the two main phases involved in building the Catalogue of Life—from preparing and standardising data to publishing the different releases.
 
 ## Taxonomic Checklists: The Foundation of the Catalogue of Life
 Taxonomic checklists are the essential building blocks of the Catalogue. They are created by taxonomic communities and independent experts. Their scope may vary from global coverage to regional or national lists of species. The content may also differ in detail and format. It can include basic name information to richly annotated databases. Regardless of their origin, they must be available in [ChecklistBank](https://www.checklistbank.org/) before their integration into the Catalogue.
