@@ -4,7 +4,7 @@ title: Search
 tagline: Find species and other taxa by name
 section_id: data
 permalink: /data/search
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/548565784/original.jpg
+imageUrl: /images/species/Fratercula_arctica.jpg
 imageCaption:  _Fratercula arctica_ (Linnaeus, 1758)- [Photo CC BY Kalvin Chan](https://www.inaturalist.org/photos/548565784)
 ---
 

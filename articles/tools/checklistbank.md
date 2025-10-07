@@ -4,7 +4,7 @@ title: ChecklistBank
 tagline: Catalogue’s of Life infrastructure
 section_id: tools
 toc: false
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/115171378/large.jpg
+imageUrl: /images/species/Gosodesmus_claremontus.jpg
 imageCaption: _Gosodesmus claremontus_ Chamberlin, 1922 - [Photo CC0 Ken-ichi Ueda](https://www.inaturalist.org/observations/70803805)
 permalink: /tools/checklistbank
 ---

@@ -4,7 +4,7 @@ title: CITE DATA
 tagline: Acknowledging our community of taxonomic experts
 section_id: howto
 toc: false
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/554586087/large.jpg
+imageUrl: /images/species/Opisthoncus_polyphemus.jpg
 imageCaption: _Opisthoncus polyphemus_ (L. Koch, 1867) - [Photo CC By skolio](https://www.inaturalist.org/observations/307462913)
 permalink: /howto/cite
 ---

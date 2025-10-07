@@ -4,7 +4,7 @@ toc: false
 title: Changelog
 tagline: Catalogue of Life Version History
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/561393090/large.jpg
+imageUrl: /images/species/Physarum_viride.jpg
 imageCaption: _Physarum viride_ (Bull.) Pers., 1795 - [Photo CC BY Tannar Coolhaas](https://www.inaturalist.org/photos/561393090)
 permalink: /data/changelog
 ---

@@ -4,7 +4,7 @@ title: WHAT IS COL
 tagline: Connecting Global Taxonomy for Science and Society
 section_id: about
 toc: false
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/564459673/large.jpg  
+imageUrl: /images/species/Urtibrina_clandestina.jpg  
 imageCaption: _Urtibrina clandestina_ (Sanamyan N., Sanamyan K. & McDaniel, 2013) - [Photo CC BY Sarah MacGregor](https://www.inaturalist.org/photos/564459673)
 permalink: /about/catalogueoflife
 ---

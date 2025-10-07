@@ -4,7 +4,7 @@ title: Glossary
 tagline: Glossary of Terms
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/561617382/large.jpg
+imageUrl: /images/species/Ochemiea_tetrancistra.jpg
 imageCaption: _Ochemiea tetrancistra_ (Engelm.) P.B.Breslin & Majure - [Photo CC By colorful-corvid](https://www.inaturalist.org/observations/311130967)
 permalink: /building/glossary
 ---

@@ -4,7 +4,7 @@ title: SPECIES & CLASSIFICATION
 tagline: 
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/460700800/large.jpg
+imageUrl: /images/species/Notophthalmus_viridescens.jpg
 imageCaption: _Notophthalmus viridescens_ (Rafinesque, 1820) - [Photo CC By Matt Felperin](https://www.inaturalist.org/observations/256892605)
 permalink: /building/classification
 ---

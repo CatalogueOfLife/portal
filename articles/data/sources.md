@@ -4,7 +4,7 @@ toc: false
 title: Source datasets
 tagline: A Global Network of Taxonomic Contributors
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/536697905/original.jpg
+imageUrl: /images/species/Nyctalus_leisleri.jpg
 imageCaption: _Nyctalus leisleri_ (Kuhl, 1817)- [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/observations/297984115)
 permalink: /data/sources
 ---

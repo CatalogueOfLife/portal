@@ -4,7 +4,7 @@ title: COL API
 tagline: Programmatically access the Catalogue of Life
 section_id: tools
 toc: false
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/177503717/large.jpeg
+imageUrl: /images/species/Scleropodium_touretii.jpg
 imageCaption: _Scleropodium touretii_ (Brid.) L.F. Koch - [Photo CC By NC Brian Starzomski ](https://www.inaturalist.org/observations/105749836)
 permalink: /tools/api
 ---

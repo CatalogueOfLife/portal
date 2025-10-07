@@ -102,6 +102,7 @@ metadata:
   api: https://api.checklistbank.org
 changelog:
   exclude:
+    - 312092
     - 303391
     - 291968
 

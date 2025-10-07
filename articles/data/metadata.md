@@ -4,7 +4,7 @@ toc: false
 title: Metadata
 tagline: About the current Catalogue of Life
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/559741249/large.jpg
+imageUrl: /images/species/Tubifera_ferruginosa.jpg
 imageCaption: _Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY  relew](https://www.inaturalist.org/photos/559741249)
 permalink: /data/metadata
 seo_include: seo_metadata.html

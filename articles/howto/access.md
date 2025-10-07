@@ -4,7 +4,7 @@ title: ACCESS DATA
 tagline: How to navigate and use the Catalogue of Life
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/544414126/large.jpg
+imageUrl: /images/species/Campanula_petiolata.jpg
 imageCaption: _Campanula petiolata_ A.DC. - [Photo CC By Zach Earl](https://www.inaturalist.org/observations/302092436)
 permalink: /howto/access
 ---

@@ -4,7 +4,7 @@ title: CONTRIBUTE DATA
 tagline: Help us improve the Catalogue of Life 
 section_id: howto
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/103647753/large.jpg
+imageUrl: /images/species/Harpaphe_haydeniana.jpg
 imageCaption: _Harpaphe haydeniana_ (Wood, 1864) - [Photo CC BY NC Thomas Barbin ](https://www.inaturalist.org/observations/64467369)
 permalink: /howto/contribute
 ---

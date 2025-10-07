@@ -4,7 +4,7 @@ title: The COL community
 tagline: A global collaboration to list the world's species
 section_id: about
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/245359278/large.jpg
+imageUrl: /images/species/Entacmaea_quadricolor.jpg
 imageCaption: _Entacmaea quadricolor_ (Leuckart in Rüppell & Leuckart, 1828) - [Photo CC BY Juraj Ahel](https://www.inaturalist.org/observations/143089667)
 permalink: /about/community
 ---

@@ -3,7 +3,7 @@ layout: content
 title: Download
 tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/563326284/large.jpg
+imageUrl: /images/species/Amanita_muscaria.jpg
 imageCaption: _Amanita muscaria_ (L.) Lam. - [Photo CC BY Олеся](https://https://www.inaturalist.org/photos/563326284)
 permalink: /data/download
 ---

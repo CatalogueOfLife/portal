@@ -4,7 +4,7 @@ title: Funding
 tagline: Catalogue of Life funders and funding
 section_id: about
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/272456082/large.jpg
+imageUrl: /images/species/Bletia_spicata.jpg
 imageCaption: _Bletia spicata_ (Walter) Sosa & M.W.Chase - [Photo CC By Alan Rockefeller](https://www.inaturalist.org/observations/157592867)
 permalink: /about/funding
 partners:

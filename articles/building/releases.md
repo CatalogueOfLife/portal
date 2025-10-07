@@ -4,7 +4,7 @@ title: RELEASES
 tagline: Different flavors of the Catalogue of Life to better suit our community
 section_id: building
 toc: true
-imageUrl: https://inaturalist-open-data.s3.amazonaws.com/photos/498444704/large.jpg
+imageUrl: /images/species/Bothriechis_nigroadspersus.jpg
 imageCaption: _Bothriechis nigroadspersus_ (Steindachner, 1870) - [Photo CC By Charlie Nadeau](https://www.inaturalist.org/observations/277606956)
 permalink: /building/releases
 ---
