@@ -66,7 +66,7 @@ Example for [Myriapoda](/data/taxon/CW2TY)
 <img src="/images/gif/Download-01.gif" alt="Dowload Myriapoda" loading="lazy" width="600">
 
 
-You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/) by following these steps:
+You can  also customise your download directly in [ChecklistBank](https://www.checklistbank.org/dataset/{{site.metadata.current.key}}/download) by following these steps:
 
 1. Log in to ChecklistBank using your GBIF account. Don’t have one? You can register at [gbif.org](https://www.gbif.org/).
 2. In the left menu, go to Datasets and click on the blue button “COL Releases”.

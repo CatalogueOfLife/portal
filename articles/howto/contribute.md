@@ -38,35 +38,7 @@ We welcome all contributions, whether regional, thematic, or technical, to help 
 
 ## Recurrent or One Time Reviewer
 
-Several levels of quality checks are in place. Both at the data source level by our data providers and at the aggregation level within the Catalogue of Life. Building a Catalogue of all known species names is a daunting task. We strive for accuracy, but errors can occur. That’s why we highly value external reviewers. Whether you are a regular user of the Catalogue of Life or visiting for the first time. If you spot an error, gap, name misuse, want to suggest a new source dataset, or any other issue. Please report your feedback via our [GitHub repository](https://github.com/CatalogueOfLife/data/issues), by email or directly via the [feedback button on each taxon page](/howto/contact#feedback-on-a-name-or-taxon).
-
-https://github.com/CatalogueOfLife/data/issues
-
-{% comment %}
-
-## TODO:
- - Basic overview of options and procedures (should probalby live in CLB mostly)
-    - publish on checkistbank
-    - host your own archive, push it to CLB or use IPT or github templates
-    - first tests using dev
-    - start simple, iteratively improve dataset by using issues and mapping more fields
-    - metadata is important
- - link to checklistbank for formats and technical guides
- - social component, how to interact with COL editors & taxonomy group
- - decision making between competing, overlapping datasets
- 
-
-## Contribute to Catalogue of Life
-
-
-## Publish data on ChecklistBank
-
-### Catalogue of Life Data Package (ColDP)
-For Catalogue of Life, the recommended exchange format for submitting data to ChecklistBank 
-is the [Catalogue of Life Data Package](https://catalogueoflife.github.io/coldp/) (ColDP), 
-a tabular text format with a standard set of files and columns. 
-The format is a single ZIP archive that bundles data in various delimited text files together with 
-a [metadata.yaml](https://catalogueoflife.github.io/coldp/metadata.yaml) file to provide basic metadata about the entire dataset.
-
-![ColDP Schema](https://catalogueoflife.github.io/coldp/docs/schema.png)
-{% endcomment %}
+Several levels of quality checks are in place. Both at the data source level by our data providers and at the aggregation level within the Catalogue of Life. 
+Building a Catalogue of all known species names is a daunting task. We strive for accuracy, but errors can occur. That’s why we highly value external reviewers. 
+Whether you are a regular user of the Catalogue of Life or visiting for the first time. If you spot an error, gap, name misuse, want to suggest a new source dataset, or any other issue. 
+Please report your feedback via our [GitHub repository](https://github.com/CatalogueOfLife/data/issues), by email or directly via the [feedback button on each taxon page](/howto/contact#feedback-on-a-name-or-taxon).
