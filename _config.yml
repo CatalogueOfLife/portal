@@ -97,7 +97,6 @@ react:
     pathToTree: "/data/browse" # path to the tree browser for crosslinking between react components
     pathToSearch: "/data/search" # path to the search page for crosslinking between react components
     pathToDataset: "/data/dataset/" # path to the dataset page for crosslinking between react components
-    auth: "coldeploy:g2o.d43svHngu4HsEp7Xwlo"
 
 metadata:
   key: 3
