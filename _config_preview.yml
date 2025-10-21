@@ -1,4 +1,6 @@
 url: https://preview.catalogueoflife.org
+react:
+  auth: "col-preview-portal:RXY7BdP-w!Fkat8g"
 
 metadata:
   private: true
