@@ -106,3 +106,4 @@ Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-105.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-106.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-107.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-108.txt.gz
+Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-109.txt.gz
