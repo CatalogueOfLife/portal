@@ -44,6 +44,13 @@ Every COL version has a small report of changes in identifiers to help users mon
 
 Additionally, a [mapping file](https://download.checklistbank.org/col/legacy_id_map.zip) is available for users transitioning from the legacy identifiers in use by 2019.
  
-If you encounter issues with COL identifiers, please [contact us](/howto/contact).
+
+## Using COL identifiers
+When you need to mix our identifiers with others you will want to make them globally unique and still know how to resolve them.
+For this [we recommend](https://github.com/CatalogueOfLife/coldp/blob/master/README.md#identifiers) the use of simple [CURIE](https://en.wikipedia.org/wiki/CURIE)s with the `col` namespace, e.g. `col:4QHKG`.
+The namespace is registered with [identifiers.org](https://registry.identifiers.org/registry/col), so you can also use the URL https://identifiers.org/col:4QHKG if you require a URL.
+
+
+If you encounter issues with COL identifiers or need further help on their use, please [contact us](/howto/contact).
 
 
