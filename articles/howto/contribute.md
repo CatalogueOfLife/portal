@@ -13,11 +13,16 @@ You can contribute to the Catalogue of Life as a data provider, helping us to im
 
 ## Become a Data Provider
 
-If you manage a global, regional, or national resource that could enrich the Catalogue of Life, we invite you to contribute your data through ChecklistBank – the Catalogue of Life’s infrastructure. Contributions may include taxonomic data, higher classifications, vernacular names, references, synonyms, and more.
+If you manage a global, regional, or national resource that could enrich the Catalogue of Life, 
+we invite you to contribute your data through [ChecklistBank](https://www.checklistbank.org/about/contribute) – the Catalogue of Life’s infrastructure. 
+Contributions may include taxonomic data, higher classifications, vernacular names, references, synonyms, and more.
 
-Already familiar with the Global Biodiversity Information Facility (GBIF) publishing model? Mobilize your data via the Integrated Publishing Toolkit (IPT). Checklists published through GBIF are automatically harvested into ChecklistBank.
+Already familiar with the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org)) publishing model? Mobilize your data via the [Integrated Publishing Toolkit (IPT)](https://www.gbif.org/ipt). 
+Checklists published through GBIF are automatically harvested into ChecklistBank.
 
-Alternatively, you can publish or create a dataset directly in ChecklistBank. For more data-savvy users, it’s also possible to host your own archive on GitHub and connect it to ChecklistBank, using one of our templates. We are currently developing a detailed tutorial to guide you through the publishing process. In the meantime, our support desk is available to assist you every step of the way.
+Alternatively, you can publish or [create a dataset](https://www.checklistbank.org/newdataset) directly in ChecklistBank. For more data-savvy users, 
+it’s also possible to host your own archive on GitHub and connect it to ChecklistBank, using one of our [templates](https://github.com/orgs/CatalogueOfLife/repositories?q=template%3Atrue+archived%3Afalse). 
+We are currently developing a detailed tutorial to guide you through the publishing process. In the meantime, our support desk is available to assist you every step of the way.
 Once your data is available on ChecklistBank, please [let us know](/howto/contact) so we can evaluate it for integration into the Catalogue of Life.
 
 ## Support COL’s Data Management
