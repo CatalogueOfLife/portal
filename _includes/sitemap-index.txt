@@ -93,17 +93,3 @@ Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-92.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-93.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-94.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-95.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-96.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-97.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-98.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-99.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-100.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-101.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-102.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-103.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-104.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-105.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-106.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-107.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-108.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-109.txt.gz
