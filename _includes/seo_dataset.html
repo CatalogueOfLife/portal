@@ -20,6 +20,9 @@ Freemarker template with the following variables:
 <meta name="twitter:title" content="${_title}" />
 <meta name="twitter:description" content="${_description}" />
 <meta name="twitter:image" content="https://api.checklistbank.org/dataset/3LR/logo/source/${source.key?c}?size=LARGE" />
+<#-- declare a canonical URL for this page -->
+<link rel="alternate" hreflang="en" href="{{ site.url }}/data/dataset/${source.key?c}" />
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}/data/dataset/${source.key?c}" />
 
 <#macro person p>
   {

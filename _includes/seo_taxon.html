@@ -20,6 +20,9 @@ Freemarker template with the following variables:
 <meta name="twitter:title" content="${_title}" />
 <meta name="twitter:description" content="${_description}" />
 <meta name="twitter:image" content="{{ site.url }}/images/col_square_logo.jpg" />
+<#-- declare a canonical URL for this page -->
+<link rel="alternate" hreflang="en" href="{{ site.url }}/data/taxon/${info.usage.getId()}" />
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}/data/taxon/${info.usage.getId()}" />
 
 <!--
 TaxonName DRAFT Profile:
