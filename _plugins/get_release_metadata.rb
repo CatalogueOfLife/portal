@@ -11,11 +11,12 @@ module GetReleaseMetadata
     priority :highest
 
     def generate(site)
-      # copy for base release metadata
+      # copy for base release metadata, but make sure its a simple release
       site.config['base-metadata']=(site.config['metadata']).clone;
+      site.config['base-metadata']['origin']='RELEASE';
       
       puts "Looking up latest XRelease..."
-      releaseKey = generateRelease(site.config['metadata'], 'XRELEASE')
+      releaseKey = generateRelease(site.config['metadata'])
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
 
@@ -23,16 +24,17 @@ module GetReleaseMetadata
       puts site.config['base-metadata']
 
       puts "Looking up latest Base Release..."
-      baseKey = generateRelease(site.config['base-metadata'], 'RELEASE')
+      baseKey = generateRelease(site.config['base-metadata'])
       puts "Using base release key #{baseKey}"
     end
 
-    def generateRelease(md, origin)
+    def generateRelease(md)
       api = md['api']
       key = md['key']
       user = md['user']
       pass = md['pass']
       priv = md['private']
+      origin = md['origin']
 
       if !key
         warn "No project key".yellow

@@ -98,6 +98,7 @@ react:
 metadata:
   key: 3
   private: false
+  origin: XRELEASE
   api: https://api.checklistbank.org
 changelog:
   exclude:
