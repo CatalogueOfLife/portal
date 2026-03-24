@@ -15,7 +15,7 @@ module GetReleaseMetadata
       site.config['base-metadata']=(site.config['metadata']).clone;
       site.config['base-metadata']['origin']='RELEASE';
       
-      puts "Looking up latest XRelease..."
+      puts "Looking up latest main release..."
       releaseKey = generateRelease(site.config['metadata'])
       puts "Using release key #{releaseKey}"
       site.config['react']['datasetKey'] = releaseKey
@@ -23,7 +23,7 @@ module GetReleaseMetadata
       puts "test Base Release"
       puts site.config['base-metadata']
 
-      puts "Looking up latest Base Release..."
+      puts "Looking up latest base release..."
       baseKey = generateRelease(site.config['base-metadata'])
       puts "Using base release key #{baseKey}"
     end
