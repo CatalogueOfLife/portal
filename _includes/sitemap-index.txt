@@ -91,5 +91,3 @@ Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-90.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-91.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-92.txt.gz
 Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-93.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-94.txt.gz
-Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-95.txt.gz
