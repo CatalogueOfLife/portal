@@ -34,6 +34,11 @@ module GetReleaseMetadata
       user = md['user']
       pass = md['pass']
       priv = md['private']
+      if priv == "any"
+        priv = ""
+      else
+        priv = "&private=#{priv}"
+      end      
       origin = md['origin']
 
       if !key
@@ -45,7 +50,7 @@ module GetReleaseMetadata
         return
       end
 
-      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&private=#{priv}&limit=2"), user, pass)
+      rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&limit=2#{priv}"), user, pass)
       md['current'] = rels['result'][0]
       releaseKey = md['current']['key']
       addAgentLabels(md['current'])
