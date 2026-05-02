@@ -16,37 +16,37 @@ Download the **full latest** release of the Catalogue of Life updated monthly or
 	<ul class="pricing-table">
 	  <li class="title">Extended Release</li>
 	  <li class="price">Version {{site.metadata.current.version}}</li>
-	  <li class="description">The COL <a href="/building/releases#extended">eXtended Release</a> maximises completeness 
+	  <li class="description">The COL <a href="/building/releases#extended">eXtended Release</a> maximises completeness
 	  	by <a href="/building/assembly">programmatically integrating additional sources</a> to fill gaps in the Base Release including molecular identifiers.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.metrics.taxaByRankCount.species}}</span> Species</li>
 	  <li class="bullet-item"><span class="number">{{site.metadata.sources | size}}</span> Sources + <span class="number">{{site.metadata.publisher-sources | size}}</span> Publisher Sources</li>
 	  <li class="bullet-item">
-	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - 
-	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> -
+	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> -
 	  	<a href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?format=TextTree">TextTree</a>
 	  </li>
 	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
-	</ul>	
+	</ul>
   </div>
   <div class="large-6 columns">
 	<ul class="pricing-table">
 	  <li class="title">Base Release</li>
 	  <li class="price">Version {{site.base-metadata.current.version}}</li>
-	  <li class="description">The COL <a href="/building/releases#base">Base Release</a> prioritises accuracy and only includes scrutinized, global sources. 
+	  <li class="description">The COL <a href="/building/releases#base">Base Release</a> prioritises accuracy and only includes scrutinized, global sources.
 	  It <i>excludes</i> all information marked up with the XR icon.
 	  </li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.nameCount}}</span> Names</li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.metrics.taxaByRankCount.species}}</span> Species</li>
 	  <li class="bullet-item"><span class="number">{{site.base-metadata.sources | size}}</span> Sources</li>
 	  <li class="bullet-item">
-	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> - 
-	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> - 
+	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">ColDP</a> -
+	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=DwCA">Darwin Core Archive</a> -
 	  	<a href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?format=TextTree">TextTree</a></li>
 	  <li class="cta-button"><a class="button" href="https://api.checklistbank.org/dataset/{{site.base-metadata.current.key}}/export.zip?extended=true&format=ColDP">Download</a></li>
 	</ul>
-  </div>	
+  </div>
 </div>
 
 
@@ -72,8 +72,8 @@ You can  also customise your download directly in [ChecklistBank](https://www.ch
 2. In the left menu, go to Datasets and click on the blue button “COL Releases”.
 3. A list of the available releases will be displayed. It begins with the most recent, choose the one you prefer.
 4. In the left menu, click Download.
-5. Refine your download with the advanced filters: 
-	- Taxon of your interest 
+5. Refine your download with the advanced filters:
+	- Taxon of your interest
 	- Archive format
 	- Fields to include
 	- Minimum rank for search: Family, Genus, or Species
@@ -81,17 +81,17 @@ You can  also customise your download directly in [ChecklistBank](https://www.ch
 	- Exclude synonyms
 	- Extinct only
 
-Please read the information on the available [data formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use. 
+Please read the information on the available [data formats](https://www.checklistbank.org/about/formats) if you are unclear which one to use.
 
 
 ## Past Releases
 We archive all our releases which can be downloaded from our [annual](https://download.catalogueoflife.org/col/annual/) or [monthly](https://download.catalogueoflife.org/col/monthly/) archive.
 [Annual versions](/building/releases#annual-and-monthly-versions) of the catalogue have been published since 2000.
 
-Since 2021 the annual versions remain permanently accessible via [ChecklistBank](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created) and it's API,
+Since 2021 the annual versions remain permanently accessible via [ChecklistBank](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created) and its API,
 while we only keep monthly versions in ChecklistBank for a year.
 
-For quick access we list here all available downloads of the annual versions of the Catalogue. 
+For quick access we list here all available downloads of the annual versions of the Catalogue.
 For releases before 2012 only MySQL dump files are available.
 
 * [Catalogue of Life 2025](https://www.checklistbank.org/dataset/COL25) - 2,068,366 living and 152,871 extinct species ([ColDP](https://download.catalogueoflife.org/col/annual/2025_coldp.zip), [Darwin Core Archive](https://download.catalogueoflife.org/col/annual/2025_dwca.zip), [TextTree](https://download.catalogueoflife.org/col/annual/2025_txtree.zip))
