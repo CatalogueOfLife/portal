@@ -28,7 +28,8 @@ class PublicTaxon extends React.Component {
           pathToTaxon: '{{ site.react.pathToTaxon }}', 
           auth: '{{ site.react.auth }}', 
           pageTitleTemplate: 'COL | __taxon__',
-          showDistributionMap: true
+          showDistributionMap: true,
+          gbifChecklistKey: '7ddf754f-d193-4cc9-b351-99906754a03b'
         }
       );
     }
