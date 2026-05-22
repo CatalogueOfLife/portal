@@ -18,7 +18,6 @@ Catalogue of Life has the following board:
 
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Acting Chair
 * **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, Acting Secretary & Treasurer
-* **Prof. W. Alex Gray** (United Kingdom), board member
 
 ## Global Team
 The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Managing Director, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
