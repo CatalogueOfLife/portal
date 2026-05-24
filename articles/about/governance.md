@@ -17,7 +17,7 @@ The Board of Directors deals with international policy and business issues, appo
 Catalogue of Life has the following board:
 
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Acting Chair
-* **Dr Olaf B&aacute;nki** (Netherlands) Managing Director Catalogue of Life, Acting Secretary & Treasurer
+* **Dr Olaf B&aacute;nki** (Netherlands) Executive Director Catalogue of Life, Acting Secretary & Treasurer
 
 ## Global Team
 The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Managing Director, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
@@ -92,7 +92,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. The core actitivties are executed through the Catalogue of Life Foundation. The Foundation collaborates in sustainable partnerships. The Global Biodiversity Information Facility is the host and co-developper of the COL infrastructure, ChecklistBank. The Illinois Natural History Survey, University of ILlinois, Species Files group hosts part of the editorial office.
 
-* **COL Managing Director** - Dr. Olaf B&aacute;nki - The Netherlands
+* **COL Executive Director** - Dr. Olaf B&aacute;nki - The Netherlands
 * **COL Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
 * **COL Editor** - Ms. Diana Hernandez - Mexico
 * **COL Editor** - Ms. Camila Plata - Colombia
