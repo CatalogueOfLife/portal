@@ -26,18 +26,18 @@ permalink: /data/metrics
 
 <script >
     'use strict';
-	
-    const e = React.createElement;
 
-    class EukaryoteChart extends React.Component {
-        render() {
-	      return e(
-            ColBrowser.TaxonBreakdown, { taxonId: "CS5HF", datasetKey: '{{ site.react.datasetKey }}' , pathToTaxon: "/data/taxon/"}
-	      );	  
-		}
-    }
+    const URLTaxonBreakdown = ColBrowser.withRouting(ColBrowser.TaxonBreakdown, {
+      kind: 'taxonBreakdown',
+      mode: 'path',
+      paths: window.ColBrowserPaths,
+    });
 
-    const domContainer = document.querySelector('#breakdown');
-    ReactDOM.render(e(EukaryoteChart), domContainer);
+    ColBrowser.ReactDOM.createRoot(document.querySelector('#breakdown')).render(
+      ColBrowser.React.createElement(URLTaxonBreakdown, {
+        datasetKey: '{{ site.react.datasetKey }}',
+        taxonId: 'CS5HF',
+      })
+    );
 
 </script>

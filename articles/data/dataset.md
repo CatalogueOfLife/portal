@@ -12,20 +12,17 @@ seo_include: seo_dataset.html
   <script>
       'use strict';
 
-const e = React.createElement;
+const URLSourceDataset = ColBrowser.withRouting(ColBrowser.SourceDataset, {
+  kind: 'source',
+  mode: 'path',
+  paths: window.ColBrowserPaths,
+});
 
-class PublicTaxon extends React.Component {
-
-    render() {
-     
-  
-      return e(
-        ColBrowser.Dataset,
-        { datasetKey: '{{ site.react.datasetKey }}' , pathToTree: '{{ site.react.pathToTree }}', auth: '{{ site.react.auth }}', pathToSearch: '{{ site.react.pathToSearch }}', pageTitleTemplate: 'COL | __dataset__'}
-      );
-    }
-  }
-
-const domContainer = document.querySelector('#dataset');
-ReactDOM.render(e(PublicTaxon), domContainer);
+ColBrowser.ReactDOM.createRoot(document.querySelector('#dataset')).render(
+  ColBrowser.React.createElement(URLSourceDataset, {
+    datasetKey: '{{ site.react.datasetKey }}',
+    auth: '{{ site.react.auth }}',
+    pageTitleTemplate: 'COL | __dataset__',
+  })
+);
   </script>

@@ -13,29 +13,19 @@ seo_include: seo_taxon.html
   <script>
       'use strict';
 
-const e = React.createElement;
+const URLTaxon = ColBrowser.withRouting(ColBrowser.Taxon, {
+  kind: 'taxon',
+  mode: 'path',
+  paths: window.ColBrowserPaths,
+});
 
-class PublicTaxon extends React.Component {
-
-    render() {
-
-      return e(
-        ColBrowser.Taxon,
-        { datasetKey: '{{ site.react.datasetKey }}' , 
-          pathToTree: '{{ site.react.pathToTree }}', 
-          pathToSearch: '{{ site.react.pathToSearch }}', 
-          pathToDataset: '{{ site.react.pathToDataset }}', 
-          pathToTaxon: '{{ site.react.pathToTaxon }}', 
-          auth: '{{ site.react.auth }}', 
-          pageTitleTemplate: 'COL | __taxon__',
-          showDistributionMap: true,
-          gbifChecklistKey: '7ddf754f-d193-4cc9-b351-99906754a03b'
-        }
-      );
-    }
-
-}
-
-const domContainer = document.querySelector('#taxon');
-ReactDOM.render(e(PublicTaxon), domContainer);
+ColBrowser.ReactDOM.createRoot(document.querySelector('#taxon')).render(
+  ColBrowser.React.createElement(URLTaxon, {
+    datasetKey: '{{ site.react.datasetKey }}',
+    auth: '{{ site.react.auth }}',
+    pageTitleTemplate: 'COL | __taxon__',
+    showDistributionMap: true,
+    gbifChecklistKey: '7ddf754f-d193-4cc9-b351-99906754a03b',
+  })
+);
 </script>

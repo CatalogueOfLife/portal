@@ -41,21 +41,21 @@ partners:
             <script >
                 'use strict';
 
-                const e = React.createElement;
+                const URLTree = ColBrowser.withRouting(ColBrowser.Tree, {
+                  kind: 'tree',
+                  mode: 'path',
+                  paths: window.ColBrowserPaths,
+                });
 
-                class PublicTree extends React.Component {
-
-                    render() {
-
-                      return e(
-                        ColBrowser.Tree,
-                        { datasetKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', pathToDataset: '{{ site.react.pathToDataset }}', auth: '{{ site.react.auth }}', showTreeOptions: true, linkToSpeciesPage: true, type: 'project' }
-                      );
-                    }
-                  }
-
-                const domContainer = document.querySelector('#tree');
-                ReactDOM.render(e(PublicTree), domContainer);
+                ColBrowser.ReactDOM.createRoot(document.querySelector('#tree')).render(
+                  ColBrowser.React.createElement(URLTree, {
+                    datasetKey: '{{ site.react.datasetKey }}',
+                    auth: '{{ site.react.auth }}',
+                    showTreeOptions: true,
+                    linkToSpeciesPage: true,
+                    type: 'project',
+                  })
+                );
             </script>
         </div>
     </div>

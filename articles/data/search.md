@@ -16,20 +16,16 @@ Find any scientific name in the current <a href="/data/metadata">version {{site.
   <script>
     'use strict';
 
-const e = React.createElement;
+const URLSearch = ColBrowser.withRouting(ColBrowser.Search, {
+  kind: 'search',
+  mode: 'path',
+  paths: window.ColBrowserPaths,
+});
 
-class PublicSearch extends React.Component {
-
-    render() {
-     
-  
-      return e(
-        ColBrowser.Search,
-        { datasetKey: '{{ site.react.datasetKey }}' , pathToTaxon: '{{ site.react.pathToTaxon }}', auth: '{{ site.react.auth }}' }
-      );
-    }
-  }
-
-const domContainer = document.querySelector('#search');
-ReactDOM.render(e(PublicSearch), domContainer);
+ColBrowser.ReactDOM.createRoot(document.querySelector('#search')).render(
+  ColBrowser.React.createElement(URLSearch, {
+    datasetKey: '{{ site.react.datasetKey }}',
+    auth: '{{ site.react.auth }}',
+  })
+);
   </script>

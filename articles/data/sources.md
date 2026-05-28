@@ -24,20 +24,16 @@ Detailed changes of sources between versions can be viewed on the [Changelog](/d
   <script>
       'use strict';
 
-const e = React.createElement;
+const URLSourceDatasetList = ColBrowser.withRouting(ColBrowser.SourceDatasetList, {
+  kind: 'sourceList',
+  mode: 'path',
+  paths: window.ColBrowserPaths,
+});
 
-class DatasetSearch extends React.Component {
-
-    render() {
-     
-  
-      return e(
-        ColBrowser.DatasetSearch,
-        { datasetKey: '{{ site.react.datasetKey }}' ,  pathToDataset: '{{ site.react.pathToDataset }}', pathToSearch: '{{ site.react.pathToSearch }}', auth: '{{ site.react.auth }}'}
-      );
-    }
-  }
-
-const domContainer = document.querySelector('#datasetSearch');
-ReactDOM.render(e(DatasetSearch), domContainer);
+ColBrowser.ReactDOM.createRoot(document.querySelector('#datasetSearch')).render(
+  ColBrowser.React.createElement(URLSourceDatasetList, {
+    datasetKey: '{{ site.react.datasetKey }}',
+    auth: '{{ site.react.auth }}',
+  })
+);
   </script>
