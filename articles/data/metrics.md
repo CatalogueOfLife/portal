@@ -74,7 +74,7 @@ Every scientific name in the catalogue is governed by one of the international c
 
 ## Accepted taxa by rank
 
-The fifteen most populous ranks among accepted taxa. The log scale makes the long tail visible.
+The fifteen most populous ranks among accepted taxa, split between taxa that come from a single source and those merged from multiple sources (an [eXtended Release](/building/releases) feature). Merged taxa are part of the overall count.
 
 <div id="chart-ranks" style="height: 480px;"></div>
 
@@ -219,12 +219,59 @@ The twenty languages with the most vernacular names in the catalogue. Total lang
           renderPie('chart-usage-status', m.usagesByStatusCount, { seriesName: 'Usages' });
           renderPie('chart-codes', m.namesByCodeCount, { seriesName: 'Names' });
 
-          // Bars
-          renderBar('chart-ranks', topN(m.taxaByRankCount, 15), {
-            log: true,
-            yTitle: 'Accepted taxa (log)',
-            seriesName: 'Accepted taxa',
+          // Stacked bar: regular (= total − merged) and merged per rank.
+          // mergedTaxaByRankCount is a subset of taxaByRankCount, so their
+          // sum equals the total for that rank. Linear scale only — log
+          // doesn't compose meaningfully with stacking.
+          const totalByRank  = m.taxaByRankCount || {};
+          const mergedByRank = m.mergedTaxaByRankCount || {};
+          const topRanks = Object.entries(totalByRank)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 15)
+            .map(([rank]) => rank);
+          Highcharts.chart('chart-ranks', {
+            chart: { type: 'bar', backgroundColor: 'transparent' },
+            title: { text: null },
+            xAxis: {
+              categories: topRanks,
+              title: { text: null },
+              labels: { style: { fontSize: '12px' } },
+            },
+            yAxis: {
+              title: { text: 'Accepted taxa' },
+              allowDecimals: false,
+              stackLabels: {
+                enabled: true,
+                format: '{total:,.0f}',
+                style: { fontWeight: 'normal', color: '#444' },
+              },
+            },
+            legend: { enabled: true, reversed: true },
+            tooltip: {
+              shared: true,
+              headerFormat: '<b>{point.x}</b><br/>',
+              pointFormat: '{series.name}: <b>{point.y:,.0f}</b> ({point.percentage:.1f}%)<br/>',
+              footerFormat: 'Total: <b>{point.total:,.0f}</b>',
+            },
+            plotOptions: {
+              series: { stacking: 'normal' },
+              bar: { dataLabels: { enabled: false } },
+            },
+            series: [
+              {
+                name: 'From a single source',
+                color: '#1d7ea9',
+                data: topRanks.map((r) => Math.max(0, (totalByRank[r] || 0) - (mergedByRank[r] || 0))),
+              },
+              {
+                name: 'Merged from multiple sources',
+                color: '#722ed1',
+                data: topRanks.map((r) => mergedByRank[r] || 0),
+              },
+            ],
+            credits: { enabled: false },
           });
+
           renderBar('chart-langs', topN(m.vernacularsByLanguageCount, 20, labelLanguage), {
             yTitle: 'Vernacular names',
             seriesName: 'Vernacular names',
