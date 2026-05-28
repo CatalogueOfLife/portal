@@ -14,9 +14,9 @@
     - name: Sources
       path: /data/sources
       desc: "Browse the underlying source datasets that make up the Catalogue"
-    # - name: Metrics
-    #   path: /data/metrics
-    #   desc: "Metrics about the Catalogue of Life"
+    - name: Metrics
+      path: /data/metrics
+      desc: "Metrics about the Catalogue of Life"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"

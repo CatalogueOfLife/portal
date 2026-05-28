@@ -9,6 +9,18 @@ imageCaption: _Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://
 permalink: /data/metrics
 ---
 
+<style>
+  /* Extra breathing room above each chart section after the Eukaryota
+     breakdown. The first two headings (Headline numbers, Composition of
+     Eukaryota) keep their natural spacing. */
+  #usages-by-status,
+  #names-by-nomenclatural-code,
+  #accepted-taxa-by-rank,
+  #vernacular-names-by-language {
+    margin-top: 56px;
+  }
+</style>
+
 These metrics describe the current <a href="/data/metadata">release</a> of the Catalogue of Life. They are computed at release time from the full assembled checklist and refreshed automatically as new releases are issued.
 
 ## Headline numbers
