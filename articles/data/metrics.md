@@ -287,9 +287,12 @@ For names that originate in the base release, the [eXtended Release](/building/r
           // Extended-release secondary info: small dictionary (~5 kinds),
           // each entry is "names enriched with this kind of info from a
           // secondary source". Show all of them in the XR purple to mirror
-          // the rank chart's merged segment.
+          // the rank chart's merged segment. The backend's "parent" key
+          // is shown as "classification" — clearer for end users.
+          const secondaryLabel = { parent: 'classification' };
           const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
-            .sort((a, b) => b[1] - a[1]);
+            .sort((a, b) => b[1] - a[1])
+            .map(([k, v]) => [secondaryLabel[k] || k, v]);
           Highcharts.chart('chart-secondary', {
             chart: { type: 'bar', backgroundColor: 'transparent' },
             title: { text: null },
