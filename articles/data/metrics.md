@@ -256,7 +256,7 @@ For names that originate in the base release, the [eXtended Release](/building/r
             legend: { enabled: true, reversed: true },
             tooltip: {
               shared: true,
-              headerFormat: '<b>{point.x}</b><br/>',
+              headerFormat: '<b>{point.key}</b><br/>',
               pointFormat: '{series.name}: <b>{point.y:,.0f}</b> ({point.percentage:.1f}%)<br/>',
               footerFormat: 'Total: <b>{point.total:,.0f}</b>',
             },
