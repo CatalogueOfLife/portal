@@ -266,12 +266,12 @@ For names that originate in the base release, the [eXtended Release](/building/r
             },
             series: [
               {
-                name: 'From a single source',
+                name: 'Base release',
                 color: '#1d7ea9',
                 data: topRanks.map((r) => Math.max(0, (totalByRank[r] || 0) - (mergedByRank[r] || 0))),
               },
               {
-                name: 'Merged from multiple sources',
+                name: 'Extended release',
                 color: '#722ed1',
                 data: topRanks.map((r) => mergedByRank[r] || 0),
               },
