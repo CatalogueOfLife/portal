@@ -16,7 +16,8 @@ permalink: /data/metrics
   #usages-by-status,
   #names-by-nomenclatural-code,
   #accepted-taxa-by-rank,
-  #vernacular-names-by-language {
+  #vernacular-names-by-language,
+  #extended-release-additions {
     margin-top: 56px;
   }
 </style>
@@ -74,15 +75,21 @@ Every scientific name in the catalogue is governed by one of the international c
 
 ## Accepted taxa by rank
 
-The fifteen most populous ranks among accepted taxa, split between taxa that come from a single source and those merged from multiple sources (an [eXtended Release](/building/releases) feature). Merged taxa are part of the overall count.
+The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the [eXtended Release](/building/releases).
 
-<div id="chart-ranks" style="height: 480px;"></div>
+<div id="chart-ranks" style="height: 640px;"></div>
 
 ## Vernacular names by language
 
 The twenty languages with the most vernacular names in the catalogue. Total languages covered: <span id="m-lang-total">…</span>.
 
 <div id="chart-langs" style="height: 600px;"></div>
+
+## Extended release additions
+
+For names that originate in the base release, the [eXtended Release](/building/releases) supplements them with secondary information drawn from additional sources. The breakdown below shows how many base-release names received each kind of added information.
+
+<div id="chart-secondary" style="height: 320px;"></div>
 
 <!-- Highcharts (only loaded on this page) -->
 <script src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
@@ -227,7 +234,7 @@ The twenty languages with the most vernacular names in the catalogue. Total lang
           const mergedByRank = m.mergedTaxaByRankCount || {};
           const topRanks = Object.entries(totalByRank)
             .sort((a, b) => b[1] - a[1])
-            .slice(0, 15)
+            .slice(0, 25)
             .map(([rank]) => rank);
           Highcharts.chart('chart-ranks', {
             chart: { type: 'bar', backgroundColor: 'transparent' },
@@ -275,6 +282,40 @@ The twenty languages with the most vernacular names in the catalogue. Total lang
           renderBar('chart-langs', topN(m.vernacularsByLanguageCount, 20, labelLanguage), {
             yTitle: 'Vernacular names',
             seriesName: 'Vernacular names',
+          });
+
+          // Extended-release secondary info: small dictionary (~5 kinds),
+          // each entry is "names enriched with this kind of info from a
+          // secondary source". Show all of them in the XR purple to mirror
+          // the rank chart's merged segment.
+          const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
+            .sort((a, b) => b[1] - a[1]);
+          Highcharts.chart('chart-secondary', {
+            chart: { type: 'bar', backgroundColor: 'transparent' },
+            title: { text: null },
+            xAxis: {
+              categories: secondaryEntries.map((e) => e[0]),
+              title: { text: null },
+              labels: { style: { fontSize: '12px' } },
+            },
+            yAxis: {
+              title: { text: 'Names enriched' },
+              allowDecimals: false,
+            },
+            legend: { enabled: false },
+            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> names' },
+            plotOptions: {
+              bar: {
+                color: '#722ed1',
+                dataLabels: {
+                  enabled: true,
+                  format: '{point.y:,.0f}',
+                  style: { fontWeight: 'normal' },
+                },
+              },
+            },
+            series: [{ name: 'Names enriched', data: secondaryEntries.map((e) => e[1]) }],
+            credits: { enabled: false },
           });
         })
         .catch((err) => {
