@@ -51,8 +51,10 @@ module GetReleaseMetadata
       end
 
       rels = load(URI("#{api}/dataset?releasedFrom=#{key}&sortBy=created&origin=#{origin}&limit=2#{priv}"), user, pass)
-      md['current'] = rels['result'][0]
-      releaseKey = md['current']['key']
+      releaseKey = rels['result'][0]['key']
+      # The list endpoint returns a thin record (no creator / description /
+      # contributor / etc.). Fetch the full dataset for the metadata page.
+      md['current'] = load(URI("#{api}/dataset/#{releaseKey}"), user, pass)
       addAgentLabels(md['current'])
 
       metrics = load(URI("#{api}/dataset/#{releaseKey}/import"), user, pass)
