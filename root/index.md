@@ -55,6 +55,7 @@ partners:
                     showTreeOptions: true,
                     linkToSpeciesPage: true,
                     type: 'project',
+                    theme: window.ColBrowserTheme,
                   })
                 );
             </script>

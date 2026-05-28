@@ -40,6 +40,11 @@
       search: '{{ site.react.pathToSearch }}',
       source: '{{ site.react.pathToDataset }}',
     };
+    // Keep the near-square corners of the previous portal-components design.
+    // antd v5 (used since v2.0.0) defaults borderRadius to 6px; the old antd v4
+    // UI used 2px. Forwarded to every component via ConfigProvider.theme — see
+    // portal-components README → Theming.
+    window.ColBrowserTheme = { token: { borderRadius: 2 } };
   </script>
   <script defer data-domain="catalogueoflife.org" src="https://plausible.io/js/script.js"></script>
   <script>

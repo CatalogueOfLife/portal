@@ -115,6 +115,7 @@ For names that originate in the base release, the [eXtended Release](/building/r
         taxonId: 'CS5HF',
         level: 2,
         showLevelSwitch: true,
+        theme: window.ColBrowserTheme,
       })
     );
 
