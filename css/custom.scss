@@ -85,3 +85,25 @@ img.cbdr-logo  {
 .modBlogPost h3 a:hover {
   color: #135471;
 }
+
+/* The col-browser v2 embeds use Ant Design 6, whose Search/Select inputs
+   render as <input type="search"> with antd's own class. The portal-wide
+   rule in style.css (input[type="search"], ... { height: 3rem; padding:
+   15px; margin-bottom: 1.875rem }) bleeds into them and inflates every
+   field. Restore antd's compact sizing on antd-classed inputs and zero
+   the bottom margin on their wrappers. */
+input.ant-input,
+input.ant-select-input,
+input.ant-select-selection-search-input,
+.ant-input-affix-wrapper input,
+.ant-select-selector input {
+  height: auto;
+  padding: 4px 11px;
+  margin-bottom: 0;
+  line-height: normal;
+}
+.ant-input-affix-wrapper,
+.ant-input-search,
+.ant-select {
+  margin-bottom: 0;
+}
