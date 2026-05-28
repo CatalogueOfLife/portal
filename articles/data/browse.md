@@ -31,6 +31,7 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#tree')).render(
     auth: '{{ site.react.auth }}',
     showTreeOptions: true,
     type: 'project',
+    ...window.ColBrowserNav,
   })
 );
   </script>

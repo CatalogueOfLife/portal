@@ -34,6 +34,7 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#datasetSearch')).render(
   ColBrowser.React.createElement(URLSourceDatasetList, {
     datasetKey: '{{ site.react.datasetKey }}',
     auth: '{{ site.react.auth }}',
+    ...window.ColBrowserNav,
   })
 );
   </script>

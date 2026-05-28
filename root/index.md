@@ -54,6 +54,7 @@ partners:
                     showTreeOptions: true,
                     linkToSpeciesPage: true,
                     type: 'project',
+                    ...window.ColBrowserNav,
                   })
                 );
             </script>

@@ -37,6 +37,8 @@ permalink: /data/metrics
       ColBrowser.React.createElement(URLTaxonBreakdown, {
         datasetKey: '{{ site.react.datasetKey }}',
         taxonId: 'CS5HF',
+        showLevelSwitch: true,
+        ...window.ColBrowserNav,
       })
     );
 

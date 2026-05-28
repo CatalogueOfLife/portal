@@ -40,6 +40,36 @@
       search: '{{ site.react.pathToSearch }}',
       source: '{{ site.react.pathToDataset }}',
     };
+    // Cross-component navigation must do a real page load (this portal is
+    // multi-page Jekyll, not an SPA). withRouting's default onNavigateToX
+    // uses history.pushState — fine for SPAs but leaves us stuck on the
+    // current page. Override the four nav callbacks; let withRouting keep
+    // hrefForX (anchor fallback) and the in-component state callbacks
+    // (onExpandedTaxonKeyChange, onFiltersChange) on pushState.
+    (function () {
+      var P = window.ColBrowserPaths;
+      function searchQuery(filters) {
+        var params = new URLSearchParams();
+        if (filters) Object.keys(filters).forEach(function (k) {
+          var v = filters[k];
+          if (Array.isArray(v)) v.forEach(function (x) { params.append(k, x); });
+          else if (v != null && v !== '') params.append(k, v);
+        });
+        return params.toString();
+      }
+      window.ColBrowserNav = {
+        onNavigateToTaxon:  function (id) { window.location.assign(P.taxon + id); },
+        onNavigateToSource: function (id) { window.location.assign(P.source + id); },
+        onNavigateToTree:   function (args) {
+          var t = args && args.taxonKey;
+          window.location.assign(P.tree + (t ? '?taxonKey=' + encodeURIComponent(t) : ''));
+        },
+        onNavigateToSearch: function (filters) {
+          var q = searchQuery(filters);
+          window.location.assign(P.search + (q ? '?' + q : ''));
+        },
+      };
+    })();
   </script>
   <script defer data-domain="catalogueoflife.org" src="https://plausible.io/js/script.js"></script>
   <script>

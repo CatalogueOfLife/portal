@@ -23,6 +23,7 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#dataset')).render(
     datasetKey: '{{ site.react.datasetKey }}',
     auth: '{{ site.react.auth }}',
     pageTitleTemplate: 'COL | __dataset__',
+    ...window.ColBrowserNav,
   })
 );
   </script>

@@ -26,6 +26,7 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#search')).render(
   ColBrowser.React.createElement(URLSearch, {
     datasetKey: '{{ site.react.datasetKey }}',
     auth: '{{ site.react.auth }}',
+    ...window.ColBrowserNav,
   })
 );
   </script>
