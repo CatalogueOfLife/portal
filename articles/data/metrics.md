@@ -258,9 +258,26 @@ For names that originate in the base release, the [eXtended Release](/building/r
             legend: { enabled: true, reversed: true },
             tooltip: {
               shared: true,
-              headerFormat: '<b>{point.key}</b><br/>',
-              pointFormat: '{series.name}: <b>{point.y:,.0f}</b> ({point.percentage:.1f}%)<br/>',
-              footerFormat: 'Total: <b>{point.total:,.0f}</b>',
+              useHTML: true,
+              formatter: function () {
+                // Drop the "release" suffix in the tooltip (keep it in the legend),
+                // align label/count/percentage in three invisible columns.
+                const short = (n) => n.replace(/ release$/, '');
+                const num = '<td style="text-align:right;padding-left:12px;font-variant-numeric:tabular-nums;">';
+                const pct = '<td style="text-align:right;padding-left:8px;color:#666;font-variant-numeric:tabular-nums;">';
+                const rows = this.points.map(function (p) {
+                  return '<tr><td>' + short(p.series.name) + '</td>'
+                       + num + '<b>' + p.y.toLocaleString() + '</b></td>'
+                       + pct + p.percentage.toFixed(1) + '%</td></tr>';
+                }).join('');
+                const total = this.points[0].total;
+                const rank = this.points[0].category;
+                return '<b>' + rank + '</b>'
+                     + '<table style="border-collapse:collapse;margin-top:2px;">'
+                     + rows
+                     + '<tr><td>Total</td>' + num + '<b>' + total.toLocaleString() + '</b></td><td></td></tr>'
+                     + '</table>';
+              },
             },
             plotOptions: {
               series: { stacking: 'normal' },
