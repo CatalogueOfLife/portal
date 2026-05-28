@@ -16,6 +16,7 @@ seo_include: seo_taxon.html
 const URLTaxon = ColBrowser.withRouting(ColBrowser.Taxon, {
   kind: 'taxon',
   mode: 'path',
+  navigation: 'reload',
   paths: window.ColBrowserPaths,
 });
 
@@ -26,7 +27,6 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#taxon')).render(
     pageTitleTemplate: 'COL | __taxon__',
     showDistributionMap: true,
     gbifChecklistKey: '7ddf754f-d193-4cc9-b351-99906754a03b',
-    ...window.ColBrowserNav,
   })
 );
 </script>

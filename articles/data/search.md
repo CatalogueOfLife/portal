@@ -19,6 +19,7 @@ Find any scientific name in the current <a href="/data/metadata">version {{site.
 const URLSearch = ColBrowser.withRouting(ColBrowser.Search, {
   kind: 'search',
   mode: 'path',
+  navigation: 'reload',
   paths: window.ColBrowserPaths,
 });
 
@@ -26,7 +27,6 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#search')).render(
   ColBrowser.React.createElement(URLSearch, {
     datasetKey: '{{ site.react.datasetKey }}',
     auth: '{{ site.react.auth }}',
-    ...window.ColBrowserNav,
   })
 );
   </script>

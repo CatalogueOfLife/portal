@@ -22,6 +22,7 @@ The **Find taxon** field allows for direct access using any name known to COL.
 const URLTree = ColBrowser.withRouting(ColBrowser.Tree, {
   kind: 'tree',
   mode: 'path',
+  navigation: 'reload',
   paths: window.ColBrowserPaths,
 });
 
@@ -31,7 +32,6 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#tree')).render(
     auth: '{{ site.react.auth }}',
     showTreeOptions: true,
     type: 'project',
-    ...window.ColBrowserNav,
   })
 );
   </script>

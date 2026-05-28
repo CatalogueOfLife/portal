@@ -44,6 +44,7 @@ partners:
                 const URLTree = ColBrowser.withRouting(ColBrowser.Tree, {
                   kind: 'tree',
                   mode: 'path',
+                  navigation: 'reload',
                   paths: window.ColBrowserPaths,
                 });
 
@@ -54,7 +55,6 @@ partners:
                     showTreeOptions: true,
                     linkToSpeciesPage: true,
                     type: 'project',
-                    ...window.ColBrowserNav,
                   })
                 );
             </script>

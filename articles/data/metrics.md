@@ -30,6 +30,7 @@ permalink: /data/metrics
     const URLTaxonBreakdown = ColBrowser.withRouting(ColBrowser.TaxonBreakdown, {
       kind: 'taxonBreakdown',
       mode: 'path',
+      navigation: 'reload',
       paths: window.ColBrowserPaths,
     });
 
@@ -38,7 +39,6 @@ permalink: /data/metrics
         datasetKey: '{{ site.react.datasetKey }}',
         taxonId: 'CS5HF',
         showLevelSwitch: true,
-        ...window.ColBrowserNav,
       })
     );
 

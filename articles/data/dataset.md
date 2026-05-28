@@ -15,6 +15,7 @@ seo_include: seo_dataset.html
 const URLSourceDataset = ColBrowser.withRouting(ColBrowser.SourceDataset, {
   kind: 'source',
   mode: 'path',
+  navigation: 'reload',
   paths: window.ColBrowserPaths,
 });
 
@@ -23,7 +24,6 @@ ColBrowser.ReactDOM.createRoot(document.querySelector('#dataset')).render(
     datasetKey: '{{ site.react.datasetKey }}',
     auth: '{{ site.react.auth }}',
     pageTitleTemplate: 'COL | __dataset__',
-    ...window.ColBrowserNav,
   })
 );
   </script>
