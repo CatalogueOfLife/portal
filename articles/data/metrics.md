@@ -77,7 +77,7 @@ Every scientific name in the catalogue is governed by one of the international c
 
 The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the [eXtended Release](/building/releases).
 
-<div id="chart-ranks" style="height: 800px;"></div>
+<div id="chart-ranks" style="height: 640px;"></div>
 
 ## Vernacular names by language
 
@@ -226,16 +226,34 @@ For names that originate in the base release, the [eXtended Release](/building/r
           renderPie('chart-usage-status', m.usagesByStatusCount, { seriesName: 'Usages' });
           renderPie('chart-codes', m.namesByCodeCount, { seriesName: 'Names' });
 
-          // Stacked bar: regular (= total − merged) and merged per rank.
-          // mergedTaxaByRankCount is a subset of taxaByRankCount, so their
-          // sum equals the total for that rank. Linear scale only — log
-          // doesn't compose meaningfully with stacking.
+          // Bar length on the log axis = log(total), but each base/extended
+          // segment occupies its linear proportion of the bar's pixel length.
+          // Stacked + log: Highcharts plots segment 1 from log(yAxisMin) to
+          // log(v1), segment 2 from log(v1) to log(v1+v2). With yAxisMin=1
+          // (so log(min)=0) the bar runs 0 → log(v1+v2). Set v1 = total^p
+          // and v2 = total − v1 (with p = base/total) so:
+          //   v1 + v2 = total           → bar ends at log(total)
+          //   log(v1) = p · log(total)  → segment 1 takes p of the bar's length
+          // Real counts ride along on point.realCount / point.realTotal so
+          // tooltip + end label show the actual numbers, not the fake y's.
           const totalByRank  = m.taxaByRankCount || {};
           const mergedByRank = m.mergedTaxaByRankCount || {};
           const topRanks = Object.entries(totalByRank)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 25)
             .map(([rank]) => rank);
+          const baseData = [];
+          const extData  = [];
+          topRanks.forEach(function (r) {
+            const total   = totalByRank[r] || 0;
+            const merged  = mergedByRank[r] || 0;
+            const regular = Math.max(0, total - merged);
+            if (total <= 0) { baseData.push(null); extData.push(null); return; }
+            const baseFrac = regular / total;
+            const v1 = Math.pow(total, baseFrac);
+            baseData.push({ y: v1,          realCount: regular, realTotal: total });
+            extData .push({ y: total - v1,  realCount: merged,  realTotal: total });
+          });
           Highcharts.chart('chart-ranks', {
             chart: { type: 'bar', backgroundColor: 'transparent' },
             title: { text: null },
@@ -246,28 +264,35 @@ For names that originate in the base release, the [eXtended Release](/building/r
             },
             yAxis: {
               type: 'logarithmic',
+              min: 1,    // pin log(min)=0 so segment proportions equal base/total
               minorTickInterval: 0.1,
               title: { text: 'Accepted taxa (log)' },
               allowDecimals: false,
+              // For horizontal bar charts Highcharts defaults this to true,
+              // which renders the LAST series on the left (closest to axis).
+              // Flip so the series order matches the visual order: Base
+              // first (left), Extended second (right).
+              reversedStacks: false,
             },
             legend: { enabled: true, reversed: true },
             tooltip: {
               shared: true,
               useHTML: true,
               formatter: function () {
-                // Drop the "release" suffix in the tooltip (keep it in the legend),
-                // align label/count/percentage in three invisible columns. With
-                // grouped (non-stacked) bars the stack metadata isn't there, so
-                // compute total + percentages from this.points directly.
+                // Drop the "release" suffix in the tooltip (keep it in the
+                // legend), align label/count/percentage in three invisible
+                // columns. Read real counts off point.realCount /
+                // point.realTotal (the y values are the log-scaled fakes).
                 const short = (n) => n.replace(/ release$/, '');
                 const lbl = '<td style="border:0;padding:0;">';
                 const num = '<td style="border:0;padding:0 0 0 10px;text-align:right;font-variant-numeric:tabular-nums;">';
                 const pct = '<td style="border:0;padding:0 0 0 6px;text-align:right;color:#888;font-variant-numeric:tabular-nums;">';
-                const total = this.points.reduce(function (s, p) { return s + p.y; }, 0);
+                const total = this.points[0].point.realTotal;
                 const rows = this.points.map(function (p) {
-                  const percent = total > 0 ? (p.y / total) * 100 : 0;
+                  const count = p.point.realCount;
+                  const percent = total > 0 ? (count / total) * 100 : 0;
                   return '<tr>' + lbl + short(p.series.name) + '</td>'
-                       + num + '<b>' + p.y.toLocaleString() + '</b></td>'
+                       + num + '<b>' + count.toLocaleString() + '</b></td>'
                        + pct + percent.toFixed(1) + '%</td></tr>';
                 }).join('');
                 const rank = this.points[0].category;
@@ -282,24 +307,31 @@ For names that originate in the base release, the [eXtended Release](/building/r
               },
             },
             plotOptions: {
-              bar: {
-                dataLabels: {
-                  enabled: true,
-                  format: '{point.y:,.0f}',
-                  style: { fontWeight: 'normal', fontSize: '11px' },
-                },
-              },
+              series: { stacking: 'normal' },
+              bar: { dataLabels: { enabled: false } },
             },
             series: [
               {
                 name: 'Base release',
-                color: '#1d7ea9',
-                data: topRanks.map((r) => Math.max(0, (totalByRank[r] || 0) - (mergedByRank[r] || 0))),
+                color: '#7cb5ec',
+                data: baseData,
               },
               {
                 name: 'Extended release',
                 color: '#722ed1',
-                data: topRanks.map((r) => mergedByRank[r] || 0),
+                data: extData,
+                // Label sits just past the right end of the whole bar (= the
+                // right end of the Extended segment, which is the last one
+                // now that reversedStacks is off) and shows the real total.
+                dataLabels: {
+                  enabled: true,
+                  align: 'right',
+                  inside: false,
+                  crop: false,
+                  overflow: 'allow',
+                  style: { fontWeight: 'normal', fontSize: '11px' },
+                  formatter: function () { return this.point.realTotal.toLocaleString(); },
+                },
               },
             ],
             credits: { enabled: false },
