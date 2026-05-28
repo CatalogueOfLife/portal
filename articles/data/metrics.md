@@ -245,7 +245,9 @@ For names that originate in the base release, the [eXtended Release](/building/r
               labels: { style: { fontSize: '12px' } },
             },
             yAxis: {
-              title: { text: 'Accepted taxa' },
+              type: 'logarithmic',
+              minorTickInterval: 0.1,
+              title: { text: 'Accepted taxa (log)' },
               allowDecimals: false,
               stackLabels: {
                 enabled: true,
