@@ -5,6 +5,12 @@
 
 @import "foundation/settings";
 
+// The portal has no native form controls of its own — all <input>/<select>/
+// <textarea> on the site belong to the embedded React (antd) components.
+// Foundation's global bare-element form styling only leaks into and inflates
+// those components, so we suppress its output entirely.
+$include-html-form-classes: false;
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source

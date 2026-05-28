@@ -213,8 +213,12 @@ $button-disabled-cursor: $cursor-default-value !default;
 @include exports("button") {
   @if $include-html-button-classes {
 
-    // Default styles applied outside of media query
-    button, .button {
+    // Default styles applied outside of media query.
+    // Scoped to the .button class only (not the bare <button> element): the
+    // portal uses .button on editorial links, while bare <button> elements
+    // only exist inside the embedded React (antd) components, where Foundation's
+    // styling would leak in and inflate them.
+    .button {
       @include button-base;
       @include button-size;
       @include button-style;
@@ -251,7 +255,7 @@ $button-disabled-cursor: $cursor-default-value !default;
     button::-moz-focus-inner {border:0; padding:0;}
 
     @media #{$medium-up} {
-      button, .button {
+      .button {
         @include button-base($style:false, $display:inline-block);
         @include button-size($padding:false, $full-width:false);
       }

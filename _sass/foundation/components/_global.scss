@@ -470,11 +470,7 @@ $cursor-text-value: text !default;
     //
     // Global resets for forms
     //
-
-    // Make sure textarea takes on height automatically
-    textarea { height: auto; min-height: 50px; }
-
-    // Make select elements 100% width by default
-    select { width: 100%; }
+    // Removed: the portal has no native <textarea>/<select> elements — these
+    // bare-element resets only leaked into the embedded React (antd) components.
   }
 }
