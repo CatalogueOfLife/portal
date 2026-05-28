@@ -60,9 +60,9 @@ module ChangeLog
             rel['publisher'] = pub.reject { |p| p['datasets'] == 0 }
           end
           rels[key]=rel
-          # store on fs
+          # store on fs — into _data/releases (same dir we read from), not cwd
           json = JSON.generate(rel)
-          File.write("#{key}.json", json)
+          File.write(dir.join("#{key}.json"), json)
         end
       end
 
