@@ -279,31 +279,22 @@ For names that originate in the base release, the [eXtended Release](/building/r
               shared: true,
               useHTML: true,
               formatter: function () {
-                // Drop the "release" suffix in the tooltip (keep it in the
-                // legend), align label/count/percentage in three invisible
-                // columns. Read real counts off point.realCount /
-                // point.realTotal (the y values are the log-scaled fakes).
+                // Plain inline tooltip; just a fixed-width inline-block for
+                // the label ("Extended" is the longest word) so the counts
+                // line up. Real counts on point.realCount / .realTotal
+                // because the y values are the log-scaled fakes.
                 const short = (n) => n.replace(/ release$/, '');
-                const lbl = '<td style="border:0;padding:0;">';
-                const num = '<td style="border:0;padding:0 0 0 10px;text-align:right;font-variant-numeric:tabular-nums;">';
-                const pct = '<td style="border:0;padding:0 0 0 6px;text-align:right;color:#888;font-variant-numeric:tabular-nums;">';
+                const tag = '<span style="display:inline-block;width:5em;">';
                 const total = this.points[0].point.realTotal;
-                const rows = this.points.map(function (p) {
+                const lines = this.points.map(function (p) {
                   const count = p.point.realCount;
                   const percent = total > 0 ? (count / total) * 100 : 0;
-                  return '<tr>' + lbl + short(p.series.name) + '</td>'
-                       + num + '<b>' + count.toLocaleString() + '</b></td>'
-                       + pct + percent.toFixed(1) + '%</td></tr>';
-                }).join('');
+                  return tag + short(p.series.name) + '</span><b>'
+                       + count.toLocaleString() + '</b> (' + percent.toFixed(1) + '%)';
+                });
+                lines.push(tag + 'Total</span><b>' + total.toLocaleString() + '</b>');
                 const rank = this.points[0].category;
-                return '<span style="font-size:11px;line-height:1.4;">'
-                     + '<b>' + rank + '</b>'
-                     + '<table style="border:0;border-collapse:collapse;margin-top:2px;font-size:11px;">'
-                     + rows
-                     + '<tr>' + lbl + 'Total</td>' + num + '<b>' + total.toLocaleString() + '</b></td>'
-                     + '<td style="border:0;padding:0;"></td></tr>'
-                     + '</table>'
-                     + '</span>';
+                return '<b>' + rank + '</b><br/>' + lines.join('<br/>');
               },
             },
             plotOptions: {
