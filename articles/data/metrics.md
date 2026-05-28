@@ -77,7 +77,7 @@ Every scientific name in the catalogue is governed by one of the international c
 
 The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the [eXtended Release](/building/releases).
 
-<div id="chart-ranks" style="height: 640px;"></div>
+<div id="chart-ranks" style="height: 800px;"></div>
 
 ## Vernacular names by language
 
@@ -249,11 +249,6 @@ For names that originate in the base release, the [eXtended Release](/building/r
               minorTickInterval: 0.1,
               title: { text: 'Accepted taxa (log)' },
               allowDecimals: false,
-              stackLabels: {
-                enabled: true,
-                format: '{total:,.0f}',
-                style: { fontWeight: 'normal', color: '#444' },
-              },
             },
             legend: { enabled: true, reversed: true },
             tooltip: {
@@ -261,27 +256,39 @@ For names that originate in the base release, the [eXtended Release](/building/r
               useHTML: true,
               formatter: function () {
                 // Drop the "release" suffix in the tooltip (keep it in the legend),
-                // align label/count/percentage in three invisible columns.
+                // align label/count/percentage in three invisible columns. With
+                // grouped (non-stacked) bars the stack metadata isn't there, so
+                // compute total + percentages from this.points directly.
                 const short = (n) => n.replace(/ release$/, '');
-                const num = '<td style="text-align:right;padding-left:12px;font-variant-numeric:tabular-nums;">';
-                const pct = '<td style="text-align:right;padding-left:8px;color:#666;font-variant-numeric:tabular-nums;">';
+                const lbl = '<td style="border:0;padding:0;">';
+                const num = '<td style="border:0;padding:0 0 0 10px;text-align:right;font-variant-numeric:tabular-nums;">';
+                const pct = '<td style="border:0;padding:0 0 0 6px;text-align:right;color:#888;font-variant-numeric:tabular-nums;">';
+                const total = this.points.reduce(function (s, p) { return s + p.y; }, 0);
                 const rows = this.points.map(function (p) {
-                  return '<tr><td>' + short(p.series.name) + '</td>'
+                  const percent = total > 0 ? (p.y / total) * 100 : 0;
+                  return '<tr>' + lbl + short(p.series.name) + '</td>'
                        + num + '<b>' + p.y.toLocaleString() + '</b></td>'
-                       + pct + p.percentage.toFixed(1) + '%</td></tr>';
+                       + pct + percent.toFixed(1) + '%</td></tr>';
                 }).join('');
-                const total = this.points[0].total;
                 const rank = this.points[0].category;
-                return '<b>' + rank + '</b>'
-                     + '<table style="border-collapse:collapse;margin-top:2px;">'
+                return '<span style="font-size:11px;line-height:1.4;">'
+                     + '<b>' + rank + '</b>'
+                     + '<table style="border:0;border-collapse:collapse;margin-top:2px;font-size:11px;">'
                      + rows
-                     + '<tr><td>Total</td>' + num + '<b>' + total.toLocaleString() + '</b></td><td></td></tr>'
-                     + '</table>';
+                     + '<tr>' + lbl + 'Total</td>' + num + '<b>' + total.toLocaleString() + '</b></td>'
+                     + '<td style="border:0;padding:0;"></td></tr>'
+                     + '</table>'
+                     + '</span>';
               },
             },
             plotOptions: {
-              series: { stacking: 'normal' },
-              bar: { dataLabels: { enabled: false } },
+              bar: {
+                dataLabels: {
+                  enabled: true,
+                  format: '{point.y:,.0f}',
+                  style: { fontWeight: 'normal', fontSize: '11px' },
+                },
+              },
             },
             series: [
               {
