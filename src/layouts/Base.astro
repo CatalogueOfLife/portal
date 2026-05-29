@@ -7,9 +7,8 @@ interface Props {
   description?: string;
   sectionId?: string;
   noindex?: boolean;
-  colBrowser?: boolean;
 }
-const { title = 'Catalogue of Life', description, sectionId, noindex = false, colBrowser = false } = Astro.props;
+const { title = 'Catalogue of Life', description, sectionId, noindex = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,11 +24,11 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false, co
 
     <!-- Conservative diet: dropped the two icon fonts (fontello + Font Awesome,
          ~44KB/page + 2 font downloads) — the only icons left are inlined SVGs.
-         Foundation/style/custom preserved to keep the current look. -->
+         Foundation/style/custom preserved to keep the current look. The
+         col-browser stylesheet is bundled with its islands (see lib/colPaths). -->
     <link rel="stylesheet" href="/css/foundation.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    {colBrowser && <link rel="stylesheet" href="/css/col-browser.css" />}
     <slot name="head" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700,300"

@@ -59,7 +59,7 @@ const jsonLd: Record<string, unknown> | null = source
   : null;
 ---
 
-<Base title={title} description={description} colBrowser noindex={!source}>
+<Base title={title} description={description} noindex={!source}>
   <Fragment slot="head">
     <meta property="og:title" content={title} />
     <meta property="og:url" content={url} />

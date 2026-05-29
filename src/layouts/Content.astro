@@ -16,16 +16,15 @@ interface Props {
     noindex?: boolean;
   };
   headings?: MarkdownHeading[];
-  colBrowser?: boolean;
 }
-const { frontmatter: fm, headings = [], colBrowser = false } = Astro.props;
+const { frontmatter: fm, headings = [] } = Astro.props;
 const imageUrl = fm.imageUrl ?? site.defaultImageUrl;
 const caption = fm.imageCaption ?? site.defaultImageCaption;
 const toc = fm.toc ?? false;
 const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
 ---
 
-<Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex} colBrowser={colBrowser}>
+<Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex}>
   <slot name="head" slot="head" />
   <div
     class="full parallax"
