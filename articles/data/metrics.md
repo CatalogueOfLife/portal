@@ -120,7 +120,7 @@ For names that originate in the base release, the [eXtended Release](/building/r
 
 ## Changes over time
 
-How the number of accepted families, genera and species — and the total of all names including synonyms — has changed across past COL releases. The figures are taken from each release at build time. Use the switch to compare the [Base and eXtended Release](/building/releases) timelines, which sit at very different scales (note the logarithmic axis).
+How the number of accepted families, genera and species — and the total of all names including synonyms — has changed across past COL releases. Figures from 2020 onward come from each ChecklistBank release; earlier points are the historical [annual checklists](/data/download#past-releases) back to 2005, recomputed from the original release databases. Use the switch to compare the [Base and eXtended Release](/building/releases) timelines, which sit at very different scales (note the logarithmic axis).
 
 <div id="timeline-toggle" role="group" aria-label="Release type">
   <button type="button" data-mode="extended" class="active">eXtended Release</button>
@@ -429,11 +429,16 @@ How the number of accepted families, genera and species — and the total of all
 <!-- ── Release timeline (static; built from cached release metrics) ──────── -->
 <script>
     'use strict';
-    // Emitted at build time from site.changelog.entries (the same cached
-    // release metrics the changelog page uses) — no runtime API call.
+    // Emitted at build time from two static sources — no runtime API call:
+    //   * site.changelog.entries: cached ChecklistBank release metrics
+    //     (2020-12 onward), the same data the changelog page uses.
+    //   * site.data.legacy_metrics: hand-collected annual-checklist figures
+    //     for 2005-2019 (see _data/legacy_metrics.yml). All base releases;
+    //     family/genus/names are null where they were never published.
     window.ColTimeline = [
     {% for log in site.changelog.entries %}{% assign m = log.rel.metrics %}{% if m and m.taxaByRankCount and m.taxaByRankCount.species %}{ t: "{{ log.rel.dataset.issued | default: log.rel.dataset.created | truncate: 10, '' }}", ext: {{ log.rel.extended | default: false }}, family: {{ m.taxaByRankCount.family | default: 0 }}, genus: {{ m.taxaByRankCount.genus | default: 0 }}, species: {{ m.taxaByRankCount.species | default: 0 }}, names: {{ m.nameCount | default: 0 }} },
-    {% endif %}{% endfor %}];
+    {% endif %}{% endfor %}{% for r in site.data.legacy_metrics %}{ t: "{{ r.date }}", ext: false, family: {{ r.family | default: 'null' }}, genus: {{ r.genus | default: 'null' }}, species: {{ r.species | default: 'null' }}, names: {{ r.names | default: 'null' }} },
+    {% endfor %}];
 </script>
 
 <script>
