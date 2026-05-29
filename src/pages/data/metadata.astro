@@ -1,0 +1,91 @@
+---
+import Content from '@layouts/Content.astro';
+import { metadata, datasetKey } from '@data/releaseMetadata';
+import { site } from '@lib/site';
+
+// The release metadata is baked at build time, so this page is static (no SSR
+// needed) but still emits the schema.org Dataset JSON-LD the old seo_metadata
+// Freemarker template produced.
+const cur = metadata.current;
+const url = `${site.url}/data/metadata`;
+
+const fm = {
+  title: 'Metadata',
+  tagline: 'About the current Catalogue of Life',
+  section_id: 'data',
+  toc: false,
+  imageUrl: '/images/species/Tubifera_ferruginosa.jpg',
+  imageCaption:
+    '_Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY relew](https://www.inaturalist.org/photos/559741249)',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org/',
+  '@type': 'Dataset',
+  '@id': String(cur.key),
+  url,
+  name: cur.title ?? 'Catalogue of Life',
+  ...(cur.description ? { description: cur.description } : {}),
+  ...(cur.version ? { version: cur.version } : {}),
+  ...(cur.issued ? { datePublished: cur.issued } : {}),
+  ...(cur.doi ? { sameAs: `https://doi.org/${cur.doi}`, identifier: `https://doi.org/${cur.doi}` } : {}),
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  inLanguage: 'eng',
+  publisher: { '@type': 'Organization', name: 'Catalogue of Life (COL)', url: site.url },
+  provider: {
+    '@type': 'Organization',
+    name: 'Global Biodiversity Information Facility (GBIF)',
+    url: 'https://www.gbif.org',
+    logo: 'https://www.gbif.org/img/logo/GBIF50.png',
+    email: 'info@gbif.org',
+    telephone: '+45 35 32 14 70',
+  },
+};
+---
+
+<Content frontmatter={fm}>
+  <Fragment slot="head">
+    <meta property="og:title" content={`${cur.title ?? 'Catalogue of Life'} | COL`} />
+    <meta property="og:url" content={url} />
+    <meta property="og:description" content={cur.description ?? ''} />
+    <link rel="alternate" hreflang="en" href={url} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <h2>Version</h2>
+  <div id="version">
+    Issued: <i>{cur.issued}</i><br />
+    DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a><br />
+    ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a>
+    <br /><br />
+  </div>
+
+  <h2>Abstract</h2>
+  <p>{cur.description}</p>
+
+  <h2>Recommended citation</h2>
+  <div id="bibtex" style="float: right;">
+    <a href={`${metadata.api}/dataset/${datasetKey}.bib`}>
+      <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
+    </a>
+  </div>
+  <p>{cur.citation}</p>
+  <p>
+    Please also read the
+    <a href="/howto/cite">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
+  </p>
+
+  <h3>License</h3>
+  <p>
+    <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
+  </p>
+
+  {cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
+
+  <h3>Authors</h3>
+  <div id="authors">
+    <ul>
+      {cur.creator?.map((a) => <li set:html={a.label} />)}
+    </ul>
+  </div>
+</Content>

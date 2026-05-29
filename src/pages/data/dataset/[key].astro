@@ -1,0 +1,92 @@
+---
+import Base from '@layouts/Base.astro';
+import SourceDatasetIsland from '@components/islands/SourceDatasetIsland.tsx';
+import { metadata, datasetKey } from '@data/releaseMetadata';
+import { site } from '@lib/site';
+
+// On-demand SSR (replaces the backend Freemarker dataset renderer).
+export const prerender = false;
+
+const { key } = Astro.params;
+const api = metadata.api;
+const K = datasetKey;
+
+let source: any = null;
+const res = await fetch(`${api}/dataset/${K}/source/${key}`);
+if (res.ok) source = await res.json();
+else Astro.response.status = 404;
+
+const url = `${site.url}/data/dataset/${key}`;
+const logo = `${api}/dataset/${K}/logo/source/${key}?size=LARGE`;
+const title = source ? `${source.title ?? source.alias} | COL` : 'Not found | COL';
+const description = source ? (source.description ?? source.title ?? '') : 'Dataset not found in the current Catalogue of Life.';
+
+const person = (p: any) => ({
+  '@type': 'Person',
+  familyName: p.family,
+  givenName: p.given,
+  ...(p.email ? { email: p.email } : {}),
+  ...(p.orcid ? { identifier: `https://orcid.org/${p.orcid}` } : {}),
+});
+const licenseUrl = source?.license ? (typeof source.license === 'string' ? source.license : source.license.url) : undefined;
+
+const jsonLd: Record<string, unknown> | null = source
+  ? {
+      '@context': 'https://schema.org/',
+      '@type': 'Dataset',
+      '@id': String(key),
+      url,
+      name: source.title ?? source.alias,
+      ...(source.creator?.length ? { author: source.creator.map(person) } : {}),
+      ...(source.editor?.length ? { editor: source.editor.map(person) } : {}),
+      ...(source.description ? { description: source.description } : {}),
+      ...(source.temporalCoverage ? { temporalCoverage: source.temporalCoverage } : {}),
+      ...(source.spatialCoverage ? { spatialCoverage: source.spatialCoverage } : {}),
+      ...(licenseUrl ? { license: licenseUrl } : {}),
+      inLanguage: 'eng',
+      ...(source.version ? { version: source.version } : {}),
+      ...(source.issued ? { datePublished: source.issued } : {}),
+      publisher: { '@type': 'Organization', name: 'Catalogue of Life (COL)', url: site.url },
+      provider: {
+        '@type': 'Organization',
+        name: 'Global Biodiversity Information Facility (GBIF)',
+        url: 'https://www.gbif.org',
+        logo: 'https://www.gbif.org/img/logo/GBIF50.png',
+        email: 'info@gbif.org',
+        telephone: '+45 35 32 14 70',
+      },
+    }
+  : null;
+---
+
+<Base title={title} description={description} colBrowser noindex={!source}>
+  <Fragment slot="head">
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={logo} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={logo} />
+    <link rel="alternate" hreflang="en" href={url} />
+    <link rel="alternate" hreflang="x-default" href={url} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </Fragment>
+
+  <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
+    {
+      source ? (
+        <div id="dataset" class="catalogue-of-life">
+          <SourceDatasetIsland client:only="react" datasetKey={String(K)} pageTitleTemplate="COL | __dataset__" />
+        </div>
+      ) : (
+        <div class="large-12 columns" style="padding: 40px 0">
+          <h2>Not found</h2>
+          <p>This source dataset is not part of the current Catalogue of Life release.</p>
+          <p><a href="/data/sources">Browse source datasets</a></p>
+        </div>
+      )
+    }
+  </div>
+</Base>

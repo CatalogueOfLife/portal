@@ -30,6 +30,7 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false, co
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/css/font-awesome.css" />
     {colBrowser && <link rel="stylesheet" href="/css/col-browser.css" />}
+    <slot name="head" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700,300"
       media="screen"

@@ -26,6 +26,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
 ---
 
 <Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex} colBrowser={colBrowser}>
+  <slot name="head" slot="head" />
   <div
     class="full parallax"
     style={`position: relative; background-image: url(${imageUrl}); color: #fff;`}

@@ -1,0 +1,23 @@
+---
+import Base from '@layouts/Base.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+---
+
+<Base title="Not found | COL" noindex>
+  <div class="full parallax" style="position: relative; background-image: url(/images/species/Raphus_cucullatus.jpg); color: #fff;">
+    <div class="row">
+      <div class="large-12 columns">
+        <SectionHeader title="404" tagline="This page could not be found" color="#fff" class="big" />
+      </div>
+    </div>
+    <div class="four spacing"></div>
+  </div>
+  <div class="full">
+    <div class="row">
+      <div class="large-12 columns prose">
+        <p>The page you were looking for does not exist. Try the <a href="/">home page</a> or <a href="/data/search">search the Catalogue of Life</a>.</p>
+        <div class="spacing"></div>
+      </div>
+    </div>
+  </div>
+</Base>
