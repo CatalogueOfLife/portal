@@ -43,7 +43,7 @@ Dev points at the **production** CLB API by default. For the gated preview/dev d
 
 These fetch the public CLB API server-side and emit `<meta>` + schema.org `ld+json` (Taxon / Dataset) directly in the HTML — SEO lives where the HTML is made, one language. They also reproduce the old route logic: **synonym → 301 redirect** to the accepted taxon, **archived → tombstone**, **not found → 404**. This is what replaced the backend Freemarker `PortalPageRenderer` system.
 
-`/data/metadata` and `404` are about a single resource (the current release / the not-found page), so they are **prerendered static**, not SSR. (Note: the comment in `astro.config.mjs` still lists them as `prerender = false` — that's stale.)
+`/data/metadata` and `404` are about a single resource (the current release / the not-found page), so they are **prerendered static**, not SSR.
 
 ### React islands (`col-browser`)
 
