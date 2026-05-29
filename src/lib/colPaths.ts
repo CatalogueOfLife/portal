@@ -15,3 +15,11 @@ export const colPaths = {
 // portal-components design used near-square 2px corners. Forwarded to every
 // component via its `theme` prop -> antd ConfigProvider (was window.ColBrowserTheme).
 export const colTheme = { token: { borderRadius: 2 } };
+
+// Raw "user:pass" passed to col-browser's `auth` prop (it base64-encodes it) so
+// the client-side API calls can read private candidate releases on preview/dev.
+// Empty on prod (public release) -> col-browser sends no Authorization header.
+// NOTE: this value is inlined into the client bundle, so on preview/dev it is
+// visible to anyone who can reach those (gated) sites — prefer a read-only
+// credential over an admin one.
+export const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';

@@ -20,9 +20,17 @@ export const milestones: Milestone[] = [
   { image: 'Protozoa.jpg', title: 'Other kingdoms', bgcolor: '2db261', fgcolor: 'ecf7ef', link: '/data/browse', query: `TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&${speciesQuery}` },
 ];
 
+// Basic auth for private candidate releases (preview/dev); empty on prod.
+const rawAuth = import.meta.env.PUBLIC_COL_AUTH || '';
+const authHeaders: Record<string, string> = rawAuth
+  ? { Authorization: 'Basic ' + Buffer.from(rawAuth).toString('base64') }
+  : {};
+
 export async function milestoneCount(m: Milestone): Promise<number | null> {
   try {
-    const res = await fetch(`${metadata.api}/dataset/${metadata.releaseKey}/nameusage/search?${m.query}`);
+    const res = await fetch(`${metadata.api}/dataset/${metadata.releaseKey}/nameusage/search?${m.query}`, {
+      headers: authHeaders,
+    });
     if (!res.ok) return null;
     const d = (await res.json()) as { total?: number };
     return d.total ?? null;

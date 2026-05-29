@@ -2,6 +2,7 @@
 import Base from '@layouts/Base.astro';
 import TaxonIsland from '@components/islands/TaxonIsland.tsx';
 import { metadata, datasetKey } from '@data/releaseMetadata';
+import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
 
 // On-demand SSR (replaces the backend Freemarker PortalPageRenderer for taxa):
@@ -17,7 +18,7 @@ const K = datasetKey;
 // the accepted taxon (the old PortalPageRenderer.SynonymException behaviour).
 const ACCEPTED = new Set(['accepted', 'provisionally accepted']);
 let info: any = null;
-const infoRes = await fetch(`${api}/dataset/${K}/taxon/${id}/info`);
+const infoRes = await colFetch(`${api}/dataset/${K}/taxon/${id}/info`);
 if (infoRes.ok) {
   info = await infoRes.json();
   const status = info?.usage?.status;
@@ -29,7 +30,7 @@ if (infoRes.ok) {
     return Astro.redirect(`/data/taxon/${acceptedId}`, 301);
   }
 } else {
-  const nu = await fetch(`${api}/dataset/${K}/nameusage/${id}`);
+  const nu = await colFetch(`${api}/dataset/${K}/nameusage/${id}`);
   if (nu.ok) {
     const acceptedId = (await nu.json())?.accepted?.id;
     if (acceptedId) return Astro.redirect(`/data/taxon/${acceptedId}`, 301);

@@ -48,6 +48,13 @@ esac
 DEPLOY="jenkins-deploy@${DEPLOY_HOST}"
 SSR_DIR="/opt/col-portal/${ENV}"
 
+# preview/dev pin private candidate releases, so all their API calls
+# (build, SSR and client islands) authenticate; prod's release is public.
+case $ENV in
+  prod) AUTH="" ;;
+  *)    AUTH="coldeploy:${PWD_ADMIN}" ;;
+esac
+
 # Resolve the magic release alias to a concrete key against the prod CLB.
 RELEASE_KEY=$(curl -s --fail --user "coldeploy:${PWD_ADMIN}" "${PROD_API}/dataset/${RELEASE_ALIAS}.json" | jq '.key')
 [ -n "$RELEASE_KEY" ] && [ "$RELEASE_KEY" != "null" ] || { echo "Could not resolve release $RELEASE_ALIAS"; exit 1; }
@@ -63,7 +70,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e CLB_API="$PROD_API" \
   -e COL_KEY=3 \
   -e COL_RELEASE="$RELEASE_KEY" \
-  -e CLB_USER=coldeploy -e CLB_PASS="$PWD_ADMIN" \
+  -e PUBLIC_COL_AUTH="$AUTH" \
   --volume "$PWD:/app" -w /app \
   node:22 bash -lc "npm ci && npm run build"
 
@@ -75,10 +82,10 @@ ssh "$DEPLOY" "mkdir -p ${SSR_DIR}"
 rsync -rO --delete dist/          "${DEPLOY}:${SSR_DIR}/dist/"
 rsync -rO --delete node_modules/  "${DEPLOY}:${SSR_DIR}/node_modules/"
 rsync -O package.json package-lock.json "${DEPLOY}:${SSR_DIR}/"
-# Runtime env for the systemd service. If the pinned release is private
-# (preview/dev candidates), add a CLB auth header here and have the SSR routes
-# read it — see DEPLOY.md.
-ssh "$DEPLOY" "printf 'HOST=127.0.0.1\nPORT=%s\n' '${SSR_PORT}' > ${SSR_DIR}/service.env"
+# Runtime env for the systemd service: host/port + COL_AUTH so the SSR routes
+# can read private candidate releases (empty on prod). Lock the file down since
+# it holds the credential.
+ssh "$DEPLOY" "umask 077; printf 'HOST=127.0.0.1\nPORT=%s\nCOL_AUTH=%s\n' '${SSR_PORT}' '${AUTH}' > ${SSR_DIR}/service.env"
 ssh "$DEPLOY" "sudo systemctl restart col-portal@${ENV}"
 
 echo "Flushing Varnish for $TARGET"

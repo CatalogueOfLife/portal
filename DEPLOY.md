@@ -64,11 +64,21 @@ col-portal@<env>`. It runs `node /opt/col-portal/<env>/dist/server/entry.mjs`
 reading `service.env` (HOST/PORT, written by the deploy). Needs Node 22, a `col`
 user, and a sudoers rule letting `jenkins-deploy` restart `col-portal@*`.
 
-> **Private candidate releases (preview/dev):** the build authenticates to the
-> CLB (`CLB_USER`/`CLB_PASS`), so baked data is fine. But the SSR taxon/dataset
-> routes fetch the API at *request* time — if `3LRC`/`3LXRC` are private, add a
-> CLB auth header to `service.env` and have those routes (and the island `auth`
-> prop) read it. Prod's `3LXR` is public, so prod needs nothing.
+### Authentication (private candidate releases)
+
+`3LRC`/`3LXRC` (preview/dev) are **private**, so `deploy.sh` authenticates every
+API call for those envs (prod's `3LXR` is public and stays unauthenticated):
+
+- **`PUBLIC_COL_AUTH`** (`"user:pass"`, passed to the Docker build) covers the
+  build-time fetches (`fetch-data.mjs`, homepage milestone counts) **and** is
+  baked into the client bundle as col-browser's `auth` prop for the islands.
+- **`COL_AUTH`** (`"user:pass"`, written to `service.env`) is read at request
+  time by the SSR taxon/dataset routes (`src/lib/colApi.ts`).
+
+⚠️ Because the island `auth` prop ships in client JS, the credential is visible
+to anyone who can reach the (gated) preview/dev sites. Prefer a **read-only**
+CLB account there rather than the `coldeploy` admin password. `service.env`
+holds the credential too — `deploy.sh` writes it `umask 077`; keep it `col`-only.
 
 ## On-demand (SSR) routes
 

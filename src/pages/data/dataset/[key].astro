@@ -2,6 +2,7 @@
 import Base from '@layouts/Base.astro';
 import SourceDatasetIsland from '@components/islands/SourceDatasetIsland.tsx';
 import { metadata, datasetKey } from '@data/releaseMetadata';
+import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
 
 // On-demand SSR (replaces the backend Freemarker dataset renderer).
@@ -12,7 +13,7 @@ const api = metadata.api;
 const K = datasetKey;
 
 let source: any = null;
-const res = await fetch(`${api}/dataset/${K}/source/${key}`);
+const res = await colFetch(`${api}/dataset/${K}/source/${key}`);
 if (res.ok) source = await res.json();
 else Astro.response.status = 404;
 

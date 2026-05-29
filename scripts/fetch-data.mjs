@@ -29,7 +29,10 @@ const ROOT = process.cwd();
 const RELEASES_DIR = join(ROOT, '_data', 'releases');
 const OUT_DIR = join(ROOT, 'src', 'data', '_generated');
 
-const authHeaders = USER ? { Authorization: 'Basic ' + Buffer.from(`${USER}:${PASS}`).toString('base64') } : {};
+// Basic auth for private (preview/dev candidate) releases. PUBLIC_COL_AUTH is the
+// raw "user:pass" used across the build + client; CLB_USER/CLB_PASS still work.
+const RAW_AUTH = process.env.PUBLIC_COL_AUTH || (USER ? `${USER}:${PASS}` : '');
+const authHeaders = RAW_AUTH ? { Authorization: 'Basic ' + Buffer.from(RAW_AUTH).toString('base64') } : {};
 
 async function getJson(path) {
   const url = path.startsWith('http') ? path : `${API}${path}`;
