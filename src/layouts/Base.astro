@@ -23,12 +23,12 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false, co
     {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex" />}
 
-    <!-- Phase 1 CSS bridge: existing compiled stylesheets. Phase 2 replaces these. -->
+    <!-- Conservative diet: dropped the two icon fonts (fontello + Font Awesome,
+         ~44KB/page + 2 font downloads) — the only icons left are inlined SVGs.
+         Foundation/style/custom preserved to keep the current look. -->
     <link rel="stylesheet" href="/css/foundation.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/fontello.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <link rel="stylesheet" href="/css/font-awesome.css" />
     {colBrowser && <link rel="stylesheet" href="/css/col-browser.css" />}
     <slot name="head" />
     <link
