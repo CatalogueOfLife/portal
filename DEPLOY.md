@@ -47,6 +47,12 @@ This obsoletes the old `.htaccess` / `_redirects` rewrite that sent
 `/data/taxon/*` to a single `data/taxon.html` shell — the Node service now
 renders each taxon/dataset page directly. Those two files can be deleted.
 
+### Legacy `/annual-checklist`
+The download page links to `/annual-checklist/<year>` (pre-2021 annual editions).
+These are **not** served by the portal — they live on the legacy archive
+infrastructure. Apache must continue to proxy `/annual-checklist/*` there (it is
+`Disallow`ed in robots.txt). They will 404 against the portal alone.
+
 ### Legacy URL redirects
 The migration changed a few URL shapes. `/news/index` → `/news` is handled by
 Astro. Handle the rest at the edge (301):
