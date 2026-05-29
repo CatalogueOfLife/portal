@@ -1,0 +1,33 @@
+{
+  "name": "col-portal",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "fetch:data": "node scripts/fetch-data.mjs",
+    "predev": "npm run fetch:data",
+    "dev": "astro dev",
+    "prebuild": "npm run fetch:data",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^6.0.1",
+    "@astrojs/node": "^10.1.2",
+    "@astrojs/react": "^5.0.6",
+    "@astrojs/rss": "^4.0.18",
+    "astro": "^6.4.2",
+    "marked": "^18.0.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
+  }
+}

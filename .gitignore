@@ -8,3 +8,14 @@ bundle/
 Gemfile
 Gemfile.lock
 .claude/
+
+# Astro / Node
+node_modules/
+dist/
+.astro/
+*.log
+.env
+.env.production
+
+# build-time generated data (baked by scripts/fetch-data.mjs via prebuild)
+src/data/_generated/

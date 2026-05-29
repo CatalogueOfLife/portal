@@ -1,0 +1,16 @@
+---
+import { md } from '../lib/md';
+
+// Replaces the Jekyll {% include image.html %} include for captioned figures.
+interface Props {
+  url: string;
+  alt?: string;
+  description?: string;
+}
+const { url, alt = '', description = '' } = Astro.props;
+---
+
+<figure class="image">
+  <img src={url} alt={alt} />
+  {description && <figcaption set:html={md(description)} />}
+</figure>

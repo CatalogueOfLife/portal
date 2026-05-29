@@ -1,0 +1,29 @@
+---
+import { getPosts } from '@lib/posts';
+import NewsLayout from '@layouts/NewsLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const years = [...new Set(posts.map((p) => p.year))];
+  return years.map((year) => ({
+    params: { year },
+    props: { year, posts: posts.filter((p) => p.year === year) },
+  }));
+}
+
+const { year, posts } = Astro.props;
+---
+
+<NewsLayout title={`News ${year}`}>
+  <h2>{year}</h2>
+  {
+    posts.map((post) => (
+      <div class="mod modBlogPost">
+        <div class="content">
+          <h3><a href={post.url}>{post.title}</a></h3>
+          {post.excerpt && <p>{post.excerpt}</p>}
+        </div>
+      </div>
+    ))
+  }
+</NewsLayout>

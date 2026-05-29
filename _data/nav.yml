@@ -103,6 +103,6 @@
       path: /about/community
       desc: "The community behind Catalogue of Life "
     - name: News
-      path: /news/index
+      path: /news
       desc: "Latest news"
 

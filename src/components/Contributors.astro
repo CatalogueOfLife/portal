@@ -1,0 +1,12 @@
+---
+import { currentRelease } from '@data/releaseMetadata';
+// Agent labels are pre-built HTML strings (name + ORCID link + affiliation),
+// so each must be rendered with set:html, matching the old Liquid {{a.label}}.
+const creators = currentRelease.creator ?? [];
+---
+
+<div id="contributors">
+  <ul>
+    {creators.map((a) => <li set:html={a.label} />)}
+  </ul>
+</div>

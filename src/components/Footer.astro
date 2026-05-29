@@ -1,0 +1,89 @@
+---
+import { site } from '../lib/site';
+import { currentRelease } from '../data/releaseMetadata';
+---
+
+<div id="footer">
+  <div class="spacing"></div>
+  <div class="row">
+    <div class="large-3 medium-3 columns">
+      <h1>
+        <a href="/">
+          <img alt="" src="/images/logos/col_square_logo.jpg" />
+        </a>
+      </h1>
+    </div>
+    <div class="large-3 medium-3 columns">
+      <div class="links">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="/howto/contact">Contact</a></li>
+        </ul>
+        <div class="spacing"></div>
+        <ul class="socials">
+          <li>
+            <a href={`https://www.linkedin.com/company/${site.linkedin_username}`}>
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href={`https://www.facebook.com/${site.facebook_username}/`}>
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="spacing"></div>
+    </div>
+    <div class="large-3 medium-3 columns">
+      <div class="links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/building/glossary">Glossary</a></li>
+        </ul>
+      </div>
+      <div class="spacing"></div>
+    </div>
+    <div class="large-3 medium-3 columns">
+      <h4>Version</h4>
+      <ul>
+        <li><a href="/data/metadata">{currentRelease.version}</a></li>
+        <li>Issued: <i>{currentRelease.issued}</i></li>
+        <li>DOI: <a href={`https://doi.org/${currentRelease.doi}`}>{currentRelease.doi}</a></li>
+        <li>
+          ChecklistBank:
+          <a href={`https://www.checklistbank.org/dataset/${currentRelease.key}/about`}>{currentRelease.key}</a>
+        </li>
+      </ul>
+      <div class="spacing"></div>
+    </div>
+  </div>
+  <div class="creativecommons">
+    <p>
+      © 2025, Catalogue of Life.<br />
+      Unless otherwise indicated, all other content offered under <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a
+      >.
+    </p>
+  </div>
+  <div class="spacing"></div>
+  <div class="creativecommons" id="GCBR">
+    <img alt="" src="/images/logos/GCBR-Logo-White.svg" class="cbdr-logo" />
+    <div style="display: inline-block; text-align: left; vertical-align: top; padding-left: 20px;">
+      <a href="/about/catalogueoflife">Catalogue of Life</a> <br />is a Global Core Biodata Resource
+    </div>
+  </div>
+  <div class="spacing"></div>
+  <div class="creativecommons">
+    <h4>Disclaimer</h4>
+    <p>
+      The Catalogue of Life cannot guarantee the accuracy or completeness of the information in the Catalogue of Life. <br
+      />
+      Be aware that the Catalogue of Life is still incomplete and undoubtedly contains errors. <br />
+      Catalogue of Life, nor any contributing database can be made liable for any direct or indirect damage arising out of
+      the use of Catalogue of Life services.
+    </p>
+  </div>
+  <div class="spacing"></div>
+</div>

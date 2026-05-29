@@ -1,0 +1,34 @@
+---
+import Base from './Base.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+import Sidebar from '@components/Sidebar.astro';
+
+interface Props {
+  title?: string;
+}
+const { title = 'News' } = Astro.props;
+---
+
+<Base title={`${title} | COL`} sectionId="about">
+  <div class="full parallax" style="background-image: url(/images/species/Melaleuca_lanceolata.jpg); color: #fff;">
+    <div class="row">
+      <div class="large-12 columns">
+        <SectionHeader title="News" tagline="Latest updates" color="#fff" class="big" />
+      </div>
+    </div>
+    <div class="four spacing"></div>
+  </div>
+
+  <div class="full" style="background: #f5f5f5">
+    <div class="row">
+      <div class="large-9 columns">
+        <slot />
+        <div class="four spacing"></div>
+      </div>
+      <div class="large-3 columns" id="sidebar">
+        <Sidebar />
+        <div class="four spacing"></div>
+      </div>
+    </div>
+  </div>
+</Base>
