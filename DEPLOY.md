@@ -6,10 +6,18 @@ service. This replaces the old Jekyll build + the backend's Freemarker
 `PortalPageRenderer` (which can be removed once this is live — see the migration
 plan, Phase 7).
 
+## Requirements
+
+- **Node 22 LTS (≥ 22.12.0)** — hard requirement of Astro 6 (enforced via the
+  `engines` field; `.nvmrc` pins `22`). Use the same version to build and to run.
+- **npm 10+** — the version bundled with Node 22 (no separate install).
+- The monthly sitemap job (`scripts/update-sitemaps.sh`) additionally needs
+  **bash, curl, jq, gzip** on the box it runs on.
+
 ## Build
 
 ```bash
-npm ci
+npm ci             # reproducible install from package-lock.json (needs network)
 npm run build      # runs `prebuild` (scripts/fetch-data.mjs) then `astro build`
 ```
 

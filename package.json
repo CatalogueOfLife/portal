@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "fetch:data": "node scripts/fetch-data.mjs",
     "predev": "npm run fetch:data",
