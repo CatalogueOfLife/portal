@@ -1,13 +1,18 @@
 // Build + deploy the Astro portal. Use with a "Pipeline script from SCM" job
 // (or a multibranch pipeline). All the build/deploy logic lives in
-// scripts/deploy.sh — this pipeline only supplies the two parameters and relies
-// on the declarative default checkout to put the repo (and that script) in the
-// workspace.
+// scripts/deploy.sh — this pipeline only selects the environment and supplies
+// the colportal password, then relies on the declarative default checkout to
+// put the repo (and that script) in the workspace.
 //
-// These deploys are triggered manually: both parameters are entered per run,
-// and Jenkins injects them as environment variables ($ENV, $PWD_PORTAL) that
-// the script reads. PWD_PORTAL is a password parameter, so its value is masked
-// in the build log.
+// These deploys are triggered manually: pick ENV per run. The read-only
+// colportal CLB password (preview/dev auth + release lookup) comes from the
+// Jenkins credential 'colportal-cred' (Secret text), bound to $PWD_PORTAL for
+// scripts/deploy.sh and masked in the build log.
+//   If 'colportal-cred' is instead a "Username with password" credential, swap
+//   the binding for:
+//     usernamePassword(credentialsId: 'colportal-cred',
+//                      usernameVariable: 'COLPORTAL_USER', passwordVariable: 'PWD_PORTAL')
+//   (deploy.sh hardcodes the "colportal" username, so only the password is used.)
 //
 // Agent requirements: docker, rsync, ssh (jenkins-deploy key), curl, jq.
 
@@ -17,8 +22,6 @@ pipeline {
   parameters {
     choice(name: 'ENV', choices: ['dev', 'preview', 'prod'],
            description: 'Target environment to build and deploy.')
-    password(name: 'PWD_PORTAL', defaultValue: '',
-             description: 'Password for the read-only colportal CLB account (preview/dev auth + release lookup).')
   }
 
   options {
@@ -28,7 +31,9 @@ pipeline {
   stages {
     stage('Build & deploy') {
       steps {
-        sh './scripts/deploy.sh'
+        withCredentials([string(credentialsId: 'colportal-cred', variable: 'PWD_PORTAL')]) {
+          sh './scripts/deploy.sh'
+        }
       }
     }
   }
