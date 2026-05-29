@@ -1,0 +1,26 @@
+---
+import Content from '@layouts/Content.astro';
+import SearchIsland from '@components/islands/SearchIsland.tsx';
+import { datasetKey, metadata } from '@data/releaseMetadata';
+
+const fm = {
+  title: 'Search',
+  tagline: 'Find species and other taxa by name',
+  section_id: 'data',
+  imageUrl: '/images/species/Fratercula_arctica.jpg',
+  imageCaption:
+    '_Fratercula arctica_ (Linnaeus, 1758) - [Photo CC BY Kalvin Chan](https://www.inaturalist.org/photos/548565784)',
+};
+---
+
+<Content frontmatter={fm} colBrowser>
+  <p>
+    Find any scientific name in the current <a href="/data/metadata">version {metadata.current.version}</a> of the
+    Catalogue of Life, <a href="/howto/access#search">learn How To</a>.
+  </p>
+  <div class="row" style="background: white">
+    <div id="search" class="catalogue-of-life">
+      <SearchIsland client:only="react" datasetKey={String(datasetKey)} />
+    </div>
+  </div>
+</Content>

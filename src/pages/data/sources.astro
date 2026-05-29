@@ -1,0 +1,23 @@
+---
+import Content from '@layouts/Content.astro';
+import SourceListIsland from '@components/islands/SourceListIsland.tsx';
+import { datasetKey } from '@data/releaseMetadata';
+
+const fm = {
+  title: 'Source datasets',
+  tagline: 'A Global Network of Taxonomic Contributors',
+  section_id: 'data',
+  toc: false,
+  imageUrl: '/images/species/Nyctalus_leisleri.jpg',
+  imageCaption:
+    '_Nyctalus leisleri_ (Kuhl, 1817) - [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/observations/297984115)',
+};
+---
+
+<Content frontmatter={fm} colBrowser>
+  <div class="row" style="background: white">
+    <div id="sources" class="catalogue-of-life">
+      <SourceListIsland client:only="react" datasetKey={String(datasetKey)} />
+    </div>
+  </div>
+</Content>

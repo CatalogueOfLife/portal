@@ -1,0 +1,23 @@
+---
+import Content from '@layouts/Content.astro';
+import MetricsIsland from '@components/islands/MetricsIsland.tsx';
+import { datasetKey } from '@data/releaseMetadata';
+
+const fm = {
+  title: 'Metrics',
+  tagline: 'Metrics about the current Catalogue of Life',
+  section_id: 'data',
+  toc: false,
+  imageUrl: '/images/species/Asplenium_trichomanes.jpg',
+  imageCaption:
+    '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
+};
+---
+
+<Content frontmatter={fm} colBrowser>
+  <div class="row" style="background: white">
+    <div id="metrics" class="catalogue-of-life">
+      <MetricsIsland client:only="react" datasetKey={String(datasetKey)} taxonId="CS5HF" level={2} showLevelSwitch={true} />
+    </div>
+  </div>
+</Content>

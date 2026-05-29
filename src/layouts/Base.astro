@@ -7,8 +7,9 @@ interface Props {
   description?: string;
   sectionId?: string;
   noindex?: boolean;
+  colBrowser?: boolean;
 }
-const { title = 'Catalogue of Life', description, sectionId, noindex = false } = Astro.props;
+const { title = 'Catalogue of Life', description, sectionId, noindex = false, colBrowser = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,6 +29,7 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false } =
     <link rel="stylesheet" href="/css/fontello.css" />
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/css/font-awesome.css" />
+    {colBrowser && <link rel="stylesheet" href="/css/col-browser.css" />}
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700,300"
       media="screen"
