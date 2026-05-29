@@ -37,7 +37,7 @@ Environment variables (build time):
 cloned repo:
 
 ```bash
-ENV=prod|preview|dev   PWD_ADMIN=<coldeploy pw>   scripts/deploy.sh
+ENV=prod|preview|dev   PWD_PORTAL=<colportal read-only pw>   scripts/deploy.sh
 ```
 
 All envs build identically (Node 22 in Docker) and pull data from the **prod**
@@ -75,9 +75,9 @@ API call for those envs (prod's `3LXR` is public and stays unauthenticated):
 - **`COL_AUTH`** (`"user:pass"`, written to `service.env`) is read at request
   time by the SSR taxon/dataset routes (`src/lib/colApi.ts`).
 
-⚠️ Because the island `auth` prop ships in client JS, the credential is visible
-to anyone who can reach the (gated) preview/dev sites. Prefer a **read-only**
-CLB account there rather than the `coldeploy` admin password. `service.env`
+Both use the dedicated **read-only `colportal`** CLB account (password
+`PWD_PORTAL`), since the island `auth` prop ships in client JS and is therefore
+visible to anyone who can reach the (gated) preview/dev sites. `service.env`
 holds the credential too — `deploy.sh` writes it `umask 077`; keep it `col`-only.
 
 ## On-demand (SSR) routes

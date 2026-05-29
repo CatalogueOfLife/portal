@@ -3,7 +3,7 @@
 # Unified Jenkins build + deploy for the Astro portal. Runs in a freshly cloned
 # repo. Replaces the old per-environment Jekyll scripts.
 #
-#   ENV=prod|preview|dev   PWD_ADMIN=<coldeploy password>   (from Jenkins creds)
+#   ENV=prod|preview|dev   PWD_PORTAL=<colportal read-only password>   (Jenkins creds)
 #
 # All three environments build identically and pull data from the *prod*
 # ChecklistBank; they differ only in which release alias they pin and where they
@@ -49,14 +49,15 @@ DEPLOY="jenkins-deploy@${DEPLOY_HOST}"
 SSR_DIR="/opt/col-portal/${ENV}"
 
 # preview/dev pin private candidate releases, so all their API calls
-# (build, SSR and client islands) authenticate; prod's release is public.
+# (build, SSR and client islands) authenticate as the read-only colportal
+# account; prod's release is public, so no auth is exposed there.
 case $ENV in
   prod) AUTH="" ;;
-  *)    AUTH="coldeploy:${PWD_ADMIN}" ;;
+  *)    AUTH="colportal:${PWD_PORTAL}" ;;
 esac
 
 # Resolve the magic release alias to a concrete key against the prod CLB.
-RELEASE_KEY=$(curl -s --fail --user "coldeploy:${PWD_ADMIN}" "${PROD_API}/dataset/${RELEASE_ALIAS}.json" | jq '.key')
+RELEASE_KEY=$(curl -s --fail --user "colportal:${PWD_PORTAL}" "${PROD_API}/dataset/${RELEASE_ALIAS}.json" | jq '.key')
 [ -n "$RELEASE_KEY" ] && [ "$RELEASE_KEY" != "null" ] || { echo "Could not resolve release $RELEASE_ALIAS"; exit 1; }
 echo "Release $RELEASE_ALIAS -> $RELEASE_KEY"
 
