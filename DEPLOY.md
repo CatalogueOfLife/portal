@@ -41,9 +41,10 @@ ENV=prod|preview|dev   PWD_PORTAL=<colportal read-only pw>   scripts/deploy.sh
 ```
 
 The repo's `Jenkinsfile` (a Pipeline job, "Pipeline script from SCM") runs exactly
-this: `ENV` is a choice parameter and `PWD_PORTAL` is bound from the
-`colportal-readonly` secret-text credential. The script is executed straight from
-the checked-out workspace — nothing is copied into the Jenkins job.
+this for manual deploys: `ENV` is a choice parameter and `PWD_PORTAL` is a
+password parameter (entered per run, masked in the log). Jenkins injects both as
+environment variables for the script, which runs straight from the checked-out
+workspace — nothing is copied into the Jenkins job.
 
 All envs build identically (Node 22 in Docker) and pull data from the **prod**
 ChecklistBank; they differ only in the pinned release alias and the deploy
