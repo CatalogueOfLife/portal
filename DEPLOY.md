@@ -64,11 +64,34 @@ are gone (Astro renders those routes now).
 
 ### SSR service (systemd)
 
-`scripts/col-portal@.service` is a template unit — install it once per app host
-as `/etc/systemd/system/col-portal@.service` and `systemctl enable --now
-col-portal@<env>`. It runs `node /opt/col-portal/<env>/dist/server/entry.mjs`
-reading `service.env` (HOST/PORT, written by the deploy). Needs Node 22, a `col`
-user, and a sudoers rule letting `jenkins-deploy` restart `col-portal@*`.
+`scripts/col-portal@.service` is a template unit running
+`node /opt/col-portal/<env>/dist/server/entry.mjs` as the `col` user, reading
+`service.env` (HOST/PORT/COL_AUTH, written by the deploy).
+
+**One-time host bootstrap** (per app host — run as root; uses `/usr/bin/systemctl`,
+adjust to your `command -v systemctl`):
+
+```bash
+# `col` user already exists on these hosts; create it if not:
+#   useradd -r -s /usr/sbin/nologin col
+mkdir -p /opt/col-portal
+chown jenkins-deploy:jenkins-deploy /opt/col-portal   # the deploy user rsyncs here
+cp scripts/col-portal@.service /etc/systemd/system/   # from a repo checkout
+systemctl daemon-reload
+
+# let the deploy user (re)start the services without a password
+cat >/etc/sudoers.d/col-portal <<'SUDO'
+jenkins-deploy ALL=(root) NOPASSWD: /usr/bin/systemctl restart col-portal@*, /usr/bin/systemctl start col-portal@*
+SUDO
+chmod 440 /etc/sudoers.d/col-portal
+
+# enable for boot (start happens on the first deploy, once /opt/col-portal/<env> exists)
+systemctl enable col-portal@prod      # or @preview / @dev for that host
+```
+
+The deploy rsyncs with default perms (world-readable), so the `col` service user
+can read the files and `service.env` that `jenkins-deploy` wrote. Needs **Node 22**
+on the host at `/usr/bin/node` (adjust `ExecStart` if elsewhere).
 
 ### Authentication (private candidate releases)
 

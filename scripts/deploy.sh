@@ -80,18 +80,22 @@ docker run --rm -u "$(id -u):$(id -g)" \
   node:22 bash -lc "npm ci && npm run build"
 
 echo "Deploying static assets -> ${DEPLOY}:${STATIC_DIR}"
-rsync -rO --delete dist/client/ "${DEPLOY}:${STATIC_DIR}"
+rsync -rlO --delete dist/client/ "${DEPLOY}:${STATIC_DIR}"
 
 echo "Deploying SSR server -> ${DEPLOY}:${SSR_DIR}"
 ssh "$DEPLOY" "mkdir -p ${SSR_DIR}"
-rsync -rO --delete dist/          "${DEPLOY}:${SSR_DIR}/dist/"
-rsync -rO --delete node_modules/  "${DEPLOY}:${SSR_DIR}/node_modules/"
+# -l preserves the many symlinks in node_modules (.bin/*, hoisted packages);
+# without it rsync skips them ("non-regular file") and the install is broken.
+rsync -rlO --delete dist/          "${DEPLOY}:${SSR_DIR}/dist/"
+rsync -rlO --delete node_modules/  "${DEPLOY}:${SSR_DIR}/node_modules/"
 rsync -O package.json package-lock.json "${DEPLOY}:${SSR_DIR}/"
 # Runtime env for the systemd service: host/port + COL_AUTH so the SSR routes
-# can read private candidate releases (empty on prod). Lock the file down since
-# it holds the credential.
-ssh "$DEPLOY" "umask 077; printf 'HOST=127.0.0.1\nPORT=%s\nCOL_AUTH=%s\n' '${SSR_PORT}' '${AUTH}' > ${SSR_DIR}/service.env"
-ssh "$DEPLOY" "sudo systemctl restart col-portal@${ENV}"
+# can read private candidate releases (empty on prod). Default perms so the
+# service user (col) can read it; on preview/dev the credential is already
+# public in the client bundle, and on prod COL_AUTH is empty.
+ssh "$DEPLOY" "printf 'HOST=127.0.0.1\nPORT=%s\nCOL_AUTH=%s\n' '${SSR_PORT}' '${AUTH}' > ${SSR_DIR}/service.env"
+# Needs a passwordless sudoers rule for the deploy user (see DEPLOY.md).
+ssh "$DEPLOY" "sudo -n systemctl restart col-portal@${ENV}"
 
 echo "Flushing Varnish for $TARGET"
 curl -sSI -X FLUSH "https://${TARGET}/"
