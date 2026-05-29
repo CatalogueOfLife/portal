@@ -4,95 +4,136 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is the public-facing website for the [Catalogue of Life](https://www.catalogueoflife.org), built with [Jekyll](https://jekyllrb.com/) (Ruby). It is a content-driven static site with dynamic components powered by React and the ChecklistBank API.
+This is the public-facing website for the [Catalogue of Life](https://www.catalogueoflife.org), built with [Astro](https://astro.build/) (TypeScript/Node). It is a **static-first** site: most pages prerender to HTML at build time, a handful of dynamic data routes render on demand on a small Node service, and interactive taxonomy widgets render client-side as React islands from the shared `col-browser` (portal-components) library. Build-time and per-request data come from the ChecklistBank API.
+
+This replaced the previous Jekyll/Ruby site — there is no Ruby, Liquid, or backend-Freemarker SEO layer anymore. See `README.md` (editor-facing: writing posts/articles, git workflow) and `DEPLOY.md` (Node service, Apache vhost, Varnish, Jenkins).
 
 ## Commands
 
 ```bash
-# Install dependencies
-bundle install
+# Install dependencies (Node >= 22.12, npm >= 10 — see package.json engines / .nvmrc)
+npm install
 
-# Run locally (development)
-bundle exec jekyll serve --draft
+# Run locally — `predev` first bakes API data into src/data/_generated/
+npm run dev
 
-# Run with dev config (uses dev API endpoint, shows future posts)
-bundle exec jekyll serve --config _config.yml,_config_dev.yml
+# Type-check (Astro + TS); there is no separate linter/test suite
+npm run check
 
-# Build for production
-JEKYLL_ENV=prod bundle exec jekyll build
+# Build for production — `prebuild` bakes data, then `astro build` emits
+#   dist/client/  (static HTML + assets, served by Apache)
+#   dist/server/  (Node entry for the SSR routes, run behind Varnish)
+npm run build
+npm run preview          # serve the built output locally
+
+# Re-bake the build-time API data on its own
+npm run fetch:data
 ```
 
-There is no test suite or linter. Jekyll will throw Ruby errors at build time if plugins have issues.
+Dev points at the **production** CLB API by default. For the gated preview/dev data, set basic-auth via env (see below).
 
 ## Architecture
 
-### Key architectural concepts
+### Static-first hybrid (the core idea)
 
-**Data-driven navigation**: All site navigation is defined in `_data/nav.yml`. The `section_id` frontmatter field in pages maps to this to highlight the correct menu item.
+`astro.config.mjs` uses `output: 'static'` with the `@astrojs/node` standalone adapter. **Every page prerenders by default.** Only the two per-record data routes opt out with `export const prerender = false` and run on Node:
 
-**Dual rendering**: Jekyll generates static HTML at build time; React components (loaded from CDN as `portal-components` v1.6.0) render dynamic taxonomy browsers, search, and dataset pages client-side.
+- `src/pages/data/taxon/[id].astro`
+- `src/pages/data/dataset/[key].astro`
 
-**API integration at build time**: Two custom Jekyll plugins in `_plugins/` fetch data from ChecklistBank API (`https://api.checklistbank.org`) during build:
-- `_plugins/get_release_metadata.rb` — fetches current release metadata and injects into `site.config['metadata']`
-- `_plugins/changelog.rb` — fetches all releases, computes diffs, caches JSON in `_data/releases/`
+These fetch the public CLB API server-side and emit `<meta>` + schema.org `ld+json` (Taxon / Dataset) directly in the HTML — SEO lives where the HTML is made, one language. They also reproduce the old route logic: **synonym → 301 redirect** to the accepted taxon, **archived → tombstone**, **not found → 404**. This is what replaced the backend Freemarker `PortalPageRenderer` system.
 
-**Multi-environment configs**: `_config_dev.yml` and `_config_preview.yml` override `_config.yml` to point to different API endpoints and enable basic auth.
+`/data/metadata` and `404` are about a single resource (the current release / the not-found page), so they are **prerendered static**, not SSR. (Note: the comment in `astro.config.mjs` still lists them as `prerender = false` — that's stale.)
 
-### Content structure
+### React islands (`col-browser`)
 
-- `articles/` — content pages organized by section (`about/`, `building/`, `data/`, `howto/`, `tools/`)
-- `_posts/` — news stories, filename must be `YYYY-MM-DD-title.md`
-- `root/` — homepage (`index.md`) and top-level pages (404, privacy, terms)
-- `_data/nav.yml` — navigation structure (single source of truth for menus)
-- `_layouts/` — `content.html` (markdown articles), `default.html` (HTML pages), `post.html` (news), `navPage.html` (section landing pages)
+The interactive widgets are imported as ESM from `col-browser` and rendered as **`client:only="react"`** islands (so the browser owns them; the SSR routes still emit crawlable SEO markup above them):
 
-### Page frontmatter
+`src/components/islands/` — `TreeIsland`, `SearchIsland`, `SourceListIsland`, `MetricsIsland`, `SourceDatasetIsland`, `TaxonIsland`. Each wraps the component with `withRouting(...)` and passes a `theme` (antd ConfigProvider) and `auth` prop. The UMD CDN build of portal-components that third parties embed is untouched — Astro consumes the ESM entry.
 
-**For markdown articles** (`layout: content`):
+### Build-time data baking
+
+`scripts/fetch-data.mjs` (run by the `predev`/`prebuild` hooks) fetches release metadata and the changelog from the CLB API, **projects them down to the fields actually used**, and writes JSON into `src/data/_generated/` (git-ignored). The changelog reuses an incremental cache in `_data/releases/`. This replaced the two Ruby plugins (`get_release_metadata.rb`, `changelog.rb`). Consume the baked data via `@data/releaseMetadata` and `@data/changelog`.
+
+### Data-driven navigation
+
+All navigation is defined in **`_data/nav.yml`** (kept at the Jekyll-style path on purpose — it's imported by `src/lib/nav.ts`). The `section_id` frontmatter field maps to it to highlight the active menu item. Top-level items are dropdown groups (their section landing pages — `about.astro`, `data.astro`, etc. — use the `NavPage` layout).
+
+### Content collections
+
+Defined in `src/content.config.ts` (Zod schemas via `astro:schema`):
+
+- **`articles`** — editorial pages, `src/content/articles/**` (`.md`/`.mdx`), rendered at their `permalink` by `src/pages/[...slug].astro`.
+- **`news`** — posts, `src/content/news/**`. The date comes from the **`YYYY-MM-DD-title.md`** filename (parsed in `src/lib/posts.ts`); posts appear at `/YYYY/MM/DD/title`, listed at `/news`, with year/category archives and the RSS feed. Only `published: false` hides a post — there is **no future-date filtering**.
+
+Path aliases (tsconfig): `@components/*`, `@data/*`, `@lib/*`, `@layouts/*`.
+
+### Sitemaps / robots / feed
+
+Three independent mechanisms — see `DEPLOY.md`:
+- `src/pages/sitemap.txt.ts` — editorial URLs (the `articles` collection + landing pages), built every deploy.
+- `src/pages/sitemap-datasets.txt.ts` — data pages + one URL per source dataset, from `@data/releaseMetadata`, built every deploy.
+- `scripts/update-sitemaps.sh` — the giant chunked **taxon** sitemaps → `public/sitemaps/*.gz`, regenerated **monthly** by Jenkins and committed back.
+- `src/pages/robots.txt.ts` — lists all three (reads `public/sitemaps/*.gz` at build time). Gated by `SITE_ENV`: only `prod` is crawlable.
+
+### Project structure
+
+```
+src/
+├── pages/          # routes: index, about/data/howto/tools/procedures landing,
+│                   #   [...slug] (articles), news/, [year]/.., category/..,
+│                   #   data/.. (incl. SSR taxon/[id] & dataset/[key]),
+│                   #   robots.txt.ts, sitemap*.txt.ts, feed.xml.ts
+├── layouts/        # Base, Content, NavPage, NewsLayout
+├── components/     # Header, Footer, Figure, Changelog, Sidebar, … + islands/
+├── content/        # articles/ and news/ collections (schema: src/content.config.ts)
+├── data/           # releaseMetadata.ts, changelog.ts (+ _generated/ baked JSON)
+└── lib/            # nav, posts, site, colApi/colPaths, md, numf helpers
+_data/              # nav.yml + releases/ changelog cache  (READ by Astro — keep)
+public/             # served verbatim: css/, fonts/, images/, sitemaps/, favicon, etc.
+scripts/            # fetch-data.mjs, update-sitemaps.sh, deploy.sh, col-portal@.service
+astro.config.mjs · Jenkinsfile · DEPLOY.md
+```
+
+## Page frontmatter
+
+There is **no `layout:` key** — the route picks the layout. Unknown keys are ignored by the Zod schema.
+
+**Article** (`src/content/articles/**`):
 ```yaml
 ---
-layout: content
 title: Page Title
 tagline: Subtitle text
-section_id: about        # maps to nav.yml for menu highlighting
-imageUrl: /images/species/example.jpg   # 1800px wide, sRGB, 80% JPEG
+section_id: about        # maps to _data/nav.yml for menu highlighting
+imageUrl: /images/species/example.jpg   # banner, 1800px wide, sRGB, 80% JPEG
 imageCaption: Caption text
 toc: true                # table of contents (default: false)
-noindex: false           # robots indexing (default: false)
-permalink: /custom/url   # optional override
+noindex: false           # robots noindex (default: false)
+permalink: /custom/url   # optional; defaults to the file path
 published: true
 ---
 ```
 
-**For HTML pages** (`layout: default`):
+**News post** (`src/content/news/YYYY-MM-DD-title.md`):
 ```yaml
 ---
-layout: default
-section_id: about
-seo_ssi: true   # use server-side includes for SEO data (taxa/datasets)
----
-```
-
-**For news posts** (`_posts/`, `layout: post`):
-```yaml
----
-layout: post
 title: "Post title"
-categories: Release   # or ["Awards", "Communication"] etc.
-author: "Name"
-excerpt: Short description for search results
+author: "Name"                     # optional
+excerpt: Short description for listings/search
+categories: Release                # one word, or several (string or array)
+images: images/posts/example.jpg   # optional; path is served from /<value>
 ---
 ```
 
-### Images
+## Assets
 
-Banner images in articles go in `/images/species/`: 1800px wide, sRGB color profile, JPEG at 80% quality.
+- **Images** go under `public/` and are served with `public/` stripped (e.g. `public/images/logos/x.svg` → `/images/logos/x.svg`). Article banners: `public/images/species/`, 1800px wide, sRGB, JPEG 80%.
+- Captioned figures in markdown use the `Figure` component (`src/components/Figure.astro`): `<Figure url="/images/x.jpg" alt="…" description="caption (markdown ok)" />`.
+- **CSS**: the surviving stylesheets are `public/css/{foundation,style,custom}.css` (linked in `Base.astro`) — edit those, not any `_sass`. Prefer minimal CSS: component-scoped `<style>` blocks in `.astro` files (no Tailwind). The old icon fonts (Font Awesome / fontello) were dropped — use inline SVG.
 
-Use the custom include for captioned images in markdown:
-```
-{% include image.html url="/images/example.jpg" alt="Alt text" description="Caption" %}
-```
+## Environment variables
 
-### Icons
-
-Font Awesome 6 — browse free icons at https://fontawesome.com/icons
+- `PUBLIC_COL_AUTH` / `COL_AUTH` — `user:pass` basic auth for the CLB API; needed for gated **preview/dev** data (build-time islands fetch + runtime SSR fetch). Note `PUBLIC_*` is exposed in the client bundle.
+- `SITE_ENV` — `prod` makes `robots.txt` crawlable; anything else returns `Disallow: /`.
+- `COL_RELEASE` — pin a specific release key for the build-time data fetch.
+- `scripts/fetch-data.mjs` reads additional `CLB_*` / `COL_*` vars; see that file and `DEPLOY.md`.
