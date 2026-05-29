@@ -10,3 +10,8 @@ export const colPaths = {
   search: '/data/search',
   source: '/data/dataset/',
 };
+
+// antd v5 (used by col-browser 2.x) defaults borderRadius to 6px; the previous
+// portal-components design used near-square 2px corners. Forwarded to every
+// component via its `theme` prop -> antd ConfigProvider (was window.ColBrowserTheme).
+export const colTheme = { token: { borderRadius: 2 } };

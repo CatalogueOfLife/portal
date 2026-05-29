@@ -1,23 +1,255 @@
 ---
 import Content from '@layouts/Content.astro';
 import MetricsIsland from '@components/islands/MetricsIsland.tsx';
-import { datasetKey } from '@data/releaseMetadata';
+import { datasetKey, metadata } from '@data/releaseMetadata';
 
 const fm = {
   title: 'Metrics',
   tagline: 'Metrics about the current Catalogue of Life',
   section_id: 'data',
-  toc: false,
+  toc: true,
   imageUrl: '/images/species/Asplenium_trichomanes.jpg',
   imageCaption:
     '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
 };
+
+// Manual TOC headings (this page is .astro, not a Markdown collection entry).
+const headings = [
+  { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
+  { depth: 2, slug: 'composition-of-eukaryota', text: 'Composition of Eukaryota' },
+  { depth: 2, slug: 'usages-by-status', text: 'Usages by status' },
+  { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
+  { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
+  { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
+  { depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' },
+];
+const card = 'flex: 1 1 160px; padding: 16px; background: #f7f7f7; border-radius: 4px; text-align: center;';
+const num = 'font-size: 24px; font-weight: 600; line-height: 1.2;';
+const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
 ---
 
-<Content frontmatter={fm}>
-  <div class="row" style="background: white">
-    <div id="metrics" class="catalogue-of-life">
+<Content frontmatter={fm} headings={headings}>
+  <style>
+    #usages-by-status,
+    #names-by-nomenclatural-code,
+    #accepted-taxa-by-rank,
+    #vernacular-names-by-language,
+    #extended-release-additions {
+      margin-top: 56px;
+    }
+  </style>
+
+  <p>
+    These metrics describe the current <a href="/data/metadata">release</a> of the Catalogue of Life. They are
+    computed at release time from the full assembled checklist and refreshed automatically as new releases are issued.
+  </p>
+
+  <h2 id="headline-numbers">Headline numbers</h2>
+  <div id="metrics-headline" class="row" style="margin: 16px 0 32px; display: flex; flex-wrap: wrap; gap: 12px;">
+    <div class="metric-card" style={card}><div id="m-taxa" style={num}>—</div><div style={lbl}>Accepted taxa</div></div>
+    <div class="metric-card" style={card}><div id="m-synonyms" style={num}>—</div><div style={lbl}>Synonyms</div></div>
+    <div class="metric-card" style={card}><div id="m-names" style={num}>—</div><div style={lbl}>Total names</div></div>
+    <div class="metric-card" style={card}><div id="m-vernaculars" style={num}>—</div><div style={lbl}>Vernacular names</div></div>
+    <div class="metric-card" style={card}><div id="m-distributions" style={num}>—</div><div style={lbl}>Distributions</div></div>
+    <div class="metric-card" style={card}><div id="m-references" style={num}>—</div><div style={lbl}>References</div></div>
+  </div>
+
+  <h2 id="composition-of-eukaryota">Composition of Eukaryota</h2>
+  <p>A pie of the major groups within Eukaryota. Click a slice to drill down into that taxon, or use the switch to toggle between one and two rings.</p>
+  <div class="full">
+    <div id="breakdown" class="catalogue-of-life">
       <MetricsIsland client:only="react" datasetKey={String(datasetKey)} taxonId="CS5HF" level={2} showLevelSwitch={true} />
     </div>
   </div>
+
+  <h2 id="usages-by-status">Usages by status</h2>
+  <p>How the <span id="m-usage-total">…</span> usages in the catalogue break down between accepted, provisionally accepted, synonyms and the rest.</p>
+  <div id="chart-usage-status" style="height: 360px;"></div>
+
+  <h2 id="names-by-nomenclatural-code">Names by nomenclatural code</h2>
+  <p>Every scientific name in the catalogue is governed by one of the international codes of nomenclature.</p>
+  <div id="chart-codes" style="height: 360px;"></div>
+
+  <h2 id="accepted-taxa-by-rank">Accepted taxa by rank</h2>
+  <p>The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the <a href="/building/releases">eXtended Release</a>.</p>
+  <div id="chart-ranks" style="height: 775px;"></div>
+
+  <h2 id="vernacular-names-by-language">Vernacular names by language</h2>
+  <p>The twenty languages with the most vernacular names in the catalogue. Total languages covered: <span id="m-lang-total">…</span>.</p>
+  <div id="chart-langs" style="height: 600px;"></div>
+
+  <h2 id="extended-release-additions">Extended release additions</h2>
+  <p>For names that originate in the base release, the <a href="/building/releases">eXtended Release</a> supplements them with secondary information drawn from additional sources. The breakdown below shows how many base-release names received each kind of added information.</p>
+  <div id="chart-secondary" style="height: 320px;"></div>
+
+  <!-- Highcharts (only loaded on this page) -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
+
+  <script define:vars={{ datasetKey: String(datasetKey), api: metadata.api }}>
+    'use strict';
+
+    // Silence Highcharts' "include accessibility.js" warning — the module isn't loaded here.
+    Highcharts.setOptions({ accessibility: { enabled: false } });
+
+    // ── Release metrics from /dataset/{key}/import ──────────────────────────
+    (function () {
+      const API = api;
+      const DATASET_KEY = datasetKey;
+
+      const fmt = (n) => Number(n || 0).toLocaleString();
+
+      const langNames = (typeof Intl !== 'undefined' && Intl.DisplayNames)
+        ? new Intl.DisplayNames(['en'], { type: 'language' })
+        : null;
+      const labelLanguage = (code) => {
+        if (!langNames) return code;
+        try {
+          const name = langNames.of(code);
+          return name && name.toLowerCase() !== code.toLowerCase() ? name : code;
+        } catch (_) { return code; }
+      };
+
+      const topN = (obj, n, label = (k) => k) => Object.entries(obj || {})
+        .sort((a, b) => b[1] - a[1]).slice(0, n).map(([k, v]) => [label(k), v]);
+
+      const renderPie = (id, obj, opts = {}) => {
+        Highcharts.chart(id, {
+          chart: { type: 'pie', backgroundColor: 'transparent' },
+          title: { text: null },
+          tooltip: { pointFormat: '<b>{point.y:,.0f}</b> ({point.percentage:.1f}%)' },
+          plotOptions: {
+            pie: {
+              innerSize: opts.donut === false ? 0 : '55%',
+              borderWidth: 1,
+              dataLabels: { enabled: true, format: '{point.name}: {point.percentage:.1f}%', style: { fontWeight: 'normal' } },
+            },
+          },
+          series: [{
+            name: opts.seriesName || 'Count',
+            data: Object.entries(obj || {}).sort((a, b) => b[1] - a[1]).map(([name, y]) => ({ name, y })),
+          }],
+          credits: { enabled: false },
+        });
+      };
+
+      const renderBar = (id, entries, opts = {}) => {
+        Highcharts.chart(id, {
+          chart: { type: 'bar', backgroundColor: 'transparent' },
+          title: { text: null },
+          xAxis: { categories: entries.map((e) => e[0]), title: { text: null }, labels: { style: { fontSize: '12px' } } },
+          yAxis: { type: opts.log ? 'logarithmic' : 'linear', title: { text: opts.yTitle || 'Count' }, allowDecimals: false },
+          legend: { enabled: false },
+          tooltip: { pointFormat: '<b>{point.y:,.0f}</b>' },
+          plotOptions: { bar: { dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontWeight: 'normal' } } } },
+          series: [{ name: opts.seriesName || 'Count', data: entries.map((e) => e[1]) }],
+          credits: { enabled: false },
+        });
+      };
+
+      const setText = (id, value) => { const el = document.querySelector(id); if (el) el.textContent = value; };
+
+      fetch(`${API}/dataset/${DATASET_KEY}/import`)
+        .then((r) => r.json())
+        .then((arr) => {
+          const m = Array.isArray(arr) ? arr[0] : arr;
+          if (!m) throw new Error('no import metrics returned');
+
+          setText('#m-taxa', fmt(m.taxonCount));
+          setText('#m-synonyms', fmt(m.synonymCount));
+          setText('#m-names', fmt(m.nameCount));
+          setText('#m-vernaculars', fmt(m.vernacularCount));
+          setText('#m-distributions', fmt(m.distributionCount));
+          setText('#m-references', fmt(m.referenceCount));
+          setText('#m-usage-total', fmt(m.usagesCount));
+          setText('#m-lang-total', fmt(Object.keys(m.vernacularsByLanguageCount || {}).length));
+
+          renderPie('chart-usage-status', m.usagesByStatusCount, { seriesName: 'Usages' });
+          renderPie('chart-codes', m.namesByCodeCount, { seriesName: 'Names' });
+
+          // Log-scale rank bar with linear base/extended segments riding on
+          // realCount/realTotal (see master metrics.md for the full rationale).
+          const totalByRank = m.taxaByRankCount || {};
+          const mergedByRank = m.mergedTaxaByRankCount || {};
+          const topRanks = Object.entries(totalByRank).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([rank]) => rank);
+          const baseData = [];
+          const extData = [];
+          topRanks.forEach(function (r) {
+            const total = totalByRank[r] || 0;
+            const merged = mergedByRank[r] || 0;
+            const regular = Math.max(0, total - merged);
+            if (total <= 0) { baseData.push(null); extData.push(null); return; }
+            const baseFrac = regular / total;
+            const v1 = Math.pow(total, baseFrac);
+            baseData.push({ y: v1, realCount: regular, realTotal: total });
+            extData.push({ y: total - v1, realCount: merged, realTotal: total });
+          });
+          Highcharts.chart('chart-ranks', {
+            chart: { type: 'bar', backgroundColor: 'transparent' },
+            title: { text: null },
+            xAxis: { categories: topRanks, title: { text: null }, labels: { style: { fontSize: '12px' } } },
+            yAxis: {
+              type: 'logarithmic', min: 1, minorTickInterval: 0.1,
+              title: { text: 'Accepted taxa (log)' }, allowDecimals: false, reversedStacks: false,
+            },
+            legend: { enabled: true, reversed: true },
+            tooltip: {
+              shared: true, useHTML: true,
+              formatter: function () {
+                const short = (n) => n.replace(/ release$/, '');
+                const tag = '<span style="display:inline-block;width:5em;">';
+                const total = this.points[0].point.realTotal;
+                const lines = this.points.map(function (p) {
+                  const count = p.point.realCount;
+                  const percent = total > 0 ? (count / total) * 100 : 0;
+                  return tag + short(p.series.name) + '</span><b>' + count.toLocaleString() + '</b> (' + percent.toFixed(1) + '%)';
+                });
+                lines.push(tag + 'Total</span><b>' + total.toLocaleString() + '</b>');
+                const rank = this.points[0].category;
+                return '<b>' + rank + '</b><br/>' + lines.join('<br/>');
+              },
+            },
+            plotOptions: { series: { stacking: 'normal' }, bar: { dataLabels: { enabled: false } } },
+            series: [
+              { name: 'Base release', color: '#7cb5ec', data: baseData },
+              {
+                name: 'Extended release', color: '#722ed1', data: extData,
+                dataLabels: {
+                  enabled: true, align: 'left', inside: false, crop: false, overflow: 'allow',
+                  style: { fontWeight: 'normal', color: '#000000', textOutline: 'none' },
+                  formatter: function () { return this.point.realTotal.toLocaleString(); },
+                },
+              },
+            ],
+            credits: { enabled: false },
+          });
+
+          renderBar('chart-langs', topN(m.vernacularsByLanguageCount, 20, labelLanguage), {
+            yTitle: 'Vernacular names', seriesName: 'Vernacular names',
+          });
+
+          const secondaryLabel = { parent: 'classification' };
+          const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
+            .sort((a, b) => b[1] - a[1]).map(([k, v]) => [secondaryLabel[k] || k, v]);
+          Highcharts.chart('chart-secondary', {
+            chart: { type: 'bar', backgroundColor: 'transparent' },
+            title: { text: null },
+            xAxis: { categories: secondaryEntries.map((e) => e[0]), title: { text: null }, labels: { style: { fontSize: '12px' } } },
+            yAxis: { title: { text: 'Names enriched' }, allowDecimals: false },
+            legend: { enabled: false },
+            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> names' },
+            plotOptions: { bar: { color: '#722ed1', dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontWeight: 'normal' } } } },
+            series: [{ name: 'Names enriched', data: secondaryEntries.map((e) => e[1]) }],
+            credits: { enabled: false },
+          });
+        })
+        .catch((err) => {
+          console.error('Failed to load /dataset/{key}/import metrics:', err);
+          const note = document.createElement('p');
+          note.style.cssText = 'color: #a00; margin: 16px 0;';
+          note.textContent = 'Could not load release metrics. Please try again later.';
+          const target = document.querySelector('#metrics-headline');
+          if (target) target.parentNode.insertBefore(note, target);
+        });
+    })();
+  </script>
 </Content>
