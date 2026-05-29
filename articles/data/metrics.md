@@ -77,7 +77,7 @@ Every scientific name in the catalogue is governed by one of the international c
 
 The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the [eXtended Release](/building/releases).
 
-<div id="chart-ranks" style="height: 640px;"></div>
+<div id="chart-ranks" style="height: 775px;"></div>
 
 ## Vernacular names by language
 
@@ -312,16 +312,22 @@ For names that originate in the base release, the [eXtended Release](/building/r
                 name: 'Extended release',
                 color: '#722ed1',
                 data: extData,
-                // Label sits just past the right end of the whole bar (= the
-                // right end of the Extended segment, which is the last one
-                // now that reversedStacks is off) and shows the real total.
+                // Total sits just past the right end of the whole bar (= the
+                // right end of the Extended segment, which is the last one now
+                // that reversedStacks is off). align:'left' anchors the label's
+                // left edge at the bar end so the number runs rightward, clear
+                // of the bar — matching the vernacular-by-language chart below.
                 dataLabels: {
                   enabled: true,
-                  align: 'right',
+                  align: 'left',
                   inside: false,
                   crop: false,
                   overflow: 'allow',
-                  style: { fontWeight: 'normal', fontSize: '11px' },
+                  // Plain dark text like the vernacular chart's labels. Without an
+                  // explicit color, Highcharts' 'contrast' default paints the label
+                  // white (it treats it as belonging to the purple bar) with a
+                  // textOutline halo — the "outlined white" look we don't want.
+                  style: { fontWeight: 'normal', color: '#000000', textOutline: 'none' },
                   formatter: function () { return this.point.realTotal.toLocaleString(); },
                 },
               },
