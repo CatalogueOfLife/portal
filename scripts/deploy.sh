@@ -16,6 +16,10 @@
 # release-key PUT and the 404/taxon/dataset/metadata/tombstone template PUTs are
 # gone — Astro renders those itself.
 
+# Run from the repo root regardless of how we're invoked ($PWD is used as the
+# Docker build mount and for the rsync sources).
+cd "$(dirname "$0")/.."
+
 echo "Build environment: $ENV"
 PROD_API="https://api.checklistbank.org"   # releases resolved & queried here for every env
 
