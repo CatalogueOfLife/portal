@@ -58,6 +58,9 @@
     - name: "COL API"
       path: /tools/api
       desc: "Programmatically access the Catalogue of Life"
+    - name: "COL Mobile"
+      path: /tools/mobile
+      desc: "The Catalogue of Life iPhone app"
    # - name: "Editing platforms"
    #   path: /tools/editing
    #   desc: "Taxonomic editing platforms"
