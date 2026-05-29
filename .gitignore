@@ -1,12 +1,4 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-bundle/
 .DS_Store
-.gitignore
-Gemfile
-Gemfile.lock
 .claude/
 
 # Astro / Node
