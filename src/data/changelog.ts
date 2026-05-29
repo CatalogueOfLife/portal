@@ -16,9 +16,9 @@ export interface ChangeEntry {
     key: number;
     srcCnt: number | string;
     extended: boolean;
-    dataset: { alias?: string; created?: string; version?: string };
+    dataset: { alias?: string; issued?: string; created?: string; version?: string };
     publisher: Publisher[];
-    metrics: { taxaByRankCount: { species?: number; genus?: number; family?: number } };
+    metrics: { nameCount?: number; taxaByRankCount: { species?: number; genus?: number; family?: number } };
   };
   prev: { key: number; dataset: { alias?: string; version?: string } } | null;
   diffFamily: string;

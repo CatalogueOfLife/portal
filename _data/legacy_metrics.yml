@@ -1,0 +1,38 @@
+# Historical Catalogue of Life annual-checklist metrics, predating the
+# ChecklistBank release series (which begins with the 2020-12 release).
+# Collected ONCE as a static build asset for the "Changes over time" chart
+# on /data/metrics — nothing here is fetched at build time.
+#
+# All are BASE-release figures (the annual checklists predate the eXtended
+# Release). Counts come directly from the original annual-checklist MySQL
+# databases, so the whole series uses one consistent method:
+#   2005-2011 (legacy schema): the `taxa` management-hierarchy table —
+#       family/genus/species = rows with is_accepted_name=1 at that rank;
+#       names = all rows (every rank, accepted + synonyms).
+#   2012-2019 (normalised schema): the `taxon` table joined to
+#       `taxonomic_rank` for family/genus/species; names = _totals
+#       .scientific_names (accepted taxa at all ranks + synonyms).
+# Species reproduce the published annual-checklist totals exactly for
+# 2007-2019; 2005-2006 sit a little below the advertised headlines
+# (">527,000", "884,552"), which added estimated species on top of the
+# actual database content (511,637 / 883,234).
+#
+# Dates: 2012-2019 are the ChecklistBank dataset "issued" dates; 2005 is the
+# database CD date; 2006-2011 are APPROXIMATE (spring; exact day not
+# recorded). The 2020-12 release onward comes from ChecklistBank, not here.
+
+- { date: "2005-04-18", species: 511637,  family: 6177,  genus: 68533,  names: 1072077 }
+- { date: "2006-03-15", species: 883234,  family: 6697,  genus: 91785,  names: 1579962 }
+- { date: "2007-03-15", species: 1008998, family: 7012,  genus: 102283, names: 1774281 }
+- { date: "2008-03-15", species: 1105589, family: 7219,  genus: 105708, names: 2080792 }
+- { date: "2009-03-15", species: 1160711, family: 7441,  genus: 110511, names: 2171280 }
+- { date: "2010-03-15", species: 1257735, family: 7851,  genus: 118530, names: 2424622 }
+- { date: "2011-03-15", species: 1347226, family: 8050,  genus: 126613, names: 2544931 }
+- { date: "2012-03-01", species: 1404038, family: 8345,  genus: 130901, names: 2479704 }
+- { date: "2013-05-01", species: 1352112, family: 8022,  genus: 133224, names: 2537619 }
+- { date: "2014-03-17", species: 1578063, family: 8227,  genus: 141251, names: 3153443 }
+- { date: "2015-03-18", species: 1608236, family: 8582,  genus: 144122, names: 3243133 }
+- { date: "2016-03-23", species: 1640969, family: 8968,  genus: 149037, names: 3406699 }
+- { date: "2017-02-27", species: 1713852, family: 10558, genus: 161936, names: 3579069 }
+- { date: "2018-04-30", species: 1803488, family: 12081, genus: 177800, names: 3801441 }
+- { date: "2019-06-11", species: 1900983, family: 12265, genus: 184523, names: 3981199 }

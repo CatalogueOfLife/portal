@@ -292,9 +292,10 @@ function projectChange(chg) {
       key: r.key,
       srcCnt: r.srcCnt,
       extended: r.extended,
-      dataset: { alias: r.dataset.alias, created: r.dataset.created, version: r.dataset.version },
+      dataset: { alias: r.dataset.alias, issued: r.dataset.issued, created: r.dataset.created, version: r.dataset.version },
       publisher: (r.publisher || []).map(slimPublisher),
-      metrics: { taxaByRankCount: slimRanks(r.metrics?.taxaByRankCount) },
+      // nameCount feeds the "Changes over time" timeline on /data/metrics.
+      metrics: { nameCount: r.metrics?.nameCount, taxaByRankCount: slimRanks(r.metrics?.taxaByRankCount) },
     },
     prev: chg.prev
       ? { key: chg.prev.key, dataset: { alias: chg.prev.dataset.alias, version: chg.prev.dataset.version } }

@@ -2,6 +2,34 @@
 import Content from '@layouts/Content.astro';
 import MetricsIsland from '@components/islands/MetricsIsland.tsx';
 import { datasetKey, metadata } from '@data/releaseMetadata';
+import { changelogEntries } from '@data/changelog';
+import { legacyMetrics } from '@data/legacyMetrics';
+
+// "Changes over time" timeline data — built entirely at build time, no runtime
+// API call. ChecklistBank releases (2020-12 onward) come from the cached
+// changelog metrics; 2005–2019 from the static annual-checklist figures in
+// _data/legacy_metrics.yml. The chart toggles between Base and eXtended series
+// (`ext`); all legacy points are base releases.
+const timeline = [
+  ...changelogEntries
+    .filter((e) => e.rel?.metrics?.taxaByRankCount?.species)
+    .map((e) => ({
+      t: (e.rel.dataset.issued || e.rel.dataset.created || '').slice(0, 10),
+      ext: !!e.rel.extended,
+      family: e.rel.metrics.taxaByRankCount.family ?? null,
+      genus: e.rel.metrics.taxaByRankCount.genus ?? null,
+      species: e.rel.metrics.taxaByRankCount.species ?? null,
+      names: e.rel.metrics.nameCount ?? null,
+    })),
+  ...legacyMetrics.map((r) => ({
+    t: r.date,
+    ext: false,
+    family: r.family ?? null,
+    genus: r.genus ?? null,
+    species: r.species ?? null,
+    names: r.names ?? null,
+  })),
+];
 
 const fm = {
   title: 'Metrics',
@@ -22,6 +50,7 @@ const headings = [
   { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
   { depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' },
+  { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
 const card = 'flex: 1 1 160px; padding: 16px; background: #f7f7f7; border-radius: 4px; text-align: center;';
 const num = 'font-size: 24px; font-weight: 600; line-height: 1.2;';
@@ -34,8 +63,35 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     #names-by-nomenclatural-code,
     #accepted-taxa-by-rank,
     #vernacular-names-by-language,
-    #extended-release-additions {
+    #extended-release-additions,
+    #changes-over-time {
       margin-top: 56px;
+    }
+
+    /* Base / eXtended toggle for the release-timeline chart. */
+    #timeline-toggle {
+      display: inline-flex;
+      margin: 4px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    #timeline-toggle button {
+      margin: 0;
+      border: 0;
+      background: #fff;
+      color: #333;
+      padding: 6px 14px;
+      font-size: 13px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    #timeline-toggle button + button {
+      border-left: 1px solid #ccc;
+    }
+    #timeline-toggle button.active {
+      background: #1d7ea9;
+      color: #fff;
     }
   </style>
 
@@ -81,6 +137,22 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
   <h2 id="extended-release-additions">Extended release additions</h2>
   <p>For names that originate in the base release, the <a href="/building/releases">eXtended Release</a> supplements them with secondary information drawn from additional sources. The breakdown below shows how many base-release names received each kind of added information.</p>
   <div id="chart-secondary" style="height: 320px;"></div>
+
+  <h2 id="changes-over-time">Changes over time</h2>
+  <p>
+    How the number of accepted families, genera and species — and the total of all names including synonyms — has
+    changed across past COL releases. Figures from 2020 onward come from each ChecklistBank release; earlier points are
+    the historical <a href="/data/download#past-releases">annual checklists</a> back to 2005, recomputed from the
+    original release databases. Use the switch to compare the <a href="/building/releases">Base and eXtended Release</a>
+    timelines, which sit at very different scales (note the logarithmic axis).
+  </p>
+
+  <div id="timeline-toggle" role="group" aria-label="Release type">
+    <button type="button" data-mode="extended" class="active">eXtended Release</button>
+    <button type="button" data-mode="base">Base Release</button>
+  </div>
+
+  <div id="chart-timeline" style="height: 440px;"></div>
 
   <!-- Highcharts (only loaded on this page) -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
@@ -250,6 +322,73 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
           const target = document.querySelector('#metrics-headline');
           if (target) target.parentNode.insertBefore(note, target);
         });
+    })();
+  </script>
+
+  <!-- ── Release timeline (static; built from cached release metrics + legacy data) ── -->
+  <script define:vars={{ timeline }}>
+    (function () {
+      'use strict';
+
+      const DATA = (timeline || []).filter((d) => d && d.t);
+
+      // Series in draw order; colors echo the page palette (eXtended-release
+      // purple for the all-names total, base blue for species).
+      const SERIES = [
+        { key: 'family', name: 'Families', color: '#f7a35c' },
+        { key: 'genus', name: 'Genera', color: '#90ed7d' },
+        { key: 'species', name: 'Species', color: '#7cb5ec' },
+        { key: 'names', name: 'All names', color: '#722ed1' },
+      ];
+
+      const fmt = (n) => Number(n || 0).toLocaleString();
+      // Release dates are ISO "YYYY-MM-DD"; build a UTC timestamp for the axis.
+      const ts = (s) => {
+        const p = String(s).slice(0, 10).split('-');
+        return Date.UTC(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+      };
+
+      function render(mode) {
+        const ext = mode === 'extended';
+        const rows = DATA.filter((d) => !!d.ext === ext).sort((a, b) => ts(a.t) - ts(b.t));
+
+        Highcharts.chart('chart-timeline', {
+          chart: { type: 'line', backgroundColor: 'transparent' },
+          title: { text: null },
+          xAxis: { type: 'datetime', title: { text: null } },
+          yAxis: { type: 'logarithmic', title: { text: 'Count (log scale)' }, allowDecimals: false },
+          legend: { enabled: true },
+          tooltip: {
+            shared: true,
+            useHTML: true,
+            formatter: function () {
+              const lines = this.points.map(
+                (p) => '<span style="color:' + p.color + '">●</span> ' + p.series.name + ': <b>' + fmt(p.y) + '</b>',
+              );
+              return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>' + lines.join('<br/>');
+            },
+          },
+          plotOptions: { series: { marker: { radius: 3 } } },
+          series: SERIES.map((s) => ({
+            name: s.name,
+            color: s.color,
+            data: rows.map((r) => [ts(r.t), r[s.key] || null]),
+          })),
+          credits: { enabled: false },
+        });
+      }
+
+      const toggle = document.getElementById('timeline-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-mode]');
+          if (!btn) return;
+          toggle.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
+          render(btn.getAttribute('data-mode'));
+        });
+      }
+
+      render('extended');
     })();
   </script>
 </Content>
