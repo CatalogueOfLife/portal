@@ -17,6 +17,9 @@ const ORIGIN = process.env.COL_ORIGIN || 'XRELEASE';
 const PRIVATE = process.env.COL_PRIVATE || 'false';
 const USER = process.env.CLB_USER;
 const PASS = process.env.CLB_PASS;
+// Pin a specific release (alias like 3LXR/3LRC/3LXRC, or a numeric key). When
+// unset, fall back to the latest public release of the configured origin.
+const RELEASE = process.env.COL_RELEASE;
 
 // Mirror _config.yml changelog.exclude and the historical-floor cutoff.
 const EXCLUDE = new Set([312092, 303391, 291968]);
@@ -71,18 +74,27 @@ function addAgentLabels(d) {
 // ---- release metadata (port of get_release_metadata.rb) -------------------
 // fetch the full (heavy) records in memory, then PROJECT to only the fields the
 // site renders — the raw API payloads are 100s of MB and must not be bundled.
-async function fetchReleaseFull(origin) {
-  const priv = PRIVATE === 'any' ? '' : `&private=${PRIVATE}`;
-  const rels = await getJson(
-    `/dataset?releasedFrom=${PROJECT_KEY}&sortBy=created&origin=${origin}&limit=2${priv}`,
-  );
-  const releaseKey = rels.result[0].key;
+async function fetchReleaseFull(origin, fixedRef) {
+  let releaseKey;
+  let previous = null;
+  if (fixedRef) {
+    // Pinned release: resolve the alias/key directly (the deploy script passes
+    // the key it already resolved from the prod CLB for this environment).
+    releaseKey = (await getJson(`/dataset/${fixedRef}`)).key;
+  } else {
+    const priv = PRIVATE === 'any' ? '' : `&private=${PRIVATE}`;
+    const rels = await getJson(
+      `/dataset?releasedFrom=${PROJECT_KEY}&sortBy=created&origin=${origin}&limit=2${priv}`,
+    );
+    releaseKey = rels.result[0].key;
+    previous = rels.result[1] || null;
+  }
   const md = { key: PROJECT_KEY, api: API, origin, releaseKey };
   md.current = addAgentLabels(await getJson(`/dataset/${releaseKey}`));
   md.metrics = (await getJson(`/dataset/${releaseKey}/import`))[0];
   md['publisher-sources'] = await getJson(`/dataset/${releaseKey}/source?inclPublisherSources=true`);
   md.sources = (await getJson(`/dataset/${releaseKey}/source`)).map(addAgentLabels);
-  md.previous = rels.result[1] || null;
+  md.previous = previous;
   return md;
 }
 
@@ -120,7 +132,7 @@ function projectMetadata(md) {
 }
 
 async function fetchReleaseMetadata() {
-  const out = projectMetadata(await fetchReleaseFull(ORIGIN));
+  const out = projectMetadata(await fetchReleaseFull(ORIGIN, RELEASE));
   // Base release (origin RELEASE) — download page shows it alongside the XRelease.
   const base = await fetchReleaseFull('RELEASE');
   out.base = {

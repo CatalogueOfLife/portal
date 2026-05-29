@@ -31,6 +31,45 @@ Environment variables (build time):
 - `CLB_API` — API base (default `https://api.checklistbank.org`); `COL_KEY`,
   `COL_ORIGIN`, `COL_PRIVATE`, and `CLB_USER`/`CLB_PASS` for the data fetch.
 
+## Continuous deployment (Jenkins)
+
+`scripts/deploy.sh` builds and deploys all three environments from a freshly
+cloned repo:
+
+```bash
+ENV=prod|preview|dev   PWD_ADMIN=<coldeploy pw>   scripts/deploy.sh
+```
+
+All envs build identically (Node 22 in Docker) and pull data from the **prod**
+ChecklistBank; they differ only in the pinned release alias and the deploy
+targets:
+
+| ENV | release alias | host | static dir | Varnish target | SSR port |
+|---|---|---|---|---|---|
+| prod | `3LXR` | apps.checklistbank.org | `/var/www/html/col-portal/` | www.catalogueoflife.org | 4321 |
+| preview | `3LRC` | apps.checklistbank.org | `/var/www/html/col-portal-preview/` | preview.catalogueoflife.org | 4322 |
+| dev | `3LXRC` | apps.dev.checklistbank.org | `/var/www/html/col-portal/` | www.dev.catalogueoflife.org | 4321 |
+
+The script resolves the alias to a release key against the prod CLB, builds with
+`COL_RELEASE` pinned to it, rsyncs `dist/client/` to the static dir **and**
+`dist/` + `node_modules` to `/opt/col-portal/<env>/`, then restarts the SSR
+service and flushes Varnish. The old release-key/template PUTs to the backend
+are gone (Astro renders those routes now).
+
+### SSR service (systemd)
+
+`scripts/col-portal@.service` is a template unit — install it once per app host
+as `/etc/systemd/system/col-portal@.service` and `systemctl enable --now
+col-portal@<env>`. It runs `node /opt/col-portal/<env>/dist/server/entry.mjs`
+reading `service.env` (HOST/PORT, written by the deploy). Needs Node 22, a `col`
+user, and a sudoers rule letting `jenkins-deploy` restart `col-portal@*`.
+
+> **Private candidate releases (preview/dev):** the build authenticates to the
+> CLB (`CLB_USER`/`CLB_PASS`), so baked data is fine. But the SSR taxon/dataset
+> routes fetch the API at *request* time — if `3LRC`/`3LXRC` are private, add a
+> CLB auth header to `service.env` and have those routes (and the island `auth`
+> prop) read it. Prod's `3LXR` is public, so prod needs nothing.
+
 ## On-demand (SSR) routes
 
 Only these run in the Node service (everything else is static):
