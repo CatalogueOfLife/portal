@@ -13,12 +13,39 @@ permalink: /data/metrics
   /* Extra breathing room above each chart section after the Eukaryota
      breakdown. The first two headings (Headline numbers, Composition of
      Eukaryota) keep their natural spacing. */
+  #changes-over-time,
   #usages-by-status,
   #names-by-nomenclatural-code,
   #accepted-taxa-by-rank,
   #vernacular-names-by-language,
   #extended-release-additions {
     margin-top: 56px;
+  }
+
+  /* Base / eXtended toggle for the release-timeline chart. */
+  #timeline-toggle {
+    display: inline-flex;
+    margin: 4px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #timeline-toggle button {
+    margin: 0;
+    border: 0;
+    background: #fff;
+    color: #333;
+    padding: 6px 14px;
+    font-size: 13px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+  #timeline-toggle button + button {
+    border-left: 1px solid #ccc;
+  }
+  #timeline-toggle button.active {
+    background: #1d7ea9;
+    color: #fff;
   }
 </style>
 
@@ -90,6 +117,17 @@ The twenty languages with the most vernacular names in the catalogue. Total lang
 For names that originate in the base release, the [eXtended Release](/building/releases) supplements them with secondary information drawn from additional sources. The breakdown below shows how many base-release names received each kind of added information.
 
 <div id="chart-secondary" style="height: 320px;"></div>
+
+## Changes over time
+
+How the number of accepted families, genera and species — and the total of all names including synonyms — has changed across past COL releases. The figures are taken from each release at build time. Use the switch to compare the [Base and eXtended Release](/building/releases) timelines, which sit at very different scales (note the logarithmic axis).
+
+<div id="timeline-toggle" role="group" aria-label="Release type">
+  <button type="button" data-mode="extended" class="active">eXtended Release</button>
+  <button type="button" data-mode="base">Base Release</button>
+</div>
+
+<div id="chart-timeline" style="height: 440px;"></div>
 
 <!-- Highcharts (only loaded on this page) -->
 <script src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
@@ -385,5 +423,92 @@ For names that originate in the base release, the [eXtended Release](/building/r
           const target = document.querySelector('#metrics-headline');
           if (target) target.parentNode.insertBefore(note, target);
         });
+    })();
+</script>
+
+<!-- ── Release timeline (static; built from cached release metrics) ──────── -->
+<script>
+    'use strict';
+    // Emitted at build time from site.changelog.entries (the same cached
+    // release metrics the changelog page uses) — no runtime API call.
+    window.ColTimeline = [
+    {% for log in site.changelog.entries %}{% assign m = log.rel.metrics %}{% if m and m.taxaByRankCount and m.taxaByRankCount.species %}{ t: "{{ log.rel.dataset.issued | default: log.rel.dataset.created | truncate: 10, '' }}", ext: {{ log.rel.extended | default: false }}, family: {{ m.taxaByRankCount.family | default: 0 }}, genus: {{ m.taxaByRankCount.genus | default: 0 }}, species: {{ m.taxaByRankCount.species | default: 0 }}, names: {{ m.nameCount | default: 0 }} },
+    {% endif %}{% endfor %}];
+</script>
+
+<script>
+    (function () {
+      'use strict';
+
+      var DATA = (window.ColTimeline || []).filter(function (d) { return d && d.t; });
+
+      // Series in draw order; colors echo the page palette (Extended-release
+      // purple for the all-names total, base blue for species).
+      var SERIES = [
+        { key: 'family',  name: 'Families',  color: '#f7a35c' },
+        { key: 'genus',   name: 'Genera',    color: '#90ed7d' },
+        { key: 'species', name: 'Species',   color: '#7cb5ec' },
+        { key: 'names',   name: 'All names', color: '#722ed1' },
+      ];
+
+      var fmt = function (n) { return Number(n || 0).toLocaleString(); };
+      // Release dates are ISO "YYYY-MM-DD"; build a UTC timestamp for the axis.
+      var ts = function (s) {
+        var p = String(s).slice(0, 10).split('-');
+        return Date.UTC(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+      };
+
+      function render(mode) {
+        var ext = mode === 'extended';
+        var rows = DATA.filter(function (d) { return !!d.ext === ext; })
+                       .sort(function (a, b) { return ts(a.t) - ts(b.t); });
+
+        Highcharts.chart('chart-timeline', {
+          chart: { type: 'line', backgroundColor: 'transparent' },
+          title: { text: null },
+          xAxis: { type: 'datetime', title: { text: null } },
+          yAxis: {
+            type: 'logarithmic',
+            title: { text: 'Count (log scale)' },
+            allowDecimals: false,
+          },
+          legend: { enabled: true },
+          tooltip: {
+            shared: true,
+            useHTML: true,
+            formatter: function () {
+              var lines = this.points.map(function (p) {
+                return '<span style="color:' + p.color + '">●</span> '
+                     + p.series.name + ': <b>' + fmt(p.y) + '</b>';
+              });
+              return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>'
+                   + lines.join('<br/>');
+            },
+          },
+          plotOptions: { series: { marker: { radius: 3 } } },
+          series: SERIES.map(function (s) {
+            return {
+              name: s.name,
+              color: s.color,
+              data: rows.map(function (r) { return [ts(r.t), r[s.key] || null]; }),
+            };
+          }),
+          credits: { enabled: false },
+        });
+      }
+
+      var toggle = document.getElementById('timeline-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', function (e) {
+          var btn = e.target.closest('button[data-mode]');
+          if (!btn) return;
+          Array.prototype.forEach.call(toggle.querySelectorAll('button'), function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+          render(btn.getAttribute('data-mode'));
+        });
+      }
+
+      render('extended');
     })();
 </script>
