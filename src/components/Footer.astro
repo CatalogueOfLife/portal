@@ -35,8 +35,13 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-col footer-logo">
+      <h4>Catalogue of Life</h4>
+      <div id="GCBR">
+        <img alt="" src="/images/logos/GCBR-Logo-White.svg" class="cbdr-logo" />
+        <div class="gcbr-text">is a Global Core Biodata Resource</div>
+      </div>
       <a href="/">
-        <img alt="Catalogue of Life" src="/images/logos/col_square_logo.jpg" />
+        <img class="footer-square-logo" alt="Catalogue of Life" src="/images/logos/col_square_logo.jpg" />
       </a>
     </div>
 
@@ -64,13 +69,6 @@ const year = new Date().getFullYear();
     </p>
   </div>
 
-  <div class="creativecommons" id="GCBR">
-    <img alt="" src="/images/logos/GCBR-Logo-White.svg" class="cbdr-logo" />
-    <div class="gcbr-text">
-      <a href="/about/catalogueoflife">Catalogue of Life</a> <br />is a Global Core Biodata Resource
-    </div>
-  </div>
-
   <div class="creativecommons footer-disclaimer">
     <h4>Disclaimer</h4>
     <p>
@@ -84,12 +82,12 @@ const year = new Date().getFullYear();
 </div>
 
 <style>
-  /* Compact three-column top row: Contact (left) · square logo (centred) ·
-     Version (right). The logo is sized to the Version block and the row is
-     vertically centred so it lines up rather than towering above the text. */
+  /* Compact three-column top row, headings top-aligned: Contact (left) ·
+     Catalogue of Life (middle: GCBR badge stacked over the square logo) ·
+     Version (right). */
   .footer-main {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 2rem;
     max-width: 60rem;
@@ -106,12 +104,11 @@ const year = new Date().getFullYear();
     text-align: right;
   }
   .footer-logo {
-    flex: 0 0 auto;
     text-align: center;
   }
-  .footer-logo img {
-    width: 140px;
-    height: 140px;
+  .footer-square-logo {
+    width: 80px;
+    height: 80px;
     border-radius: 4px;
     display: inline-block;
   }
@@ -147,15 +144,18 @@ const year = new Date().getFullYear();
     height: 24px;
   }
 
-  /* GCBR badge: logo beside strapline, centred. */
+  /* GCBR badge: logo beside strapline, centred, sitting above the square logo. */
   #GCBR {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    margin: 0.75rem 0 1rem;
   }
   #GCBR .gcbr-text {
     text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.2;
   }
 
   .footer-disclaimer p {
