@@ -4,6 +4,7 @@
 # 'desc' is the description that will show on the higher level navigation pages. E.g. https://col-website-demo.netlify.com/about
 - name: Data
   section_id: data
+  path: /data
   children:
     - name: Search
       path: /data/search
@@ -26,6 +27,7 @@
 
 - name: How To
   section_id: howto
+  path: /howto
   children:
     - name: "Access data"
       path: /howto/access
@@ -43,8 +45,9 @@
       path: /howto/contact
       desc: "Contact us for support, feedback or anything else"
 
-- name: Tools 
+- name: Tools
   section_id: tools
+  path: /tools
   children:
     - name: "ChecklistBank"
       path: /tools/checklistbank
@@ -64,6 +67,7 @@
 
 - name: Building COL
   section_id: procedures
+  path: /procedures
   children:
     - name: Assembly
       path: /building/assembly
@@ -89,6 +93,7 @@
 
 - name: About
   section_id: about
+  path: /about
   children:
     - name: What is COL
       path: /about/catalogueoflife

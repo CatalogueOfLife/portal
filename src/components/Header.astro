@@ -46,3 +46,16 @@ const { sectionId } = Astro.props;
     </section>
   </nav>
 </div>
+
+<script>
+  // Mobile menu toggle — replaces Foundation's top-bar JS (the only nav script
+  // we keep). Desktop dropdowns work via Foundation's CSS :hover rules; on
+  // small screens the "Menu" button toggles the .expanded state.
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (target.closest('.toggle-topbar')) {
+      event.preventDefault();
+      document.querySelector('.top-bar')?.classList.toggle('expanded');
+    }
+  });
+</script>
