@@ -142,7 +142,7 @@ git commit -m "Add Christmas news post"
 git push -u origin my-change        # then open a pull request on GitHub
 ```
 
-After merging, the site rebuilds automatically (a few minutes).
+After merging, the [development site](https://www.dev.catalogueoflife.org/) rebuilds automatically (a few minutes).
 
 ---
 
