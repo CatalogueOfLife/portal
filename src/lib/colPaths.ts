@@ -1,7 +1,3 @@
-// Install the browser `Buffer` shim before any col-browser code runs (its
-// `btoa` dependency references Node's `Buffer`, undefined in browsers).
-import './buffer-shim';
-
 // col-browser's stylesheet, exported by the package (2.0.1+). Imported here
 // because every island wrapper imports this module, so the CSS is bundled with
 // the island and loaded only on the data pages that use it.

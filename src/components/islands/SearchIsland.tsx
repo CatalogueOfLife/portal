@@ -1,4 +1,5 @@
-import { Search, withRouting } from 'col-browser';
+import { Search } from 'col-browser/search';
+import { withRouting } from 'col-browser/routing';
 import { colPaths, colTheme, colAuth } from '../../lib/colPaths';
 
 const URLSearch = withRouting(Search, { kind: 'search', mode: 'path', navigation: 'reload', paths: colPaths });
