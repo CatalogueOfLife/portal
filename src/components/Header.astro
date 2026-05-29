@@ -62,3 +62,50 @@ const { sectionId } = Astro.props;
     }
   });
 </script>
+
+<style is:global>
+  /* Mobile nav (below Foundation's 960px top-bar breakpoint). Foundation's
+     stock .top-bar.expanded keeps `overflow:hidden` and its menu list stays
+     floated, so the expanded section collapses to height:0 and its links are
+     unreachable once we drop Foundation's jQuery. These rules let the bar grow
+     in normal flow: un-float the list, reveal every dropdown inline, so the
+     whole menu stacks vertically and pushes page content down. (Desktop ≥960px
+     is handled by Foundation's own min-width rules and the .no-js hover CSS.) */
+  @media only screen and (max-width: 959.98px) {
+    .top-bar.expanded {
+      overflow: visible !important;
+    }
+    .top-bar.expanded .top-bar-section {
+      position: static !important;
+      height: auto !important;
+      overflow: visible !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section ul.right {
+      float: none !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section ul.right > li {
+      float: none !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section .has-dropdown .dropdown {
+      position: static !important;
+      clip: auto !important;
+      height: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+    .top-bar.expanded .top-bar-section .has-dropdown .dropdown li {
+      float: none !important;
+      width: 100% !important;
+    }
+    /* Hide the desktop dropdown chevron on the inline mobile sub-menus. */
+    .top-bar.expanded .top-bar-section .has-dropdown > a::after {
+      display: none !important;
+    }
+  }
+</style>
