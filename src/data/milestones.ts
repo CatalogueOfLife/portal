@@ -14,10 +14,13 @@ export interface Milestone {
 }
 
 export const milestones: Milestone[] = [
-  { image: 'Podarcis.jpg', title: 'Animalia', bgcolor: '0480b5', fgcolor: 'ccedfa', link: '/data/browse', query: `TAXON_ID=N&${speciesQuery}` },
-  { image: 'Pultenaea.jpg', title: 'Plantae', bgcolor: 'd0bd34', fgcolor: 'fcfbe7', link: '/data/browse', query: `TAXON_ID=P&${speciesQuery}` },
-  { image: 'Teloschistes.jpg', title: 'Fungi', bgcolor: 'e83143', fgcolor: 'feebed', link: '/data/browse', query: `TAXON_ID=F&${speciesQuery}` },
-  { image: 'Protozoa.jpg', title: 'Other kingdoms', bgcolor: '2db261', fgcolor: 'ecf7ef', link: '/data/browse', query: `TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&${speciesQuery}` },
+  // Each tile links to its kingdom's taxon page (the count still covers the
+  // tile's full TAXON_ID set). "Other kingdoms" uses Protozoa (Z) as its
+  // representative taxon, matching the previous site's /index?taxonKey=Z link.
+  { image: 'Podarcis.jpg', title: 'Animalia', bgcolor: '0480b5', fgcolor: 'ccedfa', link: '/data/taxon/N', query: `TAXON_ID=N&${speciesQuery}` },
+  { image: 'Pultenaea.jpg', title: 'Plantae', bgcolor: 'd0bd34', fgcolor: 'fcfbe7', link: '/data/taxon/P', query: `TAXON_ID=P&${speciesQuery}` },
+  { image: 'Teloschistes.jpg', title: 'Fungi', bgcolor: 'e83143', fgcolor: 'feebed', link: '/data/taxon/F', query: `TAXON_ID=F&${speciesQuery}` },
+  { image: 'Protozoa.jpg', title: 'Other kingdoms', bgcolor: '2db261', fgcolor: 'ecf7ef', link: '/data/taxon/Z', query: `TAXON_ID=V&TAXON_ID=R&TAXON_ID=B&TAXON_ID=C&TAXON_ID=Z&${speciesQuery}` },
 ];
 
 // Basic auth for private candidate releases (preview/dev); empty on prod.
