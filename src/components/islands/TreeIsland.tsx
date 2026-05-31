@@ -1,9 +1,10 @@
 import { Tree } from 'col-browser/tree';
 import { withRouting } from 'col-browser/routing';
-import { colPaths, colTheme, colAuth } from '../../lib/colPaths';
+import { colTheme, colAuth } from '../../lib/colPaths';
+import { versionCtx, routingFor } from '../../lib/island';
 
-const URLTree = withRouting(Tree, { kind: 'tree', mode: 'path', navigation: 'reload', paths: colPaths });
+const URLTree = withRouting(Tree, routingFor('tree'));
 
 export default function TreeIsland(props: Record<string, unknown>) {
-  return <URLTree theme={colTheme} auth={colAuth || undefined} {...props} />;
+  return <URLTree theme={colTheme} auth={colAuth || undefined} {...props} datasetKey={String(versionCtx.datasetKey)} />;
 }

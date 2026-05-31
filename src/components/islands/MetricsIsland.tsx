@@ -1,8 +1,9 @@
 import { TaxonBreakdown } from 'col-browser/taxon-breakdown';
 import { withRouting } from 'col-browser/routing';
-import { colPaths, colTheme } from '../../lib/colPaths';
+import { colTheme } from '../../lib/colPaths';
+import { versionCtx, routingFor } from '../../lib/island';
 
-const URLBreakdown = withRouting(TaxonBreakdown, { kind: 'taxonBreakdown', mode: 'path', navigation: 'reload', paths: colPaths });
+const URLBreakdown = withRouting(TaxonBreakdown, routingFor('taxonBreakdown'));
 
 // NOTE: TaxonBreakdown hits /dataset/{key}/... which needs Basic auth for
 // private candidate releases (preview/dev). col-browser 2.1.0 dropped the
@@ -10,5 +11,5 @@ const URLBreakdown = withRouting(TaxonBreakdown, { kind: 'taxonBreakdown', mode:
 // the host yet — restore `auth={colAuth}` once col-browser re-adds the prop
 // (see colPaths.colAuth). On prod (public release) no auth is needed.
 export default function MetricsIsland(props: Record<string, unknown>) {
-  return <URLBreakdown theme={colTheme} {...props} />;
+  return <URLBreakdown theme={colTheme} {...props} datasetKey={String(versionCtx.datasetKey)} />;
 }

@@ -1,9 +1,11 @@
 ---
 import Base from '@layouts/Base.astro';
 import TaxonIsland from '@components/islands/TaxonIsland.tsx';
-import { metadata, datasetKey } from '@data/releaseMetadata';
+import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
+import { extendedKey } from '@data/versions';
 
 // On-demand SSR (replaces the backend Freemarker PortalPageRenderer for taxa):
 // server-render the SEO head + JSON-LD, then hydrate the interactive island.
@@ -11,13 +13,20 @@ export const prerender = false;
 
 const { id } = Astro.params;
 const api = metadata.api;
-const K = datasetKey;
+// Version from the URL: ?v=br -> Base, otherwise the default eXtended release.
+// The id is fetched against that release; redirects keep the version query.
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const K = ver.datasetKey;
+const vq = ver.linkQuery;
 
 // Fetch the full usage info. The /taxon/{id}/info endpoint also returns
 // synonyms (status != accepted) with their accepted usage — redirect those to
 // the accepted taxon (the old PortalPageRenderer.SynonymException behaviour).
 const ACCEPTED = new Set(['accepted', 'provisionally accepted']);
 let info: any = null;
+// Base is a subset of eXtended: a base id may be missing here yet exist in
+// eXtended — when that happens we offer a link to the eXtended page.
+let inExtended = false;
 const infoRes = await colFetch(`${api}/dataset/${K}/taxon/${id}/info`);
 if (infoRes.ok) {
   info = await infoRes.json();
@@ -27,17 +36,21 @@ if (infoRes.ok) {
   const acc = info?.usage?.accepted;
   const acceptedId = typeof acc === 'string' ? acc : acc?.id;
   if (status && !ACCEPTED.has(status) && acceptedId) {
-    return Astro.redirect(`/data/taxon/${acceptedId}`, 301);
+    return Astro.redirect(`/data/taxon/${acceptedId}${vq}`, 301);
   }
 } else {
   const nu = await colFetch(`${api}/dataset/${K}/nameusage/${id}`);
   if (nu.ok) {
     const acceptedId = (await nu.json())?.accepted?.id;
-    if (acceptedId) return Astro.redirect(`/data/taxon/${acceptedId}`, 301);
+    if (acceptedId) return Astro.redirect(`/data/taxon/${acceptedId}${vq}`, 301);
   }
   // Not found. TODO: render an archived-taxon tombstone once the public API
   // exposes archived-usage lookups (the old PortalPageRenderer.ArchivedException path).
   Astro.response.status = 404;
+  if (ver.kind === 'base') {
+    const ext = await colFetch(`${api}/dataset/${extendedKey}/taxon/${id}/info`);
+    inExtended = ext.ok;
+  }
 }
 
 const u = info?.usage;
@@ -109,7 +122,7 @@ const jsonLd: Record<string, unknown> | null = u
   : null;
 ---
 
-<Base title={title} description={description} noindex={!u}>
+<Base title={title} description={description} noindex={!u || ver.kind === 'base'}>
   <Fragment slot="head">
     <meta property="og:title" content={title} />
     <meta property="og:url" content={taxonUrl} />
@@ -140,7 +153,17 @@ const jsonLd: Record<string, unknown> | null = u
         <div class="row" style="padding: 40px 0">
           <div class="large-12 columns">
             <h2>Not found</h2>
-            <p>This name could not be found in the current Catalogue of Life. It may have been removed in a more recent release.</p>
+            {inExtended ? (
+              <Fragment>
+                <p>
+                  This taxon is not part of the <a href="/building/releases#base">Base release</a>, but it exists in the{' '}
+                  <a href="/building/releases#extended">eXtended release</a>.
+                </p>
+                <p><a href={`/data/taxon/${id}`}>View it in the eXtended release →</a></p>
+              </Fragment>
+            ) : (
+              <p>This name could not be found in the current Catalogue of Life. It may have been removed in a more recent release.</p>
+            )}
             <p><a href="/data/search">Search the Catalogue of Life</a></p>
           </div>
         </div>

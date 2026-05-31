@@ -1,9 +1,10 @@
 import { Search } from 'col-browser/search';
 import { withRouting } from 'col-browser/routing';
-import { colPaths, colTheme, colAuth } from '../../lib/colPaths';
+import { colTheme, colAuth } from '../../lib/colPaths';
+import { versionCtx, routingFor } from '../../lib/island';
 
-const URLSearch = withRouting(Search, { kind: 'search', mode: 'path', navigation: 'reload', paths: colPaths });
+const URLSearch = withRouting(Search, routingFor('search'));
 
 export default function SearchIsland(props: Record<string, unknown>) {
-  return <URLSearch theme={colTheme} auth={colAuth || undefined} {...props} />;
+  return <URLSearch theme={colTheme} auth={colAuth || undefined} {...props} datasetKey={String(versionCtx.datasetKey)} />;
 }

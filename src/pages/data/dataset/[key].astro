@@ -1,21 +1,34 @@
 ---
 import Base from '@layouts/Base.astro';
 import SourceDatasetIsland from '@components/islands/SourceDatasetIsland.tsx';
-import { metadata, datasetKey } from '@data/releaseMetadata';
+import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
+import { extendedKey } from '@data/versions';
 
 // On-demand SSR (replaces the backend Freemarker dataset renderer).
 export const prerender = false;
 
 const { key } = Astro.params;
 const api = metadata.api;
-const K = datasetKey;
+// ?v=br -> Base release, otherwise the default eXtended release.
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const K = ver.datasetKey;
 
 let source: any = null;
+// Base is a subset of eXtended: a source missing from Base may exist in eXtended.
+let inExtended = false;
 const res = await colFetch(`${api}/dataset/${K}/source/${key}`);
-if (res.ok) source = await res.json();
-else Astro.response.status = 404;
+if (res.ok) {
+  source = await res.json();
+} else {
+  Astro.response.status = 404;
+  if (ver.kind === 'base') {
+    const ext = await colFetch(`${api}/dataset/${extendedKey}/source/${key}`);
+    inExtended = ext.ok;
+  }
+}
 
 const url = `${site.url}/data/dataset/${key}`;
 const logo = `${api}/dataset/${K}/logo/source/${key}?size=LARGE`;
@@ -60,7 +73,7 @@ const jsonLd: Record<string, unknown> | null = source
   : null;
 ---
 
-<Base title={title} description={description} noindex={!source}>
+<Base title={title} description={description} noindex={!source || ver.kind === 'base'}>
   <Fragment slot="head">
     <meta property="og:title" content={title} />
     <meta property="og:url" content={url} />
@@ -84,7 +97,17 @@ const jsonLd: Record<string, unknown> | null = source
       ) : (
         <div class="large-12 columns" style="padding: 40px 0">
           <h2>Not found</h2>
-          <p>This source dataset is not part of the current Catalogue of Life release.</p>
+          {inExtended ? (
+            <Fragment>
+              <p>
+                This source dataset is not part of the <a href="/building/releases#base">Base release</a>, but it exists in
+                the <a href="/building/releases#extended">eXtended release</a>.
+              </p>
+              <p><a href={`/data/dataset/${key}`}>View it in the eXtended release →</a></p>
+            </Fragment>
+          ) : (
+            <p>This source dataset is not part of the current Catalogue of Life release.</p>
+          )}
           <p><a href="/data/sources">Browse source datasets</a></p>
         </div>
       )

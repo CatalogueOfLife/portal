@@ -2,6 +2,7 @@
 import Content from '@layouts/Content.astro';
 import MetricsIsland from '@components/islands/MetricsIsland.tsx';
 import { datasetKey, metadata } from '@data/releaseMetadata';
+import { baseKey } from '@data/versions';
 import { changelogEntries } from '@data/changelog';
 import { legacyMetrics } from '@data/legacyMetrics';
 
@@ -162,7 +163,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
   <!-- Highcharts (only loaded on this page) -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
 
-  <script define:vars={{ datasetKey: String(datasetKey), api: metadata.api, auth: colAuth }}>
+  <script define:vars={{ datasetKey: String(datasetKey), baseKey: String(baseKey), api: metadata.api, auth: colAuth }}>
     'use strict';
 
     // Silence Highcharts' "include accessibility.js" warning — the module isn't loaded here.
@@ -171,7 +172,8 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     // ── Release metrics from /dataset/{key}/import ──────────────────────────
     (function () {
       const API = api;
-      const DATASET_KEY = datasetKey;
+      // ?v=br selects the Base release (the breakdown island reads the URL itself).
+      const DATASET_KEY = new URLSearchParams(window.location.search).get('v') === 'br' ? baseKey : datasetKey;
       // Private candidate releases (preview/dev) require Basic auth on every
       // call; empty on prod (public release) -> no header.
       const authHeaders = auth ? { Authorization: 'Basic ' + btoa(auth) } : {};

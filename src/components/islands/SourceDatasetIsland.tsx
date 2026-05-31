@@ -1,9 +1,12 @@
 import { SourceDataset } from 'col-browser/source-dataset';
 import { withRouting } from 'col-browser/routing';
-import { colPaths, colTheme, colAuth } from '../../lib/colPaths';
+import { colTheme, colAuth } from '../../lib/colPaths';
+import { versionCtx, routingFor } from '../../lib/island';
 
-const URLSourceDataset = withRouting(SourceDataset, { kind: 'source', mode: 'path', navigation: 'reload', paths: colPaths });
+const URLSourceDataset = withRouting(SourceDataset, routingFor('source'));
 
 export default function SourceDatasetIsland(props: Record<string, unknown>) {
-  return <URLSourceDataset theme={colTheme} auth={colAuth || undefined} {...props} />;
+  return (
+    <URLSourceDataset theme={colTheme} auth={colAuth || undefined} {...props} datasetKey={String(versionCtx.datasetKey)} />
+  );
 }
