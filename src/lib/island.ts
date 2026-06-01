@@ -4,8 +4,7 @@
 // navigation:'reload', so the location is fixed for the island's lifetime):
 //   - datasetKey  -> the version's release key (overrides the page's prop)
 //   - linkPaths   -> per-kind URL prefixes (year-prefixed for annual versions)
-// Base-release link propagation (?v=br) additionally needs the `query` option
-// added in a newer col-browser; wire it here once that ships.
+//   - linkQuery   -> reserved query (?v=br for Base) carried onto cross-links
 import { resolveVersionFromLocation } from './version';
 
 export const versionCtx = resolveVersionFromLocation();
@@ -18,5 +17,8 @@ export function routingFor(kind: RoutingKind) {
     mode: 'path' as const,
     navigation: 'reload' as const,
     paths: versionCtx.linkPaths,
+    // Reserved query (Base = ?v=br): appended to cross-links, excluded from the
+    // component's parsed state. Empty for eXtended/annual. (col-browser ≥ 2.2.1)
+    query: versionCtx.linkQuery,
   };
 }
