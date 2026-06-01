@@ -66,6 +66,7 @@ const headings = [
   { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
   { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
+  { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
   ...(isBase ? [] : [{ depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' }]),
   { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
@@ -80,6 +81,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     #names-by-nomenclatural-code,
     #accepted-taxa-by-rank,
     #vernacular-names-by-language,
+    #distributions-by-gazetteer,
     #extended-release-additions,
     #changes-over-time {
       margin-top: 56px;
@@ -133,6 +135,14 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
   <h2 id="vernacular-names-by-language">Vernacular names by language</h2>
   <p>The twenty languages with the most vernacular names in the catalogue. Total languages covered: <span id="m-lang-total">…</span>.</p>
   <div id="chart-langs" style="height: 600px;"></div>
+
+  <h2 id="distributions-by-gazetteer">Distributions by gazetteer</h2>
+  <p>
+    The catalogue's geographic distributions are recorded against standard area systems — <em>gazetteers</em> — whose
+    geometries are published in the <a href="https://catalogueoflife.github.io/col-gazetteers/">col-gazetteers</a>
+    project (each bar below links to that gazetteer's data). Free-text areas carry no geometry and can't be mapped.
+  </p>
+  <div id="chart-gazetteer" style="height: 320px;"></div>
 
   {
     !isBase && (
@@ -312,6 +322,44 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
           renderBar('chart-langs', topN(m.vernacularsByLanguageCount, 20, labelLanguage), {
             yTitle: 'Vernacular names', seriesName: 'Vernacular names',
           });
+
+          // Distributions by gazetteer — labels link to each gazetteer's data in
+          // the col-gazetteers repo ("text" is free-text and has no geometry/repo).
+          const GAZ_LABELS = {
+            tdwg: 'TDWG regions', iso: 'ISO countries', mrgid: 'Marine regions (MRGID)',
+            fao: 'FAO fishing areas', iho: 'IHO sea areas', longhurst: 'Longhurst provinces',
+            teow: 'Terrestrial ecoregions', realm: 'Biogeographic realms', text: 'Free text',
+          };
+          const GAZ_DIRS = new Set(['tdwg', 'iso', 'mrgid', 'fao', 'iho', 'longhurst', 'teow', 'realm']);
+          const GAZ_REPO = 'https://github.com/CatalogueOfLife/col-gazetteers/tree/master/';
+          const gazEntries = Object.entries(m.distributionsByGazetteerCount || {}).sort((a, b) => b[1] - a[1]);
+          if (gazEntries.length) {
+            Highcharts.chart('chart-gazetteer', {
+              chart: { type: 'bar', backgroundColor: 'transparent' },
+              title: { text: null },
+              xAxis: {
+                categories: gazEntries.map(([k]) => k),
+                title: { text: null },
+                labels: {
+                  useHTML: true,
+                  style: { fontSize: '12px' },
+                  formatter: function () {
+                    const k = this.value;
+                    const label = GAZ_LABELS[k] || k;
+                    return GAZ_DIRS.has(k)
+                      ? '<a href="' + GAZ_REPO + k + '" target="_blank" rel="noopener">' + label + '</a>'
+                      : label;
+                  },
+                },
+              },
+              yAxis: { title: { text: 'Distributions' }, allowDecimals: false },
+              legend: { enabled: false },
+              tooltip: { pointFormat: '<b>{point.y:,.0f}</b> distributions' },
+              plotOptions: { bar: { color: '#43AC6A', dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontWeight: 'normal' } } } },
+              series: [{ name: 'Distributions', data: gazEntries.map(([, v]) => v) }],
+              credits: { enabled: false },
+            });
+          }
 
           // Extended-release additions — eXtended only (the section is omitted on Base).
           if (!isBase && document.getElementById('chart-secondary')) {
