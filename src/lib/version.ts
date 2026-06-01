@@ -9,6 +9,7 @@
 // last pick to preselect the homepage selector — it never drives routing.
 import { colPaths } from './colPaths';
 import { annualKeyByYear, baseKey, extendedKey, type VersionKind } from '@data/versions';
+import { isVersionSpecificPath, VERSION_STORAGE_KEY } from './versionLabel';
 
 export interface VersionContext {
   kind: VersionKind;
@@ -51,24 +52,18 @@ export function resolveVersion(pathname = '/', search = ''): VersionContext {
 
 export function resolveVersionFromLocation(): VersionContext {
   if (typeof window === 'undefined') return resolveVersion('/', '');
-  return resolveVersion(window.location.pathname, window.location.search);
-}
-
-// --- selector memory (UI only) --------------------------------------------
-const STORAGE_KEY = 'col-portal:version';
-
-export function getStoredVersionHref(): string | null {
+  const { pathname, search } = window.location;
+  // The URL wins when it pins a version (annual path / ?v=br) or is a per-version
+  // /data surface (whose bare form is the Extended release). On version-agnostic
+  // pages (home, …) honor the remembered version so islands match the header.
+  if (isVersionSpecificPath(pathname, search)) return resolveVersion(pathname, search);
+  let token: string | null = null;
   try {
-    return window.localStorage.getItem(STORAGE_KEY);
+    token = window.localStorage.getItem(VERSION_STORAGE_KEY);
   } catch {
-    return null;
+    /* private mode */
   }
-}
-
-export function setStoredVersionHref(href: string): void {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, href);
-  } catch {
-    /* private mode / SSR */
-  }
+  if (token === 'base') return resolveVersion('/', '?v=br');
+  if (token && /^\d{4}$/.test(token)) return resolveVersion(`/annual-checklist/${token}/`, '');
+  return resolveVersion(pathname, search); // Extended default
 }

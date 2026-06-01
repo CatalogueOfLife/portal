@@ -45,7 +45,9 @@ const verHome = versionHomeHref(Astro.url.pathname);
                 <ul class="dropdown">
                   {item.children.map((child) => (
                     <li>
-                      <a href={child.path ? versionScopedHref(child.path, Astro.url.pathname) : '#'}>{child.name}</a>
+                      <a href={child.path ? versionScopedHref(child.path, Astro.url.pathname) : '#'} data-nav={child.path}>
+                        {child.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -63,7 +65,15 @@ const verHome = versionHomeHref(Astro.url.pathname);
 </div>
 
 <script>
-  import { versionLabel } from '../lib/versionLabel';
+  import {
+    VERSION_STORAGE_KEY,
+    versionToken,
+    isVersionSpecificPath,
+    labelForToken,
+    metadataHrefForToken,
+    homeHrefForToken,
+    navHrefForToken,
+  } from '../lib/versionLabel';
 
   // Mobile menu toggle — replaces Foundation's top-bar JS (the only nav script
   // we keep). Desktop dropdowns work via Foundation's CSS :hover rules; on
@@ -76,33 +86,55 @@ const verHome = versionHomeHref(Astro.url.pathname);
     }
   });
 
-  // Version stickiness for static pages reached with ?v=br (Base). Such pages
-  // are prerendered as Extended (the build can't see the query), so fix them up
-  // on the client: the indicator label, version-scoped nav links (so browsing
-  // stays in Base), and any version-dependent text. (Annual versions are
-  // path-based and handled server-side.)
+  // The active COL version persists across navigation. When the URL pins a
+  // version (annual path, ?v=br, or a per-version /data surface) it wins and is
+  // remembered; on version-agnostic pages (downloads, news, about, home, …) we
+  // fall back to the remembered version so the header + nav keep that context
+  // instead of snapping back to Extended.
   (function () {
-    const indicator = document.querySelector('[data-version-indicator]');
-    if (indicator) indicator.textContent = versionLabel(location.pathname, location.search);
+    const path = location.pathname;
+    const search = location.search;
+    let active: string;
+    if (isVersionSpecificPath(path, search)) {
+      active = versionToken(path, search);
+      try {
+        localStorage.setItem(VERSION_STORAGE_KEY, active);
+      } catch {
+        /* private mode */
+      }
+    } else {
+      let stored: string | null = null;
+      try {
+        stored = localStorage.getItem(VERSION_STORAGE_KEY);
+      } catch {
+        /* private mode */
+      }
+      active = stored || 'extended';
+    }
 
-    if (new URLSearchParams(location.search).get('v') !== 'br') return;
+    // Version indicator pill: label + link to the active version's metadata.
+    const indicator = document.querySelector<HTMLAnchorElement>('[data-version-indicator]');
+    if (indicator) {
+      indicator.textContent = labelForToken(active);
+      indicator.setAttribute('href', metadataHrefForToken(active));
+    }
 
-    // Version-scoped surfaces: keep ?v=br on their links so browsing stays in
-    // Base — including the home logo ('/'), whose tree is version-aware. (Not
-    // /data/download or /data/changelog, which are version-agnostic.)
-    const scoped = new Set(['/', '/data/search', '/data/browse', '/data/sources', '/data/metrics', '/data/metadata']);
-    document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((a) => {
-      // Leave the explicit version picker alone — its "Extended" link is meant
-      // to drop ?v=br, so rewriting it would trap the user in Base.
-      if (a.closest('.version-switch')) return;
-      const href = a.getAttribute('href');
-      if (href && scoped.has(href)) a.setAttribute('href', href + '?v=br');
+    // Home logo: stay within the active version.
+    const logo = document.querySelector<HTMLAnchorElement>('.top-bar .title-area .name h1 a');
+    if (logo) logo.setAttribute('href', homeHrefForToken(active));
+
+    // Version-scoped nav links (data-nav holds the canonical /data path).
+    document.querySelectorAll<HTMLAnchorElement>('a[data-nav]').forEach((a) => {
+      const canonical = a.dataset.nav;
+      if (canonical) a.setAttribute('href', navHrefForToken(canonical, active));
     });
 
     // Swap version-dependent text (e.g. "current version 2026-05-15 XR") to Base.
-    document.querySelectorAll<HTMLElement>('[data-version-string]').forEach((el) => {
-      if (el.dataset.baseVersion) el.textContent = el.dataset.baseVersion;
-    });
+    if (active === 'base') {
+      document.querySelectorAll<HTMLElement>('[data-version-string]').forEach((el) => {
+        if (el.dataset.baseVersion) el.textContent = el.dataset.baseVersion;
+      });
+    }
   })();
 </script>
 

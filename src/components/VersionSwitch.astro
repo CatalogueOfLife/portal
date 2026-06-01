@@ -24,7 +24,7 @@ const metaHref = (v: (typeof versions)[number]) =>
     {
       versions.map((v) => (
         <li class={v.label === currentLabel ? 'version-switch__active' : ''}>
-          <a href={metaHref(v)} data-href={metaHref(v)}>
+          <a href={metaHref(v)}>
             <span class="version-switch__opt">{v.label}</span>
             {v.version && <span class="version-switch__ver">{v.version}</span>}
           </a>
@@ -35,7 +35,9 @@ const metaHref = (v: (typeof versions)[number]) =>
 </div>
 
 <script>
-  const STORAGE_KEY = 'col-portal:version';
+  // The menu items link to each version's metadata page, which is itself
+  // version-specific — so the header records the active version from the URL on
+  // arrival. This script only opens/closes the dropdown.
   const root = document.querySelector('.version-switch');
   const toggle = root?.querySelector<HTMLButtonElement>('.version-switch__toggle');
   const menu = root?.querySelector<HTMLUListElement>('.version-switch__menu');
@@ -54,15 +56,6 @@ const metaHref = (v: (typeof versions)[number]) =>
     });
     document.addEventListener('click', (e) => {
       if (!root.contains(e.target as Node)) close();
-    });
-    menu.querySelectorAll<HTMLAnchorElement>('a[data-href]').forEach((a) => {
-      a.addEventListener('click', () => {
-        try {
-          localStorage.setItem(STORAGE_KEY, a.dataset.href || '');
-        } catch {
-          /* private mode */
-        }
-      });
     });
   }
 </script>

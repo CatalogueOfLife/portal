@@ -1,41 +1,74 @@
-// Pure URL -> COL version label. Deliberately standalone (no versions/colPaths
-// imports, so it can load in the global header without dragging col-browser
-// CSS onto every page). Mirrors the labels in src/lib/version.ts.
-export function versionLabel(pathname = '/', search = ''): string {
-  const annual = pathname.match(/^\/annual-checklist\/(\d{4})(?:\/|$)/);
-  if (annual) return `Annual ${annual[1]}`;
-  return new URLSearchParams(search).get('v') === 'br' ? 'Base' : 'Extended';
+// Pure URL/token -> COL version helpers. Deliberately standalone (no
+// versions/colPaths imports, so it can load in the global header without
+// dragging col-browser CSS onto every page). Mirrors src/lib/version.ts.
+//
+// A "version token" is the compact, storable identity of the active version:
+//   'extended' | 'base' | a 4-digit annual year (e.g. '2023').
+// The URL wins whenever it pins a version; otherwise the header + islands fall
+// back to the remembered token (localStorage) so the choice survives navigation
+// to version-agnostic pages (downloads, news, about, home, …).
+
+export const VERSION_STORAGE_KEY = 'col-portal:version';
+
+const ANNUAL_RE = /^\/annual-checklist\/(\d{4})(?:\/|$)/;
+// The per-version /data surfaces. Their bare form is the Extended release; with
+// ?v=br they are the Base release. (download/changelog are version-agnostic.)
+const DATA_SCOPED_RE = /^\/data\/(browse|search|sources|metrics|metadata|taxon\/|dataset\/)/;
+const isYear = (t: string | null | undefined): t is string => !!t && /^\d{4}$/.test(t);
+
+/** The version token a URL represents (ignores any remembered preference). */
+export function versionToken(pathname = '/', search = ''): string {
+  const annual = pathname.match(ANNUAL_RE);
+  if (annual) return annual[1];
+  return new URLSearchParams(search).get('v') === 'br' ? 'base' : 'extended';
 }
 
-/** The metadata page URL for the version the given URL represents. */
-export function versionMetadataHref(pathname = '/', search = ''): string {
-  const annual = pathname.match(/^\/annual-checklist\/(\d{4})(?:\/|$)/);
-  if (annual) return `/annual-checklist/${annual[1]}/metadata`;
-  return new URLSearchParams(search).get('v') === 'br' ? '/data/metadata?v=br' : '/data/metadata';
+/** True when the URL itself pins a version, so it must win over the stored
+ *  preference: an annual path, ?v=br, or a per-version /data surface. */
+export function isVersionSpecificPath(pathname = '/', search = ''): boolean {
+  if (ANNUAL_RE.test(pathname)) return true;
+  if (new URLSearchParams(search).get('v') === 'br') return true;
+  return DATA_SCOPED_RE.test(pathname);
 }
 
-// Map a /data/* nav path to its per-year equivalent under /annual-checklist/.
-// (Browse is the year root; download/changelog are version-agnostic and absent.)
+export function labelForToken(token: string): string {
+  if (token === 'base') return 'Base';
+  if (isYear(token)) return `Annual ${token}`;
+  return 'Extended';
+}
+
+export function metadataHrefForToken(token: string): string {
+  if (token === 'base') return '/data/metadata?v=br';
+  if (isYear(token)) return `/annual-checklist/${token}/metadata`;
+  return '/data/metadata';
+}
+
+/** Where the home logo points for the active version. */
+export function homeHrefForToken(token: string): string {
+  if (token === 'base') return '/?v=br';
+  if (isYear(token)) return `/annual-checklist/${token}/`;
+  return '/';
+}
+
+// Per-version /data nav paths and their per-year equivalents under
+// /annual-checklist/{year}/ (browse is the year root; it isn't in the nav).
 const ANNUAL_NAV: Record<string, string> = {
   '/data/search': 'search',
   '/data/sources': 'sources',
   '/data/metrics': 'metrics',
   '/data/metadata': 'metadata',
 };
+const BASE_SCOPED = new Set(Object.keys(ANNUAL_NAV));
 
-// Rewrite a nav link so it stays within the active version. Annual is path-based
-// and known server-side (in Astro.url), so the header rewrites those links at
-// render time; Base (?v=br) is query-based and fixed client-side instead, so
-// here we only handle annual and otherwise return the path unchanged.
-export function versionScopedHref(path: string, pathname = '/'): string {
-  const annual = pathname.match(/^\/annual-checklist\/(\d{4})(?:\/|$)/);
-  if (annual && path in ANNUAL_NAV) return `/annual-checklist/${annual[1]}/${ANNUAL_NAV[path]}`;
-  return path;
+/** Rewrite a canonical /data nav path to its equivalent in the active version. */
+export function navHrefForToken(dataPath: string, token: string): string {
+  if (isYear(token)) return dataPath in ANNUAL_NAV ? `/annual-checklist/${token}/${ANNUAL_NAV[dataPath]}` : dataPath;
+  if (token === 'base') return BASE_SCOPED.has(dataPath) ? `${dataPath}?v=br` : dataPath;
+  return dataPath; // extended
 }
 
-/** Where the home logo points for the active version (annual stays in-year;
- *  Base keeps '/' and gets ?v=br appended client-side). */
-export function versionHomeHref(pathname = '/'): string {
-  const annual = pathname.match(/^\/annual-checklist\/(\d{4})(?:\/|$)/);
-  return annual ? `/annual-checklist/${annual[1]}/` : '/';
-}
+// --- URL-based wrappers used by the server-rendered header ------------------
+export const versionLabel = (pathname = '/', search = '') => labelForToken(versionToken(pathname, search));
+export const versionMetadataHref = (pathname = '/', search = '') => metadataHrefForToken(versionToken(pathname, search));
+export const versionHomeHref = (pathname = '/') => homeHrefForToken(versionToken(pathname));
+export const versionScopedHref = (path: string, pathname = '/') => navHrefForToken(path, versionToken(pathname));
