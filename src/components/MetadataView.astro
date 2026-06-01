@@ -44,7 +44,8 @@ const { cur, currentLabel, apiBase } = Astro.props;
     <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
   </a>
 </div>
-<p>{cur.citation}</p>
+<!-- citation is CSL HTML (a <div class="csl-entry">…</div>), so render it raw -->
+<div set:html={cur.citation ?? ''} />
 <p>
   Please also read the
   <a href="/howto/cite">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
