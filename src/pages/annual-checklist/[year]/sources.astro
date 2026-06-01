@@ -1,7 +1,7 @@
 ---
 import Content from '@layouts/Content.astro';
 import SourceListIsland from '@components/islands/SourceListIsland.tsx';
-import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+import { clbAnnualYears, annualKeyByYear } from '@data/versions';
 
 export function getStaticPaths() {
   return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
@@ -9,10 +9,9 @@ export function getStaticPaths() {
 
 const { year } = Astro.params;
 const datasetKey = annualKeyByYear[Number(year)];
-const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 
 const fm = {
-  title: `Source datasets — ${versionStr}`,
+  title: 'Source datasets',
   tagline: 'A Global Network of Taxonomic Contributors',
   section_id: 'data',
   noindex: true,

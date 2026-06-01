@@ -12,7 +12,7 @@ const datasetKey = annualKeyByYear[Number(year)];
 const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 
 const fm = {
-  title: `Search — ${versionStr}`,
+  title: 'Search',
   tagline: 'Find species and other taxa by name',
   section_id: 'data',
   noindex: true,

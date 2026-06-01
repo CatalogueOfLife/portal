@@ -15,7 +15,7 @@ const datasetKey = annualKeyByYear[Number(year)];
 const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 
 const fm = {
-  title: `Browse — ${versionStr}`,
+  title: 'Browse',
   tagline: "Explore the world's species through their classification",
   section_id: 'data',
   noindex: true, // historical snapshot; the Extended release stays canonical
