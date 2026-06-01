@@ -34,7 +34,7 @@ const extended: Version = {
   key: metadata.releaseKey,
   label: 'eXtended',
   version: metadata.current.version,
-  href: '/data',
+  href: '/',
   isDefault: true,
 };
 
@@ -44,7 +44,7 @@ const base: Version | null = metadata.base
       key: metadata.base.current.key,
       label: 'Base',
       version: metadata.base.current.version,
-      href: '/data?v=br',
+      href: '/data/browse?v=br',
     }
   : null;
 

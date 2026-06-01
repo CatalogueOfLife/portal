@@ -1,0 +1,169 @@
+---
+// Homepage "COL VERSION" box: shows the current release + a small caret that
+// opens a dropdown to pick the eXtended (default) / Base / annual versions.
+// Selecting navigates to that version's URL and remembers the pick in
+// localStorage (col-portal:version) for the header indicator + preselection.
+import { versions } from '@data/versions';
+import { metadata, datasetKey } from '@data/releaseMetadata';
+const cur = metadata.current;
+---
+
+<div class="version-box">
+  <h3 class="version-box__title">
+    COL VERSION
+    <button
+      type="button"
+      class="version-box__toggle"
+      aria-label="Choose a COL version"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z" /></svg>
+    </button>
+  </h3>
+
+  <ul class="version-box__menu" hidden>
+    {
+      versions.map((v) => (
+        <li>
+          <a href={v.href} data-href={v.href}>
+            <span class="version-box__label">{v.label}</span>
+            {v.version && <span class="version-box__ver">{v.version}</span>}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="version-box__meta">
+    <div>
+      Issued: <i>{cur.issued}</i>
+      <br />
+      DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
+    </div>
+    <a class="version-box__bibtex" href={`${metadata.api}/dataset/${datasetKey}.bib`} aria-label="BibTeX citation">
+      <img src="/images/logos/bibtex_logo.png" alt="BibTeX" />
+    </a>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'col-portal:version';
+  const root = document.querySelector('.version-box');
+  const toggle = root?.querySelector<HTMLButtonElement>('.version-box__toggle');
+  const menu = root?.querySelector<HTMLUListElement>('.version-box__menu');
+
+  if (root && toggle && menu) {
+    const open = () => {
+      menu.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      menu.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', () => (menu.hasAttribute('hidden') ? open() : close()));
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) close();
+    });
+
+    // Remember the chosen version across visits.
+    menu.querySelectorAll<HTMLAnchorElement>('a[data-href]').forEach((a) => {
+      a.addEventListener('click', () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, a.dataset.href || '');
+        } catch {
+          /* private mode */
+        }
+      });
+    });
+
+    // Mark the remembered version in the list.
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const a = menu.querySelector(`a[data-href="${CSS.escape(stored)}"]`);
+        a?.parentElement?.classList.add('version-box__active');
+      }
+    } catch {
+      /* private mode */
+    }
+  }
+</script>
+
+<style>
+  .version-box {
+    position: relative;
+  }
+  .version-box__title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .version-box__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    color: #555;
+    cursor: pointer;
+  }
+  .version-box__toggle:hover {
+    background: #f2f2f2;
+  }
+  .version-box__menu {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    top: 2.4rem;
+    min-width: 240px;
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  }
+  .version-box__menu li {
+    margin: 0;
+  }
+  .version-box__menu a {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 14px;
+    color: #333;
+    white-space: nowrap;
+  }
+  .version-box__menu a:hover {
+    background: #f7f7f7;
+  }
+  .version-box__active a {
+    font-weight: 600;
+  }
+  .version-box__label {
+    font-size: 0.95rem;
+  }
+  .version-box__ver {
+    color: #888;
+    font-size: 0.85rem;
+  }
+  .version-box__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .version-box__bibtex img {
+    height: 32px;
+    display: block;
+  }
+</style>
