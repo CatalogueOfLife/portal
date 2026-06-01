@@ -4,25 +4,19 @@ import MetricsContent from '@components/MetricsContent.astro';
 import { metadata } from '@data/releaseMetadata';
 import { changelogEntries } from '@data/changelog';
 import { legacyMetrics } from '@data/legacyMetrics';
-import { resolveVersion } from '@lib/version';
+import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
 
-// On-demand so ?v=br renders the Base release: the rank chart drops the
-// base/Extended split, the "Extended release additions" section is hidden, and
-// the timeline shows the Base series.
-export const prerender = false;
+export function getStaticPaths() {
+  return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
+}
 
-const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
-const isBase = ver.kind === 'base';
-const datasetKey = ver.datasetKey;
-
-// Basic-auth credential for the client-side metrics fetch — needed for private
-// candidate releases on preview/dev; empty on prod.
+const { year } = Astro.params;
+const datasetKey = annualKeyByYear[Number(year)];
+const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
 
-// "Changes over time" timeline data — built entirely at build time, no runtime
-// API call. ChecklistBank releases (2020-12 onward) come from the cached
-// changelog metrics; 2005–2019 from the static annual-checklist figures in
-// _data/legacy_metrics.yml. The chart shows either the Base or Extended series.
+// Same build-time "changes over time" data as /data/metrics; annual editions
+// are part of the Base lineage so the chart shows the Base series.
 const timeline = [
   ...changelogEntries
     .filter((e) => e.rel?.metrics?.taxaByRankCount?.species)
@@ -45,27 +39,23 @@ const timeline = [
 ];
 
 const fm = {
-  title: 'Metrics',
-  tagline: `Metrics about the ${ver.label} release of the Catalogue of Life`,
+  title: `Metrics — ${versionStr}`,
+  tagline: `Metrics about the ${versionStr} of the Catalogue of Life`,
   section_id: 'data',
   toc: true,
-  noindex: isBase,
+  noindex: true,
   imageUrl: '/images/species/Asplenium_trichomanes.jpg',
   imageCaption:
     '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
 };
 
-// Manual TOC headings (this page is .astro, not a Markdown collection entry).
-// "Extended release additions" only applies to the Extended release.
 const headings = [
   { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
-  { depth: 2, slug: 'composition-of-eukaryota', text: 'Composition of Eukaryota' },
   { depth: 2, slug: 'usages-by-status', text: 'Usages by status' },
   { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
   { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
   { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
-  ...(isBase ? [] : [{ depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' }]),
   { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
 ---
@@ -73,11 +63,12 @@ const headings = [
 <Content frontmatter={fm} headings={headings}>
   <MetricsContent
     datasetKey={datasetKey}
-    single={isBase}
-    timelineMode={isBase ? 'base' : 'extended'}
+    single={true}
+    timelineMode="base"
     timeline={timeline}
     api={metadata.api}
     auth={colAuth}
-    metadataHref={`/data/metadata${ver.linkQuery}`}
+    metadataHref={`/annual-checklist/${year}/metadata`}
+    breakdownTaxonId={null}
   />
 </Content>

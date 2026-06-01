@@ -1,6 +1,6 @@
 ---
 import { nav } from '../lib/nav';
-import { versionLabel, versionMetadataHref } from '../lib/versionLabel';
+import { versionLabel, versionMetadataHref, versionScopedHref, versionHomeHref } from '../lib/versionLabel';
 
 interface Props {
   sectionId?: string;
@@ -11,6 +11,9 @@ const { sectionId } = Astro.props;
 // Extended + annual routes; static base pages (?v=br) are fixed client-side.
 const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
 const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
+// On annual pages the year is in the path, so scope the logo + data nav links
+// to that year server-side (Base ?v=br stickiness is handled by the script).
+const verHome = versionHomeHref(Astro.url.pathname);
 ---
 
 <div class="contain-to-grid sticky">
@@ -18,7 +21,7 @@ const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
     <ul class="title-area">
       <li class="name">
         <h1>
-          <a href="/">
+          <a href={verHome}>
             <img alt="" class="col-header-logo" src="/images/logos/col_logo.svg" />
           </a>
         </h1>
@@ -42,7 +45,7 @@ const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
                 <ul class="dropdown">
                   {item.children.map((child) => (
                     <li>
-                      <a href={child.path}>{child.name}</a>
+                      <a href={child.path ? versionScopedHref(child.path, Astro.url.pathname) : '#'}>{child.name}</a>
                     </li>
                   ))}
                 </ul>

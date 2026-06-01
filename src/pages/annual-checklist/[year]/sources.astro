@@ -1,13 +1,21 @@
 ---
 import Content from '@layouts/Content.astro';
 import SourceListIsland from '@components/islands/SourceListIsland.tsx';
-import { datasetKey } from '@data/releaseMetadata';
+import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+
+export function getStaticPaths() {
+  return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
+}
+
+const { year } = Astro.params;
+const datasetKey = annualKeyByYear[Number(year)];
+const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 
 const fm = {
-  title: 'Source datasets',
+  title: `Source datasets — ${versionStr}`,
   tagline: 'A Global Network of Taxonomic Contributors',
   section_id: 'data',
-  toc: false,
+  noindex: true,
   imageUrl: '/images/species/Nyctalus_leisleri.jpg',
   imageCaption:
     '_Nyctalus leisleri_ (Kuhl, 1817) - [Photo CC BY Sylvain Eichhorn](https://www.inaturalist.org/observations/297984115)',

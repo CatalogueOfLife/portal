@@ -1,0 +1,12 @@
+/* Hide the source list's "Include XR" toggle — the only checkbox in the list —
+   for single-lineage releases (Base, annual) where there is no Extended (XR)
+   data to include. The count beside it then spans the full row. The wrapper
+   gets .sources-single from SourceListIsland based on the active version, and
+   this stylesheet rides along with the island (loaded only where it renders). */
+.sources-single .ant-col:has(.ant-checkbox) {
+  display: none;
+}
+.sources-single .ant-col:has(.ant-checkbox) ~ .ant-col {
+  flex: 0 0 100%;
+  max-width: 100%;
+}

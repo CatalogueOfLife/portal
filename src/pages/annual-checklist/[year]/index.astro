@@ -1,0 +1,40 @@
+---
+import Content from '@layouts/Content.astro';
+import TreeIsland from '@components/islands/TreeIsland.tsx';
+import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+
+// One static page per CLB-hosted annual year (2021+). The island reads the year
+// from the URL and pins itself to that release; ≤2020 stays on the legacy
+// archives backend (routed away from the portal at the edge — see DEPLOY.md).
+export function getStaticPaths() {
+  return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
+}
+
+const { year } = Astro.params;
+const datasetKey = annualKeyByYear[Number(year)];
+const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
+
+const fm = {
+  title: `Browse — ${versionStr}`,
+  tagline: "Explore the world's species through their classification",
+  section_id: 'data',
+  noindex: true, // historical snapshot; the Extended release stays canonical
+  imageUrl: '/images/species/Patiriella_calcar.jpg',
+  imageCaption:
+    '_Patiriella calcar_ (Lamarck, 1816) - [Photo CC By Donald Hobern](https://www.flickr.com/photos/dhobern/42551733071)',
+};
+---
+
+<Content frontmatter={fm}>
+  <h1>Browse the {versionStr}</h1>
+  <p>
+    Use this tree to explore the full classification of the
+    <a href={`/annual-checklist/${year}/metadata`}>{versionStr}</a> of the Catalogue of Life — a stable annual snapshot.
+    The <strong>Find taxon</strong> field allows for direct access using any name known to this release.
+  </p>
+  <div class="row" style="background: white; margin-top: 0; margin-bottom: 0">
+    <div id="tree" class="catalogue-of-life">
+      <TreeIsland client:only="react" datasetKey={String(datasetKey)} showTreeOptions type="project" />
+    </div>
+  </div>
+</Content>

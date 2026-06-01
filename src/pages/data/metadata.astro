@@ -1,6 +1,6 @@
 ---
 import Content from '@layouts/Content.astro';
-import VersionSwitch from '@components/VersionSwitch.astro';
+import MetadataView from '@components/MetadataView.astro';
 import { metadata } from '@data/releaseMetadata';
 import { site } from '@lib/site';
 import { resolveVersion } from '@lib/version';
@@ -57,42 +57,5 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
-  <VersionSwitch currentLabel={ver.label} />
-
-  <h2>Version</h2>
-  <div id="version">
-    Issued: <i>{cur.issued}</i><br />
-    DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a><br />
-    ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a>
-    <br /><br />
-  </div>
-
-  <h2>Abstract</h2>
-  <p>{cur.description}</p>
-
-  <h2>Recommended citation</h2>
-  <div id="bibtex" style="float: right;">
-    <a href={`${metadata.api}/dataset/${cur.key}.bib`}>
-      <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
-    </a>
-  </div>
-  <p>{cur.citation}</p>
-  <p>
-    Please also read the
-    <a href="/howto/cite">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
-  </p>
-
-  <h3>License</h3>
-  <p>
-    <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
-  </p>
-
-  {cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
-
-  <h3>Authors</h3>
-  <div id="authors">
-    <ul>
-      {cur.creator?.map((a) => <li set:html={a.label} />)}
-    </ul>
-  </div>
+  <MetadataView cur={cur} currentLabel={ver.label} apiBase={metadata.api} />
 </Content>

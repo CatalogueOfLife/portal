@@ -1,0 +1,151 @@
+---
+import Base from '@layouts/Base.astro';
+import TaxonIsland from '@components/islands/TaxonIsland.tsx';
+import { metadata } from '@data/releaseMetadata';
+import { colFetch } from '@lib/colApi';
+import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
+
+// On-demand SSR for an annual edition's taxon page. Mirrors data/taxon/[id]:
+// resolveVersion reads the /annual-checklist/{year}/ prefix and pins the fetch +
+// links to that year's dataset; synonyms 301 to the accepted taxon in-year.
+export const prerender = false;
+
+const { id } = Astro.params;
+const api = metadata.api;
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const K = ver.datasetKey;
+// Year-prefixed taxon base for in-version redirects (e.g. /annual-checklist/2023/taxon/).
+const taxonBase = ver.linkPaths.taxon;
+
+const ACCEPTED = new Set(['accepted', 'provisionally accepted']);
+let info: any = null;
+const infoRes = await colFetch(`${api}/dataset/${K}/taxon/${id}/info`);
+if (infoRes.ok) {
+  info = await infoRes.json();
+  const status = info?.usage?.status;
+  const acc = info?.usage?.accepted;
+  const acceptedId = typeof acc === 'string' ? acc : acc?.id;
+  if (status && !ACCEPTED.has(status) && acceptedId) {
+    return Astro.redirect(`${taxonBase}${acceptedId}`, 301);
+  }
+} else {
+  const nu = await colFetch(`${api}/dataset/${K}/nameusage/${id}`);
+  if (nu.ok) {
+    const acceptedId = (await nu.json())?.accepted?.id;
+    if (acceptedId) return Astro.redirect(`${taxonBase}${acceptedId}`, 301);
+  }
+  Astro.response.status = 404;
+}
+
+const u = info?.usage;
+const name = u?.name ?? {};
+const sourceTitle = info?.source?.title;
+const taxonUrl = `${site.url}/annual-checklist/${ver.year}/taxon/${id}`;
+const logo = `${site.url}/images/col_square_logo.jpg`;
+
+const title = u ? `${u.label} | COL ${ver.label}` : 'Not found | COL';
+const description = u
+  ? `${u.label} in the Catalogue of Life ${ver.label}${sourceTitle ? ` based on ${sourceTitle}` : ''}`
+  : 'This name could not be found in this annual edition of the Catalogue of Life.';
+
+const synonyms: any[] = info?.synonyms
+  ? Object.values(info.synonyms).flatMap((v) => (Array.isArray(v) ? v : []))
+  : [];
+const vernaculars: any[] = info?.vernacularNames ?? [];
+const classification: any[] = info?.classification ?? [];
+const parent = classification.filter((c) => c.id !== id).pop();
+
+const jsonLd: Record<string, unknown> | null = u
+  ? {
+      '@context': ['https://schema.org/', { dwc: 'http://rs.tdwg.org/dwc/terms/', col: 'http://catalogueoflife.org/terms/' }],
+      '@id': taxonUrl,
+      '@type': 'Taxon',
+      additionalType: ['dwc:Taxon', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept'],
+      identifier: [
+        { '@type': 'PropertyValue', name: 'dwc:taxonID', propertyID: 'http://rs.tdwg.org/dwc/terms/taxonID', value: id },
+        { '@type': 'PropertyValue', name: 'col:ID', propertyID: 'http://catalogueoflife.org/terms/ID', value: id },
+      ],
+      name: u.label,
+      scientificName: {
+        '@type': 'TaxonName',
+        name: name.scientificName,
+        author: name.authorship,
+        taxonRank: name.rank,
+        ...(info.publishedIn?.citation ? { isBasedOn: { '@type': 'ScholarlyArticle', name: info.publishedIn.citation } } : {}),
+      },
+      ...(name.rank ? { taxonRank: [`${api}/vocab/rank/${name.rank}`, name.rank] } : {}),
+      ...(synonyms.length
+        ? {
+            alternateName: synonyms.map((s) => s.label),
+            alternateScientificName: synonyms.map((s) => ({
+              '@type': 'TaxonName',
+              name: s.name?.scientificName,
+              author: s.name?.authorship,
+              taxonRank: s.name?.rank,
+            })),
+          }
+        : {}),
+      ...(vernaculars.length
+        ? { 'dwc:vernacularName': vernaculars.map((v) => ({ '@language': v.language, '@value': v.name })) }
+        : {}),
+      ...(parent
+        ? {
+            parentTaxon: {
+              '@id': `${site.url}/annual-checklist/${ver.year}/taxon/${parent.id}`,
+              '@type': 'Taxon',
+              name: parent.label ?? parent.name,
+              identifier: [
+                { '@type': 'PropertyValue', name: 'dwc:taxonID', propertyID: 'http://rs.tdwg.org/dwc/terms/taxonID', value: parent.id },
+              ],
+              ...(parent.rank ? { taxonRank: [`${api}/vocab/rank/${parent.rank}`, parent.rank] } : {}),
+            },
+          }
+        : {}),
+    }
+  : null;
+---
+
+<Base title={title} description={description} noindex={true}>
+  <Fragment slot="head">
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={taxonUrl} />
+    <meta property="og:image" content={logo} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={logo} />
+    <link rel="alternate" hreflang="en" href={taxonUrl} />
+    <link rel="alternate" hreflang="x-default" href={taxonUrl} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </Fragment>
+
+  <div class="row" style="background: white; margin-top: 20px; margin-bottom: 60px">
+    {
+      u ? (
+        <div id="taxon" class="catalogue-of-life">
+          <TaxonIsland
+            client:only="react"
+            datasetKey={String(K)}
+            pageTitleTemplate="COL | __taxon__"
+            showDistributionMap
+            gbifChecklistKey="7ddf754f-d193-4cc9-b351-99906754a03b"
+          />
+        </div>
+      ) : (
+        <div class="row" style="padding: 40px 0">
+          <div class="large-12 columns">
+            <h2>Not found</h2>
+            <p>
+              This name could not be found in the <a href={`/annual-checklist/${ver.year}/metadata`}>{ver.label}</a> edition
+              of the Catalogue of Life. It may have been added in a later release — try the
+              <a href="/data/search">current Catalogue of Life</a>.
+            </p>
+            <p><a href={`/annual-checklist/${ver.year}/search`}>Search the {ver.label} edition</a></p>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</Base>
