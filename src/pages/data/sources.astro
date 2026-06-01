@@ -21,3 +21,17 @@ const fm = {
     </div>
   </div>
 </Content>
+
+<style is:global>
+  /* Base release: hide the source list's "Include XR" toggle (the only
+     checkbox in the list) since the Base has no Extended data. The toggle is
+     wrapped in .sources-base only when ?v=br is active (see SourceListIsland).
+     The count beside it then spans the full row. */
+  .sources-base .ant-col:has(.ant-checkbox) {
+    display: none;
+  }
+  .sources-base .ant-col:has(.ant-checkbox) ~ .ant-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+</style>

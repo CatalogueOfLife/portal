@@ -6,5 +6,12 @@ import { versionCtx, routingFor } from '../../lib/island';
 const URLSourceList = withRouting(SourceDatasetList, routingFor('sourceList'));
 
 export default function SourceListIsland(props: Record<string, unknown>) {
-  return <URLSourceList theme={colTheme} auth={colAuth || undefined} {...props} datasetKey={String(versionCtx.datasetKey)} />;
+  // The Base release contains no Extended (XR) data, so the list's "Include XR"
+  // toggle is meaningless there — flag it so the page CSS hides it (sources.astro).
+  const className = versionCtx.kind === 'base' ? 'sources-base' : undefined;
+  return (
+    <div className={className}>
+      <URLSourceList theme={colTheme} auth={colAuth || undefined} {...props} datasetKey={String(versionCtx.datasetKey)} />
+    </div>
+  );
 }
