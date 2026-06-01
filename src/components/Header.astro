@@ -1,10 +1,15 @@
 ---
 import { nav } from '../lib/nav';
+import { versionLabel } from '../lib/versionLabel';
 
 interface Props {
   sectionId?: string;
 }
 const { sectionId } = Astro.props;
+
+// Which COL version this page shows, from the URL. Correct at build for
+// eXtended + annual routes; static base pages (?v=br) are fixed client-side.
+const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
 ---
 
 <div class="contain-to-grid sticky">
@@ -16,6 +21,9 @@ const { sectionId } = Astro.props;
             <img alt="" class="col-header-logo" src="/images/logos/col_logo.svg" />
           </a>
         </h1>
+      </li>
+      <li class="version-indicator">
+        <a href="/data/metadata" title="COL version shown on this page" data-version-indicator>{verLabel}</a>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
@@ -51,6 +59,8 @@ const { sectionId } = Astro.props;
 </div>
 
 <script>
+  import { versionLabel } from '../lib/versionLabel';
+
   // Mobile menu toggle — replaces Foundation's top-bar JS (the only nav script
   // we keep). Desktop dropdowns work via Foundation's CSS :hover rules; on
   // small screens the "Menu" button toggles the .expanded state.
@@ -61,9 +71,51 @@ const { sectionId } = Astro.props;
       document.querySelector('.top-bar')?.classList.toggle('expanded');
     }
   });
+
+  // Correct the version indicator for static pages reached with ?v=br (Base),
+  // which the build can't see (the server-rendered label assumed eXtended).
+  const indicator = document.querySelector('[data-version-indicator]');
+  if (indicator) {
+    const label = versionLabel(location.pathname, location.search);
+    if (indicator.textContent !== label) indicator.textContent = label;
+  }
 </script>
 
 <style is:global>
+  /* Version indicator: small pill just right of the logo showing which COL
+     release this page reflects (eXtended / Base / Annual {year}). */
+  .top-bar .title-area .name {
+    float: left;
+  }
+  /* Foundation forces the logo link to width:75%, which pushes the indicator
+     onto the next line — shrink it to the logo so the pill can sit beside it. */
+  .top-bar .title-area .name h1 a {
+    width: auto;
+  }
+  .top-bar .title-area .version-indicator {
+    float: left;
+    list-style: none;
+    height: 7.1428571429rem;
+    line-height: 7.1428571429rem; /* vertically centre the inline-block pill */
+  }
+  .top-bar .title-area .version-indicator a {
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    padding: 1px 9px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #555;
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 11px;
+  }
+  .top-bar .title-area .version-indicator a:hover {
+    background: #e7e7e7;
+    color: #333;
+  }
+
   /* Mobile nav (below Foundation's 960px top-bar breakpoint). Foundation's
      stock .top-bar.expanded keeps `overflow:hidden` and its menu list stays
      floated, so the expanded section collapses to height:0 and its links are
