@@ -323,15 +323,15 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
             yTitle: 'Vernacular names', seriesName: 'Vernacular names',
           });
 
-          // Distributions by gazetteer — labels link to each gazetteer's data in
-          // the col-gazetteers repo ("text" is free-text and has no geometry/repo).
+          // Distributions by gazetteer — labels link to each gazetteer in the
+          // col-gazetteers viewer ("text" is free-text and has no geometry).
           const GAZ_LABELS = {
             tdwg: 'TDWG regions', iso: 'ISO countries', mrgid: 'Marine regions (MRGID)',
             fao: 'FAO fishing areas', iho: 'IHO sea areas', longhurst: 'Longhurst provinces',
             teow: 'Terrestrial ecoregions', realm: 'Biogeographic realms', text: 'Free text',
           };
           const GAZ_DIRS = new Set(['tdwg', 'iso', 'mrgid', 'fao', 'iho', 'longhurst', 'teow', 'realm']);
-          const GAZ_REPO = 'https://github.com/CatalogueOfLife/col-gazetteers/tree/master/';
+          const GAZ_VIEWER = 'https://catalogueoflife.github.io/col-gazetteers/?show=global#';
           const gazEntries = Object.entries(m.distributionsByGazetteerCount || {}).sort((a, b) => b[1] - a[1]);
           if (gazEntries.length) {
             Highcharts.chart('chart-gazetteer', {
@@ -347,7 +347,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
                     const k = this.value;
                     const label = GAZ_LABELS[k] || k;
                     return GAZ_DIRS.has(k)
-                      ? '<a href="' + GAZ_REPO + k + '" target="_blank" rel="noopener">' + label + '</a>'
+                      ? '<a href="' + GAZ_VIEWER + k + '" target="_blank" rel="noopener">' + label + '</a>'
                       : label;
                   },
                 },
