@@ -88,6 +88,9 @@ const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
     // or /data/changelog, which are version-agnostic.)
     const scoped = new Set(['/data/search', '/data/browse', '/data/sources', '/data/metrics', '/data/metadata']);
     document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((a) => {
+      // Leave the explicit version picker alone — its "Extended" link is meant
+      // to drop ?v=br, so rewriting it would trap the user in Base.
+      if (a.closest('.version-switch')) return;
       const href = a.getAttribute('href');
       if (href && scoped.has(href)) a.setAttribute('href', href + '?v=br');
     });
