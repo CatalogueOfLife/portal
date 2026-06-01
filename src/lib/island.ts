@@ -18,7 +18,7 @@ export function routingFor(kind: RoutingKind) {
     navigation: 'reload' as const,
     paths: versionCtx.linkPaths,
     // Reserved query (Base = ?v=br): appended to cross-links, excluded from the
-    // component's parsed state. Empty for eXtended/annual. (col-browser ≥ 2.2.1)
+    // component's parsed state. Empty for Extended/annual. (col-browser ≥ 2.2.1)
     query: versionCtx.linkQuery,
   };
 }

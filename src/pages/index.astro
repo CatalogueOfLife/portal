@@ -1,7 +1,6 @@
 ---
 import Base from '@layouts/Base.astro';
 import TreeIsland from '@components/islands/TreeIsland.tsx';
-import VersionSelector from '@components/VersionSelector.astro';
 import { metadata, datasetKey } from '@data/releaseMetadata';
 import { milestones, milestoneCount } from '@data/milestones';
 import { getPosts } from '@lib/posts';
@@ -9,6 +8,7 @@ import { numf } from '@lib/numf';
 
 const counts = await Promise.all(milestones.map(milestoneCount));
 const recent = (await getPosts()).slice(0, 8);
+const cur = metadata.current;
 
 const partners = [
   { image: '/images/logos/Smithsonian.svg', link: 'https://www.si.edu/' },
@@ -64,12 +64,24 @@ const partners = [
 
       <div class="medium-4 columns">
         <br />
-        <VersionSelector />
+        <h3>Current Version</h3>
+        <div id="version">
+          <div>
+            Issued: <i>{cur.issued}</i>
+            <br />
+            DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
+          </div>
+          <div id="bibtex">
+            <a href={`${metadata.api}/dataset/${datasetKey}.bib`}>
+              <img src="/images/logos/bibtex_logo.png" style="height: 32px; margin-left: 8px;" alt="BibTeX" />
+            </a>
+          </div>
+        </div>
 
         <h3>Documentation</h3>
         <p>
           The Catalogue of Life includes information with different gradients of quality. The base release is verified
-          by taxonomic experts specifically for COL. The eXtended Release includes extra data from other sources
+          by taxonomic experts specifically for COL. The Extended Release includes extra data from other sources
           (indicated with the <span class="xr-icon">XR</span> icon). Read about the
           <a href="/building/releases">different releases</a> COL provides.
         </p>

@@ -8,7 +8,7 @@ interface Props {
 const { sectionId } = Astro.props;
 
 // Which COL version this page shows, from the URL. Correct at build for
-// eXtended + annual routes; static base pages (?v=br) are fixed client-side.
+// Extended + annual routes; static base pages (?v=br) are fixed client-side.
 const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
 const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
 ---
@@ -74,7 +74,7 @@ const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
   });
 
   // Version stickiness for static pages reached with ?v=br (Base). Such pages
-  // are prerendered as eXtended (the build can't see the query), so fix them up
+  // are prerendered as Extended (the build can't see the query), so fix them up
   // on the client: the indicator label, version-scoped nav links (so browsing
   // stays in Base), and any version-dependent text. (Annual versions are
   // path-based and handled server-side.)
@@ -101,7 +101,7 @@ const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
 
 <style is:global>
   /* Version indicator: small pill just right of the logo showing which COL
-     release this page reflects (eXtended / Base / Annual {year}). */
+     release this page reflects (Extended / Base / Annual {year}). */
   .top-bar .title-area .name {
     float: left;
   }

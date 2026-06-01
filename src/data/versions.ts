@@ -1,6 +1,6 @@
 // The set of COL versions a user can browse, derived entirely from the
 // already-baked build data (no extra fetch):
-//   - eXtended release  -> the default; the canonical /, /data/* URLs
+//   - Extended release  -> the default; the canonical /, /data/* URLs
 //   - Base release      -> the same URLs + ?v=br
 //   - Annual releases    -> /annual-checklist/{year}/ (ChecklistBank-hosted, 2021+)
 //
@@ -16,7 +16,7 @@ export interface Version {
   key: number;
   /** Calendar year, for annual releases. */
   year?: number;
-  /** Short label for the header indicator + selector (e.g. "eXtended", "Annual 2023"). */
+  /** Short label for the header indicator + selector (e.g. "Extended", "Annual 2023"). */
   label: string;
   /** The underlying release version string (e.g. "2026-05-15 XR"). */
   version: string;
@@ -32,7 +32,7 @@ const FIRST_CLB_ANNUAL = 2021;
 const extended: Version = {
   kind: 'extended',
   key: metadata.releaseKey,
-  label: 'eXtended',
+  label: 'Extended',
   version: metadata.current.version,
   href: '/',
   isDefault: true,
@@ -67,7 +67,7 @@ const annual: Version[] = changelogEntries
   }))
   .sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
 
-/** All selectable versions: eXtended (default), Base, then annual newest-first. */
+/** All selectable versions: Extended (default), Base, then annual newest-first. */
 export const versions: Version[] = [extended, ...(base ? [base] : []), ...annual];
 
 export const extendedKey = extended.key;

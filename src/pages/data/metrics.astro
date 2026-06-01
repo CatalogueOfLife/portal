@@ -7,7 +7,7 @@ import { legacyMetrics } from '@data/legacyMetrics';
 import { resolveVersion } from '@lib/version';
 
 // On-demand so ?v=br renders the Base release: the rank chart drops the
-// base/eXtended split, the "Extended release additions" section is hidden, and
+// base/Extended split, the "Extended release additions" section is hidden, and
 // the timeline shows the Base series.
 export const prerender = false;
 
@@ -23,7 +23,7 @@ const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
 // "Changes over time" timeline data — built entirely at build time, no runtime
 // API call. ChecklistBank releases (2020-12 onward) come from the cached
 // changelog metrics; 2005–2019 from the static annual-checklist figures in
-// _data/legacy_metrics.yml. The chart toggles between Base and eXtended series
+// _data/legacy_metrics.yml. The chart toggles between Base and Extended series
 // (`ext`); all legacy points are base releases.
 const timeline = [
   ...changelogEntries
@@ -58,7 +58,7 @@ const fm = {
 };
 
 // Manual TOC headings (this page is .astro, not a Markdown collection entry).
-// "Extended release additions" only applies to the eXtended release.
+// "Extended release additions" only applies to the Extended release.
 const headings = [
   { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
   { depth: 2, slug: 'composition-of-eukaryota', text: 'Composition of Eukaryota' },
@@ -126,7 +126,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     ) : (
       <p>
         The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and
-        those merged into the <a href="/building/releases">eXtended Release</a>.
+        those merged into the <a href="/building/releases">Extended Release</a>.
       </p>
     )
   }
@@ -149,7 +149,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
       <Fragment>
         <h2 id="extended-release-additions">Extended release additions</h2>
         <p>
-          For names that originate in the base release, the <a href="/building/releases">eXtended Release</a> supplements
+          For names that originate in the base release, the <a href="/building/releases">Extended Release</a> supplements
           them with secondary information drawn from additional sources. The breakdown below shows how many base-release
           names received each kind of added information.
         </p>
@@ -259,7 +259,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
           const totalByRank = m.taxaByRankCount || {};
           const topRankEntries = Object.entries(totalByRank).sort((a, b) => b[1] - a[1]).slice(0, 25);
           if (isBase) {
-            // Base has no eXtended additions, so a single log-scale bar (no split).
+            // Base has no Extended additions, so a single log-scale bar (no split).
             renderBar('chart-ranks', topRankEntries, { log: true, yTitle: 'Accepted taxa (log)', seriesName: 'Accepted taxa' });
           } else {
             // Log-scale rank bar with linear base/extended segments riding on
@@ -361,7 +361,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
             });
           }
 
-          // Extended-release additions — eXtended only (the section is omitted on Base).
+          // Extended-release additions — Extended only (the section is omitted on Base).
           if (!isBase && document.getElementById('chart-secondary')) {
             const secondaryLabel = { parent: 'classification' };
             const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
@@ -397,7 +397,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
 
       const DATA = (timeline || []).filter((d) => d && d.t);
 
-      // Series in draw order; colors echo the page palette (eXtended-release
+      // Series in draw order; colors echo the page palette (Extended-release
       // purple for the all-names total, base blue for species).
       const SERIES = [
         { key: 'family', name: 'Families', color: '#f7a35c' },

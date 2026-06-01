@@ -13,7 +13,7 @@ export const prerender = false;
 
 const { id } = Astro.params;
 const api = metadata.api;
-// Version from the URL: ?v=br -> Base, otherwise the default eXtended release.
+// Version from the URL: ?v=br -> Base, otherwise the default Extended release.
 // The id is fetched against that release; redirects keep the version query.
 const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
 const K = ver.datasetKey;
@@ -24,8 +24,8 @@ const vq = ver.linkQuery;
 // the accepted taxon (the old PortalPageRenderer.SynonymException behaviour).
 const ACCEPTED = new Set(['accepted', 'provisionally accepted']);
 let info: any = null;
-// Base is a subset of eXtended: a base id may be missing here yet exist in
-// eXtended — when that happens we offer a link to the eXtended page.
+// Base is a subset of Extended: a base id may be missing here yet exist in
+// Extended — when that happens we offer a link to the Extended page.
 let inExtended = false;
 const infoRes = await colFetch(`${api}/dataset/${K}/taxon/${id}/info`);
 if (infoRes.ok) {
@@ -157,9 +157,9 @@ const jsonLd: Record<string, unknown> | null = u
               <Fragment>
                 <p>
                   This taxon is not part of the <a href="/building/releases#base">Base release</a>, but it exists in the{' '}
-                  <a href="/building/releases#extended">eXtended release</a>.
+                  <a href="/building/releases#extended">Extended release</a>.
                 </p>
-                <p><a href={`/data/taxon/${id}`}>View it in the eXtended release →</a></p>
+                <p><a href={`/data/taxon/${id}`}>View it in the Extended release →</a></p>
               </Fragment>
             ) : (
               <p>This name could not be found in the current Catalogue of Life. It may have been removed in a more recent release.</p>

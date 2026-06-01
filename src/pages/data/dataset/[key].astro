@@ -12,12 +12,12 @@ export const prerender = false;
 
 const { key } = Astro.params;
 const api = metadata.api;
-// ?v=br -> Base release, otherwise the default eXtended release.
+// ?v=br -> Base release, otherwise the default Extended release.
 const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
 const K = ver.datasetKey;
 
 let source: any = null;
-// Base is a subset of eXtended: a source missing from Base may exist in eXtended.
+// Base is a subset of Extended: a source missing from Base may exist in Extended.
 let inExtended = false;
 const res = await colFetch(`${api}/dataset/${K}/source/${key}`);
 if (res.ok) {
@@ -101,9 +101,9 @@ const jsonLd: Record<string, unknown> | null = source
             <Fragment>
               <p>
                 This source dataset is not part of the <a href="/building/releases#base">Base release</a>, but it exists in
-                the <a href="/building/releases#extended">eXtended release</a>.
+                the <a href="/building/releases#extended">Extended release</a>.
               </p>
-              <p><a href={`/data/dataset/${key}`}>View it in the eXtended release →</a></p>
+              <p><a href={`/data/dataset/${key}`}>View it in the Extended release →</a></p>
             </Fragment>
           ) : (
             <p>This source dataset is not part of the current Catalogue of Life release.</p>

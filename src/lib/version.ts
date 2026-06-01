@@ -2,7 +2,7 @@
 // col-browser islands should use for it. The URL is the single source of truth:
 //   /annual-checklist/{year}/...  -> that year's annual release (links stay under the prefix)
 //   ...?v=br                       -> latest Base release (links carry ?v=br)
-//   everything else                -> latest eXtended release (default)
+//   everything else                -> latest Extended release (default)
 //
 // Works on both server (Astro SSR routes pass pathname+search) and client
 // (islands call resolveVersionFromLocation). localStorage only remembers the
@@ -46,7 +46,7 @@ export function resolveVersion(pathname = '/', search = ''): VersionContext {
   if (new URLSearchParams(search).get('v') === 'br') {
     return { kind: 'base', datasetKey: baseKey, linkPaths: colPaths, linkQuery: '?v=br', label: 'Base' };
   }
-  return { kind: 'extended', datasetKey: extendedKey, linkPaths: colPaths, linkQuery: '', label: 'eXtended' };
+  return { kind: 'extended', datasetKey: extendedKey, linkPaths: colPaths, linkQuery: '', label: 'Extended' };
 }
 
 export function resolveVersionFromLocation(): VersionContext {
