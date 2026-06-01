@@ -8,26 +8,26 @@ imageCaption: _Bothriechis nigroadspersus_ (Steindachner, 1870) - [Photo CC By C
 permalink: /building/releases
 ---
 
-The Catalogue of Life offers releases that reflect different levels of coverage and quality: the Base and the eXtended Release. 
+The Catalogue of Life offers releases that reflect different levels of coverage and quality: the Base and the Extended Release. 
 Throughout the year, these releases are updated in several versions: monthly and annual. 
 Understanding the differences between these releases and their versions will help you navigate the Catalogue more effectively and choose the one best suited to your needs.
 
 ## How to  Quickly Decide What to Use?
 
-- Need the most complete list across all taxonomic groups?  **->**  Use the Catalogue of Life eXtended Release (XR).
-- Need BIN numbers and other molecular identifiers?  **->**  Use the Catalogue of Life eXtended Release (XR).
+- Need the most complete list across all taxonomic groups?  **->**  Use the Catalogue of Life Extended Release (XR).
+- Need BIN numbers and other molecular identifiers?  **->**  Use the Catalogue of Life Extended Release (XR).
 - Looking for the highest accuracy and long-term, expert-vetted information?  **->**  Go with the Base Release.
-- Want the most up-to-date information?  **->**  Check out our monthly version (base or eXtended), always available on the website and in the Catalogue of Life ChecklistBank.
-- Prefer stability for long-term analyses?  **->**  Choose the Annual stable version (Base or eXtended) with ongoing support. A historical archive of all annual versions is available for all users.
+- Want the most up-to-date information?  **->**  Check out our monthly version (base or Extended), always available on the website and in the Catalogue of Life ChecklistBank.
+- Prefer stability for long-term analyses?  **->**  Choose the Annual stable version (Base or Extended) with ongoing support. A historical archive of all annual versions is available for all users.
 
 For a more informed decision keep reading and also check the [assembly page](/building/assembly).
 
-## Base and eXtended Release
+## Base and Extended Release
 
 The Catalogue of Life **Base Release (BR)** is an assembly of non-overlapping, expert-curated global species checklists, organized according to the Catalogue’s management classification. 
 The building process of this release ensures a higher level of quality, as most data sources are maintained and updated regularly by taxonomic experts. 
 However, since many taxa still lack a vetted or up-to-date checklist, this approach leaves several gaps. 
-To address this, the Catalogue of Life **eXtended Release (XR)** is built on top of the Base Release. 
+To address this, the Catalogue of Life **Extended Release (XR)** is built on top of the Base Release. 
 This release is programmatically enhanced, integrating information from more than 60,000 overlapping taxonomic and nomenclatural sources 
 including global, regional, national, and management datasets, as well as digitized literature. 
 This process also enriches the existing names with information such as authorships, references, and vernacular names. 

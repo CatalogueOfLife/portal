@@ -37,7 +37,7 @@ Checklists that don’t meet all criteria may still be considered. For example, 
 ## Building the Catalogue of Life
 Bringing together independent checklists into a unified global resource is a complex task. It relies on a robust editorial process that maintains consistency and scientific integrity. It also preserves the original content supplied by taxonomic experts.
 
-This section describes the **two phases** involved in building the Catalogue of Life—from preparing and standardising data to publishing the Base and eXtended Releases.
+This section describes the **two phases** involved in building the Catalogue of Life—from preparing and standardising data to publishing the Base and Extended Releases.
  
 ## Phase 1 – Integration of Authoritative Global Checklists
 ### Data Conversion Pipelines
@@ -112,5 +112,5 @@ The assembly runs directly after the publication of the COL Base Release aiming 
 - Addressing issues or user feedback from previous versions
 
 ### Outcome
-The result is the **Catalogue of Life eXtended Release (COL XR)**, published on the website, in ChecklistBank, and accessible via the API. Every merged name is assigned a persistent [identifier](/building/identifier).
+The result is the **Catalogue of Life Extended Release (COL XR)**, published on the website, in ChecklistBank, and accessible via the API. Every merged name is assigned a persistent [identifier](/building/identifier).
 

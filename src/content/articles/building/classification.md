@@ -44,7 +44,7 @@ In addition to traditional taxonomic naming based on morphology, molecular analy
 
 Although these groupings don't always match formal Linnaean ranks, they are increasingly important in molecular biology, ecology, and especially in environmental DNA (eDNA) studies. SHs and OTUs help researchers study biodiversity, including organisms that remain unnamed or undescribed.
 
-Historically, these names have not been included in authoritative taxonomic catalogues. However, due to their growing relevance, the Catalogue of Life eXtended Release (COL XR) has begun to integrate them—placing each as accurately as possible within the higher taxonomic classification.
+Historically, these names have not been included in authoritative taxonomic catalogues. However, due to their growing relevance, the Catalogue of Life Extended Release (COL XR) has begun to integrate them—placing each as accurately as possible within the higher taxonomic classification.
 
 
 

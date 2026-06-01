@@ -14,7 +14,7 @@ The Catalogue of Life and its infrastructure are used in many ways to support bi
 The Catalogue of life is being used to taxonomically harmonise data and enable the discovery and use of biodiversity data of various data infrastructures.
 
 _Show cases_
-- Used to taxonomically represent more than 3.1 billion species occurrences mediated through the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/). Since the onset, the Catalogue has served as the primary source for building GBIF’s taxonomy backbone. This collaboration has evolved over time, one of the latest joint projects started in 2020 to develop an enhanced process that improves both data coverage and quality of COL’s data. As a result, GBIF will adopt the Catalogue of Life eXtended Release as its main taxonomic classification from 2025.
+- Used to taxonomically represent more than 3.1 billion species occurrences mediated through the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/). Since the onset, the Catalogue has served as the primary source for building GBIF’s taxonomy backbone. This collaboration has evolved over time, one of the latest joint projects started in 2020 to develop an enhanced process that improves both data coverage and quality of COL’s data. As a result, GBIF will adopt the Catalogue of Life Extended Release as its main taxonomic classification from 2025.
   
 - The Barcode of Life (BOL) is working towards adopting the Catalogue of Life as the foundation for its taxonomic view, which helps organize 16.5 million public DNA barcode records. Both organizations are collaborating to integrate taxonomic feedback from BOL’s users and taxonomy experts into the Catalogue of Life.
 

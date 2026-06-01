@@ -13,10 +13,10 @@ The Catalogue of Life is available as a free, native **iPhone app** — browse, 
 
 ## What you can do
 
-- **Browse and search** the full release — walk the classification tree or search by scientific name with filters for rank, status and group. Synonyms, vernacular names and authorships are a tap away, and eXtended Release (XR) names are clearly marked.
+- **Browse and search** the full release — walk the classification tree or search by scientific name with filters for rank, status and group. Synonyms, vernacular names and authorships are a tap away, and Extended Release (XR) names are clearly marked.
 - **Rich taxon pages** with full classification, original publication, synonyms, and an interactive sunburst of a taxon's children.
 - **Linked GBIF data** — occurrence maps, country statistics and image galleries where available, with attribution carried through.
-- **Switch between releases** — the latest monthly eXtended or Base release, or any annual release back to 2021.
+- **Switch between releases** — the latest monthly Extended or Base release, or any annual release back to 2021.
 - **Release metrics, source datasets and favourites.**
 
 The app is free, contains no ads, and needs no account. An Android version is not currently planned.

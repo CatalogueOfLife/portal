@@ -34,7 +34,7 @@ The image tags are made up of several pieces of information:
 
 `{taxonomy}-{architecture}-{datasetKey}-{date}-{time}`
 
-So the image `xcol-arm64-308651-20250516-145444` exposes the COL eXtended Release with [datasetKey=308651](https://www.checklistbank.org/dataset/308651) and was build on the 16th of May 2025.
+So the image `xcol-arm64-308651-20250516-145444` exposes the COL Extended Release with [datasetKey=308651](https://www.checklistbank.org/dataset/308651) and was build on the 16th of May 2025.
 
 
 You can also pull and run the latest COL XR like this

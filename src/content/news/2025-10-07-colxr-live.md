@@ -15,14 +15,14 @@ We sincerely thank everyone who contributed to this effort so far. We look forwa
 
 *Key website updates*
 
-The Catalogue of Life includes information with different gradients of quality. It now comprises two releases. The base release is verified by taxonomic experts specifically for COL. The eXtended Release includes extra data from other sources. The latter is now the default in catalogueoflife.org. 
+The Catalogue of Life includes information with different gradients of quality. It now comprises two releases. The base release is verified by taxonomic experts specifically for COL. The Extended Release includes extra data from other sources. The latter is now the default in catalogueoflife.org. 
 
 
-- Browse view: Shows the COL eXtended Release merged names marked with the XR icon. Thus you can identify which names come from vetted sources  and which from the additional sources (regional, national, and management checklists among others).
+- Browse view: Shows the COL Extended Release merged names marked with the XR icon. Thus you can identify which names come from vetted sources  and which from the additional sources (regional, national, and management checklists among others).
 
 <img src="/images/posts/browse_blogPost_202510.png" width="700">
 
-- Search page: You can distinguish and filter between the Base and the eXtended releases.
+- Search page: You can distinguish and filter between the Base and the Extended releases.
 
 <img src="/images/posts/search_blogPost_202510.png" width="700">
 
@@ -30,7 +30,7 @@ The Catalogue of Life includes information with different gradients of quality. 
 
 <img src="/images/posts/dowNload_blogPost_202510.png" width="700">
 
-- Source list: Includes the new data providers contributing to the eXtended Release.
+- Source list: Includes the new data providers contributing to the Extended Release.
 
 - Improved navigation: Updated menu and new informational sections.
 
