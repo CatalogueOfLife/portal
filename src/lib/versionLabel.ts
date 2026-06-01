@@ -67,6 +67,13 @@ export function navHrefForToken(dataPath: string, token: string): string {
   return dataPath; // extended
 }
 
+/** The taxon page URL for a (release-shared) id in the active version. */
+export function taxonHrefForToken(id: string, token: string): string {
+  if (isYear(token)) return `/annual-checklist/${token}/taxon/${id}`;
+  if (token === 'base') return `/data/taxon/${id}?v=br`;
+  return `/data/taxon/${id}`;
+}
+
 // --- URL-based wrappers used by the server-rendered header ------------------
 export const versionLabel = (pathname = '/', search = '') => labelForToken(versionToken(pathname, search));
 export const versionMetadataHref = (pathname = '/', search = '') => metadataHrefForToken(versionToken(pathname, search));

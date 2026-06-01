@@ -73,6 +73,7 @@ const verHome = versionHomeHref(Astro.url.pathname);
     metadataHrefForToken,
     homeHrefForToken,
     navHrefForToken,
+    taxonHrefForToken,
   } from '../lib/versionLabel';
 
   // Mobile menu toggle — replaces Foundation's top-bar JS (the only nav script
@@ -127,6 +128,13 @@ const verHome = versionHomeHref(Astro.url.pathname);
     document.querySelectorAll<HTMLAnchorElement>('a[data-nav]').forEach((a) => {
       const canonical = a.dataset.nav;
       if (canonical) a.setAttribute('href', navHrefForToken(canonical, active));
+    });
+
+    // Version-scoped taxon links, e.g. the homepage kingdom tiles (data-taxon-id
+    // holds the release-shared id). Keeps the tile in the active release.
+    document.querySelectorAll<HTMLAnchorElement>('a[data-taxon-id]').forEach((a) => {
+      const id = a.dataset.taxonId;
+      if (id) a.setAttribute('href', taxonHrefForToken(id, active));
     });
 
     // Swap version-dependent text (e.g. "current version 2026-05-15 XR") to Base.

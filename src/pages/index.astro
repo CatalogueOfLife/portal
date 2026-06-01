@@ -31,7 +31,7 @@ const partners = [
         <div class="row kingdoms">
           {
             milestones.map((m, i) => (
-              <a href={m.link}>
+              <a href={m.link} data-taxon-id={m.link.replace('/data/taxon/', '')}>
                 <div class="small-3 small-3 columns" style="background-color: #fff;">
                   <div class="mod modMilestone" style={`background-image: url(/images/kingdoms/${m.image}); background-size: cover;`}>
                     <div class="milestoneText" style={`background-color: #${m.bgcolor}; color: #${m.fgcolor};`}>
