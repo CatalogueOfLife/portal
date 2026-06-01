@@ -1,10 +1,19 @@
 ---
 import Content from '@layouts/Content.astro';
 import MetricsIsland from '@components/islands/MetricsIsland.tsx';
-import { datasetKey, metadata } from '@data/releaseMetadata';
-import { baseKey } from '@data/versions';
+import { metadata } from '@data/releaseMetadata';
 import { changelogEntries } from '@data/changelog';
 import { legacyMetrics } from '@data/legacyMetrics';
+import { resolveVersion } from '@lib/version';
+
+// On-demand so ?v=br renders the Base release: the rank chart drops the
+// base/eXtended split, the "Extended release additions" section is hidden, and
+// the timeline shows the Base series.
+export const prerender = false;
+
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const isBase = ver.kind === 'base';
+const datasetKey = ver.datasetKey;
 
 // Basic-auth credential for the client-side metrics fetch — needed for private
 // candidate releases on preview/dev; empty on prod. (Inlined into the client
@@ -39,15 +48,17 @@ const timeline = [
 
 const fm = {
   title: 'Metrics',
-  tagline: 'Metrics about the current Catalogue of Life',
+  tagline: `Metrics about the ${ver.label} release of the Catalogue of Life`,
   section_id: 'data',
   toc: true,
+  noindex: isBase,
   imageUrl: '/images/species/Asplenium_trichomanes.jpg',
   imageCaption:
     '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
 };
 
 // Manual TOC headings (this page is .astro, not a Markdown collection entry).
+// "Extended release additions" only applies to the eXtended release.
 const headings = [
   { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
   { depth: 2, slug: 'composition-of-eukaryota', text: 'Composition of Eukaryota' },
@@ -55,7 +66,7 @@ const headings = [
   { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
   { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
-  { depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' },
+  ...(isBase ? [] : [{ depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' }]),
   { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
 const card = 'flex: 1 1 160px; padding: 16px; background: #f7f7f7; border-radius: 4px; text-align: center;';
@@ -72,32 +83,6 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     #extended-release-additions,
     #changes-over-time {
       margin-top: 56px;
-    }
-
-    /* Base / eXtended toggle for the release-timeline chart. */
-    #timeline-toggle {
-      display: inline-flex;
-      margin: 4px 0 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    #timeline-toggle button {
-      margin: 0;
-      border: 0;
-      background: #fff;
-      color: #333;
-      padding: 6px 14px;
-      font-size: 13px;
-      line-height: 1.4;
-      cursor: pointer;
-    }
-    #timeline-toggle button + button {
-      border-left: 1px solid #ccc;
-    }
-    #timeline-toggle button.active {
-      background: #1d7ea9;
-      color: #fff;
     }
   </style>
 
@@ -133,37 +118,50 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
   <div id="chart-codes" style="height: 360px;"></div>
 
   <h2 id="accepted-taxa-by-rank">Accepted taxa by rank</h2>
-  <p>The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and those merged into the <a href="/building/releases">eXtended Release</a>.</p>
+  {
+    isBase ? (
+      <p>The twenty-five most populous ranks among accepted taxa in the Base release.</p>
+    ) : (
+      <p>
+        The twenty-five most populous ranks among accepted taxa, split between taxa that come from the base release and
+        those merged into the <a href="/building/releases">eXtended Release</a>.
+      </p>
+    )
+  }
   <div id="chart-ranks" style="height: 775px;"></div>
 
   <h2 id="vernacular-names-by-language">Vernacular names by language</h2>
   <p>The twenty languages with the most vernacular names in the catalogue. Total languages covered: <span id="m-lang-total">…</span>.</p>
   <div id="chart-langs" style="height: 600px;"></div>
 
-  <h2 id="extended-release-additions">Extended release additions</h2>
-  <p>For names that originate in the base release, the <a href="/building/releases">eXtended Release</a> supplements them with secondary information drawn from additional sources. The breakdown below shows how many base-release names received each kind of added information.</p>
-  <div id="chart-secondary" style="height: 320px;"></div>
+  {
+    !isBase && (
+      <Fragment>
+        <h2 id="extended-release-additions">Extended release additions</h2>
+        <p>
+          For names that originate in the base release, the <a href="/building/releases">eXtended Release</a> supplements
+          them with secondary information drawn from additional sources. The breakdown below shows how many base-release
+          names received each kind of added information.
+        </p>
+        <div id="chart-secondary" style="height: 320px;" />
+      </Fragment>
+    )
+  }
 
   <h2 id="changes-over-time">Changes over time</h2>
   <p>
     How the number of accepted families, genera and species — and the total of all names including synonyms — has
-    changed across past COL releases. Figures from 2020 onward come from each ChecklistBank release; earlier points are
-    the historical <a href="/data/download#past-releases">annual checklists</a> back to 2005, recomputed from the
-    original release databases. Use the switch to compare the <a href="/building/releases">Base and eXtended Release</a>
-    timelines, which sit at very different scales (note the logarithmic axis).
+    changed across past releases of the <a href="/building/releases">version</a> you're viewing. Base-release figures
+    reach back to the historical <a href="/data/download#past-releases">annual checklists</a> since 2005, recomputed
+    from the original release databases. Note the logarithmic axis.
   </p>
-
-  <div id="timeline-toggle" role="group" aria-label="Release type">
-    <button type="button" data-mode="extended" class="active">eXtended Release</button>
-    <button type="button" data-mode="base">Base Release</button>
-  </div>
 
   <div id="chart-timeline" style="height: 440px;"></div>
 
   <!-- Highcharts (only loaded on this page) -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
 
-  <script define:vars={{ datasetKey: String(datasetKey), baseKey: String(baseKey), api: metadata.api, auth: colAuth }}>
+  <script define:vars={{ datasetKey: String(datasetKey), isBase, api: metadata.api, auth: colAuth }}>
     'use strict';
 
     // Silence Highcharts' "include accessibility.js" warning — the module isn't loaded here.
@@ -172,8 +170,7 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
     // ── Release metrics from /dataset/{key}/import ──────────────────────────
     (function () {
       const API = api;
-      // ?v=br selects the Base release (the breakdown island reads the URL itself).
-      const DATASET_KEY = new URLSearchParams(window.location.search).get('v') === 'br' ? baseKey : datasetKey;
+      const DATASET_KEY = datasetKey; // already resolved to the active version's key
       // Private candidate releases (preview/dev) require Basic auth on every
       // call; empty on prod (public release) -> no header.
       const authHeaders = auth ? { Authorization: 'Basic ' + btoa(auth) } : {};
@@ -248,81 +245,91 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
           renderPie('chart-usage-status', m.usagesByStatusCount, { seriesName: 'Usages' });
           renderPie('chart-codes', m.namesByCodeCount, { seriesName: 'Names' });
 
-          // Log-scale rank bar with linear base/extended segments riding on
-          // realCount/realTotal (see master metrics.md for the full rationale).
+          // Accepted taxa by rank (top 25).
           const totalByRank = m.taxaByRankCount || {};
-          const mergedByRank = m.mergedTaxaByRankCount || {};
-          const topRanks = Object.entries(totalByRank).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([rank]) => rank);
-          const baseData = [];
-          const extData = [];
-          topRanks.forEach(function (r) {
-            const total = totalByRank[r] || 0;
-            const merged = mergedByRank[r] || 0;
-            const regular = Math.max(0, total - merged);
-            if (total <= 0) { baseData.push(null); extData.push(null); return; }
-            const baseFrac = regular / total;
-            const v1 = Math.pow(total, baseFrac);
-            baseData.push({ y: v1, realCount: regular, realTotal: total });
-            extData.push({ y: total - v1, realCount: merged, realTotal: total });
-          });
-          Highcharts.chart('chart-ranks', {
-            chart: { type: 'bar', backgroundColor: 'transparent' },
-            title: { text: null },
-            xAxis: { categories: topRanks, title: { text: null }, labels: { style: { fontSize: '12px' } } },
-            yAxis: {
-              type: 'logarithmic', min: 1, minorTickInterval: 0.1,
-              title: { text: 'Accepted taxa (log)' }, allowDecimals: false, reversedStacks: false,
-            },
-            legend: { enabled: true, reversed: true },
-            tooltip: {
-              shared: true, useHTML: true,
-              formatter: function () {
-                const short = (n) => n.replace(/ release$/, '');
-                const tag = '<span style="display:inline-block;width:5em;">';
-                const total = this.points[0].point.realTotal;
-                const lines = this.points.map(function (p) {
-                  const count = p.point.realCount;
-                  const percent = total > 0 ? (count / total) * 100 : 0;
-                  return tag + short(p.series.name) + '</span><b>' + count.toLocaleString() + '</b> (' + percent.toFixed(1) + '%)';
-                });
-                lines.push(tag + 'Total</span><b>' + total.toLocaleString() + '</b>');
-                const rank = this.points[0].category;
-                return '<b>' + rank + '</b><br/>' + lines.join('<br/>');
+          const topRankEntries = Object.entries(totalByRank).sort((a, b) => b[1] - a[1]).slice(0, 25);
+          if (isBase) {
+            // Base has no eXtended additions, so a single log-scale bar (no split).
+            renderBar('chart-ranks', topRankEntries, { log: true, yTitle: 'Accepted taxa (log)', seriesName: 'Accepted taxa' });
+          } else {
+            // Log-scale rank bar with linear base/extended segments riding on
+            // realCount/realTotal (see master metrics.md for the full rationale).
+            const mergedByRank = m.mergedTaxaByRankCount || {};
+            const topRanks = topRankEntries.map(([rank]) => rank);
+            const baseData = [];
+            const extData = [];
+            topRanks.forEach(function (r) {
+              const total = totalByRank[r] || 0;
+              const merged = mergedByRank[r] || 0;
+              const regular = Math.max(0, total - merged);
+              if (total <= 0) { baseData.push(null); extData.push(null); return; }
+              const baseFrac = regular / total;
+              const v1 = Math.pow(total, baseFrac);
+              baseData.push({ y: v1, realCount: regular, realTotal: total });
+              extData.push({ y: total - v1, realCount: merged, realTotal: total });
+            });
+            Highcharts.chart('chart-ranks', {
+              chart: { type: 'bar', backgroundColor: 'transparent' },
+              title: { text: null },
+              xAxis: { categories: topRanks, title: { text: null }, labels: { style: { fontSize: '12px' } } },
+              yAxis: {
+                type: 'logarithmic', min: 1, minorTickInterval: 0.1,
+                title: { text: 'Accepted taxa (log)' }, allowDecimals: false, reversedStacks: false,
               },
-            },
-            plotOptions: { series: { stacking: 'normal' }, bar: { dataLabels: { enabled: false } } },
-            series: [
-              { name: 'Base release', color: '#7cb5ec', data: baseData },
-              {
-                name: 'Extended release', color: '#722ed1', data: extData,
-                dataLabels: {
-                  enabled: true, align: 'left', inside: false, crop: false, overflow: 'allow',
-                  style: { fontWeight: 'normal', color: '#000000', textOutline: 'none' },
-                  formatter: function () { return this.point.realTotal.toLocaleString(); },
+              legend: { enabled: true, reversed: true },
+              tooltip: {
+                shared: true, useHTML: true,
+                formatter: function () {
+                  const short = (n) => n.replace(/ release$/, '');
+                  const tag = '<span style="display:inline-block;width:5em;">';
+                  const total = this.points[0].point.realTotal;
+                  const lines = this.points.map(function (p) {
+                    const count = p.point.realCount;
+                    const percent = total > 0 ? (count / total) * 100 : 0;
+                    return tag + short(p.series.name) + '</span><b>' + count.toLocaleString() + '</b> (' + percent.toFixed(1) + '%)';
+                  });
+                  lines.push(tag + 'Total</span><b>' + total.toLocaleString() + '</b>');
+                  const rank = this.points[0].category;
+                  return '<b>' + rank + '</b><br/>' + lines.join('<br/>');
                 },
               },
-            ],
-            credits: { enabled: false },
-          });
+              plotOptions: { series: { stacking: 'normal' }, bar: { dataLabels: { enabled: false } } },
+              series: [
+                { name: 'Base release', color: '#7cb5ec', data: baseData },
+                {
+                  name: 'Extended release', color: '#722ed1', data: extData,
+                  dataLabels: {
+                    enabled: true, align: 'left', inside: false, crop: false, overflow: 'allow',
+                    style: { fontWeight: 'normal', color: '#000000', textOutline: 'none' },
+                    formatter: function () { return this.point.realTotal.toLocaleString(); },
+                  },
+                },
+              ],
+              credits: { enabled: false },
+            });
+          }
 
           renderBar('chart-langs', topN(m.vernacularsByLanguageCount, 20, labelLanguage), {
             yTitle: 'Vernacular names', seriesName: 'Vernacular names',
           });
 
-          const secondaryLabel = { parent: 'classification' };
-          const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
-            .sort((a, b) => b[1] - a[1]).map(([k, v]) => [secondaryLabel[k] || k, v]);
-          Highcharts.chart('chart-secondary', {
-            chart: { type: 'bar', backgroundColor: 'transparent' },
-            title: { text: null },
-            xAxis: { categories: secondaryEntries.map((e) => e[0]), title: { text: null }, labels: { style: { fontSize: '12px' } } },
-            yAxis: { title: { text: 'Names enriched' }, allowDecimals: false },
-            legend: { enabled: false },
-            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> names' },
-            plotOptions: { bar: { color: '#722ed1', dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontWeight: 'normal' } } } },
-            series: [{ name: 'Names enriched', data: secondaryEntries.map((e) => e[1]) }],
-            credits: { enabled: false },
-          });
+          // Extended-release additions — eXtended only (the section is omitted on Base).
+          if (!isBase && document.getElementById('chart-secondary')) {
+            const secondaryLabel = { parent: 'classification' };
+            const secondaryEntries = Object.entries(m.secondarySourceByInfoCount || {})
+              .sort((a, b) => b[1] - a[1]).map(([k, v]) => [secondaryLabel[k] || k, v]);
+            Highcharts.chart('chart-secondary', {
+              chart: { type: 'bar', backgroundColor: 'transparent' },
+              title: { text: null },
+              xAxis: { categories: secondaryEntries.map((e) => e[0]), title: { text: null }, labels: { style: { fontSize: '12px' } } },
+              yAxis: { title: { text: 'Names enriched' }, allowDecimals: false },
+              legend: { enabled: false },
+              tooltip: { pointFormat: '<b>{point.y:,.0f}</b> names' },
+              plotOptions: { bar: { color: '#722ed1', dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontWeight: 'normal' } } } },
+              series: [{ name: 'Names enriched', data: secondaryEntries.map((e) => e[1]) }],
+              credits: { enabled: false },
+            });
+          }
         })
         .catch((err) => {
           console.error('Failed to load /dataset/{key}/import metrics:', err);
@@ -388,17 +395,8 @@ const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
         });
       }
 
-      const toggle = document.getElementById('timeline-toggle');
-      if (toggle) {
-        toggle.addEventListener('click', (e) => {
-          const btn = e.target.closest('button[data-mode]');
-          if (!btn) return;
-          toggle.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
-          render(btn.getAttribute('data-mode'));
-        });
-      }
-
-      render('extended');
+      // Show the series for the version this page reflects (?v=br -> Base).
+      render(new URLSearchParams(window.location.search).get('v') === 'br' ? 'base' : 'extended');
     })();
   </script>
 </Content>
