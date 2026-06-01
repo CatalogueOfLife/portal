@@ -1,19 +1,23 @@
 ---
 import Content from '@layouts/Content.astro';
-import { metadata, datasetKey } from '@data/releaseMetadata';
+import { metadata } from '@data/releaseMetadata';
 import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
 
-// The release metadata is baked at build time, so this page is static (no SSR
-// needed) but still emits the schema.org Dataset JSON-LD the old seo_metadata
-// Freemarker template produced.
-const cur = metadata.current;
-const url = `${site.url}/data/metadata`;
+// On-demand so ?v=br can render the Base release's metadata (both eXtended and
+// Base are baked at build time — no runtime fetch — but the query is read here).
+export const prerender = false;
+
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const cur = ver.kind === 'base' && metadata.base ? metadata.base.current : metadata.current;
+const url = `${site.url}/data/metadata${ver.linkQuery}`;
 
 const fm = {
   title: 'Metadata',
-  tagline: 'About the current Catalogue of Life',
+  tagline: `About the ${ver.label} release of the Catalogue of Life`,
   section_id: 'data',
   toc: false,
+  noindex: ver.kind === 'base',
   imageUrl: '/images/species/Tubifera_ferruginosa.jpg',
   imageCaption:
     '_Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY relew](https://www.inaturalist.org/photos/559741249)',
@@ -65,7 +69,7 @@ const jsonLd = {
 
   <h2>Recommended citation</h2>
   <div id="bibtex" style="float: right;">
-    <a href={`${metadata.api}/dataset/${datasetKey}.bib`}>
+    <a href={`${metadata.api}/dataset/${cur.key}.bib`}>
       <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
     </a>
   </div>

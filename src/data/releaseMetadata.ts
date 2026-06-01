@@ -39,7 +39,7 @@ export interface ReleaseMetadata {
   sources: SourceRef[];
   publisherSourceCount: number;
   previous: { key: number; version: string } | null;
-  base: { current: { key: number; version: string }; metrics: Metrics; sourceCount: number } | null;
+  base: { current: CurrentRelease; metrics: Metrics; sourceCount: number } | null;
 }
 
 export const metadata = data as unknown as ReleaseMetadata;

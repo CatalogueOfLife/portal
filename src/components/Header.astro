@@ -1,6 +1,6 @@
 ---
 import { nav } from '../lib/nav';
-import { versionLabel } from '../lib/versionLabel';
+import { versionLabel, versionMetadataHref } from '../lib/versionLabel';
 
 interface Props {
   sectionId?: string;
@@ -10,6 +10,7 @@ const { sectionId } = Astro.props;
 // Which COL version this page shows, from the URL. Correct at build for
 // eXtended + annual routes; static base pages (?v=br) are fixed client-side.
 const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
+const verMetaHref = versionMetadataHref(Astro.url.pathname, Astro.url.search);
 ---
 
 <div class="contain-to-grid sticky">
@@ -23,7 +24,7 @@ const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
         </h1>
       </li>
       <li class="version-indicator">
-        <a href="/data/metadata" title="COL version shown on this page" data-version-indicator>{verLabel}</a>
+        <a href={verMetaHref} title="COL version shown on this page" data-version-indicator>{verLabel}</a>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
@@ -72,13 +73,30 @@ const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
     }
   });
 
-  // Correct the version indicator for static pages reached with ?v=br (Base),
-  // which the build can't see (the server-rendered label assumed eXtended).
-  const indicator = document.querySelector('[data-version-indicator]');
-  if (indicator) {
-    const label = versionLabel(location.pathname, location.search);
-    if (indicator.textContent !== label) indicator.textContent = label;
-  }
+  // Version stickiness for static pages reached with ?v=br (Base). Such pages
+  // are prerendered as eXtended (the build can't see the query), so fix them up
+  // on the client: the indicator label, version-scoped nav links (so browsing
+  // stays in Base), and any version-dependent text. (Annual versions are
+  // path-based and handled server-side.)
+  (function () {
+    const indicator = document.querySelector('[data-version-indicator]');
+    if (indicator) indicator.textContent = versionLabel(location.pathname, location.search);
+
+    if (new URLSearchParams(location.search).get('v') !== 'br') return;
+
+    // Version-scoped data pages: keep ?v=br on their links. (Not /data/download
+    // or /data/changelog, which are version-agnostic.)
+    const scoped = new Set(['/data/search', '/data/browse', '/data/sources', '/data/metrics', '/data/metadata']);
+    document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((a) => {
+      const href = a.getAttribute('href');
+      if (href && scoped.has(href)) a.setAttribute('href', href + '?v=br');
+    });
+
+    // Swap version-dependent text (e.g. "current version 2026-05-15 XR") to Base.
+    document.querySelectorAll<HTMLElement>('[data-version-string]').forEach((el) => {
+      if (el.dataset.baseVersion) el.textContent = el.dataset.baseVersion;
+    });
+  })();
 </script>
 
 <style is:global>

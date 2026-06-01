@@ -139,7 +139,9 @@ async function fetchReleaseMetadata() {
   // Base release (origin RELEASE) — download page shows it alongside the XRelease.
   const base = await fetchReleaseFull('RELEASE');
   out.base = {
-    current: { key: base.current.key, version: base.current.version },
+    // Full current record (same shape as out.current) so /data/metadata?v=br
+    // can render the Base release's metadata too.
+    current: projectMetadata(base).current,
     metrics: slimMetrics(base.metrics),
     sourceCount: (base.sources || []).length,
   };

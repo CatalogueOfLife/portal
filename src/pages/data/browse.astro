@@ -17,7 +17,9 @@ const fm = {
   <h1>Browse the Catalogue of Life</h1>
   <p>
     Use this tree to explore the full classification from the current
-    <a href="/data/metadata">version {metadata.current.version}</a> of the Catalogue of Life. The
+    <a href="/data/metadata"
+      >version <span data-version-string data-base-version={metadata.base?.current.version}>{metadata.current.version}</span></a
+    > of the Catalogue of Life. The
     <strong>Find taxon</strong> field allows for direct access using any name known to COL.
   </p>
   <div class="row" style="background: white; margin-top: 0; margin-bottom: 0">

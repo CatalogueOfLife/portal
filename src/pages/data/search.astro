@@ -15,8 +15,10 @@ const fm = {
 
 <Content frontmatter={fm}>
   <p>
-    Find any scientific name in the current <a href="/data/metadata">version {metadata.current.version}</a> of the
-    Catalogue of Life, <a href="/howto/access#search">learn How To</a>.
+    Find any scientific name in the current
+    <a href="/data/metadata"
+      >version <span data-version-string data-base-version={metadata.base?.current.version}>{metadata.current.version}</span></a
+    > of the Catalogue of Life, <a href="/howto/access#search">learn How To</a>.
   </p>
   <div class="row" style="background: white">
     <div id="search" class="catalogue-of-life">
