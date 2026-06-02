@@ -2,6 +2,8 @@
 import Content from '@layouts/Content.astro';
 import TreeIsland from '@components/islands/TreeIsland.tsx';
 import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+import { metadata } from '@data/releaseMetadata';
+import { colFetch } from '@lib/colApi';
 
 // One static page per CLB-hosted annual year (2021+). The island reads the year
 // from the URL and pins itself to that release; ≤2020 stays on the legacy
@@ -13,6 +15,25 @@ export function getStaticPaths() {
 const { year } = Astro.params;
 const datasetKey = annualKeyByYear[Number(year)];
 const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
+
+// Which root the tree opens on load. The library no longer auto-expands any
+// node, so resolve it at build time: prefer Eukaryota (CS5HF, as in the current
+// Extended/Base lineage and recent editions); older editions instead root at
+// "Biota", so fall back to the first root. Empty if the lookup fails — the tree
+// still loads, just not pre-expanded.
+const EUKARYOTA_ID = 'CS5HF';
+let defaultTaxonKey: string | undefined;
+try {
+  const res = await colFetch(`${metadata.api}/dataset/${datasetKey}/tree?limit=20`);
+  if (res.ok) {
+    const body = await res.json();
+    const roots: { id?: string }[] = Array.isArray(body) ? body : (body.result ?? []);
+    const ids = roots.map((n) => n.id).filter(Boolean) as string[];
+    defaultTaxonKey = ids.includes(EUKARYOTA_ID) ? EUKARYOTA_ID : ids[0];
+  }
+} catch {
+  /* leave undefined — the tree still loads, just not pre-expanded */
+}
 
 const fm = {
   title: 'Browse',
@@ -34,7 +55,7 @@ const fm = {
   </p>
   <div class="row" style="background: white; margin-top: 0; margin-bottom: 0">
     <div id="tree" class="catalogue-of-life">
-      <TreeIsland client:only="react" datasetKey={String(datasetKey)} showTreeOptions type="project" />
+      <TreeIsland client:only="react" datasetKey={String(datasetKey)} defaultTaxonKey={defaultTaxonKey} showTreeOptions type="project" />
     </div>
   </div>
 </Content>
