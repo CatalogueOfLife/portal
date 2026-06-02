@@ -74,8 +74,37 @@ export function taxonHrefForToken(id: string, token: string): string {
   return `/data/taxon/${id}`;
 }
 
+// The per-version data surfaces that have an equivalent in every version, keyed
+// off their canonical /data path (download + changelog are intentionally absent
+// — they are version-agnostic and dropped from the annual menu). Each surface
+// appears either as /data/<surface> (Extended/Base) or
+// /annual-checklist/{year}/<surface> (annual) — the two forms are exclusive.
+const SWITCHABLE_SURFACE_RE = /^(?:\/annual-checklist\/\d{4}\/|\/data\/)(search|sources|metrics|metadata)(?:[/?]|$)/;
+const TAXON_RE = /^(?:\/annual-checklist\/\d{4}\/|\/data\/)taxon\/([^/?]+)/;
+const HOME_RE = /^(?:\/|\/annual-checklist\/\d{4}\/?|\/data\/browse\/?)$/;
+
+/**
+ * Where the header version popup sends you when picking `token`: the same data
+ * surface in the chosen version, or — for pages with no per-version equivalent
+ * (home → that version's home; about/news/download/changelog/dataset/… →
+ * metadata) — a sensible fallback. Depends only on (token, current path), so it
+ * can be computed server-side and never needs the active version.
+ */
+export function versionSwitchHref(token: string, pathname = '/'): string {
+  if (HOME_RE.test(pathname)) return homeHrefForToken(token);
+  const taxon = pathname.match(TAXON_RE);
+  if (taxon) return taxonHrefForToken(taxon[1], token);
+  const surface = pathname.match(SWITCHABLE_SURFACE_RE);
+  if (surface) return navHrefForToken(`/data/${surface[1]}`, token);
+  return metadataHrefForToken(token);
+}
+
+/** The storable token for a version record ('extended' | 'base' | a year). */
+export function tokenForVersion(v: { kind: string; year?: number }): string {
+  return v.kind === 'annual' && v.year ? String(v.year) : v.kind;
+}
+
 // --- URL-based wrappers used by the server-rendered header ------------------
 export const versionLabel = (pathname = '/', search = '') => labelForToken(versionToken(pathname, search));
-export const versionMetadataHref = (pathname = '/', search = '') => metadataHrefForToken(versionToken(pathname, search));
 export const versionHomeHref = (pathname = '/') => homeHrefForToken(versionToken(pathname));
 export const versionScopedHref = (path: string, pathname = '/') => navHrefForToken(path, versionToken(pathname));

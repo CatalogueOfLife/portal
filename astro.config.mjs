@@ -17,4 +17,12 @@ export default defineConfig({
   redirects: {
     '/news/index': '/news',
   },
+  vite: {
+    define: {
+      // SITE_ENV is set per environment at build time (deploy.sh: -e SITE_ENV),
+      // but the SSR service.env does not carry it — so bake it as a build-time
+      // constant available identically to static and SSR rendering. '' locally.
+      __SITE_ENV__: JSON.stringify(process.env.SITE_ENV ?? ''),
+    },
+  },
 });

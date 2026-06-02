@@ -1,9 +1,7 @@
 ---
 // Shared body of the metadata page, used by /data/metadata (Extended/Base, from
 // baked data) and /annual-checklist/{year}/metadata (SSR-fetched). The host
-// passes a normalized release record + the active version's label.
-import VersionSwitch from '@components/VersionSwitch.astro';
-
+// passes a normalized release record; switching versions lives in the header.
 interface Release {
   key: number | string;
   version?: string;
@@ -17,15 +15,11 @@ interface Release {
 }
 interface Props {
   cur: Release;
-  /** Label of the version this page shows (e.g. "Extended", "Annual 2023"). */
-  currentLabel: string;
   /** API base for the BibTeX link. */
   apiBase: string;
 }
-const { cur, currentLabel, apiBase } = Astro.props;
+const { cur, apiBase } = Astro.props;
 ---
-
-<VersionSwitch currentLabel={currentLabel} />
 
 <h2>Version</h2>
 <div id="version">
