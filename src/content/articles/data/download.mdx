@@ -9,6 +9,8 @@ permalink: /data/download
 
 import { metadata } from '@data/releaseMetadata';
 import { numf } from '@lib/numf';
+import { timeline } from '@data/timeline';
+import ChangesOverTime from '@components/ChangesOverTime.astro';
 
 export const cur = metadata.current;
 export const base = metadata.base;
@@ -117,3 +119,5 @@ The table below lists every annual version with its accepted **families**, **gen
 | 2003 | — | — | 304,000 | — | — |
 | 2002 | — | — | 260,000 | — | — |
 | 2000 | — | — | 220,000 | — | — |
+
+<ChangesOverTime timeline={timeline} mode="base" />

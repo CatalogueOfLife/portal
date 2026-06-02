@@ -6,13 +6,10 @@
 //   single        - true for a single-lineage release (Base or annual): the
 //                   rank chart is one bar (no base/Extended split) and the
 //                   "Extended release additions" section is omitted.
-//   timelineMode  - which "changes over time" series to draw ('base'|'extended').
 //   metadataHref  - the active version's metadata page (for intro links).
 interface Props {
   datasetKey: number | string;
   single: boolean;
-  timelineMode: 'base' | 'extended';
-  timeline: unknown[];
   api: string;
   auth: string;
   metadataHref: string;
@@ -21,7 +18,7 @@ interface Props {
   // where the Extended release's Eukaryota id does not resolve).
   breakdownTaxonId?: string | null;
 }
-const { datasetKey, single, timelineMode, timeline, api, auth, metadataHref, breakdownTaxonId = 'CS5HF' } = Astro.props;
+const { datasetKey, single, api, auth, metadataHref, breakdownTaxonId = 'CS5HF' } = Astro.props;
 const card = 'flex: 1 1 160px; padding: 16px; background: #f7f7f7; border-radius: 4px; text-align: center;';
 const num = 'font-size: 24px; font-weight: 600; line-height: 1.2;';
 const lbl = 'font-size: 13px; color: #666; margin-top: 4px;';
@@ -35,8 +32,7 @@ import MetricsIsland from '@components/islands/MetricsIsland.tsx';
   #accepted-taxa-by-rank,
   #vernacular-names-by-language,
   #distributions-by-gazetteer,
-  #extended-release-additions,
-  #changes-over-time {
+  #extended-release-additions {
     margin-top: 56px;
   }
 </style>
@@ -116,16 +112,6 @@ import MetricsIsland from '@components/islands/MetricsIsland.tsx';
     </Fragment>
   )
 }
-
-<h2 id="changes-over-time">Changes over time</h2>
-<p>
-  How the number of accepted families, genera and species — and the total of all names including synonyms — has
-  changed across past releases of the <a href="/building/releases">version</a> you're viewing. Base-release figures
-  reach back to the historical <a href="/data/download#past-releases">annual checklists</a> since 2005, recomputed
-  from the original release databases. Note the logarithmic axis.
-</p>
-
-<div id="chart-timeline" style="height: 440px;"></div>
 
 <!-- Highcharts (only loaded on this page) -->
 <script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
@@ -344,59 +330,5 @@ import MetricsIsland from '@components/islands/MetricsIsland.tsx';
         const target = document.querySelector('#metrics-headline');
         if (target) target.parentNode.insertBefore(note, target);
       });
-  })();
-</script>
-
-<!-- ── Release timeline (static; built from cached release metrics + legacy data) ── -->
-<script define:vars={{ timeline, timelineMode }}>
-  (function () {
-    'use strict';
-
-    const DATA = (timeline || []).filter((d) => d && d.t);
-
-    const SERIES = [
-      { key: 'family', name: 'Families', color: '#f7a35c' },
-      { key: 'genus', name: 'Genera', color: '#90ed7d' },
-      { key: 'species', name: 'Species', color: '#7cb5ec' },
-      { key: 'names', name: 'All names', color: '#722ed1' },
-    ];
-
-    const fmt = (n) => Number(n || 0).toLocaleString();
-    const ts = (s) => {
-      const p = String(s).slice(0, 10).split('-');
-      return Date.UTC(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
-    };
-
-    function render(mode) {
-      const ext = mode === 'extended';
-      const rows = DATA.filter((d) => !!d.ext === ext).sort((a, b) => ts(a.t) - ts(b.t));
-
-      Highcharts.chart('chart-timeline', {
-        chart: { type: 'line', backgroundColor: 'transparent' },
-        title: { text: null },
-        xAxis: { type: 'datetime', title: { text: null } },
-        yAxis: { type: 'logarithmic', title: { text: 'Count (log scale)' }, allowDecimals: false },
-        legend: { enabled: true },
-        tooltip: {
-          shared: true,
-          useHTML: true,
-          formatter: function () {
-            const lines = this.points.map(
-              (p) => '<span style="color:' + p.color + '">●</span> ' + p.series.name + ': <b>' + fmt(p.y) + '</b>',
-            );
-            return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>' + lines.join('<br/>');
-          },
-        },
-        plotOptions: { series: { marker: { radius: 3 } } },
-        series: SERIES.map((s) => ({
-          name: s.name,
-          color: s.color,
-          data: rows.map((r) => [ts(r.t), r[s.key] || null]),
-        })),
-        credits: { enabled: false },
-      });
-    }
-
-    render(timelineMode === 'extended' ? 'extended' : 'base');
   })();
 </script>

@@ -1,0 +1,82 @@
+---
+// "Changes over time" timeline chart, shown at the bottom of /data/download.
+// Static: the series is built at build time (see @data/timeline) — no runtime
+// API call. `mode` selects which lineage to draw; the data carries both so a
+// base/extended switch can be added here later without changing the caller.
+import type { TimelinePoint } from '@data/timeline';
+
+interface Props {
+  timeline: TimelinePoint[];
+  mode?: 'base' | 'extended';
+}
+const { timeline, mode = 'base' } = Astro.props;
+---
+
+<h2 id="changes-over-time">Changes over time</h2>
+<p>
+  How the number of accepted families, genera and species — and the total of all names including synonyms — has
+  changed across past <a href="/building/releases#base">Base releases</a> of the Catalogue of Life. Figures reach
+  back to the historical <a href="#past-releases">annual checklists</a> since 2005, recomputed from the original
+  release databases. Note the logarithmic axis.
+</p>
+
+<div id="chart-timeline" style="height: 440px; margin-top: 16px;"></div>
+
+<!-- Highcharts (only loaded for this chart) -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
+
+<script define:vars={{ timeline, mode }}>
+  (function () {
+    'use strict';
+
+    // Silence Highcharts' "include accessibility.js" warning — not loaded here.
+    Highcharts.setOptions({ accessibility: { enabled: false } });
+
+    const DATA = (timeline || []).filter((d) => d && d.t);
+
+    const SERIES = [
+      { key: 'family', name: 'Families', color: '#f7a35c' },
+      { key: 'genus', name: 'Genera', color: '#90ed7d' },
+      { key: 'species', name: 'Species', color: '#7cb5ec' },
+      { key: 'names', name: 'All names', color: '#722ed1' },
+    ];
+
+    const fmt = (n) => Number(n || 0).toLocaleString();
+    const ts = (s) => {
+      const p = String(s).slice(0, 10).split('-');
+      return Date.UTC(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+    };
+
+    function render(m) {
+      const ext = m === 'extended';
+      const rows = DATA.filter((d) => !!d.ext === ext).sort((a, b) => ts(a.t) - ts(b.t));
+
+      Highcharts.chart('chart-timeline', {
+        chart: { type: 'line', backgroundColor: 'transparent' },
+        title: { text: null },
+        xAxis: { type: 'datetime', title: { text: null } },
+        yAxis: { type: 'logarithmic', title: { text: 'Count (log scale)' }, allowDecimals: false },
+        legend: { enabled: true },
+        tooltip: {
+          shared: true,
+          useHTML: true,
+          formatter: function () {
+            const lines = this.points.map(
+              (p) => '<span style="color:' + p.color + '">●</span> ' + p.series.name + ': <b>' + fmt(p.y) + '</b>',
+            );
+            return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>' + lines.join('<br/>');
+          },
+        },
+        plotOptions: { series: { marker: { radius: 3 } } },
+        series: SERIES.map((s) => ({
+          name: s.name,
+          color: s.color,
+          data: rows.map((r) => [ts(r.t), r[s.key] || null]),
+        })),
+        credits: { enabled: false },
+      });
+    }
+
+    render(mode === 'extended' ? 'extended' : 'base');
+  })();
+</script>

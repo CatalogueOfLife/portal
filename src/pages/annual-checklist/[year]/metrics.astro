@@ -2,8 +2,6 @@
 import Content from '@layouts/Content.astro';
 import MetricsContent from '@components/MetricsContent.astro';
 import { metadata } from '@data/releaseMetadata';
-import { changelogEntries } from '@data/changelog';
-import { legacyMetrics } from '@data/legacyMetrics';
 import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
 
 export function getStaticPaths() {
@@ -14,29 +12,6 @@ const { year } = Astro.params;
 const datasetKey = annualKeyByYear[Number(year)];
 const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
 const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
-
-// Same build-time "changes over time" data as /data/metrics; annual editions
-// are part of the Base lineage so the chart shows the Base series.
-const timeline = [
-  ...changelogEntries
-    .filter((e) => e.rel?.metrics?.taxaByRankCount?.species)
-    .map((e) => ({
-      t: (e.rel.dataset.issued || e.rel.dataset.created || '').slice(0, 10),
-      ext: !!e.rel.extended,
-      family: e.rel.metrics.taxaByRankCount.family ?? null,
-      genus: e.rel.metrics.taxaByRankCount.genus ?? null,
-      species: e.rel.metrics.taxaByRankCount.species ?? null,
-      names: e.rel.metrics.nameCount ?? null,
-    })),
-  ...legacyMetrics.map((r) => ({
-    t: r.date,
-    ext: false,
-    family: r.family ?? null,
-    genus: r.genus ?? null,
-    species: r.species ?? null,
-    names: r.names ?? null,
-  })),
-];
 
 const fm = {
   title: 'Metrics',
@@ -56,7 +31,6 @@ const headings = [
   { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
   { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
-  { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
 ---
 
@@ -64,8 +38,6 @@ const headings = [
   <MetricsContent
     datasetKey={datasetKey}
     single={true}
-    timelineMode="base"
-    timeline={timeline}
     api={metadata.api}
     auth={colAuth}
     metadataHref={`/annual-checklist/${year}/metadata`}

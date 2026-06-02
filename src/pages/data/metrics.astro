@@ -2,8 +2,6 @@
 import Content from '@layouts/Content.astro';
 import MetricsContent from '@components/MetricsContent.astro';
 import { metadata } from '@data/releaseMetadata';
-import { changelogEntries } from '@data/changelog';
-import { legacyMetrics } from '@data/legacyMetrics';
 import { resolveVersion } from '@lib/version';
 
 // On-demand so ?v=br renders the Base release: the rank chart drops the
@@ -18,31 +16,6 @@ const datasetKey = ver.datasetKey;
 // Basic-auth credential for the client-side metrics fetch — needed for private
 // candidate releases on preview/dev; empty on prod.
 const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
-
-// "Changes over time" timeline data — built entirely at build time, no runtime
-// API call. ChecklistBank releases (2020-12 onward) come from the cached
-// changelog metrics; 2005–2019 from the static annual-checklist figures in
-// _data/legacy_metrics.yml. The chart shows either the Base or Extended series.
-const timeline = [
-  ...changelogEntries
-    .filter((e) => e.rel?.metrics?.taxaByRankCount?.species)
-    .map((e) => ({
-      t: (e.rel.dataset.issued || e.rel.dataset.created || '').slice(0, 10),
-      ext: !!e.rel.extended,
-      family: e.rel.metrics.taxaByRankCount.family ?? null,
-      genus: e.rel.metrics.taxaByRankCount.genus ?? null,
-      species: e.rel.metrics.taxaByRankCount.species ?? null,
-      names: e.rel.metrics.nameCount ?? null,
-    })),
-  ...legacyMetrics.map((r) => ({
-    t: r.date,
-    ext: false,
-    family: r.family ?? null,
-    genus: r.genus ?? null,
-    species: r.species ?? null,
-    names: r.names ?? null,
-  })),
-];
 
 const fm = {
   title: 'Metrics',
@@ -66,7 +39,6 @@ const headings = [
   { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
   { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
   ...(isBase ? [] : [{ depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' }]),
-  { depth: 2, slug: 'changes-over-time', text: 'Changes over time' },
 ];
 ---
 
@@ -74,8 +46,6 @@ const headings = [
   <MetricsContent
     datasetKey={datasetKey}
     single={isBase}
-    timelineMode={isBase ? 'base' : 'extended'}
-    timeline={timeline}
     api={metadata.api}
     auth={colAuth}
     metadataHref={`/data/metadata${ver.linkQuery}`}
