@@ -17,7 +17,7 @@ For a few things, e.g. custom downloads, authentication is required via a [GBIF]
 ChecklistBank hosts a wide range of datasets including all sources the [Catalogue of Life is assembled](/building/assembly) from.
 Most datasets in ChecklistBank are not related to the Catalogue of Life at all.
 
-The COL [working draft](https://www.checklistbank.org/dataset/3) and many [releases from COL](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=created) 
+The COL [working draft](https://www.checklistbank.org/dataset/3) and many [releases from COL](https://www.checklistbank.org/dataset?releasedFrom=3&sortBy=issued) 
 are available and accessible through the API.
 In order to access releases or any other dataset in ChecklistBank, you first need to know their integer dataset key. 
 Read the [Datasets section](https://www.checklistbank.org/about/API#datasets) in the API introduction to learn about dataset keys for COL releases.
