@@ -4,7 +4,7 @@ import {
   versionLabel,
   versionToken,
   versionScopedHref,
-  versionHomeHref,
+  versionLogoHref,
   versionSwitchHref,
   tokenForVersion,
 } from '../lib/versionLabel';
@@ -18,9 +18,10 @@ const { sectionId } = Astro.props;
 // Which COL version this page shows, from the URL. Correct at build for
 // Extended + annual routes; static base pages (?v=br) are fixed client-side.
 const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
-// On annual pages the year is in the path, so scope the logo + data nav links
-// to that year server-side (Base ?v=br stickiness is handled by the script).
-const verHome = versionHomeHref(Astro.url.pathname);
+// The logo returns to the main site home for the active version — but from an
+// annual edition it goes to the Extended home (the way out of an annual list;
+// the script also resets the remembered version to Extended on that click).
+const verHome = versionLogoHref(Astro.url.pathname, Astro.url.search);
 
 // Annual editions hide the version-agnostic Download + Changelog data entries.
 const isAnnual = /^\d{4}$/.test(versionToken(Astro.url.pathname, Astro.url.search));
@@ -97,6 +98,16 @@ const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
                     focusable so the dropdown opens on focus as well as hover. */}
                 <a tabindex="0">{item.name}</a>
                 <ul class="dropdown">
+                  {/* Browse is the first Data entry, but only for annual editions
+                      (whose home is the browse tree, no longer reached via the
+                      logo). Hidden otherwise; the script toggles it by version. */}
+                  {item.section_id === 'data' && (
+                    <li data-version-show="annual" style={isAnnual ? undefined : 'display: none'}>
+                      <a href={versionScopedHref('/data/browse', Astro.url.pathname)} data-nav="/data/browse">
+                        Browse
+                      </a>
+                    </li>
+                  )}
                   {item.children.map((child) => {
                     const hideable = !!child.path && annualHiddenPaths.has(child.path);
                     if (hideable && isAnnual) return null;
@@ -128,7 +139,7 @@ const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
     versionToken,
     isVersionSpecificPath,
     labelForToken,
-    homeHrefForToken,
+    logoHrefForToken,
     navHrefForToken,
     taxonHrefForToken,
   } from '../lib/versionLabel';
@@ -230,10 +241,27 @@ const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
     document.querySelectorAll<HTMLElement>('[data-version-hide="annual"]').forEach((el) => {
       el.style.display = annualActive ? 'none' : '';
     });
+    // Browse shows only on annual editions (its target is the annual tree root).
+    document.querySelectorAll<HTMLElement>('[data-version-show="annual"]').forEach((el) => {
+      el.style.display = annualActive ? '' : 'none';
+    });
 
-    // Home logo: stay within the active version.
+    // Home logo: the active version's main home — but from an annual edition it
+    // returns to the Extended home and clears the remembered annual version, so
+    // the (version-agnostic) homepage shows Extended rather than the annual.
     const logo = document.querySelector<HTMLAnchorElement>('.top-bar .title-area .name h1 a');
-    if (logo) logo.setAttribute('href', homeHrefForToken(active));
+    if (logo) {
+      logo.setAttribute('href', logoHrefForToken(active));
+      if (annualActive) {
+        logo.addEventListener('click', () => {
+          try {
+            localStorage.setItem(VERSION_STORAGE_KEY, 'extended');
+          } catch {
+            /* private mode */
+          }
+        });
+      }
+    }
 
     // Version-scoped nav links (data-nav holds the canonical /data path).
     document.querySelectorAll<HTMLAnchorElement>('a[data-nav]').forEach((a) => {

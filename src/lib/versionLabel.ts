@@ -50,9 +50,18 @@ export function homeHrefForToken(token: string): string {
   return '/';
 }
 
+/** Where the header logo points. Like the home, but an annual edition returns
+ *  to the Extended home — the logo is the way out of an annual list (the Header
+ *  also resets the remembered version to Extended on that click). */
+export function logoHrefForToken(token: string): string {
+  return token === 'base' ? '/?v=br' : '/';
+}
+
 // Per-version /data nav paths and their per-year equivalents under
-// /annual-checklist/{year}/ (browse is the year root; it isn't in the nav).
+// /annual-checklist/{year}/. Browse maps to the year root (an annual edition's
+// browse tree); it is shown in the data menu only for annual versions.
 const ANNUAL_NAV: Record<string, string> = {
+  '/data/browse': '',
   '/data/search': 'search',
   '/data/sources': 'sources',
   '/data/metrics': 'metrics',
@@ -106,5 +115,5 @@ export function tokenForVersion(v: { kind: string; year?: number }): string {
 
 // --- URL-based wrappers used by the server-rendered header ------------------
 export const versionLabel = (pathname = '/', search = '') => labelForToken(versionToken(pathname, search));
-export const versionHomeHref = (pathname = '/') => homeHrefForToken(versionToken(pathname));
+export const versionLogoHref = (pathname = '/', search = '') => logoHrefForToken(versionToken(pathname, search));
 export const versionScopedHref = (path: string, pathname = '/') => navHrefForToken(path, versionToken(pathname));
