@@ -4,8 +4,12 @@
 # on /data/metrics — nothing here is fetched at build time.
 #
 # All are BASE-release figures (the annual checklists predate the eXtended
-# Release). Counts come directly from the original annual-checklist MySQL
-# databases, so the whole series uses one consistent method:
+# Release).
+#   2000-2004 (Species 2000 editions; no 2001 edition): from their
+#       ChecklistBank datasets COL00/COL02/COL03/COL04 (keys 315330-315333) —
+#       family/genus/species = import taxaByRankCount; names = nameCount.
+#   2005-2019: recomputed directly from the original annual-checklist MySQL
+#   databases, using one consistent method:
 #   2005-2011 (legacy schema): the `taxa` management-hierarchy table —
 #       family/genus/species = rows with is_accepted_name=1 at that rank;
 #       names = all rows (every rank, accepted + synonyms).
@@ -17,10 +21,15 @@
 # (">527,000", "884,552"), which added estimated species on top of the
 # actual database content (511,637 / 883,234).
 #
-# Dates: 2012-2019 are the ChecklistBank dataset "issued" dates; 2005 is the
-# database CD date; 2006-2011 are APPROXIMATE (spring; exact day not
-# recorded). The 2020-12 release onward comes from ChecklistBank, not here.
+# Dates: 2000-2004 and 2012-2019 are the ChecklistBank dataset "issued" dates
+# (the "2000" edition was issued 2001-02-14); 2005 is the database CD date;
+# 2006-2011 are APPROXIMATE (spring; exact day not recorded). The 2020-12
+# release onward comes from ChecklistBank, not here.
 
+- { date: "2001-02-14", species: 207636,  family: 4715,  genus: 34221,  names: 399175 }
+- { date: "2002-02-22", species: 242269,  family: 5288,  genus: 37586,  names: 462357 }
+- { date: "2003-04-23", species: 270743,  family: 5271,  genus: 40772,  names: 533697 }
+- { date: "2004-05-01", species: 323680,  family: 5751,  genus: 48545,  names: 639024 }
 - { date: "2005-04-18", species: 511637,  family: 6177,  genus: 68533,  names: 1072077 }
 - { date: "2006-03-15", species: 883234,  family: 6697,  genus: 91785,  names: 1579962 }
 - { date: "2007-03-15", species: 1008998, family: 7012,  genus: 102283, names: 1774281 }
