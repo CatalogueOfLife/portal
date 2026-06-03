@@ -47,5 +47,77 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false } =
       <slot />
     </div>
     <Footer />
+
+    <!-- GitHub-style hover anchor on content section headings (h2). Scoped to the
+         page body (#main); the parallax page title and col-browser island UI are
+         excluded, so only the editorial headings below the banner get one. -->
+    <script>
+      (function () {
+        const slugify = (s) =>
+          s
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_]+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '');
+        const ICON =
+          '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 2 2 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a2 2 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 2 2 0 0 0-2.83 0l-2.5 2.5a2 2 0 0 0 0 2.83Z"></path></svg>';
+        document.querySelectorAll('#main h2').forEach((h) => {
+          if (h.closest('.parallax, .catalogue-of-life')) return;
+          if (h.querySelector('.heading-anchor')) return;
+          let id = h.id;
+          if (!id) {
+            const base = slugify(h.textContent || '') || 'section';
+            id = base;
+            for (let n = 2; document.getElementById(id); n++) id = base + '-' + n;
+            h.id = id;
+          }
+          const a = document.createElement('a');
+          a.className = 'heading-anchor';
+          a.href = '#' + id;
+          a.setAttribute('aria-label', 'Permalink to this section');
+          a.innerHTML = ICON;
+          h.classList.add('has-anchor');
+          h.prepend(a);
+        });
+      })();
+    </script>
+
+    <style is:global>
+      h2.has-anchor {
+        scroll-margin-top: 7.5rem; /* clear the sticky header when jumped to */
+      }
+      /* GitHub-style: float the icon into the left gutter with a negative margin.
+         No absolute positioning, so it can't detach from the heading regardless
+         of any positioned/transformed ancestor on the page. */
+      h2.has-anchor .heading-anchor {
+        float: left;
+        margin-left: -1.3em;
+        padding-right: 0.4em;
+        color: #b3b3b3;
+        opacity: 0;
+        transition: opacity 0.12s ease;
+      }
+      h2.has-anchor:hover .heading-anchor,
+      h2.has-anchor .heading-anchor:focus-visible {
+        opacity: 1;
+      }
+      h2.has-anchor .heading-anchor:hover {
+        color: #4f9d69; /* COL green */
+      }
+      h2.has-anchor .heading-anchor svg {
+        display: block;
+        width: 0.62em;
+        height: 0.62em;
+        margin-top: 0.3em; /* vertically align with the heading text */
+      }
+      /* No hover on touch devices — don't reserve/flash the icon there. */
+      @media (hover: none) {
+        h2.has-anchor .heading-anchor {
+          display: none;
+        }
+      }
+    </style>
   </body>
 </html>
