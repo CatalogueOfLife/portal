@@ -60,12 +60,10 @@ ul.posticon li { list-style: disc; margin-left: 1rem; }
 
 img.cbdr-logo { height: 42px !important; margin-bottom: 10px; }
 
-.modBlogPost h4 a { color: #1d7ea9; }
+/* Post titles read like the site's headings (dark), not coloured links;
+   they only take the link colour on hover. */
+.modBlogPost h3 a, .modBlogPost h4 a { color: #333; }
 
-.modBlogPost h4 a:hover { color: #135471; }
-
-.modBlogPost h3 a { color: #1d7ea9; }
-
-.modBlogPost h3 a:hover { color: #135471; }
+.modBlogPost h3 a:hover, .modBlogPost h4 a:hover { color: #1d7ea9; }
 
 /*# sourceMappingURL=custom.css.map */
