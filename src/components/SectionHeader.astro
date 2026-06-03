@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  tagline?: string;
+  color?: string;
+  class?: string;
+}
+const { title, tagline, color = '#fff', class: cls = '' } = Astro.props;
+---
+
+<div class={`mod modSectionHeader ${cls}`}>
+  <div class="special-title centered-text">
+    <h2 style={`color: ${color};`}>{title}</h2>
+  </div>
+  {tagline && <h3 class="centered-text" style={`color: ${color}`}>{tagline}</h3>}
+</div>

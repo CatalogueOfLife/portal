@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import { getPosts, type Post } from '@lib/posts';
+import NewsLayout from '@layouts/NewsLayout.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPosts();
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props as { page: Page<Post> };
+const dateStr = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<NewsLayout title="News">
+  {
+    page.data.map((post) => (
+      <div class="mod modBlogPost">
+        <div class="content">
+          <p class="info">
+            <span>{dateStr(post.date)}</span>
+            {post.author && (<Fragment> / <span>by {post.author}</span></Fragment>)}
+          </p>
+          <h3><a href={post.url}>{post.title}</a></h3>
+          {post.excerpt && <p>{post.excerpt}</p>}
+          <p><a href={post.url}>Read more →</a></p>
+        </div>
+        <div class="two spacing"></div>
+      </div>
+    ))
+  }
+  <div class="pager">
+    {page.url.prev ? <a href={page.url.prev} class="newer">Newer Entries</a> : <span class="newer">Newer Entries</span>}
+    {page.url.next ? <a href={page.url.next} class="older">Older Entries</a> : <span class="older">Older Entries</span>}
+  </div>
+</NewsLayout>

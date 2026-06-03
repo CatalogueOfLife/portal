@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Monthly (Jenkins) job: rebuild the chunked taxon sitemaps from the latest
+# public XRelease. Output now goes to public/sitemaps/ so Astro serves them at
+# /sitemaps/*.gz; robots.txt lists them by reading that directory at build time
+# (so the old _includes/sitemap-index.txt is no longer needed).
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -15,6 +19,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 API=https://api.checklistbank.org
+OUT=../public/sitemaps
 
 if [ -z "$KEY" ]
 then
@@ -23,26 +28,24 @@ then
   echo "  $KEY"
 fi
 
-
-
 FILECOUNTER=1
 COUNTER=0
-echo "Rebuilding sitemap index files from release $KEY"
-rm -f ../sitemaps/*
+echo "Rebuilding sitemaps in $OUT from release $KEY"
+mkdir -p "$OUT"
+rm -f "$OUT"/*
 
 echo "new sitemap sitemap-$FILECOUNTER.txt"
-echo "Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-$FILECOUNTER.txt.gz" > "../_includes/sitemap-index.txt"
 while IFS= read -r id
 do
     let COUNTER++
     if [ $COUNTER -gt 50000 ]
     then
-        gzip "../sitemaps/sitemap-$FILECOUNTER.txt"
+        gzip "$OUT/sitemap-$FILECOUNTER.txt"
         let FILECOUNTER++
         let COUNTER=1
         echo "new sitemap sitemap-$FILECOUNTER.txt"
-        echo "Sitemap: https://www.catalogueoflife.org/sitemaps/sitemap-$FILECOUNTER.txt.gz" >> "../_includes/sitemap-index.txt"
     fi
-    printf "https://www.catalogueoflife.org/data/taxon/$id\n" >> "../sitemaps/sitemap-$FILECOUNTER.txt"
+    printf "https://www.catalogueoflife.org/data/taxon/$id\n" >> "$OUT/sitemap-$FILECOUNTER.txt"
 done < <(curl -s -H "Accept: text/plain" $API/dataset/$KEY/taxon/ids)
-gzip "../sitemaps/sitemap-$FILECOUNTER.txt"
+gzip "$OUT/sitemap-$FILECOUNTER.txt"
+echo "Done: $(ls "$OUT"/*.gz | wc -l) sitemap files"

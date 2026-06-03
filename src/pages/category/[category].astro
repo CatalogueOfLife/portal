@@ -1,0 +1,36 @@
+---
+import { getPosts, categorySlug, type Post } from '@lib/posts';
+import NewsLayout from '@layouts/NewsLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const cats = new Map<string, { name: string; posts: Post[] }>();
+  for (const p of posts) {
+    for (const c of p.categories) {
+      const slug = categorySlug(c);
+      if (!cats.has(slug)) cats.set(slug, { name: c, posts: [] });
+      cats.get(slug)!.posts.push(p);
+    }
+  }
+  return [...cats.entries()].map(([category, { name, posts }]) => ({
+    params: { category },
+    props: { name, posts },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<NewsLayout title={`Category: ${name}`}>
+  <h2>{name}</h2>
+  {
+    posts.map((post) => (
+      <div class="mod modBlogPost">
+        <div class="content">
+          <h3><a href={post.url}>{post.title}</a></h3>
+          {post.excerpt && <p>{post.excerpt}</p>}
+        </div>
+      </div>
+    ))
+  }
+</NewsLayout>

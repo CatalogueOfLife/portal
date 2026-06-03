@@ -1,0 +1,107 @@
+---
+import Base from '@layouts/Base.astro';
+import TreeIsland from '@components/islands/TreeIsland.tsx';
+import { metadata, datasetKey } from '@data/releaseMetadata';
+import { milestones, milestoneCount } from '@data/milestones';
+import { getPosts } from '@lib/posts';
+import { numf } from '@lib/numf';
+
+const counts = await Promise.all(milestones.map(milestoneCount));
+const recent = (await getPosts()).slice(0, 8);
+const cur = metadata.current;
+
+const partners = [
+  { image: '/images/logos/Smithsonian.svg', link: 'https://www.si.edu/' },
+  { image: '/images/logos/ITIS_logo.svg', link: 'https://www.itis.gov/' },
+  { image: '/images/logos/logo-gbif.svg', link: 'https://www.gbif.org/' },
+  { image: '/images/logos/INHS.png', link: 'https://inhs.illinois.edu/' },
+];
+---
+
+<Base title="Catalogue of Life" sectionId="home">
+  <div class="full" id="homepage">
+    <div class="row">
+      <div class="introduction">
+        The most complete authoritative list of the world's species - maintained by hundreds of global taxonomists -
+        <a href="/about/catalogueoflife">Learn more</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-8 columns" style="background: white; margin-top: 20px;">
+        <div class="row kingdoms">
+          {
+            milestones.map((m, i) => (
+              <a href={m.link} data-taxon-id={m.link.replace('/data/taxon/', '')}>
+                <div class="small-3 small-3 columns" style="background-color: #fff;">
+                  <div class="mod modMilestone" style={`background-image: url(/images/kingdoms/${m.image}); background-size: cover;`}>
+                    <div class="milestoneText" style={`background-color: #${m.bgcolor}; color: #${m.fgcolor};`}>
+                      <div class="milestoneTitle">{m.title}</div>
+                      <div class="milestoneCount">
+                        <span>{counts[i] != null ? numf(counts[i]) : ''}</span> species in COL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="row">
+          <div class="full main-tree">
+            <div id="tree" class="catalogue-of-life">
+              <TreeIsland
+                client:only="react"
+                datasetKey={String(datasetKey)}
+                currentRootKey="CS5HF"
+                showTreeOptions
+                linkToSpeciesPage
+                type="project"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="medium-4 columns">
+        <br />
+        <h3>Active Version</h3>
+        <div id="version">
+          <div>
+            Issued: <i>{cur.issued}</i>
+            <br />
+            DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
+          </div>
+          <div id="bibtex">
+            <a href={`${metadata.api}/dataset/${datasetKey}.bib`}>
+              <img src="/images/logos/bibtex_logo.png" style="height: 32px; margin-left: 8px;" alt="BibTeX" />
+            </a>
+          </div>
+        </div>
+
+        <h3>Documentation</h3>
+        <p>
+          The Catalogue of Life includes information with different gradients of quality. The base release is verified
+          by taxonomic experts specifically for COL. The Extended Release includes extra data from other sources
+          (indicated with the <span class="xr-icon">XR</span> icon). Read about the
+          <a href="/building/releases">different releases</a> COL provides.
+        </p>
+        <br />
+
+        <div class="links">
+          <h3>Recent News</h3>
+          <ul class="posticon">
+            {recent.map((post) => (<li><a href={post.url}>{post.title}</a></li>))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacing" style="background-color: #ccc; height: 2px;"></div>
+    <div class="spacing"></div>
+    <div class="row partners">
+      {partners.map((p) => (<a href={p.link} target="_blank"><img src={p.image} height="48" alt="" /></a>))}
+    </div>
+    <div class="spacing"></div>
+  </div>
+</Base>

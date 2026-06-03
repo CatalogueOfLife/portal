@@ -1,0 +1,37 @@
+---
+import Base from './Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import NavList from '../components/NavList.astro';
+import { nav } from '../lib/nav';
+import { site } from '../lib/site';
+
+// Section landing pages (was nav-pages/*.html with `layout: navPage`):
+// a banner plus the list of child links for the matching nav section.
+interface Props {
+  sectionId: string;
+  title: string;
+  tagline?: string;
+  imageUrl?: string;
+}
+const { sectionId, title, tagline, imageUrl } = Astro.props;
+const item = nav.find((n) => n.section_id === sectionId);
+const img = imageUrl ?? site.defaultImageUrl;
+---
+
+<Base title={`${title} | COL`} sectionId={sectionId}>
+  <div class="full parallax" style={`position: relative; background-image: url(${img}); color: #fff;`}>
+    <div class="row">
+      <div class="large-12 columns">
+        <SectionHeader title={title} tagline={tagline} color="#fff" class="big" />
+      </div>
+    </div>
+    <div class="four spacing"></div>
+  </div>
+
+  <div class="full">
+    <div class="row">
+      {item?.children && <NavList items={item.children} />}
+      <div class="spacing"></div>
+    </div>
+  </div>
+</Base>

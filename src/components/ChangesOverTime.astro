@@ -1,0 +1,145 @@
+---
+// "Changes over time" timeline chart, shown at the bottom of /data/download.
+// Static: the series is built at build time (see @data/timeline) — no runtime
+// API call. `mode` selects which lineage to draw; the data carries both so a
+// base/extended switch can be added here later without changing the caller.
+import type { TimelinePoint } from '@data/timeline';
+
+interface Props {
+  timeline: TimelinePoint[];
+  mode?: 'base' | 'extended';
+}
+const { timeline, mode = 'base' } = Astro.props;
+---
+
+<h2 id="changes-over-time">Changes over time</h2>
+<p>
+  How the number of accepted families, genera and species — and the total of all names including synonyms — has
+  changed across past <a href="/building/releases#base">Base releases</a> of the Catalogue of Life. Figures reach
+  back to the historical <a href="#past-releases">annual checklists</a> since 2005, recomputed from the original
+  release databases. Each measure has its own linear scale, since families, genera and species/names differ by
+  orders of magnitude.
+</p>
+
+<div id="chart-timeline" style="height: 440px; margin-top: 16px;"></div>
+
+<!-- Highcharts (only loaded for this chart) -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/highcharts@12/highcharts.js"></script>
+
+<script define:vars={{ timeline, mode }}>
+  (function () {
+    'use strict';
+
+    // Silence Highcharts' "include accessibility.js" warning — not loaded here.
+    Highcharts.setOptions({ accessibility: { enabled: false } });
+
+    const DATA = (timeline || []).filter((d) => d && d.t);
+
+    // Families (~20k), genera (~250k) and species/names (~6M) differ by orders
+    // of magnitude, so each series is drawn against its own linear axis — but
+    // only ONE axis is shown (black, the species/names scale). The other two
+    // scales are read off the green (genera) and orange (families) values stacked
+    // under each black tick: all three axes share min 0 and the same plot height,
+    // so a tick at fraction f of the height is f*MAX on every scale.
+    const FAM_MAX = 20000; // families axis top
+    const GEN_MAX = 250000; // genera axis top
+    const BIG_MAX = 6000000; // species / names axis top (the visible black axis)
+    const GEN_COLOR = '#5aa700'; // genera label (darker than the line, for contrast)
+    const FAM_COLOR = '#e08a00'; // families label
+
+    const SERIES = [
+      { key: 'family', name: 'Families', color: '#f7a35c', yAxis: 2 },
+      { key: 'genus', name: 'Genera', color: '#90ed7d', yAxis: 1 },
+      { key: 'species', name: 'Species', color: '#7cb5ec', yAxis: 0 },
+      { key: 'names', name: 'All names', color: '#722ed1', yAxis: 0 },
+    ];
+
+    const fmt = (n) => Number(n || 0).toLocaleString();
+    const compact = (n) => {
+      const v = Number(n) || 0;
+      if (Math.abs(v) >= 1e6) return (v / 1e6).toLocaleString(undefined, { maximumFractionDigits: 1 }) + 'M';
+      if (Math.abs(v) >= 1e3) return Math.round(v / 1e3) + 'k';
+      return String(v);
+    };
+    const ts = (s) => {
+      const p = String(s).slice(0, 10).split('-');
+      return Date.UTC(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+    };
+
+    function render(m) {
+      const ext = m === 'extended';
+      const rows = DATA.filter((d) => !!d.ext === ext).sort((a, b) => ts(a.t) - ts(b.t));
+
+      Highcharts.chart('chart-timeline', {
+        chart: { type: 'line', backgroundColor: 'transparent', marginLeft: 66 },
+        title: { text: null },
+        xAxis: { type: 'datetime', title: { text: null } },
+        yAxis: [
+          {
+            // The single visible (black) axis is the species/names scale. Each
+            // tick label stacks the equivalent genera (green) and families
+            // (orange) values beneath the black value — one pixel, three scales.
+            min: 0,
+            max: BIG_MAX,
+            tickInterval: BIG_MAX / 5,
+            title: { text: null },
+            gridLineWidth: 0,
+            lineColor: '#333333',
+            lineWidth: 1,
+            tickColor: '#333333',
+            tickWidth: 1,
+            tickLength: 6,
+            labels: {
+              useHTML: true,
+              x: -8,
+              formatter: function () {
+                const v = this.value;
+                if (!v) return '<span style="color:#333333">0</span>';
+                const f = v / BIG_MAX;
+                return (
+                  '<span style="position:relative;white-space:nowrap;color:#333333">' +
+                  compact(v) +
+                  '<span style="position:absolute;right:0;top:1.2em;color:' + GEN_COLOR + '">' + compact(f * GEN_MAX) + '</span>' +
+                  '<span style="position:absolute;right:0;top:2.4em;color:' + FAM_COLOR + '">' + compact(f * FAM_MAX) + '</span>' +
+                  '</span>'
+                );
+              },
+            },
+          },
+          { visible: false, min: 0, max: GEN_MAX }, // genera (scaling only)
+          { visible: false, min: 0, max: FAM_MAX }, // families (scaling only)
+        ],
+        legend: { enabled: true },
+        tooltip: {
+          shared: true,
+          useHTML: true,
+          formatter: function () {
+            const lines = this.points.map(
+              (p) => '<span style="color:' + p.color + '">●</span> ' + p.series.name + ': <b>' + fmt(p.y) + '</b>',
+            );
+            return '<b>' + Highcharts.dateFormat('%e %b %Y', this.x) + '</b><br/>' + lines.join('<br/>');
+          },
+        },
+        plotOptions: { series: { marker: { radius: 3 } } },
+        series: SERIES.map((s) => ({
+          name: s.name,
+          color: s.color,
+          yAxis: s.yAxis,
+          data: rows.map((r) => [ts(r.t), r[s.key] || null]),
+        })),
+        credits: { enabled: false },
+      });
+    }
+
+    render(mode === 'extended' ? 'extended' : 'base');
+  })();
+</script>
+
+<style is:global>
+  /* Highcharts wraps each useHTML axis label in a one-line `overflow:hidden`
+     span; allow it to overflow so the genera (green) and families (orange)
+     sub-labels stacked under each black y-tick are not clipped. */
+  #chart-timeline .highcharts-yaxis-labels span {
+    overflow: visible !important;
+  }
+</style>

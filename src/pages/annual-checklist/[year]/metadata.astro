@@ -1,0 +1,73 @@
+---
+import Content from '@layouts/Content.astro';
+import MetadataView from '@components/MetadataView.astro';
+import { metadata } from '@data/releaseMetadata';
+import { colFetch } from '@lib/colApi';
+import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
+import { normalizeRelease } from '@lib/agentLabel';
+
+// On-demand: fetch the annual edition's dataset record and render it the same
+// way as the baked Extended/Base metadata (annual releases are stable + public,
+// so a live fetch is fine and Varnish-cacheable).
+export const prerender = false;
+
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const api = metadata.api;
+
+let cur: ReturnType<typeof normalizeRelease> | null = null;
+const res = await colFetch(`${api}/dataset/${ver.datasetKey}`);
+if (res.ok) {
+  cur = normalizeRelease(await res.json());
+} else {
+  Astro.response.status = 404;
+}
+
+const url = `${site.url}/annual-checklist/${ver.year}/metadata`;
+
+const fm = {
+  title: 'Metadata',
+  tagline: `About the ${ver.label} edition of the Catalogue of Life`,
+  section_id: 'data',
+  toc: false,
+  noindex: true,
+  imageUrl: '/images/species/Tubifera_ferruginosa.jpg',
+  imageCaption:
+    '_Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY relew](https://www.inaturalist.org/photos/559741249)',
+};
+
+const jsonLd = cur
+  ? {
+      '@context': 'https://schema.org/',
+      '@type': 'Dataset',
+      '@id': String(cur.key),
+      url,
+      name: cur.title ?? 'Catalogue of Life',
+      ...(cur.description ? { description: cur.description } : {}),
+      ...(cur.version ? { version: cur.version } : {}),
+      ...(cur.issued ? { datePublished: cur.issued } : {}),
+      ...(cur.doi ? { sameAs: `https://doi.org/${cur.doi}`, identifier: `https://doi.org/${cur.doi}` } : {}),
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      inLanguage: 'eng',
+      publisher: { '@type': 'Organization', name: 'Catalogue of Life (COL)', url: site.url },
+    }
+  : null;
+---
+
+<Content frontmatter={fm}>
+  <Fragment slot="head">
+    <meta property="og:title" content={`${cur?.title ?? 'Catalogue of Life'} | COL ${ver.label}`} />
+    <meta property="og:url" content={url} />
+    <meta property="og:description" content={cur?.description ?? ''} />
+    <link rel="alternate" hreflang="en" href={url} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </Fragment>
+
+  {
+    cur ? (
+      <MetadataView cur={cur} apiBase={api} />
+    ) : (
+      <p>This annual edition of the Catalogue of Life could not be found.</p>
+    )
+  }
+</Content>

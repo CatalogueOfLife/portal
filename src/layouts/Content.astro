@@ -1,0 +1,65 @@
+---
+import type { MarkdownHeading } from 'astro';
+import Base from './Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { site } from '../lib/site';
+import { md } from '../lib/md';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    tagline?: string;
+    section_id?: string;
+    imageUrl?: string;
+    imageCaption?: string;
+    toc?: boolean;
+    noindex?: boolean;
+  };
+  headings?: MarkdownHeading[];
+}
+const { frontmatter: fm, headings = [] } = Astro.props;
+const imageUrl = fm.imageUrl ?? site.defaultImageUrl;
+const caption = fm.imageCaption ?? site.defaultImageCaption;
+const toc = fm.toc ?? false;
+const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
+---
+
+<Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex}>
+  <slot name="head" slot="head" />
+  <div
+    class="full parallax"
+    style={`position: relative; background-image: url(${imageUrl}); color: #fff;`}
+  >
+    <div class="row">
+      <div class="large-12 columns">
+        <SectionHeader title={fm.title} tagline={fm.tagline} color="#fff" class="big" />
+      </div>
+    </div>
+    <div class="four spacing"></div>
+    <div class="caption caption-absolute" set:html={md(caption)}></div>
+  </div>
+
+  <div class="full">
+    <div class="row">
+      <div class={toc ? 'large-8 columns prose' : 'large-12 columns prose'}>
+        <slot />
+        <div class="spacing"></div>
+      </div>
+      {
+        toc && (
+          <div class="large-4 columns">
+            <h3>Table of contents</h3>
+            <ul class="toc">
+              {tocHeadings.map((h) => (
+                <li class={`toc-depth-${h.depth}`}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+    <div class="four spacing"></div>
+  </div>
+</Base>

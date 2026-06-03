@@ -1,226 +1,197 @@
 [![Build Status](https://builds.gbif.org/job/col-portal/badge/icon)](https://builds.gbif.org/job/col-portal/)
 
-# Public facing website for Catalogue of Life
+# Catalogue of Life — public website
 
-The website is build with [Jekyll](https://jekyllrb.com/). 
-If you want to run the project locally, then jekyll has a nice documentation of [how to get started](https://jekyllrb.com/docs/).
-`bundle install` and `bundle exec jekyll serve` should do the trick. Include `--draft` to also show draft posts. To build for prod set the jekyll environment appropriately:
-`JEKYLL_ENV=prod bundle exec jekyll build`. For dev add the additional configs: `bundle exec jekyll serve --config _config.yml,_config_dev.yml`
+The public website for the [Catalogue of Life](https://www.catalogueoflife.org),
+built with [Astro](https://astro.build). It is a content-driven static site
+(Markdown articles + news) with a few **dynamic data pages** (taxon, dataset,
+search, tree, metrics) powered by the [`col-browser`](https://www.npmjs.com/package/col-browser)
+React components and the [ChecklistBank API](https://api.checklistbank.org).
 
-It is not necessary to run the project locally to change content. 
-It is possible to simple edit the files through Github's interface. 
-It takes around 5 minutes for the changes to show on the website.
+Most pages are pre-rendered to static HTML at build time. The handful of
+taxon/dataset pages render on demand in a small Node server so their SEO
+metadata (`<meta>` + schema.org JSON-LD) is produced server-side. See
+[`DEPLOY.md`](./DEPLOY.md) for how that is deployed.
 
+> Migrated from Jekyll. If you worked on the old site: you still write Markdown,
+> but **do not add a `layout:` line to frontmatter** — Astro reserves that key
+> and applies the right layout automatically.
 
-## Site structure
-```
-├── _data/ # This folder contains data object that can be reused throughout the site. Most notably the navigation
-│   ├── nav.yml # RELEVANT FOR EDITORS - menu names, urls, children etc.
-├── _includes/ # templates for parts of a page
-│   ├── footer.html
-│   ├── head.html
-│   └── ...
-├── _layouts/ # Page level templates
-│   ├── archive.html  # For exploring all news
-│   ├── content.html  # Primary template used by content editors - It will process markdown
-│   ├── default.html  # Templates used if you need complete freedom, but still want to inherit header and footer. Content is plain html
-│   ├── navPage.html  # Used for top level intermediate pages. Like '/resources' - it isn't really a page, but a placeholder to navigate to the children of a menu item
-│   ├── news.html     # Latest news
-│   └── post.html     # Individual news stories
-├── _posts/ # RELEVANT FOR EDITORS - the news stories
-│   ├── 2013-11-14-my-story.md # individual news story prefixed with the date.
-│   └── ...
-├── _sass/ # Styling as provided by the theme
-│   ├── ...
-│   ├── custom.scss # for now where we add custom css, when the themes css is insufficient
-│   └── ...
-├── _site/ # Jekyll compiles the site to this folder
-├── articles/ # RELEVANT FOR EDITORS - this is where all content but news stories go
-│   ├── about/ content under the menu item 'about' should be placed here
-│   │   ├── {filename}.md # the pages located here will show up under the url '/articles/about/{filename}' - unless the yml frontmatter defines another url using the permalink attribute
-│   │   └── ...
-│   ├── building/ # content under the menu item 'building' should be placed here
-│   ├── data/     # pages that use the portal-components to render dynamic pages using the checklistbank API
-│   ├── howto/    # content under the menu item 'howto' should be placed here
-│   └── tools/    # content under the menu item 'tools' should be placed here
-├── css/ # Styling as provided by the theme
-├── fonts/ # Where fonts are stored. Currently only the icon fonts
-├── images/ # Will be copied verbatim to the public folder. Any image placed here, including subdirectories will be available in your templates
-│   ├── species/  images of species shown in the banner of articles should go here. 1800px width, sRGB and 80% jpeg
-├── javascript/ # Will be copied verbatim to the public folder. To include it you have to add it (probably to /_includes/head or /_includes/footer)
-├── nav-pages/ # Navigation pages for higher level menu items. Like '/resources' - it isn't really a page, but a placeholder to navigate to the children of a menu item
-├── news/
-│   └── news.html # will list all news listed under /_posts
-├── root/ # RELEVANT FOR EDITORS - content under the menu item 'about' should be placed here
-│   ├── 404.md    # RELEVANT FOR EDITORS - What should the 404 page not found show
-│   └── index.md  # RELEVANT FOR EDITORS - front page. There is no markdown here, just a lot of yml for the various content blocks. What images, what caption etc.
-├── scripts/ # Jekyll scripts
-├── _config.yml # Site configuration
-└── ...
+## Running locally
+
+Prerequisites: **Node 22 LTS (≥ 22.12)** and npm 10 (the version bundled with Node 22).
+
+```bash
+npm install            # first time, or after dependencies change
+
+npx astro dev          # fast: serves http://localhost:4321 using existing data
+# or
+npm run dev            # same, but first refreshes release data from the API (~20s)
 ```
 
-## Content editors
-When writing content there are only a few folders that are relevant. 
-And you need to have an understanding of [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [yml](https://www.tutorialspoint.com/yaml/yaml_introduction.htm). 
-For most articles, your don't really have to understand much yaml. 
-We use Markdown to write prose and YML to write structured data that needs special rendering.
+Edits to Markdown, components and `_data/nav.yml` hot-reload in the browser.
 
-```
-_data/nav.yml # for editing the menu
-_posts/       # for creating news stories
-articles/     # for writing articles. By default urls will reflect the folder structure. can be overwritten with permalinks
+Production build / preview:
+
+```bash
+npm run build          # fetches data, then builds to dist/ (static + Node server)
+npm run preview        # serve the build locally at http://localhost:4321
 ```
 
-### Working with Github
-Simple changes like a typo in a word can be corrected through the github website, but all other changes should really be done locally with a text editor and then committed to github.
-For this some basic knowledge of working with git is required, see resources below.
+The release metadata and changelog shown on the site are fetched at build time
+by `scripts/fetch-data.mjs` (run automatically by the `predev`/`prebuild` npm
+hooks) and cached in `src/data/_generated/`. To refresh them manually:
 
-Theree are many text editors you can use, e.g. [SublimeText](https://www.sublimetext.com/), [Notepad++](https://notepad-plus-plus.org/), [UltraEdit](https://www.ultraedit.com/), 
-[TextMate](https://macromates.com/), [Vim](https://www.vim.org/download.php), [BBEdit](https://www.barebones.com/products/bbedit/) and many more.
-If you do not yet have any favorite we recommend [Visual Studio Code](https://code.visualstudio.com/) which runs on Mac & Windows, has [git integration](https://code.visualstudio.com/docs/sourcecontrol/overview)
-and syntax highlighting for many formats including Markdown and [TextTree](https://marketplace.visualstudio.com/items?itemName=GBIF.texttree&ssr=false#review-details).
-
-First checkout the github repo locally using the terminal:
-> git clone git@github.com:CatalogueOfLife/portal.git
-
-To work on the development brach do this:
-> cd portal
-> git checkout dev
-
-Now you can work in your editor of choice and later commit changes back to github via the terminal. This will give you an overview of the changed files
-> git status
-
-This will add new files not yet included in the project
-> git add \_posts/2025-12-24-merry-christmas.md
-
-This will commit changed files to github
-> git commit -am "Leave a comment here what you have done. E.g. Updated the governance pages to describe the taxonomy group"
-> git push
-
-Some git introductions if you have never used it before:
- - [Introduction to Git for Technical Writers](https://benbarksdale.netlify.app/docs/guides/introduction-to-git-for-technical-writers/)
- - [Git with VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
- - [A layman’s introduction to Git](https://webtuu.com/blog/04/a-laymans-introduction-to-git)
-
-
-## Writing articles
-When editing and adding articles there are 2 templates to choose from: `content` and `default`. 
-If you are not a developer you probably want to use `layout: content`.
-
-**layout: content**
-
-`content` assumes that the content is markdown. The yml frontmatter looks like this
+```bash
+npm run fetch:data
 ```
+
 ---
-layout: content
-title: Acknowledgements # what should headline be
-tagline: Labore est quasi omnis ducimus # What is the tag line shown below the headline
-section_id: about # where does this belong in the menu (this is used to highlight the menu item)
-imageUrl: 'https://via.placeholder.com/550x250' # Instead of a grey background behind the headline an image is shown
-imageCaption: 'Maecenas scelerisque, [orci](/documentation/intro) a interdum pharetra' # what caption should the image have
-published: true # is this just a draft or should it be build - defaults to true
-permalink: /about/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
-toc: true # should it have a table of contents - default false
-noindex: false # Should this page be indexed by robots?
+
+## Editing content
+
+You only need Markdown and a little YAML. Changes can be made on a branch and
+committed via Git (see *Working with Git* below).
+
+### Articles
+
+Articles live in `src/content/articles/<section>/`, where `<section>` is one of
+`about`, `building`, `data`, `howto`, `tools`. The page URL comes from the
+`permalink` in the frontmatter (or the file path if omitted).
+
+```markdown
 ---
-You markdown content goes here
+title: What is COL
+tagline: Connecting global taxonomy           # subtitle under the headline
+section_id: about                              # highlights the matching menu item
+imageUrl: /images/species/Example.jpg          # banner image (1800px, sRGB, 80% JPEG)
+imageCaption: _Example name_ - [Photo CC BY ...](https://...)
+toc: true                                      # show a table of contents (default false)
+noindex: false                                 # hide from search engines (default false)
+permalink: /about/what-is-col                  # the page URL
+published: true                                # set false to keep it a draft
+---
+
+Your Markdown content goes here.
 ```
 
-**layout: default**
+- **Captioned images** inside an article: rename the file to `.mdx` and use the
+  `Figure` component (the replacement for the old `{% include image.html %}`):
 
-`default` assumes that the content is html. The yml frontmatter looks like this
-```
+  ```mdx
+  import Figure from '@components/Figure.astro';
+
+  <Figure url="/images/example.jpg" alt="Alt text" description="My caption with a [link](/foo)" />
+  ```
+
+- **Dynamic data** (e.g. a list driven by the current release) also uses `.mdx`,
+  importing from `@data/releaseMetadata`. See `src/content/articles/about/community.mdx`
+  for a worked example.
+
+### News posts
+
+News posts live in `src/content/news/`. The filename **must** start with the
+date: `YYYY-MM-DD-title.md` (the date is taken from the filename). Posts appear
+at `/YYYY/MM/DD/title`, are listed at `/news` (paginated), and are grouped into
+yearly and category archives plus the RSS feed at `/feed.xml`.
+
+```markdown
 ---
-layout: default
-section_id: about # where does this belong in the menu (this is used to highlight the menu item)
-published: true # is this just a draft or should it be build - defaults to true
-permalink: /about/acknowledgements # if the url should not inherit from the folder structure, then define what url the page should have.
-noindex: false # Should this page be indexed by robots?
-seo_ssi: true # Turn off SEO plugin and use apache server side includes instead to inject data from the API for taxa and datasets
+title: "Monthly release June 2026"
+author: "Your Name"                # optional
+excerpt: A short summary for listings and search results.
+categories: Release                # one word, or several space-separated (Release Awards)
+images:                            # optional
+  - images/@stock/example.jpg
 ---
-You html goes here
+
+What's new in this edition…
 ```
 
-You might also want to read about [jekyll frontmatter](https://jekyllrb.com/docs/front-matter/)
+### Navigation menu
+
+The menu is defined in **`_data/nav.yml`** (unchanged from the Jekyll site). Each
+top-level item has a `path` (its landing page) and `children`; `section_id` ties
+articles to the menu item they highlight.
 
 ### Images
-Images configured in the head of an article should be placed in the `/images/species` 
-folder with a width of 1800px and stored as a jpeg with an 80% compression and an sRGB profile.
 
+Put images under `public/`. They are served from the same path with `public/`
+removed (e.g. `public/images/logos/col_logo.svg` → `/images/logos/col_logo.svg`).
+Article banner images go in `public/images/species/`: 1800px wide, sRGB, JPEG at
+80% quality.
 
-## Writing news stories
-All news stories are located in the `_posts` folder. Filenames are important. 
-You need to name them with `year-month-day-title`. E.g. `2015-04-14-call-for-logo-designer`.
-
-YML frontmatter:
-
-**Simple example**
-```
----
-layout: post
-title:  "Archaea updated" # what should headline be
-categories: Release # how should this news story be categorised in the archive
----
-```
-
-**Release example**
-```
----
-layout: post
-title:  monthly release June 2021
-author: "Markus Döring"
-excerpt: Monthly release June 2021 of the Catalogue of Life
-categories: Release
 ---
 
-What's new in this edition (June 2021)?
+## Working with Git
 
+Simple typo fixes can be made through the GitHub web interface, but anything
+larger is best done locally with an editor (e.g. [VS Code](https://code.visualstudio.com/))
+and committed.
 
-#### 4 new checklists
+```bash
+git clone git@github.com:CatalogueOfLife/portal.git
+cd portal
+git checkout -b my-change          # work on a branch
 
- * [WoRMS Actiniaria](/data/dataset/1176)
- * [WoRMS Nematoda, Nemys](/data/dataset/2302)
- * [WoRMS Brachiopoda](/data/dataset/2299)
- * [WoRMS Euphausiacea](/data/dataset/2301)
+# …edit files…
 
-
-#### 5 checklists have been updated
-
- * [WoRMS Actiniaria](/data/dataset/1176)
- * [WoRMS Amphipoda](/data/dataset/1202)
- * [WoRMS Antipatharia](/data/dataset/1194)
- * [WoRMS Appendicularia](/data/dataset/1178)
- * [WoRMS Ascidiacea](/data/dataset/1186)
+git status                          # see what changed
+git add src/content/news/2026-06-24-merry-christmas.md
+git commit -m "Add Christmas news post"
+git push -u origin my-change        # then open a pull request on GitHub
 ```
 
+After merging, the [development site](https://www.dev.catalogueoflife.org/) rebuilds automatically (a few minutes).
 
-**More complex frontmatter**
-```
 ---
-layout: post
-title:  Designers come forward
-date:   2015-04-14 10:52:12
-excerpt:
-  Iste neque doloribus dolor quis ad sit dolores dolor sit perferendis. nemo in rerum ducimus possimus aspernatur quas est. dolorem eaque vel id quasi voluptatem eligendi rerum et quo ut. fuga qui ea voluptates sunt # a short desciption to show in search results
-categories: ["Awards", "Communication"]
-images: # optional can be one or more
-  - images/@stock/blog-3.jpg
-  - images/@stock/blog-2.jpg
-author: "John 'the Moth' Moon" # optional
----
+
+## How it's built (for developers)
+
+```
+src/
+├── pages/                 # routes
+│   ├── index.astro            # homepage
+│   ├── [...slug].astro        # renders every article at its permalink
+│   ├── data/
+│   │   ├── browse|search|sources|metrics.astro   # static shell + col-browser island
+│   │   ├── taxon/[id].astro    # SSR (prerender=false): SEO + Taxon island, synonym redirects
+│   │   ├── dataset/[key].astro # SSR: SEO + SourceDataset island
+│   │   └── metadata.astro      # static release metadata + JSON-LD
+│   ├── news/[...page].astro, [year]/…, category/[category].astro
+│   └── feed.xml.ts, robots.txt.ts, sitemap.txt.ts, sitemap-datasets.txt.ts
+├── layouts/               # Base, Content, NavPage, News
+├── components/            # Header, Footer, SectionHeader, NavList, Figure, …
+│   └── islands/           # *.tsx wrappers around col-browser components
+├── content/               # articles/ and news/ collections (see content.config.ts)
+├── data/                  # releaseMetadata.ts, changelog.ts, milestones.ts (+ _generated/)
+└── lib/                   # nav, posts, numf, md, colPaths, site helpers
+
+_data/nav.yml              # navigation (editor-owned)
+scripts/fetch-data.mjs     # build-time data fetch (replaces the old Ruby plugins)
+scripts/update-sitemaps.sh # monthly taxon-sitemap regeneration (Jenkins)
+public/                    # static assets served at the site root
 ```
 
+- **Static vs SSR:** every page is pre-rendered except routes with
+  `export const prerender = false` (`data/taxon/[id]`, `data/dataset/[key]`),
+  which run in the Node server and own their SEO. Editorial pages ship
+  essentially **no JavaScript** (just a tiny nav-menu toggle); the React
+  `col-browser` bundle loads only on the data pages that use it.
+- **Build-time data:** `scripts/fetch-data.mjs` pulls the current release
+  metadata and the changelog from the API and writes projected JSON into
+  `src/data/_generated/`. `src/data/{releaseMetadata,changelog}.ts` type and
+  re-export it.
+- **Dynamic components:** `col-browser` (the published `portal-components`
+  build) is rendered as Astro islands via the wrappers in
+  `src/components/islands/`. `src/lib/colPaths.ts` configures cross-linking.
+- **Sitemaps & robots:** `/sitemap.txt` (editorial) and `/sitemap-datasets.txt`
+  are generated at build; the large per-taxon sitemaps are produced monthly by
+  `scripts/update-sitemaps.sh` into `public/sitemaps/`, and `robots.txt` lists
+  them (gated by the `SITE_ENV` env var — non-prod returns `Disallow: /`).
+- **Deployment:** see [`DEPLOY.md`](./DEPLOY.md).
 
-## Images with caption
-Below is a markdown custom figure. This isn't generic markdown, but specific for the site. It will render as an image with a caption
-```
-{% include image.html url="https://via.placeholder.com/550x250" alt="Alt text goes here" description="My cat, Robert Downey Jr." %}
-```
+### Tech stack
 
-## Worth considering when changing the navigation
-
-* The menu has a fixed breakpoint. If you add many menu items it will overflow on some device sizes. You should test this when adding more menu items.
-
-## Icons
-Icons are font awesome and can be browsed at https://fontawesome.com/icons?d=gallery&m=free
-
+Astro 6 · React 19 (islands) · TypeScript · `@astrojs/node` adapter ·
+`col-browser` + maplibre · the ChecklistBank API.

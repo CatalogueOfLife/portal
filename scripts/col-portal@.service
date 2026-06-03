@@ -1,0 +1,26 @@
+# systemd template unit for the Astro SSR server, one instance per environment.
+# Install once on each app host as /etc/systemd/system/col-portal@.service, then:
+#   sudo systemctl enable --now col-portal@prod      # or @preview / @dev
+#
+# The deploy script (scripts/deploy.sh) rsyncs the build to /opt/col-portal/<env>
+# and writes /opt/col-portal/<env>/service.env (HOST, PORT), then restarts this.
+# Requires Node 22 on the host and a `col` user. Allow jenkins-deploy to restart
+# it without a password via sudoers, e.g.:
+#   jenkins-deploy ALL=(root) NOPASSWD: /bin/systemctl restart col-portal@*
+
+[Unit]
+Description=Catalogue of Life portal — Astro SSR (%i)
+After=network.target
+
+[Service]
+Type=simple
+User=col
+Group=col
+WorkingDirectory=/opt/col-portal/%i
+EnvironmentFile=/opt/col-portal/%i/service.env
+ExecStart=/usr/bin/node /opt/col-portal/%i/dist/server/entry.mjs
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

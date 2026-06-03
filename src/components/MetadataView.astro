@@ -1,0 +1,60 @@
+---
+// Shared body of the metadata page, used by /data/metadata (Extended/Base, from
+// baked data) and /annual-checklist/{year}/metadata (SSR-fetched). The host
+// passes a normalized release record; switching versions lives in the header.
+interface Release {
+  key: number | string;
+  version?: string;
+  issued?: string;
+  doi?: string;
+  title?: string;
+  citation?: string;
+  description?: string;
+  creator?: { label: string }[];
+  publisher?: { label: string } | null;
+}
+interface Props {
+  cur: Release;
+  /** API base for the BibTeX link. */
+  apiBase: string;
+}
+const { cur, apiBase } = Astro.props;
+---
+
+<h2>Version</h2>
+<div id="version">
+  Issued: <i>{cur.issued}</i><br />
+  {cur.doi && (<>DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a><br /></>)}
+  ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a>
+  <br /><br />
+</div>
+
+<h2>Abstract</h2>
+<p>{cur.description}</p>
+
+<h2>Recommended citation</h2>
+<div id="bibtex" style="float: right;">
+  <a href={`${apiBase}/dataset/${cur.key}.bib`}>
+    <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
+  </a>
+</div>
+<!-- citation is CSL HTML (a <div class="csl-entry">…</div>), so render it raw -->
+<div set:html={cur.citation ?? ''} />
+<p>
+  Please also read the
+  <a href="/howto/cite">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
+</p>
+
+<h3>License</h3>
+<p>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
+</p>
+
+{cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
+
+<h3>Authors</h3>
+<div id="authors">
+  <ul>
+    {cur.creator?.map((a) => <li set:html={a.label} />)}
+  </ul>
+</div>

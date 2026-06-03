@@ -1,0 +1,412 @@
+---
+import { nav } from '../lib/nav';
+import {
+  versionLabel,
+  versionToken,
+  versionScopedHref,
+  versionHomeHref,
+  versionSwitchHref,
+  tokenForVersion,
+} from '../lib/versionLabel';
+import { versions } from '@data/versions';
+
+interface Props {
+  sectionId?: string;
+}
+const { sectionId } = Astro.props;
+
+// Which COL version this page shows, from the URL. Correct at build for
+// Extended + annual routes; static base pages (?v=br) are fixed client-side.
+const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
+// On annual pages the year is in the path, so scope the logo + data nav links
+// to that year server-side (Base ?v=br stickiness is handled by the script).
+const verHome = versionHomeHref(Astro.url.pathname);
+
+// Annual editions hide the version-agnostic Download + Changelog data entries.
+const isAnnual = /^\d{4}$/.test(versionToken(Astro.url.pathname, Astro.url.search));
+
+// The version selector is live on dev/preview but hidden on prod for now. Baked
+// at build time (see astro.config.mjs) so static + SSR render identically.
+const showVersionSelector = __SITE_ENV__ !== 'prod';
+
+// Options for the header version popup. The switch target depends only on the
+// chosen version + current path (not the active version), so it is computed
+// once here and never needs client-side rewriting.
+const versionOptions = versions.map((v) => {
+  const token = tokenForVersion(v);
+  return { token, label: v.label, href: versionSwitchHref(token, Astro.url.pathname) };
+});
+
+// Data children that vanish in annual mode (and are tagged for the client to
+// hide when the *remembered* version is annual on a version-agnostic page).
+const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
+---
+
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-options="sticky_on: large" data-topbar="">
+    <ul class="title-area">
+      <li class="name">
+        <h1>
+          <a href={verHome}>
+            <img alt="" class="col-header-logo" src="/images/logos/col_logo.svg" />
+          </a>
+        </h1>
+      </li>
+      {
+        showVersionSelector && (
+          <li class="version-indicator">
+            <button
+              type="button"
+              class="version-indicator__toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              title="Choose the COL version shown across the site"
+              data-version-toggle
+            >
+              <span data-version-indicator>{verLabel}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div class="version-popup" hidden data-version-popup>
+              <p class="version-popup__help">Choose which release of the Catalogue of Life to view across the site.</p>
+              <ul>
+                {versionOptions.map((o) => (
+                  <li>
+                    <a href={o.href} data-version-token={o.token}>
+                      {o.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        )
+      }
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        {
+          nav.map((item) => {
+            const active = item.section_id === sectionId ? 'active' : '';
+            return item.children ? (
+              <li class={`has-dropdown ${active}`}>
+                {/* Top-level items are dropdown groups, not links — their section
+                    landing pages are placeholders. tabindex keeps them keyboard-
+                    focusable so the dropdown opens on focus as well as hover. */}
+                <a tabindex="0">{item.name}</a>
+                <ul class="dropdown">
+                  {item.children.map((child) => {
+                    const hideable = !!child.path && annualHiddenPaths.has(child.path);
+                    if (hideable && isAnnual) return null;
+                    return (
+                      <li data-version-hide={hideable ? 'annual' : undefined}>
+                        <a href={child.path ? versionScopedHref(child.path, Astro.url.pathname) : '#'} data-nav={child.path}>
+                          {child.name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            ) : (
+              <li class={active}>
+                <a href={item.path ?? '#'}>{item.name}</a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<script>
+  import {
+    VERSION_STORAGE_KEY,
+    versionToken,
+    isVersionSpecificPath,
+    labelForToken,
+    homeHrefForToken,
+    navHrefForToken,
+    taxonHrefForToken,
+  } from '../lib/versionLabel';
+
+  // Mobile menu toggle — replaces Foundation's top-bar JS (the only nav script
+  // we keep). Desktop dropdowns work via Foundation's CSS :hover rules; on
+  // small screens the "Menu" button toggles the .expanded state.
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (target.closest('.toggle-topbar')) {
+      event.preventDefault();
+      document.querySelector('.top-bar')?.classList.toggle('expanded');
+    }
+  });
+
+  // Version popup: the pill toggles a small release picker. Its links are static
+  // (computed server-side from the current path), so this only opens/closes it
+  // and records the explicit pick.
+  (function () {
+    const toggle = document.querySelector<HTMLButtonElement>('[data-version-toggle]');
+    const popup = document.querySelector<HTMLElement>('[data-version-popup]');
+    if (!toggle || !popup) return;
+    const close = () => {
+      popup.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (popup.hasAttribute('hidden')) {
+        popup.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        close();
+      }
+    });
+    // Persist the chosen version before navigating. Crucial for Extended, whose
+    // targets (/, /data/search, …) are version-agnostic and would otherwise fall
+    // back to the previously remembered version on arrival.
+    popup.querySelectorAll<HTMLAnchorElement>('a[data-version-token]').forEach((a) => {
+      a.addEventListener('click', () => {
+        try {
+          localStorage.setItem(VERSION_STORAGE_KEY, a.dataset.versionToken || '');
+        } catch {
+          /* private mode */
+        }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      const t = e.target as Node;
+      if (!toggle.contains(t) && !popup.contains(t)) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
+  // The active COL version persists across navigation. When the URL pins a
+  // version (annual path, ?v=br, or a per-version /data surface) it wins and is
+  // remembered; on version-agnostic pages (downloads, news, about, home, …) we
+  // fall back to the remembered version so the header + nav keep that context
+  // instead of snapping back to Extended.
+  (function () {
+    const path = location.pathname;
+    const search = location.search;
+    let active: string;
+    if (isVersionSpecificPath(path, search)) {
+      active = versionToken(path, search);
+      try {
+        localStorage.setItem(VERSION_STORAGE_KEY, active);
+      } catch {
+        /* private mode */
+      }
+    } else {
+      let stored: string | null = null;
+      try {
+        stored = localStorage.getItem(VERSION_STORAGE_KEY);
+      } catch {
+        /* private mode */
+      }
+      active = stored || 'extended';
+    }
+
+    // Version indicator pill: shows the active version's label.
+    const indicator = document.querySelector<HTMLElement>('[data-version-indicator]');
+    if (indicator) indicator.textContent = labelForToken(active);
+
+    // Highlight the active version in the popup.
+    document.querySelectorAll<HTMLAnchorElement>('[data-version-token]').forEach((a) => {
+      const on = a.dataset.versionToken === active;
+      a.classList.toggle('version-popup__active', on);
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+
+    // Annual editions drop the version-agnostic Download + Changelog entries.
+    // Server-rendered annual pages omit them outright; this covers the case
+    // where the remembered version is annual on a version-agnostic page.
+    const annualActive = /^\d{4}$/.test(active);
+    document.querySelectorAll<HTMLElement>('[data-version-hide="annual"]').forEach((el) => {
+      el.style.display = annualActive ? 'none' : '';
+    });
+
+    // Home logo: stay within the active version.
+    const logo = document.querySelector<HTMLAnchorElement>('.top-bar .title-area .name h1 a');
+    if (logo) logo.setAttribute('href', homeHrefForToken(active));
+
+    // Version-scoped nav links (data-nav holds the canonical /data path).
+    document.querySelectorAll<HTMLAnchorElement>('a[data-nav]').forEach((a) => {
+      const canonical = a.dataset.nav;
+      if (canonical) a.setAttribute('href', navHrefForToken(canonical, active));
+    });
+
+    // Version-scoped taxon links, e.g. the homepage kingdom tiles (data-taxon-id
+    // holds the release-shared id). Keeps the tile in the active release.
+    document.querySelectorAll<HTMLAnchorElement>('a[data-taxon-id]').forEach((a) => {
+      const id = a.dataset.taxonId;
+      if (id) a.setAttribute('href', taxonHrefForToken(id, active));
+    });
+
+    // Swap version-dependent text (e.g. "current version 2026-05-15 XR") to Base.
+    if (active === 'base') {
+      document.querySelectorAll<HTMLElement>('[data-version-string]').forEach((el) => {
+        if (el.dataset.baseVersion) el.textContent = el.dataset.baseVersion;
+      });
+    }
+  })();
+</script>
+
+<style is:global>
+  /* Version indicator: small pill just right of the logo showing which COL
+     release this page reflects (Extended / Base / Annual {year}). */
+  .top-bar .title-area .name {
+    float: left;
+  }
+  /* Foundation forces the logo link to width:75%, which pushes the indicator
+     onto the next line — shrink it to the logo so the pill can sit beside it. */
+  .top-bar .title-area .name h1 a {
+    width: auto;
+  }
+  .top-bar .title-area .version-indicator {
+    position: relative; /* anchor for the popup */
+    float: left;
+    list-style: none;
+    height: 7.1428571429rem;
+    line-height: 7.1428571429rem; /* vertically centre the inline-block pill */
+  }
+  /* The pill is an inline-block button. The tall .top-bar line-height shifts the
+     line's baseline far down, so `vertical-align: top` (not middle) is what lands
+     the pill on the bar's optical centre, next to the logo. */
+  .top-bar .title-area .version-indicator__toggle {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 1px 7px 1px 9px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #555;
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 11px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .top-bar .title-area .version-indicator__toggle:hover {
+    background: #e7e7e7;
+    color: #333;
+  }
+  .top-bar .title-area .version-indicator__toggle svg {
+    vertical-align: middle;
+    margin-left: 1px;
+    transition: transform 0.15s ease;
+  }
+  .top-bar .title-area .version-indicator__toggle[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+
+  /* Release picker popup, anchored just below the pill. The tall .top-bar
+     line-height cascades in, so list metrics are reset explicitly. */
+  .top-bar .title-area .version-popup {
+    position: absolute;
+    z-index: 1000;
+    top: calc(50% + 18px);
+    left: 0;
+    min-width: 200px;
+    padding: 6px 0;
+    line-height: normal;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  }
+  .top-bar .title-area .version-popup[hidden] {
+    display: none;
+  }
+  .top-bar .title-area .version-popup .version-popup__help {
+    margin: 0 0 6px;
+    padding: 0 14px 6px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.35;
+    color: #777;
+    text-transform: none;
+    border-bottom: 1px solid #eee;
+  }
+  .top-bar .title-area .version-popup ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .top-bar .title-area .version-popup li {
+    margin: 0;
+    height: auto;
+    line-height: normal;
+    background: none;
+  }
+  .top-bar .title-area .version-popup a {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #333;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  .top-bar .title-area .version-popup a:hover {
+    background: #f7f7f7;
+  }
+  .top-bar .title-area .version-popup a.version-popup__active {
+    font-weight: 600;
+  }
+
+  /* Mobile nav (below Foundation's 960px top-bar breakpoint). Foundation's
+     stock .top-bar.expanded keeps `overflow:hidden` and its menu list stays
+     floated, so the expanded section collapses to height:0 and its links are
+     unreachable once we drop Foundation's jQuery. These rules let the bar grow
+     in normal flow: un-float the list, reveal every dropdown inline, so the
+     whole menu stacks vertically and pushes page content down. (Desktop ≥960px
+     is handled by Foundation's own min-width rules and the .no-js hover CSS.) */
+  @media only screen and (max-width: 959.98px) {
+    .top-bar.expanded {
+      overflow: visible !important;
+    }
+    .top-bar.expanded .top-bar-section {
+      position: static !important;
+      height: auto !important;
+      overflow: visible !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section ul.right {
+      float: none !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section ul.right > li {
+      float: none !important;
+      width: 100% !important;
+    }
+    .top-bar.expanded .top-bar-section .has-dropdown .dropdown {
+      position: static !important;
+      clip: auto !important;
+      height: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+    .top-bar.expanded .top-bar-section .has-dropdown .dropdown li {
+      float: none !important;
+      width: 100% !important;
+    }
+    /* Hide the desktop dropdown chevron on the inline mobile sub-menus. */
+    .top-bar.expanded .top-bar-section .has-dropdown > a::after {
+      display: none !important;
+    }
+  }
+</style>

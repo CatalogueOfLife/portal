@@ -1,0 +1,35 @@
+---
+import { getPosts, categorySlug } from '@lib/posts';
+
+const posts = await getPosts();
+const recent = posts.slice(0, 5);
+
+const catCounts = new Map<string, number>();
+for (const p of posts) for (const c of p.categories) catCounts.set(c, (catCounts.get(c) || 0) + 1);
+const categories = [...catCounts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+
+const yearCounts = new Map<string, number>();
+for (const p of posts) yearCounts.set(p.year, (yearCounts.get(p.year) || 0) + 1);
+const years = [...yearCounts.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+---
+
+<div class="links">
+  <h3>Recent Posts</h3>
+  <ul>
+    {recent.map((p) => (<li><a href={p.url}>{p.title}</a></li>))}
+  </ul>
+</div>
+
+<div class="links">
+  <h3>Categories</h3>
+  <ul>
+    {categories.map(([c, n]) => (<li><a href={`/category/${categorySlug(c)}`}>{c}</a> <span>({n})</span></li>))}
+  </ul>
+</div>
+
+<div class="links">
+  <h3>Archives</h3>
+  <ul>
+    {years.map(([y, n]) => (<li><a href={`/${y}`}>{y}</a> <span>({n})</span></li>))}
+  </ul>
+</div>

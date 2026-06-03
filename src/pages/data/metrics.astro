@@ -1,0 +1,53 @@
+---
+import Content from '@layouts/Content.astro';
+import MetricsContent from '@components/MetricsContent.astro';
+import { metadata } from '@data/releaseMetadata';
+import { resolveVersion } from '@lib/version';
+
+// On-demand so ?v=br renders the Base release: the rank chart drops the
+// base/Extended split, the "Extended release additions" section is hidden, and
+// the timeline shows the Base series.
+export const prerender = false;
+
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const isBase = ver.kind === 'base';
+const datasetKey = ver.datasetKey;
+
+// Basic-auth credential for the client-side metrics fetch — needed for private
+// candidate releases on preview/dev; empty on prod.
+const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
+
+const fm = {
+  title: 'Metrics',
+  tagline: `Metrics about the ${ver.label} release of the Catalogue of Life`,
+  section_id: 'data',
+  toc: true,
+  noindex: isBase,
+  imageUrl: '/images/species/Asplenium_trichomanes.jpg',
+  imageCaption:
+    '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
+};
+
+// Manual TOC headings (this page is .astro, not a Markdown collection entry).
+// "Extended release additions" only applies to the Extended release.
+const headings = [
+  { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
+  { depth: 2, slug: 'composition-of-eukaryota', text: 'Composition of Eukaryota' },
+  { depth: 2, slug: 'usages-by-status', text: 'Usages by status' },
+  { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
+  { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
+  { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
+  { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
+  ...(isBase ? [] : [{ depth: 2, slug: 'extended-release-additions', text: 'Extended release additions' }]),
+];
+---
+
+<Content frontmatter={fm} headings={headings}>
+  <MetricsContent
+    datasetKey={datasetKey}
+    single={isBase}
+    api={metadata.api}
+    auth={colAuth}
+    metadataHref={`/data/metadata${ver.linkQuery}`}
+  />
+</Content>

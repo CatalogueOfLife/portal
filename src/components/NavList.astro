@@ -1,0 +1,26 @@
+---
+import type { NavChild } from '../lib/nav';
+
+interface Props {
+  items: NavChild[];
+}
+const { items } = Astro.props;
+---
+
+<div class="entryList">
+  {
+    items.map((subItem, i) => (
+      <div>
+        <div class="fadein mod modIconText" data-delay={50 * i}>
+          <div class="icon-text-simple">
+            <h3>
+              <a href={subItem.path}>{subItem.name}</a>
+            </h3>
+            <p>{subItem.desc}</p>
+          </div>
+          <div class="two spacing" />
+        </div>
+      </div>
+    ))
+  }
+</div>

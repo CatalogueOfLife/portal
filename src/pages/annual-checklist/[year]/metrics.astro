@@ -1,0 +1,46 @@
+---
+import Content from '@layouts/Content.astro';
+import MetricsContent from '@components/MetricsContent.astro';
+import { metadata } from '@data/releaseMetadata';
+import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+
+export function getStaticPaths() {
+  return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
+}
+
+const { year } = Astro.params;
+const datasetKey = annualKeyByYear[Number(year)];
+const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
+const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
+
+const fm = {
+  title: 'Metrics',
+  tagline: `Metrics about the ${versionStr} of the Catalogue of Life`,
+  section_id: 'data',
+  toc: true,
+  noindex: true,
+  imageUrl: '/images/species/Asplenium_trichomanes.jpg',
+  imageCaption:
+    '_Asplenium trichomanes_ L. - [Photo CC By Markus Döring](https://www.inaturalist.org/observations/15132827)',
+};
+
+const headings = [
+  { depth: 2, slug: 'headline-numbers', text: 'Headline numbers' },
+  { depth: 2, slug: 'usages-by-status', text: 'Usages by status' },
+  { depth: 2, slug: 'names-by-nomenclatural-code', text: 'Names by nomenclatural code' },
+  { depth: 2, slug: 'accepted-taxa-by-rank', text: 'Accepted taxa by rank' },
+  { depth: 2, slug: 'vernacular-names-by-language', text: 'Vernacular names by language' },
+  { depth: 2, slug: 'distributions-by-gazetteer', text: 'Distributions by gazetteer' },
+];
+---
+
+<Content frontmatter={fm} headings={headings}>
+  <MetricsContent
+    datasetKey={datasetKey}
+    single={true}
+    api={metadata.api}
+    auth={colAuth}
+    metadataHref={`/annual-checklist/${year}/metadata`}
+    breakdownTaxonId={null}
+  />
+</Content>

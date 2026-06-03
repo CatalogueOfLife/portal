@@ -1,0 +1,36 @@
+---
+import Content from '@layouts/Content.astro';
+import SearchIsland from '@components/islands/SearchIsland.tsx';
+import { clbAnnualYears, annualKeyByYear, versions } from '@data/versions';
+
+export function getStaticPaths() {
+  return clbAnnualYears.map((year) => ({ params: { year: String(year) } }));
+}
+
+const { year } = Astro.params;
+const datasetKey = annualKeyByYear[Number(year)];
+const versionStr = versions.find((v) => v.kind === 'annual' && String(v.year) === year)?.version ?? `Annual Checklist ${year}`;
+
+const fm = {
+  title: 'Search',
+  tagline: 'Find species and other taxa by name',
+  section_id: 'data',
+  noindex: true,
+  imageUrl: '/images/species/Fratercula_arctica.jpg',
+  imageCaption:
+    '_Fratercula arctica_ (Linnaeus, 1758) - [Photo CC BY Kalvin Chan](https://www.inaturalist.org/photos/548565784)',
+};
+---
+
+<Content frontmatter={fm}>
+  <p>
+    Find any scientific name in the
+    <a href={`/annual-checklist/${year}/metadata`}>{versionStr}</a> of the Catalogue of Life,
+    <a href="/howto/access#search">learn How To</a>.
+  </p>
+  <div class="row" style="background: white">
+    <div id="search" class="catalogue-of-life">
+      <SearchIsland client:only="react" datasetKey={String(datasetKey)} />
+    </div>
+  </div>
+</Content>

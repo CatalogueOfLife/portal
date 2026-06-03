@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import Content from '../layouts/Content.astro';
+
+// Renders every editorial article at its `permalink` (falling back to its
+// file path). Static landing pages (index.astro, about.astro, …) take
+// precedence over this catch-all.
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', (e) => e.data.published !== false);
+  return articles.map((entry) => {
+    const permalink = entry.data.permalink ?? `/${entry.id}`;
+    const slug = permalink.replace(/^\/+/, '').replace(/\/+$/, '');
+    return { params: { slug }, props: { entry } };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content: Body, headings } = await render(entry);
+---
+
+<Content frontmatter={entry.data} headings={headings}>
+  <Body />
+</Content>

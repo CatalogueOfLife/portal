@@ -1,0 +1,61 @@
+---
+import Content from '@layouts/Content.astro';
+import MetadataView from '@components/MetadataView.astro';
+import { metadata } from '@data/releaseMetadata';
+import { site } from '@lib/site';
+import { resolveVersion } from '@lib/version';
+
+// On-demand so ?v=br can render the Base release's metadata (both Extended and
+// Base are baked at build time — no runtime fetch — but the query is read here).
+export const prerender = false;
+
+const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
+const cur = ver.kind === 'base' && metadata.base ? metadata.base.current : metadata.current;
+const url = `${site.url}/data/metadata${ver.linkQuery}`;
+
+const fm = {
+  title: 'Metadata',
+  tagline: `About the ${ver.label} release of the Catalogue of Life`,
+  section_id: 'data',
+  toc: false,
+  noindex: ver.kind === 'base',
+  imageUrl: '/images/species/Tubifera_ferruginosa.jpg',
+  imageCaption:
+    '_Tubifera ferruginosa_ (Batsch) J.F.Gmel., 1792 - [Photo CC BY relew](https://www.inaturalist.org/photos/559741249)',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org/',
+  '@type': 'Dataset',
+  '@id': String(cur.key),
+  url,
+  name: cur.title ?? 'Catalogue of Life',
+  ...(cur.description ? { description: cur.description } : {}),
+  ...(cur.version ? { version: cur.version } : {}),
+  ...(cur.issued ? { datePublished: cur.issued } : {}),
+  ...(cur.doi ? { sameAs: `https://doi.org/${cur.doi}`, identifier: `https://doi.org/${cur.doi}` } : {}),
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  inLanguage: 'eng',
+  publisher: { '@type': 'Organization', name: 'Catalogue of Life (COL)', url: site.url },
+  provider: {
+    '@type': 'Organization',
+    name: 'Global Biodiversity Information Facility (GBIF)',
+    url: 'https://www.gbif.org',
+    logo: 'https://www.gbif.org/img/logo/GBIF50.png',
+    email: 'info@gbif.org',
+    telephone: '+45 35 32 14 70',
+  },
+};
+---
+
+<Content frontmatter={fm}>
+  <Fragment slot="head">
+    <meta property="og:title" content={`${cur.title ?? 'Catalogue of Life'} | COL`} />
+    <meta property="og:url" content={url} />
+    <meta property="og:description" content={cur.description ?? ''} />
+    <link rel="alternate" hreflang="en" href={url} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <MetadataView cur={cur} apiBase={metadata.api} />
+</Content>
