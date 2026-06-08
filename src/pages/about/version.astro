@@ -16,6 +16,11 @@ const npmUrl = (name: string) => `https://www.npmjs.com/package/${name}`;
   frontmatter={{
     title: 'Software versions',
     tagline: 'Open-source packages used to build this website',
+    // Techy dependency-graph banner (our own SVG) as a deliberate contrast to
+    // the species photos on every other page. Not a species photo, so no
+    // attribution caption — empty string suppresses the Hero caption.
+    imageUrl: '/images/version-bg.svg',
+    imageCaption: '',
     noindex: true,
   }}
 >
