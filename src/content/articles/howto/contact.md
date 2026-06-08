@@ -11,7 +11,7 @@ permalink: /howto/contact
 ## Feedback on a Name or Taxon
 
 To report an issue with a name or taxon, use the Feedback button at the bottom right of any taxon page. Please include details and references if available. Your input creates a public GitHub issue you can track. You may also share your email for private follow-up by the COL secretariat.
-GitHub users can report issues directly in the data repository
+GitHub users can report issues directly in the [data repository](https://github.com/CatalogueOfLife/data/issues).
 
 <video autoplay loop muted playsinline preload="metadata" width="800" aria-label="Submitting feedback" style="max-width:100%;height:auto">
   <source src="/videos/Feedback.webm" type="video/webm">
@@ -25,7 +25,7 @@ After receiving your feedback, an editor will review it based on nomenclatural c
 
 ## Suggest a Data Source
 The Catalogue of Life is constantly evolving, and we're open to adding new sources. If you know a checklist that could enhance it, please let us know. We assess source quality, data availability in suitable formats, and require an open license (CC0 or CC BY).
-You can suggest sources via GitHub or by emailing us at [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
+You can suggest sources via [GitHub](https://github.com/CatalogueOfLife/data/issues) or by emailing us at [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
 
 ## Contact Details
 

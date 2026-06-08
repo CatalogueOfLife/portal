@@ -1,11 +1,11 @@
 
 # bug fixes
-some are older, so first review if the bug actually still exists:
+(none open)
 
- - https://github.com/CatalogueOfLife/portal/issues/296
- - https://github.com/CatalogueOfLife/portal/issues/297
+# moved to portal-components (XR icon / component bug, not the portal)
+ - XR icon not showing source ID/Alias → https://github.com/CatalogueOfLife/portal-components/issues/56 (was portal#296)
 
-
-# other
- - https://github.com/CatalogueOfLife/portal/issues/273
- - https://github.com/CatalogueOfLife/portal/issues/293
+# done
+ - #297 taxa without a page — fixed upstream, issue closed (taxon resolves)
+ - #293 contact page now links the GitHub mentions to the data issue tracker
+ - #273 releases page shows the live ChecklistBank checklist count (baked at build)

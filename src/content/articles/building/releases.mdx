@@ -8,6 +8,9 @@ imageCaption: _Bothriechis nigroadspersus_ (Steindachner, 1870) - [Photo CC By C
 permalink: /building/releases
 ---
 
+import { metadata } from '@data/releaseMetadata';
+import { numf } from '@lib/numf';
+
 The Catalogue of Life offers releases that reflect different levels of coverage and quality: the Base and the Extended Release. 
 Throughout the year, these releases are updated in several versions: monthly and annual. 
 Understanding the differences between these releases and their versions will help you navigate the Catalogue more effectively and choose the one best suited to your needs.
@@ -28,7 +31,7 @@ The Catalogue of Life **Base Release (BR)** is an assembly of non-overlapping, e
 The building process of this release ensures a higher level of quality, as most data sources are maintained and updated regularly by taxonomic experts. 
 However, since many taxa still lack a vetted or up-to-date checklist, this approach leaves several gaps. 
 To address this, the Catalogue of Life **Extended Release (XR)** is built on top of the Base Release. 
-This release is programmatically enhanced, integrating information from more than 60,000 overlapping taxonomic and nomenclatural sources 
+This release is programmatically enhanced, integrating information from {numf(metadata.checklistCount ?? 64000, 0, ',')} overlapping taxonomic and nomenclatural sources 
 including global, regional, national, and management datasets, as well as digitized literature. 
 This process also enriches the existing names with information such as authorships, references, and vernacular names. 
 It also adds molecular data, such as barcode index numbers or operational taxonomic units. Higher taxonomy is being added in selected groups with important gaps. 

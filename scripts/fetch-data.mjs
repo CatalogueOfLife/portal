@@ -145,6 +145,14 @@ async function fetchReleaseMetadata() {
     metrics: slimMetrics(base.metrics),
     sourceCount: (base.sources || []).length,
   };
+  // #273: total ChecklistBank checklist count (origin=external) for the
+  // releases page. Resilient: a hiccup here must not sink the whole snapshot.
+  try {
+    const ds = await getJson('/dataset?limit=0&origin=external');
+    out.checklistCount = ds.total ?? null;
+  } catch {
+    out.checklistCount = null;
+  }
   return out;
 }
 
