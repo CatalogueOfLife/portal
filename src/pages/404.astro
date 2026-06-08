@@ -1,17 +1,10 @@
 ---
 import Base from '@layouts/Base.astro';
-import SectionHeader from '@components/SectionHeader.astro';
+import Hero from '@components/Hero.astro';
 ---
 
 <Base title="Not found | COL" noindex>
-  <div class="full parallax" style="position: relative; background-image: url(/images/species/Raphus_cucullatus.jpg); color: #fff;">
-    <div class="row">
-      <div class="large-12 columns">
-        <SectionHeader title="404" tagline="This page could not be found" color="#fff" class="big" />
-      </div>
-    </div>
-    <div class="four spacing"></div>
-  </div>
+  <Hero imageUrl="/images/species/Raphus_cucullatus.jpg" title="404" tagline="This page could not be found" />
   <div class="full">
     <div class="row">
       <div class="large-12 columns prose">

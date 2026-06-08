@@ -102,7 +102,7 @@ author: "Your Name"                # optional
 excerpt: A short summary for listings and search results.
 categories: Release                # one word, or several space-separated (Release Awards)
 images:                            # optional
-  - images/@stock/example.jpg
+  - images/posts/example.jpg
 ---
 
 What's new in this edition…

@@ -3,7 +3,7 @@ title: "Distribution maps, gazetteers, and how to publish your own"
 author: "Markus Döring"
 excerpt: "The new taxon distribution map draws structured distributions and an optional GBIF occurrence overlay. Here is how the col-gazetteers project underpins it — and how to publish distributions that the map can actually draw."
 categories: ["distributions", "gazetteers", "maps", "GBIF", "ColDP", "data-publishing"]
-images: images/posts/Astragalus_angustifolius.png
+images: images/posts/Astragalus_angustifolius.webp
 ---
 
 Distribution of Astragalus angustifolius on the CoL portal, with the seven subspecies coloured separately and GBIF occurrences overlaid as points.

@@ -1,6 +1,6 @@
 ---
 import Base from './Base.astro';
-import SectionHeader from '@components/SectionHeader.astro';
+import Hero from '@components/Hero.astro';
 import Sidebar from '@components/Sidebar.astro';
 
 interface Props {
@@ -10,14 +10,7 @@ const { title = 'News' } = Astro.props;
 ---
 
 <Base title={`${title} | COL`} sectionId="about">
-  <div class="full parallax" style="background-image: url(/images/species/Melaleuca_lanceolata.jpg); color: #fff;">
-    <div class="row">
-      <div class="large-12 columns">
-        <SectionHeader title="News" tagline="Latest updates" color="#fff" class="big" />
-      </div>
-    </div>
-    <div class="four spacing"></div>
-  </div>
+  <Hero imageUrl="/images/species/Melaleuca_lanceolata.jpg" title="News" tagline="Latest updates" />
 
   <div class="full">
     <div class="row">

@@ -1,9 +1,8 @@
 ---
 import type { MarkdownHeading } from 'astro';
 import Base from './Base.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import Hero from '../components/Hero.astro';
 import { site } from '../lib/site';
-import { md } from '../lib/md';
 
 interface Props {
   frontmatter: {
@@ -26,18 +25,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
 
 <Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex}>
   <slot name="head" slot="head" />
-  <div
-    class="full parallax"
-    style={`position: relative; background-image: url(${imageUrl}); color: #fff;`}
-  >
-    <div class="row">
-      <div class="large-12 columns">
-        <SectionHeader title={fm.title} tagline={fm.tagline} color="#fff" class="big" />
-      </div>
-    </div>
-    <div class="four spacing"></div>
-    <div class="caption caption-absolute" set:html={md(caption)}></div>
-  </div>
+  <Hero imageUrl={imageUrl} title={fm.title} tagline={fm.tagline} caption={caption} />
 
   <div class="full">
     <div class="row">

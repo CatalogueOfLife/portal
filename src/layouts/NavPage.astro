@@ -1,6 +1,6 @@
 ---
 import Base from './Base.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import Hero from '../components/Hero.astro';
 import NavList from '../components/NavList.astro';
 import { nav } from '../lib/nav';
 import { site } from '../lib/site';
@@ -19,14 +19,7 @@ const img = imageUrl ?? site.defaultImageUrl;
 ---
 
 <Base title={`${title} | COL`} sectionId={sectionId}>
-  <div class="full parallax" style={`position: relative; background-image: url(${img}); color: #fff;`}>
-    <div class="row">
-      <div class="large-12 columns">
-        <SectionHeader title={title} tagline={tagline} color="#fff" class="big" />
-      </div>
-    </div>
-    <div class="four spacing"></div>
-  </div>
+  <Hero imageUrl={img} title={title} tagline={tagline} />
 
   <div class="full">
     <div class="row">

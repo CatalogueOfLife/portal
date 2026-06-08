@@ -1,0 +1,81 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import SectionHeader from '@components/SectionHeader.astro';
+import { md } from '@lib/md';
+
+// Full-bleed parallax hero shared by Content, NavPage, NewsLayout and 404.
+// Banner sources live in src/assets/species/ so Astro can emit responsive WebP.
+// Frontmatter / props still reference them by their old public path
+// (e.g. /images/species/X.jpg); we resolve on the basename. Anything that
+// doesn't resolve (e.g. the tiny default-bg.jpg) is used verbatim as a URL.
+interface Props {
+  imageUrl: string;
+  title: string;
+  tagline?: string | null;
+  caption?: string | null;
+}
+const { imageUrl, title, tagline, caption } = Astro.props;
+
+// Lazy glob: only the matched banner is imported, so unused sources (and the
+// full-size originals of the ones we do use) are never emitted to dist — we
+// only ship the optimized derivatives below.
+const banners = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/species/*.{jpg,jpeg,JPG,JPEG,png}',
+);
+const base = imageUrl.split('/').pop() ?? '';
+const key = Object.keys(banners).find((k) => k.endsWith('/' + base));
+const match = key ? (await banners[key]()).default : undefined;
+
+let bgLg = 'none';
+let bgSm = 'none';
+let fallbackUrl: string | null = match ? null : imageUrl;
+if (match) {
+  const wLg = Math.min(1800, match.width);
+  const wSm = Math.min(900, match.width);
+  const [webpLg, webpSm] = await Promise.all([
+    getImage({ src: match, width: wLg, format: 'webp', quality: 72 }),
+    getImage({ src: match, width: wSm, format: 'webp', quality: 72 }),
+  ]);
+  // The imported source (a ~1800px web JPEG) is emitted anyway, so reuse it as
+  // the non-WebP fallback inside image-set rather than generating a duplicate.
+  const jpgFallback = match.src;
+  bgLg = `image-set(url("${webpLg.src}") type("image/webp"), url("${jpgFallback}") type("image/jpeg"))`;
+  bgSm = `image-set(url("${webpSm.src}") type("image/webp"), url("${jpgFallback}") type("image/jpeg"))`;
+}
+---
+
+<div
+  class:list={['full', 'parallax', 'hero', { resolved: !!match }]}
+  style={fallbackUrl ? `background-image: url(${fallbackUrl});` : undefined}
+>
+  <div class="row">
+    <div class="large-12 columns">
+      <SectionHeader title={title} tagline={tagline} color="#fff" class="big" />
+    </div>
+  </div>
+  <div class="four spacing"></div>
+  {caption && <div class="caption caption-absolute" set:html={md(caption)} />}
+</div>
+
+<style define:vars={{ bgLg, bgSm }}>
+  .hero {
+    position: relative;
+    color: #fff;
+    /* Readable backdrop before/if the banner image can't load. */
+    background-color: #0a3d4d;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* Only the Astro-resolved heroes drive the background from image-set vars;
+     unresolved ones keep their inline url() above. */
+  .hero.resolved {
+    background-image: var(--bgLg);
+  }
+  @media (max-width: 900px) {
+    .hero.resolved {
+      background-image: var(--bgSm);
+    }
+  }
+</style>

@@ -4,10 +4,12 @@ author: "Yuri Roskov"
 excerpt: A tribute to Monalisa (Mona) Cachuela-Palacio
 categories: Obituary
 ---
+import { Image } from 'astro:assets';
+import monalisa from '../../assets/posts/Monalisa.JPG';
 
 The Catalogue of Life Consortium mourns the tragic loss of Monalisa Cachuela-Palacio, who passed away on 13th October 2024. She was a wonderful person, a highly professional colleague and our nice friend. Mona was in our team at the very beginning of the Catalogue of Life.
 
-![Monalisa Cachuela-Palacio](/images/posts/Monalisa.JPG)
+<Image src={monalisa} widths={[480, 800, 1200]} sizes="(max-width: 800px) 100vw, 800px" format="webp" alt="Monalisa Cachuela-Palacio" />
 
 The image is showing Mona visiting the Catalogue of Life office at the University of Reading (Reading, UK), on the 9th of November 2004 (seated Frank Bisby, Monalisa Cachuela-Palacio; standing Yury Roskov, Susanah Kimani, Pamela Harling).
 

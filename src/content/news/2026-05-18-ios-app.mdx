@@ -4,6 +4,11 @@ author: "Markus Döring"
 excerpt: A free Catalogue of Life iPhone app is now available on the App Store — browse, search and explore the full COL checklist from your pocket.
 categories: Release
 ---
+import { Image } from 'astro:assets';
+import iosSearch from '../../assets/posts/ios-search.png';
+import iosTaxon from '../../assets/posts/ios-taxon.png';
+import iosOccurrences from '../../assets/posts/ios-occurrences.png';
+import iosMetrics from '../../assets/posts/ios-metrics.png';
 
 The Catalogue of Life is now available as a native iPhone app. You can [download it for free from the App Store](https://apps.apple.com/app/catalogue-of-life/id6769201152).
 
@@ -13,21 +18,21 @@ The app gives mobile access to the same authoritative checklist of every named l
 
 **Browse and search the full COL release.** Walk the classification tree, or search by scientific name with quick filters for rank, status and taxonomic group. Synonyms, vernacular names and authorships are all just a tap away. The Extended Release (XR) names are clearly marked, so you can tell vetted COL data apart from names contributed by additional sources.
 
-<img src="/images/posts/ios-search.png" width="320">
+<Image src={iosSearch} width={320} densities={[1.5, 2]} format="webp" alt="iOS app search screen" />
 
 **Rich taxon pages.** Every taxon shows its full classification, original publication, synonyms and combinations, and an interactive sunburst breakdown of its children — handy for getting a feel for the diversity inside a genus or family at a glance.
 
-<img src="/images/posts/ios-taxon.png" width="320">
+<Image src={iosTaxon} width={320} densities={[1.5, 2]} format="webp" alt="iOS app taxon page" />
 
 **Linked external data.** Where available, taxon pages pull in occurrence maps, country statistics and image galleries from [GBIF](https://www.gbif.org), with proper attribution and licensing carried through from the original observers. Source records link back to the contributing dataset with its citation.
 
-<img src="/images/posts/ios-occurrences.png" width="320">
+<Image src={iosOccurrences} width={320} densities={[1.5, 2]} format="webp" alt="iOS app occurrence map" />
 
 **Switch between releases.** Unlike the website, which always shows the latest data, the app lets you choose which COL release you want to work with: the latest monthly Extended release, the latest monthly Base release, or any of the annual releases going back to 2021. Useful for citing a fixed version, or for checking how a name was treated in an earlier release.
 
 **Release metrics and sources.** The Metrics tab shows the size of the selected release and a timeline of how COL has grown over the years. The Sources tab lets you browse and filter the hundreds of taxonomic datasets that make up the Catalogue.
 
-<img src="/images/posts/ios-metrics.png" width="320">
+<Image src={iosMetrics} width={320} densities={[1.5, 2]} format="webp" alt="iOS app metrics tab" />
 
 **Favourites.** Star any taxon to keep a personal list for quick access later.
 

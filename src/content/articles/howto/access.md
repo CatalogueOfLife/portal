@@ -17,7 +17,10 @@ The Catalogue of Life is updated on a monthly basis. The latest version can alwa
 Conversely, use the **Find taxon** search field to go directly to a taxon within the tree. You can search using both accepted and synonym names, although only the accepted names are displayed on the tree. Searching a synonym taxon will redirect you to its accepted name in COL.  Click on the name of your interest to access the relevant details page.
 
 
-<img src="/images/gif/Browse.gif" alt="Browse" loading="lazy">
+<video autoplay loop muted playsinline preload="metadata" width="800" aria-label="Browsing the tree" style="max-width:100%;height:auto">
+  <source src="/videos/Browse.webm" type="video/webm">
+  <source src="/videos/Browse.mp4" type="video/mp4">
+</video>
 
 
 ## Search
@@ -32,7 +35,10 @@ You will also find dropdown menus like Status and Rank to further filter your se
 
 Explore all available options by clicking on Advance. Each menu allows you to select more than one option.
 
-<img src="/images/gif/Search.gif" alt="Search" loading="lazy">
+<video autoplay loop muted playsinline preload="metadata" width="800" aria-label="Searching for a taxon" style="max-width:100%;height:auto">
+  <source src="/videos/Search.webm" type="video/webm">
+  <source src="/videos/Search.mp4" type="video/mp4">
+</video>
 
 You can also choose the way your search matches the results:
 
