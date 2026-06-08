@@ -4,6 +4,7 @@ import SourceDatasetIsland from '@components/islands/SourceDatasetIsland.tsx';
 import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
+import { licenseUrl } from '@lib/license';
 import { resolveVersion } from '@lib/version';
 
 // On-demand SSR for a source dataset within an annual edition.
@@ -34,7 +35,7 @@ const person = (p: any) => ({
   ...(p.email ? { email: p.email } : {}),
   ...(p.orcid ? { identifier: `https://orcid.org/${p.orcid}` } : {}),
 });
-const licenseUrl = source?.license ? (typeof source.license === 'string' ? source.license : source.license.url) : undefined;
+const license = licenseUrl(source?.license);
 
 const jsonLd: Record<string, unknown> | null = source
   ? {
@@ -48,7 +49,7 @@ const jsonLd: Record<string, unknown> | null = source
       ...(source.description ? { description: source.description } : {}),
       ...(source.temporalCoverage ? { temporalCoverage: source.temporalCoverage } : {}),
       ...(source.spatialCoverage ? { spatialCoverage: source.spatialCoverage } : {}),
-      ...(licenseUrl ? { license: licenseUrl } : {}),
+      ...(license ? { license } : {}),
       inLanguage: 'eng',
       ...(source.version ? { version: source.version } : {}),
       ...(source.issued ? { datePublished: source.issued } : {}),
