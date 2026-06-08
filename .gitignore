@@ -1,6 +1,8 @@
 .DS_Store
 .claude/
 
+TODO.md
+
 # Astro / Node
 node_modules/
 dist/
