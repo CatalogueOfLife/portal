@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { colBrowserVersion } from '../lib/versions';
 
 interface Props {
   title?: string;
@@ -24,6 +25,9 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false } =
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {noindex && <meta name="robots" content="noindex" />}
+    <!-- col-browser (portal-components) version bundled into this build; full
+         package list at /about/version. -->
+    <meta name="col-browser-version" content={colBrowserVersion} />
 
     <!-- Conservative diet: dropped the two icon fonts (fontello + Font Awesome,
          ~44KB/page + 2 font downloads) — the only icons left are inlined SVGs.

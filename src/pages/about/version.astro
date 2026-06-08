@@ -1,0 +1,86 @@
+---
+import Content from '../../layouts/Content.astro';
+import { packages, colBrowserVersion, astroVersion } from '../../lib/versions';
+
+// Hidden colophon: the exact package versions baked into this deploy. Not in
+// nav.yml and not in any sitemap (sitemap.txt.ts lists only articles + the
+// hardcoded landing pages), and noindex below — reachable only by direct URL.
+const runtime = packages.filter((p) => !p.dev);
+const dev = packages.filter((p) => p.dev);
+const buildDate = new Date().toISOString();
+const nodeVersion = process.version;
+const npmUrl = (name: string) => `https://www.npmjs.com/package/${name}`;
+---
+
+<Content
+  frontmatter={{
+    title: 'Software versions',
+    tagline: 'Open-source packages used to build this website',
+    noindex: true,
+  }}
+>
+  <p>
+    This site is built with <strong>col-browser {colBrowserVersion}</strong> (the
+    Catalogue of Life <a href="https://github.com/CatalogueOfLife/portal-components">portal
+    components</a>) and <strong>Astro {astroVersion}</strong>, on Node {nodeVersion}.
+    Built <time datetime={buildDate}>{buildDate}</time>.
+  </p>
+
+  <h2>Runtime dependencies</h2>
+  <table class="versions">
+    <thead>
+      <tr><th>Package</th><th>Version</th></tr>
+    </thead>
+    <tbody>
+      {
+        runtime.map((p) => (
+          <tr>
+            <td>
+              <a href={npmUrl(p.name)} rel="noopener">
+                {p.name}
+              </a>
+            </td>
+            <td>
+              <code>{p.version}</code>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2>Build &amp; dev dependencies</h2>
+  <table class="versions">
+    <thead>
+      <tr><th>Package</th><th>Version</th></tr>
+    </thead>
+    <tbody>
+      {
+        dev.map((p) => (
+          <tr>
+            <td>
+              <a href={npmUrl(p.name)} rel="noopener">
+                {p.name}
+              </a>
+            </td>
+            <td>
+              <code>{p.version}</code>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <style>
+    table.versions {
+      width: auto;
+    }
+    table.versions th {
+      text-align: left;
+    }
+    table.versions td code {
+      font-size: 0.95em;
+    }
+  </style>
+</Content>
