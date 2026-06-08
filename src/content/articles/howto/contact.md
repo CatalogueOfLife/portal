@@ -25,7 +25,7 @@ After receiving your feedback, an editor will review it based on nomenclatural c
 
 ## Suggest a Data Source
 The Catalogue of Life is constantly evolving, and we're open to adding new sources. If you know a checklist that could enhance it, please let us know. We assess source quality, data availability in suitable formats, and require an open license (CC0 or CC BY).
-You can suggest sources via [GitHub](https://github.com/CatalogueOfLife/data/issues) or by emailing us at [support@catalogueoflife.org](mailto:support@catalogueoflife.org).
+You can suggest sources via [GitHub](https://github.com/CatalogueOfLife/data/issues/new?template=source-dataset-request.md) or by [email](mailto:support@catalogueoflife.org).
 
 ## Contact Details
 
