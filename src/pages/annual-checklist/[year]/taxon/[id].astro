@@ -58,10 +58,13 @@ const parent = classification.filter((c) => c.id !== id).pop();
 
 const jsonLd: Record<string, unknown> | null = u
   ? {
-      '@context': ['https://schema.org/', { dwc: 'http://rs.tdwg.org/dwc/terms/', col: 'http://catalogueoflife.org/terms/' }],
+      // Plain string context (not the array form): the array form is valid JSON-LD
+      // but trips naive consumers that do `data['@context'].toLowerCase()`. CURIE
+      // terms (dwc:) are expanded to full IRIs below so no prefix map is needed.
+      '@context': 'https://schema.org/',
       '@id': taxonUrl,
       '@type': 'Taxon',
-      additionalType: ['dwc:Taxon', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept'],
+      additionalType: ['http://rs.tdwg.org/dwc/terms/Taxon', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept'],
       identifier: [
         { '@type': 'PropertyValue', name: 'dwc:taxonID', propertyID: 'http://rs.tdwg.org/dwc/terms/taxonID', value: id },
         { '@type': 'PropertyValue', name: 'col:ID', propertyID: 'http://catalogueoflife.org/terms/ID', value: id },
@@ -87,7 +90,7 @@ const jsonLd: Record<string, unknown> | null = u
           }
         : {}),
       ...(vernaculars.length
-        ? { 'dwc:vernacularName': vernaculars.map((v) => ({ '@language': v.language, '@value': v.name })) }
+        ? { 'http://rs.tdwg.org/dwc/terms/vernacularName': vernaculars.map((v) => ({ '@language': v.language, '@value': v.name })) }
         : {}),
       ...(parent
         ? {
