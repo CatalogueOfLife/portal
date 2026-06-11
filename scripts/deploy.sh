@@ -77,7 +77,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e COL_RELEASE="$RELEASE_KEY" \
   -e PUBLIC_COL_AUTH="$AUTH" \
   --volume "$PWD:/app" -w /app \
-  node:22 bash -lc "npm ci && npm run build"
+  node:22 bash -lc "npm ci && npm install --no-save col-browser@^2 && npm run build"
 
 echo "Deploying static assets -> ${DEPLOY}:${STATIC_DIR}"
 rsync -rlO --delete dist/client/ "${DEPLOY}:${STATIC_DIR}"
