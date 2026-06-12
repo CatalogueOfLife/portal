@@ -98,6 +98,24 @@ The deploy rsyncs with default perms (world-readable), so the `col` service user
 can read the files and `service.env` that `jenkins-deploy` wrote. Needs **Node 22**
 on the host at `/usr/bin/node` (adjust `ExecStart` if elsewhere).
 
+**Logs.** The unit sets no `StandardOutput`/`StandardError`, so Node's stdout and
+stderr (Astro SSR request errors, uncaught exceptions, plus systemd's own
+start/restart lines) go to the **journal** — there is no separate log file on
+disk:
+
+```bash
+journalctl -u col-portal@preview            # all of it   (or @prod / @dev)
+journalctl -u col-portal@preview -f         # live tail
+journalctl -u col-portal@preview --since "1 hour ago"
+journalctl -u col-portal@preview | grep -iE 'error|exception|unhandled'
+```
+
+Note `-p err` is unreliable here: systemd logs the process's stderr at
+`SyslogLevel=` (default `info`), so JS stack traces aren't tagged `err` — grep
+instead. Retention depends on the host's journald: if `Storage=` isn't
+`persistent` (no `/var/log/journal/`), the journal is volatile and clears on
+reboot (`journalctl --disk-usage`, `/etc/systemd/journald.conf`).
+
 ### Authentication (private draft releases)
 
 Only **preview** reads private draft/candidate releases, so `deploy.sh`
