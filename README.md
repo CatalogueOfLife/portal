@@ -182,6 +182,12 @@ public/                    # static assets served at the site root
   metadata and the changelog from the API and writes projected JSON into
   `src/data/_generated/`. `src/data/{releaseMetadata,changelog}.ts` type and
   re-export it.
+- **Which release each env shows:** **prod** and **dev** run on the current
+  public Extended release (`3LXR`); **preview** runs on the latest Extended +
+  Base release *including private drafts/candidates*, so editors can preview an
+  upcoming release before it's public. This is chosen per-env in
+  `scripts/deploy.sh` (`DEPLOY.md` has the table); the selected keys flow through
+  the baked `releaseMetadata` to the islands and SSR routes — no runtime lookup.
 - **Dynamic components:** `col-browser` (the published `portal-components`
   build) is rendered as Astro islands via the wrappers in
   `src/components/islands/`. `src/lib/colPaths.ts` configures cross-linking.
