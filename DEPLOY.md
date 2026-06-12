@@ -47,20 +47,25 @@ environment variables for the script, which runs straight from the checked-out
 workspace — nothing is copied into the Jenkins job.
 
 All envs build identically (Node 22 in Docker) and pull data from the **prod**
-ChecklistBank; they differ only in the pinned release alias and the deploy
+ChecklistBank; they differ only in which release they select and the deploy
 targets:
 
-| ENV | release alias | host | static dir | Varnish target | SSR port |
+| ENV | release selection | host | static dir | Varnish target | SSR port |
 |---|---|---|---|---|---|
-| prod | `3LXR` | apps.checklistbank.org | `/var/www/html/col-portal/` | www.catalogueoflife.org | 4321 |
-| preview | `3LRC` | apps.checklistbank.org | `/var/www/html/col-portal-preview/` | preview.catalogueoflife.org | 4322 |
-| dev | `3LXRC` | apps.dev.checklistbank.org | `/var/www/html/col-portal/` | www.dev.catalogueoflife.org | 4321 |
+| prod | pin `3LXR` (public Extended) | apps.checklistbank.org | `/var/www/html/col-portal/` | www.catalogueoflife.org | 4321 |
+| preview | latest Extended + Base **incl private drafts** (no pin, `COL_PRIVATE=any`) | apps.checklistbank.org | `/var/www/html/col-portal-preview/` | preview.catalogueoflife.org | 4322 |
+| dev | pin `3LXR` (public Extended, same as prod) | apps.dev.checklistbank.org | `/var/www/html/col-portal/` | www.dev.catalogueoflife.org | 4321 |
 
-The script resolves the alias to a release key against the prod CLB, builds with
-`COL_RELEASE` pinned to it, rsyncs `dist/client/` to the static dir **and**
-`dist/` + `node_modules` to `/opt/col-portal/<env>/`, then restarts the SSR
-service and flushes Varnish. The old release-key/template PUTs to the backend
-are gone (Astro renders those routes now).
+For the pinned envs the script resolves the alias to a release key against the
+prod CLB and builds with `COL_RELEASE` set to it. **preview** pins nothing and
+passes `COL_PRIVATE=any` instead, so the build picks the absolute newest
+Extended (XRelease) and Base release — including private draft/candidate releases
+(strictly newest by created-date; a half-generated draft will fail the build
+loudly). The selected keys flow through the baked `releaseMetadata` to the
+islands, the SSR taxon/dataset routes, and the version selector (see
+`src/data/versions.ts`) — there is no separate runtime alias lookup. The script
+then rsyncs `dist/client/` to the static dir **and** `dist/` + `node_modules` to
+`/opt/col-portal/<env>/`, restarts the SSR service, and flushes Varnish.
 
 ### SSR service (systemd)
 
@@ -93,10 +98,11 @@ The deploy rsyncs with default perms (world-readable), so the `col` service user
 can read the files and `service.env` that `jenkins-deploy` wrote. Needs **Node 22**
 on the host at `/usr/bin/node` (adjust `ExecStart` if elsewhere).
 
-### Authentication (private candidate releases)
+### Authentication (private draft releases)
 
-`3LRC`/`3LXRC` (preview/dev) are **private**, so `deploy.sh` authenticates every
-API call for those envs (prod's `3LXR` is public and stays unauthenticated):
+Only **preview** reads private draft/candidate releases, so `deploy.sh`
+authenticates every API call for preview alone (prod and dev both run on the
+public `3LXR` Extended release and stay unauthenticated):
 
 - **`PUBLIC_COL_AUTH`** (`"user:pass"`, passed to the Docker build) covers the
   build-time fetches (`fetch-data.mjs`, homepage milestone counts) **and** is
@@ -106,7 +112,7 @@ API call for those envs (prod's `3LXR` is public and stays unauthenticated):
 
 Both use the dedicated **read-only `colportal`** CLB account (password
 `PWD_PORTAL`), since the island `auth` prop ships in client JS and is therefore
-visible to anyone who can reach the (gated) preview/dev sites. `service.env`
+visible to anyone who can reach the (gated) preview site. `service.env`
 holds the credential too — `deploy.sh` writes it `umask 077`; keep it `col`-only.
 
 ## On-demand (SSR) routes

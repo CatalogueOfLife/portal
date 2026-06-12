@@ -6,8 +6,9 @@
 #   ENV=prod|preview|dev   PWD_PORTAL=<colportal read-only password>   (Jenkins creds)
 #
 # All three environments build identically and pull data from the *prod*
-# ChecklistBank; they differ only in which release alias they pin and where they
-# deploy. The build produces:
+# ChecklistBank; they differ only in which release they select (prod/dev pin the
+# public 3LXR; preview takes the latest Extended+Base incl private drafts) and
+# where they deploy. The build produces:
 #   dist/client/         static HTML + assets  -> served by Apache/CDN
 #   dist/server/entry.mjs  Node SSR server      -> systemd service behind Varnish,
 #                                                  serves /data/taxon and /data/dataset
@@ -23,6 +24,12 @@ cd "$(dirname "$0")/.."
 echo "Build environment: $ENV"
 PROD_API="https://api.checklistbank.org"   # releases resolved & queried here for every env
 
+# RELEASE_ALIAS pins a specific public release; empty means "no pin" so the build
+# picks the latest release itself (see COL_PRIVATE below). COL_PRIVATE=any tells
+# fetch-data.mjs to drop the public-only filter and take the absolute newest
+# release incl private draft/candidate releases.
+RELEASE_ALIAS=
+COL_PRIVATE=
 case $ENV in
   prod)
     RELEASE_ALIAS=3LXR
@@ -32,14 +39,16 @@ case $ENV in
     SSR_PORT=4321
     ;;
   preview)
-    RELEASE_ALIAS=3LRC
+    # Bleeding edge: latest Extended + Base incl private drafts (no pin).
+    COL_PRIVATE=any
     DEPLOY_HOST=apps.checklistbank.org
     STATIC_DIR=/var/www/html/col-portal-preview/
     TARGET=preview.catalogueoflife.org
     SSR_PORT=4322
     ;;
   dev)
-    RELEASE_ALIAS=3LXRC
+    # Mirror prod: the current public Extended release (3LXR), no private data.
+    RELEASE_ALIAS=3LXR
     DEPLOY_HOST=apps.dev.checklistbank.org
     STATIC_DIR=/var/www/html/col-portal/
     TARGET=www.dev.catalogueoflife.org
@@ -52,18 +61,24 @@ esac
 DEPLOY="jenkins-deploy@${DEPLOY_HOST}"
 SSR_DIR="/opt/col-portal/${ENV}"
 
-# preview/dev pin private candidate releases, so all their API calls
-# (build, SSR and client islands) authenticate as the read-only colportal
-# account; prod's release is public, so no auth is exposed there.
+# Only preview reads private draft releases, so only its API calls (build, SSR
+# and client islands) authenticate as the read-only colportal account; prod and
+# dev run on the public Extended release, so no auth is exposed there.
 case $ENV in
-  prod) AUTH="" ;;
-  *)    AUTH="colportal:${PWD_PORTAL}" ;;
+  preview) AUTH="colportal:${PWD_PORTAL}" ;;
+  *)       AUTH="" ;;
 esac
 
-# Resolve the magic release alias to a concrete key against the prod CLB.
-RELEASE_KEY=$(curl -s --fail --user "colportal:${PWD_PORTAL}" "${PROD_API}/dataset/${RELEASE_ALIAS}.json" | jq '.key')
-[ -n "$RELEASE_KEY" ] && [ "$RELEASE_KEY" != "null" ] || { echo "Could not resolve release $RELEASE_ALIAS"; exit 1; }
-echo "Release $RELEASE_ALIAS -> $RELEASE_KEY"
+# Resolve the magic release alias to a concrete key against the prod CLB. Skipped
+# for preview, which pins nothing and lets the build pick the latest (COL_PRIVATE).
+RELEASE_KEY=
+if [ -n "$RELEASE_ALIAS" ]; then
+  RELEASE_KEY=$(curl -s --fail --user "colportal:${PWD_PORTAL}" "${PROD_API}/dataset/${RELEASE_ALIAS}.json" | jq '.key')
+  [ -n "$RELEASE_KEY" ] && [ "$RELEASE_KEY" != "null" ] || { echo "Could not resolve release $RELEASE_ALIAS"; exit 1; }
+  echo "Release $RELEASE_ALIAS -> $RELEASE_KEY"
+else
+  echo "No release pin (COL_PRIVATE=${COL_PRIVATE:-false}); build picks the latest"
+fi
 
 echo "Cleaning previous build"
 rm -rf dist
@@ -75,6 +90,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e CLB_API="$PROD_API" \
   -e COL_KEY=3 \
   -e COL_RELEASE="$RELEASE_KEY" \
+  -e COL_PRIVATE="$COL_PRIVATE" \
   -e PUBLIC_COL_AUTH="$AUTH" \
   --volume "$PWD:/app" -w /app \
   node:22 bash -lc "npm ci && npm install --no-save col-browser@^2 && npm run build"
