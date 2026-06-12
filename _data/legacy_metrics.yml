@@ -3,7 +3,7 @@
 # Collected ONCE as a static build asset for the "Changes over time" chart
 # on /data/metrics — nothing here is fetched at build time.
 #
-# All are BASE-release figures (the annual checklists predate the eXtended
+# All are BASE-release figures (the annual checklists predate the Extended
 # Release).
 #   2000-2004 (Species 2000 editions; no 2001 edition): from their
 #       ChecklistBank datasets COL00/COL02/COL03/COL04 (keys 315330-315333) —
