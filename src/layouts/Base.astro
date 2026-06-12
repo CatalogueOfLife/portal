@@ -2,14 +2,26 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { colBrowserVersion } from '../lib/versions';
+import { site } from '../lib/site';
 
 interface Props {
   title?: string;
   description?: string;
   sectionId?: string;
   noindex?: boolean;
+  /** Override the self-referencing canonical (e.g. a version-correct data URL). */
+  canonical?: string;
 }
-const { title = 'Catalogue of Life', description, sectionId, noindex = false } = Astro.props;
+const { title = 'Catalogue of Life', description, sectionId, noindex = false, canonical } = Astro.props;
+
+// Self-referencing canonical: every page points at its own clean URL with the
+// query string dropped. This collapses the island pages' `?q=`/`?taxonKey=…`
+// variants (search/browse/sources push routing state into the URL) and any
+// utm_*/trailing-slash duplicates onto one indexable URL. Pages with genuinely
+// distinct query content would pass an explicit `canonical` — none exist here,
+// since all query handling is client-side. Trailing slash stripped to match how
+// the URLs are linked and served (no-slash form).
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname.replace(/(.)\/+$/, '$1'), site.url).href;
 ---
 
 <!doctype html>
@@ -24,6 +36,7 @@ const { title = 'Catalogue of Life', description, sectionId, noindex = false } =
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex" />}
     <!-- col-browser (portal-components) version bundled into this build; full
          package list at /about/version. -->

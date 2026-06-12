@@ -74,7 +74,7 @@ const jsonLd: Record<string, unknown> | null = source
   : null;
 ---
 
-<Base title={title} description={description} noindex={!source || ver.kind === 'base'}>
+<Base title={title} description={description} noindex={!source || ver.kind === 'base'} canonical={url}>
   <Fragment slot="head">
     <meta property="og:title" content={title} />
     <meta property="og:url" content={url} />

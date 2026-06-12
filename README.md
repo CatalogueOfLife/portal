@@ -189,6 +189,11 @@ public/                    # static assets served at the site root
   are generated at build; the large per-taxon sitemaps are produced monthly by
   `scripts/update-sitemaps.sh` into `public/sitemaps/`, and `robots.txt` lists
   them (gated by the `SITE_ENV` env var — non-prod returns `Disallow: /`).
+- **Canonical URLs:** `Base.astro` adds a self-referencing
+  `<link rel="canonical">` (current path, query string dropped) to every page,
+  so the search/browse/sources widgets' `?q=…`/`?taxonKey=…` URL variants
+  consolidate onto one indexable page instead of being indexed as duplicates.
+  The taxon/dataset SSR pages pass their version-correct URL explicitly.
 - **Deployment:** see [`DEPLOY.md`](./DEPLOY.md).
 
 ### Tech stack

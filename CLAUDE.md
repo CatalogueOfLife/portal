@@ -76,6 +76,12 @@ Three independent mechanisms — see `DEPLOY.md`:
 - `scripts/update-sitemaps.sh` — the giant chunked **taxon** sitemaps → `public/sitemaps/*.gz`, regenerated **monthly** by Jenkins and committed back.
 - `src/pages/robots.txt.ts` — lists all three (reads `public/sitemaps/*.gz` at build time). Gated by `SITE_ENV`: only `prod` is crawlable.
 
+### Canonical URLs
+
+`Base.astro` emits a **self-referencing** `<link rel="canonical">` on every page: `site.url` + `Astro.url.pathname`, with the **query string dropped** and trailing slash normalized (root stays `/`). This is what consolidates the island pages' query-variant URLs — `/data/search?q=…`, `/data/browse?taxonKey=…`, `/data/sources?…` (Search/Tree/SourceList push routing state into the URL via `withRouting`) — onto one indexable page, and clears Google's "Duplicate – user hasn't declared a canonical" report. It also collapses `utm_*`/`fbclid`/slash duplicates everywhere.
+
+Dropping the query is correct here because **all** query handling is client-side (no static page has query-distinct server-rendered content). A page that ever needs a query param to define unique indexable content must pass an explicit `canonical` prop to `Base`. The SSR `data/taxon/[id]` and `data/dataset/[key]` pages already do this — they pass their version-correct clean URL (`taxonUrl`/`url`) so the canonical is exact despite the `?v=` param.
+
 ### Project structure
 
 ```
