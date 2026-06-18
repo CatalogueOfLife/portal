@@ -13,7 +13,3 @@ The Catalogue of Life acknowledges and congratulates all experts who are contrib
 
 Reference
 https://www.science.org/doi/10.1126/science.285.5424.22
-
-![Catalogue of LIfe Logo](/images/logos/col_logo.svg)
-
-![Global Core Biodata Resource Logo](/images/logos/GCBR-Logo-RGB.svg)
