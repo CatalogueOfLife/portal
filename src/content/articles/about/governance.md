@@ -16,7 +16,7 @@ The Board of Directors deals with international policy and business issues, appo
 Catalogue of Life has the following board:
 
 * **Dr Edward DeWalt** (University of Illinois, Prairie Research Institute, Illinois Natural History Survey, USA), Acting Chair
-* **Dr Olaf B&aacute;nki** (Netherlands) Executive Director Catalogue of Life, Acting Secretary & Treasurer
+* **Dr Olaf Bánki** (Netherlands) Executive Director Catalogue of Life, Acting Secretary & Treasurer
 
 ## Global Team
 The COL Global Team consists of active participants who contribute to the taxonomic and IT policy and to the design of the work programme. Team members bring expertise in the fields of taxonomy and biodiversity informatics and/or as global or regional checklist data custodians. The Global Team develops criteria for selecting global and regional taxonomic content, liaises between the project and the taxonomic and informatics communities, recommends a work programme to the Managing Director, monitors progress of work and deals with quality maintenance issues. It meets every 6-9 months, rotating between continents. 
@@ -26,9 +26,9 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 
 #### Members of the Catalogue of Life Global Team
 * **Thomas Pape** (Denmark), Chair
-* **Olaf B&aacute;nki** (Netherlands), Ex Officio
+* **Olaf Bánki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano** (Argentina)
-* **Markus D&ouml;ring** (Germany)
+* **Markus Döring** (Germany)
 * **Anne Fuchs** (Australia)
 * **Stephen Garnett** (Australia)
 * **Tobias Guldberg Froeslev** (Denmark)
@@ -48,7 +48,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 #### Members of the Taxonomy Group
 * **Donald Hobern** (Australia), Chair
 * **Nicolas Bailly** (Canada)
-* **Olaf B&aacute;nki** (Netherlands), Ex Officio
+* **Olaf Bánki** (Netherlands), Ex Officio
 * **Maria Marta Cigliano,** (Argentina)
 * **Mark Costello** (New Zealand)
 * **Edward DeWalt,** (USA), Ex Officio
@@ -65,13 +65,13 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
  
 #### Members of the Information Systems Group
 * **Olaf Bánki** (NL), acting Chair
-* **Markus D&ouml;ring** (Germany)
+* **Markus Döring** (Germany)
 * **Tim Robertson** (Denmark)
 * **Bart Vanhoorne** (Belgium)
 
 #### Members of the Species List Governance Group
 * **Stephen Garnett** (Australia), Chair
-* **Olaf B&aacute;nki** (Netherlands), Ex Officio
+* **Olaf Bánki** (Netherlands), Ex Officio
 * **Saroj Barik** (India)
 * **Les Christidis** (Australia)
 * **Maria Marta Cigliano** (Argentina)
@@ -91,7 +91,7 @@ Working Groups (max. 15 persons) may be set up by the COL Global Team for specia
 ## Secretariat
 Catalogue of Life is maintained by a distributed secretariat. The core actitivties are executed through the Catalogue of Life Foundation. The Foundation collaborates in sustainable partnerships. The Global Biodiversity Information Facility is the host and co-developper of the COL infrastructure, ChecklistBank. The Illinois Natural History Survey, University of ILlinois, Species Files group hosts part of the editorial office.
 
-* **COL Executive Director** - Dr. Olaf B&aacute;nki - The Netherlands
+* **COL Executive Director** - Dr. Olaf Bánki - The Netherlands
 * **COL Executive Editor** - Dr. Yuri Roskov - Illinois Natural History Survey, United States of America
 * **COL Editor** - Ms. Diana Hernandez - Mexico
 * **COL Editor** - Ms. Camila Plata - Colombia
@@ -104,5 +104,5 @@ A dedicated GBIF team support the maintenance and expansion of the Catalogue of 
 
 The infrastructure team works closely with the Catalogue of Life Secretariat and its partners.
 
-* **COL Lead developer** - Mr. Markus D&ouml;ring - Global Biodiversity Information Facility - Germany
+* **COL Lead developer** - Mr. Markus Döring - Global Biodiversity Information Facility - Germany
 * **COL User Interface developer** - Mr. Thomas Stjernegaard Jeppesen Global Biodiversity Information Facility  - Denmark

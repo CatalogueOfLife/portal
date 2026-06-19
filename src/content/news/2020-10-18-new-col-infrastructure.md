@@ -1,6 +1,6 @@
 ---
 title:  "New Catalogue of Life: infrastructure"
-author: "Olaf B&aacute;nki"
+author: "Olaf Bánki"
 excerpt: The Catalogue of Life has developed new infrastructure to support the Catalogue of Life and the management of checklist datasets
 categories: Infrastructure
 ---

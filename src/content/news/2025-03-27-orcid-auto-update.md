@@ -1,6 +1,6 @@
 ---
-title:  COL DOIs &amp; ORCIDs
-author: "Markus D&ouml;ring"
+title:  COL DOIs & ORCIDs
+author: "Markus Döring"
 excerpt: Adding COL releases as works to your ORCID profile
 categories: DOI ORCID Metadata Identifier
 ---

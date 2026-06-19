@@ -1,6 +1,6 @@
 ---
 title:  COL User Mailinglist
-author: "Markus D&ouml;ring"
+author: "Markus Döring"
 excerpt: The COL User Mailinglist keeps you updated on API, infrastructure & content changes
 categories: API Documentation
 ---

@@ -1,6 +1,6 @@
 ---
 title:  COL stable identifiers
-author: "Markus D&ouml;ring"
+author: "Markus Döring"
 excerpt: Stable identifiers for the Catalogue of Life
 categories: API Identifier
 ---
