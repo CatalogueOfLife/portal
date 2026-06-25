@@ -28,14 +28,14 @@ Monitoring use of these DOIs will enable our entity community to demonstrate the
 
 **Please use the following recommended citation:**
 
-<div id="citation">{metadata.current.citation}</div>
+<div id="citation" set:html={metadata.current.citation} />
 
 **Please use the following recommended citations for the individual datasets contributing to the Catalogue of Life:**
 
 <div class="sources">
   {sources.map((src) => (
     <div>
-      {src.citation} <a href={`/data/dataset/${src.key}`}><img style={{ height: '12px', opacity: 0.6 }} src="/images/link.png" /></a>
+      <span set:html={src.citation} /> <a href={`/data/dataset/${src.key}`}><img style={{ height: '12px', opacity: 0.6 }} src="/images/link.png" /></a>
     </div>
   ))}
 </div>
