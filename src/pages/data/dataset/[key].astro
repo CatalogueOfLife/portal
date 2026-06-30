@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro';
 import SourceDatasetIsland from '@components/islands/SourceDatasetIsland.tsx';
+import DatasetFeedbackIsland from '@components/islands/DatasetFeedbackIsland.tsx';
 import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
@@ -94,6 +95,7 @@ const jsonLd: Record<string, unknown> | null = source
       source ? (
         <div id="dataset" class="catalogue-of-life">
           <SourceDatasetIsland client:only="react" datasetKey={String(K)} pageTitleTemplate="COL | __dataset__" />
+          <DatasetFeedbackIsland client:only="react" projectKey={String(K)} sourceKey={String(key)} api={api} />
         </div>
       ) : (
         <div class="large-12 columns" style="padding: 40px 0">
