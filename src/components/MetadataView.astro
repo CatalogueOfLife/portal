@@ -13,10 +13,8 @@ interface Release {
 }
 interface Props {
   cur: Release;
-  /** API base for the BibTeX link. */
-  apiBase: string;
 }
-const { cur, apiBase } = Astro.props;
+const { cur } = Astro.props;
 ---
 
 <h2>Abstract</h2>
@@ -24,12 +22,8 @@ const { cur, apiBase } = Astro.props;
 <div set:html={md(cur.description)} />
 
 <h2>Recommended citation</h2>
-<div id="bibtex" style="float: right;">
-  <a href={`${apiBase}/dataset/${cur.key}.bib`}>
-    <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
-  </a>
-</div>
-<!-- citation is CSL HTML (a <div class="csl-entry">…</div>), so render it raw -->
+<!-- citation is CSL HTML (a <div class="csl-entry">…</div>), so render it raw
+     (BibTeX download lives in the sidebar version panel) -->
 <div set:html={cur.citation ?? ''} />
 <p>
   Please also read the
