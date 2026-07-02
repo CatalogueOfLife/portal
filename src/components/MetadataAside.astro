@@ -1,0 +1,24 @@
+---
+// Right-column sidebar for the metadata page: the short reference sections
+// (version + identifiers, license, publisher). The long-form content (abstract,
+// citation, authors) stays in the main column — see MetadataView.astro.
+import VersionInfo from './VersionInfo.astro';
+interface Release {
+  key: number | string;
+  alias?: string;
+  issued?: string;
+  doi?: string;
+  issn?: string;
+  publisher?: { label: string } | null;
+}
+const { cur } = Astro.props as { cur: Release };
+---
+
+<VersionInfo alias={cur.alias} issued={cur.issued} doi={cur.doi} clbKey={cur.key} issn={cur.issn} />
+
+<h3>License</h3>
+<p>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
+</p>
+
+{cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}

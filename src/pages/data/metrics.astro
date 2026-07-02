@@ -1,6 +1,7 @@
 ---
 import Content from '@layouts/Content.astro';
 import MetricsContent from '@components/MetricsContent.astro';
+import VersionInfo from '@components/VersionInfo.astro';
 import { metadata } from '@data/releaseMetadata';
 import { resolveVersion } from '@lib/version';
 
@@ -50,5 +51,12 @@ const headings = [
     api={metadata.api}
     auth={colAuth}
     metadataHref={`/data/metadata${ver.linkQuery}`}
+  />
+  <VersionInfo
+    slot="aside"
+    alias={cur.alias}
+    issued={cur.issued}
+    doi={cur.doi}
+    bibHref={`${metadata.api}/dataset/${datasetKey}.bib`}
   />
 </Content>

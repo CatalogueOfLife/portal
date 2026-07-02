@@ -118,6 +118,7 @@ function projectMetadata(md) {
       key: c.key,
       alias: c.alias,
       version: c.version,
+      issn: c.issn,
       issued: c.issued,
       doi: c.doi,
       title: c.title,

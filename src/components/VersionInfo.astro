@@ -1,0 +1,36 @@
+---
+// A compact "Version" panel for a release, matching the homepage "Active
+// Version" block. Every field is optional so the same component serves the
+// metadata sidebar (alias + issued + DOI + ChecklistBank + ISSN) and the
+// metrics/front-page style (alias + issued + DOI + BibTeX).
+interface Props {
+  heading?: string;
+  alias?: string;
+  issued?: string;
+  doi?: string;
+  /** ChecklistBank dataset key — renders a link to its about page. */
+  clbKey?: number | string;
+  issn?: string;
+  /** BibTeX .bib URL — renders the BibTeX logo link. */
+  bibHref?: string;
+}
+const { heading = 'Version', alias, issued, doi, clbKey, issn, bibHref } = Astro.props;
+---
+
+<h3>{heading}</h3>
+<div id="version">
+  <div>
+    {alias && (<>Release: <i>{alias}</i><br /></>)}
+    {issued && (<>Issued: <i>{issued}</i><br /></>)}
+    {doi && (<>DOI: <a href={`https://doi.org/${doi}`}>{doi}</a><br /></>)}
+    {clbKey && (<>ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${clbKey}/about`}>{clbKey}</a><br /></>)}
+    {issn && (<>ISSN: <a href={`https://portal.issn.org/resource/ISSN/${issn}`}>{issn}</a><br /></>)}
+  </div>
+  {bibHref && (
+    <div id="bibtex">
+      <a href={bibHref}>
+        <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
+      </a>
+    </div>
+  )}
+</div>

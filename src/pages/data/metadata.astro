@@ -1,6 +1,7 @@
 ---
 import Content from '@layouts/Content.astro';
 import MetadataView from '@components/MetadataView.astro';
+import MetadataAside from '@components/MetadataAside.astro';
 import { metadata } from '@data/releaseMetadata';
 import { site } from '@lib/site';
 import { resolveVersion } from '@lib/version';
@@ -58,4 +59,5 @@ const jsonLd = {
   </Fragment>
 
   <MetadataView cur={cur} apiBase={metadata.api} />
+  <MetadataAside slot="aside" cur={cur} />
 </Content>

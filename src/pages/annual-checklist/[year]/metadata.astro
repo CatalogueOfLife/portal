@@ -1,6 +1,7 @@
 ---
 import Content from '@layouts/Content.astro';
 import MetadataView from '@components/MetadataView.astro';
+import MetadataAside from '@components/MetadataAside.astro';
 import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
@@ -70,4 +71,5 @@ const jsonLd = cur
       <p>This annual edition of the Catalogue of Life could not be found.</p>
     )
   }
+  {cur && <MetadataAside slot="aside" cur={cur} />}
 </Content>

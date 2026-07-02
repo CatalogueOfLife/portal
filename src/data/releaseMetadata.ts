@@ -14,6 +14,7 @@ export interface CurrentRelease {
   key: number;
   alias?: string;
   version: string;
+  issn?: string;
   issued: string;
   doi: string;
   title?: string;

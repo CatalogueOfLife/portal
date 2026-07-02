@@ -1,18 +1,15 @@
 ---
-// Shared body of the metadata page, used by /data/metadata (Extended/Base, from
-// baked data) and /annual-checklist/{year}/metadata (SSR-fetched). The host
-// passes a normalized release record; switching versions lives in the header.
+// Main-column body of the metadata page, used by /data/metadata (Extended/Base,
+// from baked data) and /annual-checklist/{year}/metadata (SSR-fetched). The
+// short reference sections (version, license, publisher) live in the right
+// column — see MetadataAside.astro.
+import { md } from '@lib/md';
 interface Release {
   key: number | string;
-  alias?: string;
-  version?: string;
-  issued?: string;
-  doi?: string;
   title?: string;
   citation?: string;
   description?: string;
   creator?: { label: string }[];
-  publisher?: { label: string } | null;
 }
 interface Props {
   cur: Release;
@@ -22,17 +19,9 @@ interface Props {
 const { cur, apiBase } = Astro.props;
 ---
 
-<h2>Version</h2>
-<div id="version">
-  {cur.alias && (<>Release: <i>{cur.alias}</i><br /></>)}
-  Issued: <i>{cur.issued}</i><br />
-  {cur.doi && (<>DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a><br /></>)}
-  ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a>
-  <br /><br />
-</div>
-
 <h2>Abstract</h2>
-<p>{cur.description}</p>
+<!-- description is markdown (links, emphasis); render it to HTML -->
+<div set:html={md(cur.description)} />
 
 <h2>Recommended citation</h2>
 <div id="bibtex" style="float: right;">
@@ -46,13 +35,6 @@ const { cur, apiBase } = Astro.props;
   Please also read the
   <a href="/howto/cite">recommended citations for individual datasets contributing to the Catalogue of Life.</a>
 </p>
-
-<h3>License</h3>
-<p>
-  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
-</p>
-
-{cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
 
 <h3>Authors</h3>
 <div id="authors">

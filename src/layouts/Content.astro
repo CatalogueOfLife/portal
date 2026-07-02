@@ -21,6 +21,11 @@ const imageUrl = fm.imageUrl ?? site.defaultImageUrl;
 const caption = fm.imageCaption ?? site.defaultImageCaption;
 const toc = fm.toc ?? false;
 const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
+// A page can supply an `aside` slot (e.g. the metadata sidebar) to get the same
+// two-column layout as a table of contents. The aside content renders above the
+// TOC in the narrow right column.
+const hasAside = Astro.slots.has('aside');
+const twoCol = toc || hasAside;
 ---
 
 <Base title={`${fm.title} | COL`} sectionId={fm.section_id} noindex={fm.noindex}>
@@ -29,21 +34,26 @@ const tocHeadings = headings.filter((h) => h.depth >= 1 && h.depth <= 2);
 
   <div class="full">
     <div class="row">
-      <div class={toc ? 'large-8 columns prose' : 'large-12 columns prose'}>
+      <div class={twoCol ? 'large-8 columns prose' : 'large-12 columns prose'}>
         <slot />
         <div class="spacing"></div>
       </div>
       {
-        toc && (
+        twoCol && (
           <div class="large-4 columns">
-            <h3>Table of contents</h3>
-            <ul class="toc">
-              {tocHeadings.map((h) => (
-                <li class={`toc-depth-${h.depth}`}>
-                  <a href={`#${h.slug}`}>{h.text}</a>
-                </li>
-              ))}
-            </ul>
+            {hasAside && <slot name="aside" />}
+            {toc && (
+              <>
+                <h3>Table of contents</h3>
+                <ul class="toc">
+                  {tocHeadings.map((h) => (
+                    <li class={`toc-depth-${h.depth}`}>
+                      <a href={`#${h.slug}`}>{h.text}</a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         )
       }

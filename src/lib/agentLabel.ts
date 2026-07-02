@@ -41,6 +41,7 @@ export function normalizeRelease(d: any) {
     key: d.key,
     alias: d.alias,
     version: d.version,
+    issn: d.issn,
     issued: d.issued,
     doi: d.doi,
     title: d.title,
