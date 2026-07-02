@@ -12,6 +12,7 @@ export const prerender = false;
 const ver = resolveVersion(Astro.url.pathname, Astro.url.search);
 const isBase = ver.kind === 'base';
 const datasetKey = ver.datasetKey;
+const cur = isBase && metadata.base ? metadata.base.current : metadata.current;
 
 // Basic-auth credential for the client-side metrics fetch — needed for private
 // candidate releases on preview/dev; empty on prod.
@@ -19,7 +20,7 @@ const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
 
 const fm = {
   title: 'Metrics',
-  tagline: `Metrics about the ${ver.label} release of the Catalogue of Life`,
+  tagline: `Metrics about the ${cur.alias ?? ver.label} release of the Catalogue of Life`,
   section_id: 'data',
   toc: true,
   noindex: isBase,
