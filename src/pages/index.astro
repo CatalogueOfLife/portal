@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro';
 import TreeIsland from '@components/islands/TreeIsland.tsx';
+import VersionInfo from '@components/VersionInfo.astro';
 import { metadata, datasetKey } from '@data/releaseMetadata';
 import { milestones, milestoneCount } from '@data/milestones';
 import { getPosts } from '@lib/posts';
@@ -87,20 +88,13 @@ const partners = [
 
       <div class="medium-4 columns">
         <br />
-        <h3>Active Version</h3>
-        <div id="version">
-          <div>
-            <span id="version-alias" set:html={cur.alias ? `Release: <i>${cur.alias}</i><br>` : ''} />
-            Issued: <i id="version-issued">{cur.issued}</i>
-            <br />
-            DOI: <a id="version-doi" href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
-          </div>
-          <div id="bibtex">
-            <a id="version-bibtex" href={`${metadata.api}/dataset/${datasetKey}.bib`}>
-              <img src="/images/logos/bibtex_logo.png" style="height: 32px; margin-left: 8px;" alt="BibTeX" />
-            </a>
-          </div>
-        </div>
+        <VersionInfo
+          heading="Active Version"
+          alias={cur.alias}
+          issued={cur.issued}
+          doi={cur.doi}
+          bibHref={`${metadata.api}/dataset/${datasetKey}.bib`}
+        />
         <script type="application/json" id="version-data" set:html={JSON.stringify(versionData)} />
         <script>
           import { isVersionSpecificPath, versionToken, VERSION_STORAGE_KEY } from '@lib/versionLabel';

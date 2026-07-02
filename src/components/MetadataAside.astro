@@ -1,7 +1,8 @@
 ---
-// Right-column sidebar for the metadata page: the short reference sections
-// (version + identifiers, license, publisher). The long-form content (abstract,
-// citation, authors) stays in the main column — see MetadataView.astro.
+// Right-column sidebar for the metadata page: the version panel (shared with the
+// homepage/metrics), a Links section for the release identifiers, the license and
+// the publisher. The long-form content (abstract, citation, authors) stays in the
+// main column — see MetadataView.astro.
 import VersionInfo from './VersionInfo.astro';
 interface Release {
   key: number | string;
@@ -11,14 +12,35 @@ interface Release {
   issn?: string;
   publisher?: { label: string } | null;
 }
-const { cur } = Astro.props as { cur: Release };
+interface Props {
+  cur: Release;
+  /** API base for the BibTeX link. */
+  apiBase: string;
+}
+const { cur, apiBase } = Astro.props;
 ---
 
-<VersionInfo alias={cur.alias} issued={cur.issued} doi={cur.doi} clbKey={cur.key} issn={cur.issn} />
+<VersionInfo alias={cur.alias} issued={cur.issued} doi={cur.doi} bibHref={`${apiBase}/dataset/${cur.key}.bib`} />
+
+<h3>Links</h3>
+<div>
+  ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a><br />
+  {cur.issn && (<>ISSN: <a href={`https://portal.issn.org/resource/ISSN/${cur.issn}`}>{cur.issn}</a></>)}
+</div>
 
 <h3>License</h3>
 <p>
-  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="/images/cc-by-icon.svg" alt="CC BY" /> Creative Commons Attribution 4.0 International</a>
+  <a href="https://creativecommons.org/licenses/by/4.0/">
+    <img src="/images/cc-by-icon.svg" alt="Creative Commons Attribution 4.0 International" />
+  </a>
 </p>
 
 {cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
+
+<style>
+  /* The sidebar column isn't `.prose`, so give its section headings the same
+     breathing room the main-column headings get. */
+  h3 {
+    margin-top: 1.6rem;
+  }
+</style>

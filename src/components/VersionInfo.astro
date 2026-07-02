@@ -1,34 +1,31 @@
 ---
-// A compact "Version" panel for a release, matching the homepage "Active
-// Version" block. Every field is optional so the same component serves the
-// metadata sidebar (alias + issued + DOI + ChecklistBank + ISSN) and the
-// metrics/front-page style (alias + issued + DOI + BibTeX).
+// The shared "Version" panel for a release: alias, issued date, DOI and a
+// BibTeX link. Used identically on the homepage ("Active Version"), the metrics
+// page and the metadata page. The element ids (version-alias/issued/doi/bibtex)
+// let the static homepage swap in another release's values client-side (see
+// src/pages/index.astro); on the SSR pages they are simply unused.
 interface Props {
   heading?: string;
   alias?: string;
   issued?: string;
   doi?: string;
-  /** ChecklistBank dataset key — renders a link to its about page. */
-  clbKey?: number | string;
-  issn?: string;
-  /** BibTeX .bib URL — renders the BibTeX logo link. */
+  /** BibTeX .bib URL — renders the BibTeX logo link when set. */
   bibHref?: string;
 }
-const { heading = 'Version', alias, issued, doi, clbKey, issn, bibHref } = Astro.props;
+const { heading = 'Version', alias, issued, doi, bibHref } = Astro.props;
 ---
 
 <h3>{heading}</h3>
 <div id="version">
   <div>
-    {alias && (<>Release: <i>{alias}</i><br /></>)}
-    {issued && (<>Issued: <i>{issued}</i><br /></>)}
-    {doi && (<>DOI: <a href={`https://doi.org/${doi}`}>{doi}</a><br /></>)}
-    {clbKey && (<>ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${clbKey}/about`}>{clbKey}</a><br /></>)}
-    {issn && (<>ISSN: <a href={`https://portal.issn.org/resource/ISSN/${issn}`}>{issn}</a><br /></>)}
+    <span id="version-alias" set:html={alias ? `Release: <i>${alias}</i><br>` : ''} />
+    Issued: <i id="version-issued">{issued}</i>
+    <br />
+    DOI: <a id="version-doi" href={doi ? `https://doi.org/${doi}` : '#'}>{doi}</a>
   </div>
   {bibHref && (
     <div id="bibtex">
-      <a href={bibHref}>
+      <a id="version-bibtex" href={bibHref}>
         <img src="/images/logos/bibtex_logo.png" style="height: 32px;" alt="BibTeX" />
       </a>
     </div>
