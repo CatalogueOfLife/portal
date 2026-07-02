@@ -116,6 +116,7 @@ function projectMetadata(md) {
     releaseKey: md.releaseKey,
     current: {
       key: c.key,
+      alias: c.alias,
       version: c.version,
       issued: c.issued,
       doi: c.doi,

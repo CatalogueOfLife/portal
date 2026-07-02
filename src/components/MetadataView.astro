@@ -4,6 +4,7 @@
 // passes a normalized release record; switching versions lives in the header.
 interface Release {
   key: number | string;
+  alias?: string;
   version?: string;
   issued?: string;
   doi?: string;
@@ -23,6 +24,7 @@ const { cur, apiBase } = Astro.props;
 
 <h2>Version</h2>
 <div id="version">
+  {cur.alias && (<>Release: <i>{cur.alias}</i><br /></>)}
   Issued: <i>{cur.issued}</i><br />
   {cur.doi && (<>DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a><br /></>)}
   ChecklistBank: <a href={`https://www.checklistbank.org/dataset/${cur.key}/about`}>{cur.key}</a>

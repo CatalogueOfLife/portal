@@ -39,6 +39,7 @@ export function agentLabel(a: Agent): string {
 export function normalizeRelease(d: any) {
   return {
     key: d.key,
+    alias: d.alias,
     version: d.version,
     issued: d.issued,
     doi: d.doi,

@@ -15,7 +15,7 @@ const url = `${site.url}/data/metadata${ver.linkQuery}`;
 
 const fm = {
   title: 'Metadata',
-  tagline: `About the ${ver.label} release of the Catalogue of Life`,
+  tagline: `About the ${cur.alias ?? ver.label} release of the Catalogue of Life`,
   section_id: 'data',
   toc: false,
   noindex: ver.kind === 'base',

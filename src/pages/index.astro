@@ -9,6 +9,28 @@ import { numf } from '@lib/numf';
 const counts = await Promise.all(milestones.map(milestoneCount));
 const recent = (await getPosts()).slice(0, 8);
 const cur = metadata.current;
+const baseCur = metadata.base?.current ?? null;
+
+// The homepage is prerendered static, so the "Active Version" block is baked for
+// the Extended release. Both releases' fields are shipped here and a small client
+// script swaps them in when the URL (?v=br) or remembered token selects Base —
+// mirroring how the islands resolve their version.
+const versionData = {
+  extended: {
+    alias: cur.alias ?? '',
+    issued: cur.issued ?? '',
+    doi: cur.doi ?? '',
+    bib: `${metadata.api}/dataset/${cur.key}.bib`,
+  },
+  ...(baseCur && {
+    base: {
+      alias: baseCur.alias ?? '',
+      issued: baseCur.issued ?? '',
+      doi: baseCur.doi ?? '',
+      bib: `${metadata.api}/dataset/${baseCur.key}.bib`,
+    },
+  }),
+};
 
 const partners = [
   { image: '/images/logos/Smithsonian.svg', link: 'https://www.si.edu/' },
@@ -68,16 +90,51 @@ const partners = [
         <h3>Active Version</h3>
         <div id="version">
           <div>
-            Issued: <i>{cur.issued}</i>
+            <span id="version-alias" set:html={cur.alias ? `Release: <i>${cur.alias}</i><br>` : ''} />
+            Issued: <i id="version-issued">{cur.issued}</i>
             <br />
-            DOI: <a href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
+            DOI: <a id="version-doi" href={`https://doi.org/${cur.doi}`}>{cur.doi}</a>
           </div>
           <div id="bibtex">
-            <a href={`${metadata.api}/dataset/${datasetKey}.bib`}>
+            <a id="version-bibtex" href={`${metadata.api}/dataset/${datasetKey}.bib`}>
               <img src="/images/logos/bibtex_logo.png" style="height: 32px; margin-left: 8px;" alt="BibTeX" />
             </a>
           </div>
         </div>
+        <script type="application/json" id="version-data" set:html={JSON.stringify(versionData)} />
+        <script>
+          import { isVersionSpecificPath, versionToken, VERSION_STORAGE_KEY } from '@lib/versionLabel';
+
+          const dataEl = document.getElementById('version-data');
+          if (dataEl) {
+            const all = JSON.parse(dataEl.textContent || '{}');
+            const { pathname, search } = window.location;
+            let token: string;
+            if (isVersionSpecificPath(pathname, search)) {
+              token = versionToken(pathname, search);
+            } else {
+              try {
+                token = localStorage.getItem(VERSION_STORAGE_KEY) || 'extended';
+              } catch {
+                token = 'extended';
+              }
+            }
+            const d = all[token] ?? all.extended;
+            if (d) {
+              const aliasEl = document.getElementById('version-alias');
+              if (aliasEl) aliasEl.innerHTML = d.alias ? `Release: <i>${d.alias}</i><br>` : '';
+              const issuedEl = document.getElementById('version-issued');
+              if (issuedEl) issuedEl.textContent = d.issued;
+              const doiEl = document.getElementById('version-doi');
+              if (doiEl) {
+                doiEl.textContent = d.doi;
+                doiEl.setAttribute('href', `https://doi.org/${d.doi}`);
+              }
+              const bibEl = document.getElementById('version-bibtex');
+              if (bibEl) bibEl.setAttribute('href', d.bib);
+            }
+          }
+        </script>
 
         <h3>Documentation</h3>
         <p>

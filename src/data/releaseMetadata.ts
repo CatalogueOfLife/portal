@@ -12,6 +12,7 @@ export interface Metrics {
 }
 export interface CurrentRelease {
   key: number;
+  alias?: string;
   version: string;
   issued: string;
   doi: string;
