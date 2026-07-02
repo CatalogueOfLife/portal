@@ -1,9 +1,17 @@
 ---
 // Right-column sidebar for the metadata page: the version panel (shared with the
-// homepage/metrics), a Links section for the release identifiers, the license and
-// the publisher. The long-form content (abstract, citation, authors) stays in the
-// main column — see MetadataView.astro.
+// homepage/metrics), a Links section for the release identifiers, the license,
+// the publisher and the contact. The long-form content (abstract, citation,
+// authors) stays in the main column — see MetadataView.astro.
 import VersionInfo from './VersionInfo.astro';
+interface Contact {
+  name?: string;
+  organisation?: string;
+  email?: string;
+  city?: string;
+  country?: string;
+  address?: string;
+}
 interface Release {
   key: number | string;
   alias?: string;
@@ -11,6 +19,7 @@ interface Release {
   doi?: string;
   issn?: string;
   publisher?: { label: string } | null;
+  contact?: Contact | null;
 }
 interface Props {
   cur: Release;
@@ -18,6 +27,9 @@ interface Props {
   apiBase: string;
 }
 const { cur, apiBase } = Astro.props;
+const contact = cur.contact;
+const contactName = contact?.organisation || contact?.name;
+const contactPlace = contact?.address || [contact?.city, contact?.country].filter(Boolean).join(', ');
 ---
 
 <VersionInfo alias={cur.alias} issued={cur.issued} doi={cur.doi} bibHref={`${apiBase}/dataset/${cur.key}.bib`} />
@@ -36,6 +48,17 @@ const { cur, apiBase } = Astro.props;
 </p>
 
 {cur.publisher && (<><h3>Publisher</h3><p set:html={cur.publisher.label} /></>)}
+
+{contact && (contactName || contact.email) && (
+  <>
+    <h3>Contact</h3>
+    <div>
+      {contactName && <>{contactName}<br /></>}
+      {contactPlace && <>{contactPlace}<br /></>}
+      {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
+    </div>
+  </>
+)}
 
 <style>
   /* The sidebar column isn't `.prose`, so give its section headings the same

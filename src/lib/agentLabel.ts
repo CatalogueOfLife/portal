@@ -49,5 +49,6 @@ export function normalizeRelease(d: any) {
     description: d.description,
     creator: (d.creator || []).map((a: Agent) => ({ label: agentLabel(a) })),
     publisher: d.publisher ? { label: agentLabel(d.publisher) } : null,
+    contact: d.contact ?? null,
   };
 }

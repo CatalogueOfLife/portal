@@ -5,6 +5,14 @@ import data from './_generated/release.json';
 export interface Agent {
   label: string;
 }
+export interface Contact {
+  name?: string;
+  organisation?: string;
+  email?: string;
+  city?: string;
+  country?: string;
+  address?: string;
+}
 export interface Metrics {
   nameCount?: number;
   usagesCount?: number;
@@ -24,6 +32,7 @@ export interface CurrentRelease {
   creator: Agent[];
   contributor: Agent[];
   publisher?: { label: string } | null;
+  contact?: Contact | null;
 }
 export interface SourceRef {
   key: number;

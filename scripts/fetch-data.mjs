@@ -106,6 +106,8 @@ const slimMetrics = (m) =>
   m ? { nameCount: m.nameCount, usagesCount: m.usagesCount, taxaByRankCount: slimRanks(m.taxaByRankCount) } : {};
 const slimRanks = (r) => (r ? { species: r.species, genus: r.genus, family: r.family } : {});
 const labelsOnly = (list) => (list || []).map((a) => ({ label: a.label }));
+const slimContact = (c) =>
+  c ? { name: c.name, organisation: c.organisation, email: c.email, city: c.city, country: c.country, address: c.address } : null;
 
 function projectMetadata(md) {
   const c = md.current || {};
@@ -128,6 +130,7 @@ function projectMetadata(md) {
       creator: labelsOnly(c.creator),
       contributor: labelsOnly(c.contributor),
       publisher: c.publisher ? { label: c.publisher.label } : null,
+      contact: slimContact(c.contact),
     },
     metrics: slimMetrics(md.metrics),
     sources: (md.sources || []).map(slimSource),
