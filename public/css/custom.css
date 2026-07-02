@@ -56,7 +56,9 @@ ul.posticon li { list-style: disc; margin-left: 1rem; }
 
 #homepage .introduction { text-align: left; padding-left: 16px; }
 
-#homepage #bibtex { position: relative; top: -39px; left: 150px; }
+/* The right column isn't `.prose`, so its section headings need explicit top
+   spacing (the version panel's heading is the first and stays put). */
+#homepage .medium-4 h3:not(.version-heading) { margin-top: 1.6rem; }
 
 img.cbdr-logo { height: 42px !important; margin-bottom: 10px; }
 

@@ -44,7 +44,7 @@ const twoCol = toc || hasAside;
             {hasAside && <slot name="aside" />}
             {toc && (
               <>
-                <h3>Table of contents</h3>
+                <h3 class={hasAside ? 'toc-heading spaced' : 'toc-heading'}>Table of contents</h3>
                 <ul class="toc">
                   {tocHeadings.map((h) => (
                     <li class={`toc-depth-${h.depth}`}>
@@ -61,3 +61,12 @@ const twoCol = toc || hasAside;
     <div class="four spacing"></div>
   </div>
 </Base>
+
+<style>
+  /* When the right column carries an aside above the TOC (e.g. the metrics
+     version panel), give the TOC heading the same breathing room the aside's
+     own section headings have — this column isn't `.prose`. */
+  .toc-heading.spaced {
+    margin-top: 1.6rem;
+  }
+</style>
