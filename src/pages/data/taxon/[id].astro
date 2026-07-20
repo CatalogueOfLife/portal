@@ -27,6 +27,22 @@ let info: any = null;
 // Base is a subset of Extended: a base id may be missing here yet exist in
 // Extended — when that happens we offer a link to the Extended page.
 let inExtended = false;
+// An id that existed in an earlier release: the API answers 404 but carries the
+// archived usage, so we can render a tombstone (the old PortalPageRenderer
+// ArchivedException path) rather than a bare "not found".
+let archived: any = null;
+let firstRelease: any = null;
+let lastRelease: any = null;
+// Current usages carrying the same name. An id is often only retired because it
+// got reissued, e.g. the BOLD BIN GGJZT -> BOLD.AAK1046.
+let sameName: any[] = [];
+
+async function fetchJson(url: string | null | undefined) {
+  if (!url) return null;
+  const res = await colFetch(url);
+  return res.ok ? res.json().catch(() => null) : null;
+}
+
 const infoRes = await colFetch(`${api}/dataset/${K}/taxon/${id}/info`);
 if (infoRes.ok) {
   info = await infoRes.json();
@@ -44,9 +60,24 @@ if (infoRes.ok) {
     const acceptedId = (await nu.json())?.accepted?.id;
     if (acceptedId) return Astro.redirect(`/data/taxon/${acceptedId}${vq}`, 301);
   }
-  // Not found. TODO: render an archived-taxon tombstone once the public API
-  // exposes archived-usage lookups (the old PortalPageRenderer.ArchivedException path).
   Astro.response.status = 404;
+  archived = (await infoRes.json().catch(() => null))?.usage ?? null;
+  if (archived) {
+    const sciName = archived.name?.scientificName;
+    // Only an exact name match is a safe suggestion — homonyms share a name but
+    // differ by author, so we list what comes back instead of redirecting.
+    const search = sciName
+      ? `${api}/dataset/${K}/nameusage/search?q=${encodeURIComponent(sciName)}&content=SCIENTIFIC_NAME&type=EXACT&limit=25`
+      : null;
+    const [first, last, hits] = await Promise.all([
+      fetchJson(archived.firstReleaseKey ? `${api}/dataset/${archived.firstReleaseKey}` : null),
+      fetchJson(archived.lastReleaseKey ? `${api}/dataset/${archived.lastReleaseKey}` : null),
+      fetchJson(search),
+    ]);
+    firstRelease = first;
+    lastRelease = last;
+    sameName = (hits?.result ?? []).map((r: any) => r.usage ?? r).filter((s: any) => s?.id && s.id !== id);
+  }
   if (ver.kind === 'base') {
     const ext = await colFetch(`${api}/dataset/${extendedKey}/taxon/${id}/info`);
     inExtended = ext.ok;
@@ -59,10 +90,12 @@ const sourceTitle = info?.source?.title;
 const taxonUrl = `${site.url}/data/taxon/${id}`;
 const logo = `${site.url}/images/col_square_logo.jpg`;
 
-const title = u ? `${u.label} | COL` : 'Not found | COL';
+const title = u ? `${u.label} | COL` : archived ? `${archived.label} | COL` : 'Not found | COL';
 const description = u
   ? `${u.label} in the Catalogue of Life${sourceTitle ? ` based on ${sourceTitle}` : ''}`
-  : 'This name could not be found in the current Catalogue of Life.';
+  : archived
+    ? `${archived.label} was part of an earlier Catalogue of Life release but is no longer in the current one.`
+    : 'This name could not be found in the current Catalogue of Life.';
 
 // Flatten the synonyms dict (homotypic/heterotypic/...) into one list.
 const synonyms: any[] = info?.synonyms
@@ -151,6 +184,62 @@ const jsonLd: Record<string, unknown> | null = u
             showDistributionMap
             gbifChecklistKey="7ddf754f-d193-4cc9-b351-99906754a03b"
           />
+        </div>
+      ) : archived ? (
+        <div class="row" style="padding: 40px 0">
+          <div class="large-12 columns">
+            <h2 set:html={archived.labelHtml ?? archived.label} />
+            <p style="color: rgba(0, 0, 0, 0.45)">{id}</p>
+            <p>
+              This id was part of the Catalogue of Life but is not in the current release
+              {lastRelease && (
+                <Fragment>
+                  {' '}— it was last published in{' '}
+                  <a href={`https://www.checklistbank.org/dataset/${archived.lastReleaseKey}/taxon/${id}`}>
+                    {lastRelease.alias ?? lastRelease.version}
+                  </a>
+                  {firstRelease && archived.firstReleaseKey !== archived.lastReleaseKey && (
+                    <Fragment>, and first appeared in {firstRelease.alias ?? firstRelease.version}</Fragment>
+                  )}
+                </Fragment>
+              )}.
+            </p>
+            {sameName.length > 0 && (
+              <Fragment>
+                <p>
+                  {sameName.length === 1
+                    ? 'The same name is in the current release under a different id:'
+                    : 'The same name is in the current release under these ids:'}
+                </p>
+                <ul>
+                  {sameName.map((s: any) => (
+                    <li>
+                      <a href={`/data/taxon/${s.id}${vq}`} set:html={s.labelHtml ?? s.label ?? s.id} />
+                      {s.status && s.status !== 'accepted' && <Fragment> ({s.status})</Fragment>}
+                    </li>
+                  ))}
+                </ul>
+              </Fragment>
+            )}
+            {archived.classification?.length > 0 && (
+              <p style="color: rgba(0, 0, 0, 0.45); font-size: 13px">
+                {archived.classification
+                  .filter((c: any) => c.id !== id)
+                  .map((c: any, i: number) => (
+                    <Fragment>
+                      {i > 0 && ' › '}
+                      <a href={`/data/taxon/${c.id}${vq}`}>{c.name}</a>
+                    </Fragment>
+                  ))}
+              </p>
+            )}
+            {archived.link && (
+              <p>
+                Source record: <a href={archived.link} rel="nofollow">{archived.link}</a>
+              </p>
+            )}
+            <p><a href="/data/search">Search the Catalogue of Life</a></p>
+          </div>
         </div>
       ) : (
         <div class="row" style="padding: 40px 0">
