@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro';
 import TaxonIsland from '@components/islands/TaxonIsland.tsx';
+import Tombstone from '@components/Tombstone.astro';
 import { metadata } from '@data/releaseMetadata';
 import { colFetch } from '@lib/colApi';
 import { site } from '@lib/site';
@@ -186,59 +187,17 @@ const jsonLd: Record<string, unknown> | null = u
           />
         </div>
       ) : archived ? (
-        <div class="row" style="padding: 40px 0">
+        <div class="row">
           <div class="large-12 columns">
-            <h2 set:html={archived.labelHtml ?? archived.label} />
-            <p style="color: rgba(0, 0, 0, 0.45)">{id}</p>
-            <p>
-              This id was part of the Catalogue of Life but is not in the current release
-              {lastRelease && (
-                <Fragment>
-                  {' '}— it was last published in{' '}
-                  <a href={`https://www.checklistbank.org/dataset/${archived.lastReleaseKey}/taxon/${id}`}>
-                    {lastRelease.alias ?? lastRelease.version}
-                  </a>
-                  {firstRelease && archived.firstReleaseKey !== archived.lastReleaseKey && (
-                    <Fragment>, and first appeared in {firstRelease.alias ?? firstRelease.version}</Fragment>
-                  )}
-                </Fragment>
-              )}.
-            </p>
-            {sameName.length > 0 && (
-              <Fragment>
-                <p>
-                  {sameName.length === 1
-                    ? 'The same name is in the current release under a different id:'
-                    : 'The same name is in the current release under these ids:'}
-                </p>
-                <ul>
-                  {sameName.map((s: any) => (
-                    <li>
-                      <a href={`/data/taxon/${s.id}${vq}`} set:html={s.labelHtml ?? s.label ?? s.id} />
-                      {s.status && s.status !== 'accepted' && <Fragment> ({s.status})</Fragment>}
-                    </li>
-                  ))}
-                </ul>
-              </Fragment>
-            )}
-            {archived.classification?.length > 0 && (
-              <p style="color: rgba(0, 0, 0, 0.45); font-size: 13px">
-                {archived.classification
-                  .filter((c: any) => c.id !== id)
-                  .map((c: any, i: number) => (
-                    <Fragment>
-                      {i > 0 && ' › '}
-                      <a href={`/data/taxon/${c.id}${vq}`}>{c.name}</a>
-                    </Fragment>
-                  ))}
-              </p>
-            )}
-            {archived.link && (
-              <p>
-                Source record: <a href={archived.link} rel="nofollow">{archived.link}</a>
-              </p>
-            )}
-            <p><a href="/data/search">Search the Catalogue of Life</a></p>
+            <Tombstone
+              id={id}
+              usage={archived}
+              firstRelease={firstRelease}
+              lastRelease={lastRelease}
+              currentRelease={metadata.current}
+              sameName={sameName}
+              vq={vq}
+            />
           </div>
         </div>
       ) : (

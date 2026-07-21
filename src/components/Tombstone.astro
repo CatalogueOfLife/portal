@@ -1,0 +1,558 @@
+---
+// Tombstone for an id that was published in an earlier release but is not in the
+// current one. The old backend TOMBSTONE.ftl rendered the same label/value list
+// as a live taxon page, so a removed record looked identical to a present one.
+// Here the record is deliberately monochrome — brand yellow and the link blue
+// mean "live COL" — while the still-available alternatives below keep full
+// colour, so grey/colour alone tells you what is gone and what you can act on.
+//
+// The name is never struck through: strikethrough carries nomenclatural meaning
+// and would read as a statement about the name rather than about this id.
+interface Props {
+  id: string;
+  usage: any;
+  firstRelease: any;
+  lastRelease: any;
+  currentRelease: any;
+  sameName: any[];
+  /** Version query (?v=…) to keep on internal links. */
+  vq: string;
+}
+const { id, usage, firstRelease, lastRelease, currentRelease, sameName, vq } = Astro.props;
+
+const clb = 'https://www.checklistbank.org';
+const relLabel = (r: any) => r?.alias ?? r?.version ?? r?.key;
+const releaseCount = Array.isArray(usage.releaseKeys) ? usage.releaseKeys.length : 0;
+// A single release means first and last are the same — don't draw a span.
+const spanned = releaseCount > 1 && usage.firstReleaseKey !== usage.lastReleaseKey;
+const classification = (usage.classification ?? []).filter((c: any) => c.id !== id);
+---
+
+<div class="tomb">
+  <article class="tomb-record" aria-labelledby="tomb-name">
+    <div class="tomb-stamp" aria-hidden="true"><span>Archived</span></div>
+
+    <p class="tomb-eyebrow">
+      <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"
+        ><path
+          d="M1.5 3.2h13v3h-13zM2.8 6.6h10.4v7.2H2.8zM6.2 9.2h3.6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path></svg
+      >
+      Removed from the Catalogue of Life
+    </p>
+
+    <h1 class="tomb-name" id="tomb-name" set:html={usage.labelHtml ?? usage.label} />
+
+    <p class="tomb-meta">
+      <span class="tomb-chip">{id}</span>
+      {usage.name?.rank && <span>{usage.name.rank}</span>}
+      {usage.status && <span>{usage.status}</span>}
+    </p>
+
+    <p class="tomb-lede">
+      This identifier was part of an earlier release. It is not in the current checklist and no
+      longer resolves to a taxon.
+    </p>
+
+    {
+      (firstRelease || lastRelease) && (
+        <ol class="tomb-rail">
+          {firstRelease && (
+            <li class="tomb-stop">
+              <span class="tomb-dot" aria-hidden="true" />
+              <span class="tomb-stop-label">First issued</span>
+              <a class="tomb-rel" href={`${clb}/dataset/${usage.firstReleaseKey}/taxon/${id}`}>
+                {relLabel(firstRelease)}
+              </a>
+              {firstRelease.issued && <time datetime={firstRelease.issued}>{firstRelease.issued}</time>}
+            </li>
+          )}
+          {spanned && firstRelease && lastRelease && (
+            <li class="tomb-span" aria-hidden="true">
+              <span>{releaseCount} releases</span>
+            </li>
+          )}
+          {lastRelease && (!spanned || firstRelease) && (
+            <li class="tomb-stop">
+              <span class="tomb-dot" aria-hidden="true" />
+              <span class="tomb-stop-label">Last issued</span>
+              <a class="tomb-rel" href={`${clb}/dataset/${usage.lastReleaseKey}/taxon/${id}`}>
+                {relLabel(lastRelease)}
+              </a>
+              {lastRelease.issued && <time datetime={lastRelease.issued}>{lastRelease.issued}</time>}
+            </li>
+          )}
+          <li class="tomb-gap" aria-hidden="true" />
+          <li class="tomb-stop tomb-stop--end">
+            <span class="tomb-cross" aria-hidden="true">
+              <svg viewBox="0 0 12 12" width="11" height="11">
+                <path
+                  d="M2.5 2.5l7 7M9.5 2.5l-7 7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="tomb-stop-label">Not included</span>
+            <span class="tomb-rel">{relLabel(currentRelease)}</span>
+            {currentRelease?.issued && <time datetime={currentRelease.issued}>{currentRelease.issued}</time>}
+          </li>
+        </ol>
+      )
+    }
+
+    <dl class="tomb-fields">
+      {
+        classification.length > 0 && (
+          <>
+            <dt>Classification</dt>
+            <dd class="tomb-path">
+              {classification.map((c: any, i: number) => (
+                <>
+                  {i > 0 && <span class="tomb-sep">›</span>}
+                  <a href={`/data/taxon/${c.id}${vq}`}>
+                    <span class="tomb-rank">{c.rank}</span>
+                    {c.name}
+                  </a>
+                </>
+              ))}
+            </dd>
+          </>
+        )
+      }
+      {
+        usage.remarks && (
+          <>
+            <dt>Remarks</dt>
+            <dd>{usage.remarks}</dd>
+          </>
+        )
+      }
+      {
+        usage.link && (
+          <>
+            <dt>Source record</dt>
+            <dd>
+              <a href={usage.link} rel="nofollow noreferrer" class="tomb-ext">
+                {usage.link}
+              </a>
+            </dd>
+          </>
+        )
+      }
+    </dl>
+  </article>
+
+  <section class="tomb-next" aria-label="What you can do next">
+    {
+      sameName.length > 0 && (
+        <>
+          <h2 class="tomb-next-title">
+            {sameName.length === 1
+              ? 'The same name is in the current release'
+              : `The same name is in the current release under ${sameName.length} ids`}
+          </h2>
+          <p class="tomb-next-note">
+            Identifiers are sometimes retired only because the record was reissued. Names that look
+            alike can still be homonyms, so check the author before you follow one.
+          </p>
+          <ul class="tomb-cards">
+            {sameName.map((s: any) => (
+              <li>
+                <a href={`/data/taxon/${s.id}${vq}`}>
+                  <span class="tomb-card-name" set:html={s.labelHtml ?? s.label ?? s.id} />
+                  <span class="tomb-card-meta">
+                    <span class="tomb-chip tomb-chip--live">{s.id}</span>
+                    {s.status && s.status !== 'accepted' && <span>{s.status}</span>}
+                  </span>
+                  <span class="tomb-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+    <p class="tomb-search">
+      <a href="/data/search">Search the Catalogue of Life →</a>
+    </p>
+  </section>
+</div>
+
+<style>
+  /* Monochrome stone, deliberately outside the COL palette: brand yellow and the
+     link blue are reserved for live content further down the page. */
+  .tomb {
+    --paper: #f6f5f3;
+    --line: #dcd8d2;
+    --ink: #44403c;
+    --muted: #78716c;
+    --faint: #a8a29e;
+    --live: #1d7ea9;
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .tomb-record {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 2.25rem 1.75rem;
+    color: var(--ink);
+    background-color: var(--paper);
+    /* Faint hatch — the visual shorthand for a voided form. */
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(120, 113, 108, 0.045) 0 1px,
+      transparent 1px 9px
+    );
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--faint);
+  }
+
+  .tomb-stamp {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    transform: rotate(-6deg);
+    pointer-events: none;
+    color: rgba(120, 113, 108, 0.3);
+  }
+  .tomb-stamp span {
+    display: block;
+    padding: 0.3rem 1.4rem;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    /* Trailing letter-space would push the text off-centre in the box. */
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-transform: uppercase;
+  }
+
+  .tomb-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.9rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .tomb-name {
+    margin: 0 0 0.55rem;
+    color: var(--ink);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .tomb-name :global(i) {
+    font-style: italic;
+  }
+
+  .tomb-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1.1rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .tomb-chip {
+    padding: 0.12rem 0.45rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+  }
+
+  .tomb-lede {
+    max-width: 34rem;
+    margin: 0 0 1.9rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Release rail: the line runs from first to last issue, then breaks — the
+     discontinuity is the point, so the final stop is dashed and crossed out. */
+  .tomb-rail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 0.5rem;
+    margin: 0 0 1.9rem;
+    padding: 1.15rem 0 0;
+    border-top: 1px solid var(--line);
+    list-style: none;
+  }
+
+  .tomb-stop {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.15rem;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+  .tomb-dot,
+  .tomb-cross {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--muted);
+  }
+  .tomb-dot {
+    width: 9px;
+    height: 9px;
+    margin-top: 3px;
+    border-radius: 50%;
+    background: var(--muted);
+  }
+  .tomb-stop-label {
+    color: var(--faint);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .tomb-rel {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  a.tomb-rel {
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 2px;
+  }
+  a.tomb-rel:hover {
+    color: #000;
+    text-decoration-color: var(--muted);
+  }
+  .tomb-stop time {
+    color: var(--faint);
+    font-size: 0.75rem;
+  }
+
+  .tomb-span,
+  .tomb-gap {
+    flex: 1 1 2.5rem;
+    min-width: 2.5rem;
+    margin-top: 6px;
+    text-align: center;
+  }
+  .tomb-span span {
+    display: block;
+    padding-bottom: 0.3rem;
+    color: var(--faint);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .tomb-span::after,
+  .tomb-gap::after {
+    content: '';
+    display: block;
+    border-top: 1px solid var(--faint);
+  }
+  /* The break in the record. */
+  .tomb-gap::after {
+    border-top-style: dashed;
+  }
+  .tomb-stop--end {
+    opacity: 0.75;
+  }
+  .tomb-stop--end .tomb-rel {
+    font-weight: 500;
+  }
+
+  .tomb-fields {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.7rem 1.25rem;
+    margin: 0;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+  .tomb-fields dt {
+    color: var(--faint);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .tomb-fields dd {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .tomb-fields a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 2px;
+  }
+  .tomb-fields a:hover {
+    color: #000;
+    text-decoration-color: var(--muted);
+  }
+  /* Keep rank+name together: without this the breadcrumb breaks inside a word
+     and renders "CLAS / S Insecta". */
+  .tomb-path a {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .tomb-path .tomb-rank {
+    margin-right: 0.3rem;
+    color: var(--faint);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tomb-sep {
+    margin: 0 0.45rem;
+    color: var(--faint);
+  }
+  /* Long source URLs are the one field that must be allowed to break anywhere. */
+  .tomb-ext {
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* Below the record everything is live again — full colour, real affordances. */
+  .tomb-next {
+    padding-top: 2.25rem;
+  }
+  .tomb-next-title {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .tomb-next-note {
+    max-width: 36rem;
+    margin: 0 0 1.1rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .tomb-cards {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  .tomb-cards li + li {
+    margin-top: 0.5rem;
+  }
+  .tomb-cards a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid #e4e4e4;
+    border-left: 3px solid var(--live);
+    background: #fff;
+    color: var(--live);
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease,
+      transform 0.15s ease;
+  }
+  .tomb-cards a:hover {
+    background: #fbfdfe;
+    border-color: #cfe4ee;
+    border-left-color: var(--live);
+    transform: translateX(2px);
+  }
+  .tomb-card-name {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .tomb-card-name :global(i) {
+    font-style: italic;
+  }
+  .tomb-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    color: #767676;
+    font-size: 0.78rem;
+  }
+  .tomb-chip--live {
+    border-color: #e4e4e4;
+    color: #767676;
+  }
+  .tomb-arrow {
+    margin-left: auto;
+    align-self: center;
+    color: var(--live);
+  }
+
+  .tomb-search {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .tomb-search a {
+    color: var(--live);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tomb-cards a {
+      transition: none;
+    }
+    .tomb-cards a:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tomb-record {
+      padding: 1.5rem 1.25rem 1.35rem;
+    }
+    /* The stamp would collide with the name in a narrow column. */
+    .tomb-stamp {
+      display: none;
+    }
+    .tomb-name {
+      font-size: 1.5rem;
+    }
+    .tomb-rail {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+    .tomb-span,
+    .tomb-gap {
+      display: none;
+    }
+    .tomb-fields {
+      grid-template-columns: 1fr;
+      gap: 0.15rem 0;
+    }
+    .tomb-fields dd {
+      margin-bottom: 0.65rem;
+    }
+    .tomb-cards a {
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+    }
+  }
+</style>
