@@ -14,6 +14,13 @@
 //                      usernameVariable: 'COLPORTAL_USER', passwordVariable: 'PWD_PORTAL')
 //   (deploy.sh hardcodes the "colportal" username, so only the password is used.)
 //
+// The taxon-page basemap defaults to CARTO Positron without an API key, which
+// still works (only CARTO's raster tiles are gated today). Once CoL has a CARTO
+// key, store the full keyed style URL as a Secret text credential and add it to
+// the withCredentials list below, so deploy.sh picks it up:
+//     string(credentialsId: 'carto-basemap-style', variable: 'BASEMAP_STYLE')
+// See DEPLOY.md -> "Basemap (CARTO API key)".
+//
 // Agent requirements: docker, rsync, ssh (jenkins-deploy key), curl, jq.
 
 pipeline {

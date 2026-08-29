@@ -23,3 +23,12 @@ export const colTheme = { token: { borderRadius: 2 } };
 // visible to anyone who can reach those (gated) sites — prefer a read-only
 // credential over an admin one.
 export const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
+
+// MapLibre style URL for the distribution map on the taxon page, passed to
+// col-browser's `basemapStyle` prop. Empty -> col-browser's own default
+// (OpenFreeMap Positron, no API key). The deploy sets it to CARTO Positron;
+// once CoL has a CARTO API key (https://carto.com/basemaps/apikey/) the key is
+// appended to that URL in scripts/deploy.sh. Like colAuth, the value is
+// inlined into the client bundle — a CARTO key is a public, per-domain
+// browser key, so that is where it belongs, but keep no other secret here.
+export const colBasemapStyle = import.meta.env.PUBLIC_BASEMAP_STYLE || '';

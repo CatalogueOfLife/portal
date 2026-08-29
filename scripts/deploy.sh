@@ -69,6 +69,16 @@ case $ENV in
   *)       AUTH="" ;;
 esac
 
+# Basemap style for the distribution maps on taxon pages (col-browser's
+# `basemapStyle` prop, inlined into the client bundle). CARTO Positron is what
+# the portal has always rendered; CARTO now issues free, fair-use-limited API
+# keys (https://carto.com/basemaps/apikey/) and already watermarks unauthenticated
+# *raster* tiles — the vector style below is not gated yet. Once CoL has a key,
+# set BASEMAP_STYLE (Jenkins credential, see Jenkinsfile) to the same URL with
+# the key appended: "<url>?api_key=<key>". Leave it empty to fall back to
+# col-browser's key-free default (OpenFreeMap Positron).
+BASEMAP_STYLE="${BASEMAP_STYLE:-https://basemaps.cartocdn.com/gl/positron-gl-style/style.json}"
+
 # Resolve the magic release alias to a concrete key against the prod CLB. Skipped
 # for preview, which pins nothing and lets the build pick the latest (COL_PRIVATE).
 RELEASE_KEY=
@@ -92,6 +102,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e COL_RELEASE="$RELEASE_KEY" \
   -e COL_PRIVATE="$COL_PRIVATE" \
   -e PUBLIC_COL_AUTH="$AUTH" \
+  -e PUBLIC_BASEMAP_STYLE="$BASEMAP_STYLE" \
   --volume "$PWD:/app" -w /app \
   node:22 bash -lc "npm ci && npm install --no-save col-browser@^2 && npm run build"
 

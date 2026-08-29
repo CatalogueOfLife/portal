@@ -140,6 +140,7 @@ images: images/posts/example.jpg   # optional; path is served from /<value>
 ## Environment variables
 
 - `PUBLIC_COL_AUTH` / `COL_AUTH` — `user:pass` basic auth for the CLB API; needed for gated **preview** (private draft) data (build-time islands fetch + runtime SSR fetch). Note `PUBLIC_*` is exposed in the client bundle.
+- `PUBLIC_BASEMAP_STYLE` — MapLibre style URL for the taxon distribution map, passed to col-browser's `basemapStyle` prop. Set by `scripts/deploy.sh` to CARTO Positron (append `?api_key=<key>` once CoL has a [CARTO key](https://carto.com/basemaps/apikey/)); unset in `npm run dev`, which then uses col-browser's key-free OpenFreeMap default.
 - `SITE_ENV` — `prod` makes `robots.txt` crawlable; anything else returns `Disallow: /`.
 - `COL_RELEASE` — pin a specific release key for the build-time data fetch.
 - `scripts/fetch-data.mjs` reads additional `CLB_*` / `COL_*` vars; see that file and `DEPLOY.md`.

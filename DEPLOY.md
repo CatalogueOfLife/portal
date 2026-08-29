@@ -30,6 +30,8 @@ Environment variables (build time):
   `Disallow: /` robots.txt.
 - `CLB_API` — API base (default `https://api.checklistbank.org`); `COL_KEY`,
   `COL_ORIGIN`, `COL_PRIVATE`, and `CLB_USER`/`CLB_PASS` for the data fetch.
+- `PUBLIC_BASEMAP_STYLE` — MapLibre style URL for the taxon distribution map
+  (see [Basemap](#basemap-carto-api-key) below).
 
 ## Continuous deployment (Jenkins)
 
@@ -115,6 +117,32 @@ Note `-p err` is unreliable here: systemd logs the process's stderr at
 instead. Retention depends on the host's journald: if `Storage=` isn't
 `persistent` (no `/var/log/journal/`), the journal is volatile and clears on
 reboot (`journalctl --disk-usage`, `/etc/systemd/journald.conf`).
+
+### Basemap (CARTO API key)
+
+The distribution map on taxon pages renders on the **CARTO Positron** vector
+basemap. `deploy.sh` sets `BASEMAP_STYLE` (→ `PUBLIC_BASEMAP_STYLE` in the
+build → col-browser's `basemapStyle` prop, inlined into the client bundle):
+
+```
+https://basemaps.cartocdn.com/gl/positron-gl-style/style.json
+```
+
+CARTO now requires an API key for its basemaps — free up to their fair use
+limit, requested at <https://carto.com/basemaps/apikey/>. Today only the
+**raster** tiles are watermarked when unauthenticated; the vector style above
+still serves without a key, so nothing is broken. When CoL has a key, append it
+to the URL and nothing else changes:
+
+```bash
+BASEMAP_STYLE='https://basemaps.cartocdn.com/gl/positron-gl-style/style.json?api_key=<key>' ./scripts/deploy.sh
+```
+
+In Jenkins, add the keyed URL as a **Secret text** credential (e.g.
+`carto-basemap-style`) and bind it to `BASEMAP_STYLE` in the `Jenkinsfile`
+alongside `PWD_PORTAL`. Unset, the build falls back to col-browser's key-free
+default (OpenFreeMap Positron — same cartography, no key, no quota), which is
+also what `npm run dev` uses.
 
 ### Authentication (private draft releases)
 
