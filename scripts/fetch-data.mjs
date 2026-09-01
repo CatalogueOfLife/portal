@@ -8,7 +8,7 @@
 //
 // Config via env (prod defaults): CLB_API, COL_KEY, COL_PRIVATE, CLB_USER, CLB_PASS.
 
-import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const API = process.env.CLB_API || 'https://api.checklistbank.org';
@@ -24,6 +24,8 @@ const RELEASE = process.env.COL_RELEASE;
 // Mirror _config.yml changelog.exclude and the historical-floor cutoff.
 const EXCLUDE = new Set([312092, 303391, 291968]);
 const FIRST_RELEASE = 2242; // first 20.12 release
+// Dataset origins the changelog covers; see the skip in buildChangelog().
+const RELEASE_ORIGINS = new Set(['release', 'xrelease']);
 
 const ROOT = process.cwd();
 const RELEASES_DIR = join(ROOT, '_data', 'releases');
@@ -256,25 +258,37 @@ async function buildChangelog() {
   const relKeys = await getJson(`/dataset/keys?releasedFrom=${PROJECT_KEY}&private=false&inclDeleted=true`);
   for (const key of relKeys) {
     if (keys.includes(key) || EXCLUDE.has(key) || key < FIRST_RELEASE) continue;
-    keys.push(key);
-    console.log(`  fetching new release ${key}`);
-    const rel = {};
-    const d = await getJson(`/dataset/${key}`);
-    delete d.source;
-    rel.dataset = d;
-    rel.metrics = await getJson(`/dataset/${PROJECT_KEY}/import/${d.attempt}`);
-    rel.sources = await getJson(`/dataset/${key}/source`);
-    const pub = (await getJson(`/dataset/${key}/sector/publisher`)).result;
-    if (pub) {
-      for (const p of pub) {
-        const m = await getJson(`/dataset/${key}/sector/publisher/${p.id}/metrics`);
-        p.datasets = m.datasetCount;
-        p.metrics = m;
+    try {
+      const rel = {};
+      const d = await getJson(`/dataset/${key}`);
+      // releasedFrom also lists datasets that are not proper releases: the
+      // historic COL00-COL19 annual archives (registered as external datasets
+      // in June 2026) and deleted releases, which lose their origin. They have
+      // no /source or /sector endpoint (400), so skip them — the changelog only
+      // diffs real base/extended releases.
+      if (!RELEASE_ORIGINS.has(String(d.origin || '').toLowerCase())) continue;
+      console.log(`  fetching new release ${key}`);
+      delete d.source;
+      rel.dataset = d;
+      rel.metrics = await getJson(`/dataset/${PROJECT_KEY}/import/${d.attempt}`);
+      rel.sources = await getJson(`/dataset/${key}/source`);
+      const pub = (await getJson(`/dataset/${key}/sector/publisher`)).result;
+      if (pub) {
+        for (const p of pub) {
+          const m = await getJson(`/dataset/${key}/sector/publisher/${p.id}/metrics`);
+          p.datasets = m.datasetCount;
+          p.metrics = m;
+        }
+        rel.publisher = pub.filter((p) => p.datasets !== 0);
       }
-      rel.publisher = pub.filter((p) => p.datasets !== 0);
+      keys.push(key);
+      rels[key] = rel;
+      writeFileSync(join(RELEASES_DIR, `${key}.json`), JSON.stringify(rel));
+    } catch (err) {
+      // A single unusable release must never sink the whole changelog — that
+      // silently froze the page on the last good snapshot for months.
+      console.warn(`  ⚠ skipping release ${key}: ${err.message}`);
     }
-    rels[key] = rel;
-    writeFileSync(join(RELEASES_DIR, `${key}.json`), JSON.stringify(rel));
   }
   // diff in chronological order, tracking the four lineages
   const log = [];
@@ -336,7 +350,9 @@ function writeOut(name, data) {
 function keepOrFallback(name, fallback, err) {
   const p = join(OUT_DIR, name);
   if (existsSync(p)) {
-    console.warn(`  ⚠ ${name}: fetch failed (${err.message}); keeping existing snapshot`);
+    // Report the age — a kept snapshot is silently stale data on the live site.
+    const days = Math.round((Date.now() - statSync(p).mtimeMs) / 86_400_000);
+    console.warn(`  ⚠ ${name}: fetch failed (${err.message}); keeping existing snapshot (${days}d old)`);
   } else {
     console.warn(`  ⚠ ${name}: fetch failed (${err.message}); writing placeholder`);
     writeOut(name, fallback);
@@ -350,7 +366,10 @@ try {
   keepOrFallback('release.json', { key: PROJECT_KEY, api: API, origin: ORIGIN, current: {}, metrics: {}, sources: [], publisherSourceCount: 0, base: null, previous: null }, err);
 }
 try {
-  writeOut('changelog.json', await buildChangelog());
+  const changelog = await buildChangelog();
+  writeOut('changelog.json', changelog);
+  const newest = changelog[0]?.rel?.dataset;
+  console.log(`  ${changelog.length} releases, newest ${newest?.alias ?? '?'} (${newest?.issued ?? '?'})`);
 } catch (err) {
   keepOrFallback('changelog.json', [], err);
 }
