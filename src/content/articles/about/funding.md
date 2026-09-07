@@ -22,7 +22,7 @@ The operational costs of the Catalogue of Life Secretariat and infrastructure ar
 ## Project funding
 Catalogue of Life is involved in several projects:
 
-* **[Biodiversity Meets Data](https://https://bmd-project.eu/)**: A European Commission funded project focused on: 'A Single Access Point (SAP) to high-throughput biodiversity monitoring tools, biodiversity data, and biodiversity analyses for better conservation across Europe'. Catalogue of Life's contribution is focused on mobilising policy relevant and national species lists, and intgrating these into the COL data product.
+* **[Biodiversity Meets Data](https://bmd-project.eu/)**: A European Commission funded project focused on: 'A Single Access Point (SAP) to high-throughput biodiversity monitoring tools, biodiversity data, and biodiversity analyses for better conservation across Europe'. Catalogue of Life's contribution is focused on mobilising policy relevant and national species lists, and intgrating these into the COL data product.
 * **[TETTRIs](https://tettris.eu/the-project/)**: A European Commission funded project Transforming European Taxonomy through Training, Research and Innovations delivering a contribution of the taxonomic community gathered around CETAF, the Consortium of European taxonomic facilities, to provide knowledge, systems and services to tackle biodiversity loss. Catalogue of Life, through its infrastructure ChecklistBank, provides specific taxonomic name matching services.
 
 

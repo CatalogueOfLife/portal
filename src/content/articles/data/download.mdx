@@ -3,7 +3,7 @@ title: Download
 tagline: Current, monthly and annual versions of the Catalogue of Life
 section_id: data
 imageUrl: /images/species/Amanita_muscaria.jpg
-imageCaption: _Amanita muscaria_ (L.) Lam. - [Photo CC BY Олеся](https://https://www.inaturalist.org/photos/563326284)
+imageCaption: _Amanita muscaria_ (L.) Lam. - [Photo CC BY Олеся](https://www.inaturalist.org/photos/563326284)
 permalink: /data/download
 ---
 
@@ -15,6 +15,7 @@ import ChangesOverTime from '@components/ChangesOverTime.astro';
 export const cur = metadata.current;
 export const base = metadata.base;
 export const exportUrl = (key, opts) => `https://api.checklistbank.org/dataset/${key}/export.zip?${opts}`;
+export const cbDownloadUrl = `https://www.checklistbank.org/dataset/${cur.key}/download`;
 
 Download the **full latest** release of the Catalogue of Life updated monthly or scroll down to download our [past releases](#past-releases).
 
@@ -55,7 +56,7 @@ Download the **full latest** release of the Catalogue of Life updated monthly or
 
 Not sure which format to choose? Check out the ChecklistBank's information on the [available formats](https://www.checklistbank.org/about/formats).
 For versions from previous months, please visit [COL's archive](https://download.catalogueoflife.org/col/).
-ChecklistBank also offers [partial downloads](https://www.checklistbank.org/dataset/{cur.key}/download) if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
+ChecklistBank also offers <a href={cbDownloadUrl}>partial downloads</a> if you are only interested in a certain group of the checklist. Please note that this requires a free [GBIF user account](https://www.gbif.org/).
 
 ## Looking for just a part of the Catalogue of Life?
 
@@ -70,7 +71,7 @@ Example for [Myriapoda](/data/taxon/L2G4H)
   <source src="/videos/Download-01.mp4" type="video/mp4" />
 </video>
 
-You can also customise your download directly in [ChecklistBank](https://www.checklistbank.org/dataset/{cur.key}/download) by following these steps:
+You can also customise your download directly in <a href={cbDownloadUrl}>ChecklistBank</a> by following these steps:
 
 1. Log in to ChecklistBank using your GBIF account. Don’t have one? You can register at [gbif.org](https://www.gbif.org/).
 2. In the left menu, go to Datasets and click on the blue button “COL Releases”.
