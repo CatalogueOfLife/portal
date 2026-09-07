@@ -14,6 +14,14 @@
 //                      usernameVariable: 'COLPORTAL_USER', passwordVariable: 'PWD_PORTAL')
 //   (deploy.sh hardcodes the "colportal" username, so only the password is used.)
 //
+// The CARTO Basemaps API key comes from the Jenkins credential
+// 'carto-basemap-cred' (Secret text), bound to $PUBLIC_CARTO_KEY and forwarded
+// into the Docker build for all three environments. It is baked into the client
+// bundle (MapLibre fetches basemap tiles from the browser, so the key is public
+// by nature) — the credential exists to keep it out of this public repo and to
+// make rotation one-place. If the credential is missing the build still
+// succeeds: col-browser falls back to unauthenticated CARTO basemaps.
+//
 // Agent requirements: docker, rsync, ssh (jenkins-deploy key), curl, jq.
 
 pipeline {
@@ -31,7 +39,10 @@ pipeline {
   stages {
     stage('Build & deploy') {
       steps {
-        withCredentials([string(credentialsId: 'colportal-cred', variable: 'PWD_PORTAL')]) {
+        withCredentials([
+          string(credentialsId: 'colportal-cred', variable: 'PWD_PORTAL'),
+          string(credentialsId: 'carto-basemap-cred', variable: 'PUBLIC_CARTO_KEY'),
+        ]) {
           sh './scripts/deploy.sh'
         }
       }

@@ -92,6 +92,8 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e COL_RELEASE="$RELEASE_KEY" \
   -e COL_PRIVATE="$COL_PRIVATE" \
   -e PUBLIC_COL_AUTH="$AUTH" \
+  -e PUBLIC_COL_BASEMAP_STYLE="${PUBLIC_COL_BASEMAP_STYLE:-}" \
+  -e PUBLIC_CARTO_KEY="${PUBLIC_CARTO_KEY:-}" \
   --volume "$PWD:/app" -w /app \
   node:22 bash -lc "npm ci && npm install --no-save col-browser@^2 && npm run build"
 

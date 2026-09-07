@@ -30,6 +30,22 @@ Environment variables (build time):
   `Disallow: /` robots.txt.
 - `CLB_API` — API base (default `https://api.checklistbank.org`); `COL_KEY`,
   `COL_ORIGIN`, `COL_PRIVATE`, and `CLB_USER`/`CLB_PASS` for the data fetch.
+- `PUBLIC_COL_BASEMAP_STYLE` — full MapLibre style URL for the taxon
+  distribution map's basemap, forwarded to col-browser as `basemapStyle`.
+  Optional: unset leaves col-browser's own default, CARTO's vector Positron
+  style.
+- `PUBLIC_CARTO_KEY` — CARTO Basemaps API key, forwarded to col-browser
+  (>= 2.6.0) as `cartoKey`. col-browser installs a MapLibre `transformRequest`
+  that appends it to every `cartocdn.com` request the map makes — style, vector
+  tiles, glyphs and sprites. This matters because CARTO's style files are static
+  with absolute, key-free tile URLs, so a key baked into the style URL alone
+  authenticates that one request and none of the metered tile requests.
+  Supplied by Jenkins from the `carto-basemap-cred` credential (all three
+  environments share one key). Optional — without it the basemap is
+  unauthenticated, which CARTO still serves today but intends to restrict.
+  The key is inlined into the client bundle and is public by nature, since
+  MapLibre fetches the tiles from the browser; the credential keeps it out of
+  this public repo and makes rotation one-place.
 
 ## Continuous deployment (Jenkins)
 

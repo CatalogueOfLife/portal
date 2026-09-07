@@ -142,4 +142,6 @@ images: images/posts/example.jpg   # optional; path is served from /<value>
 - `PUBLIC_COL_AUTH` / `COL_AUTH` — `user:pass` basic auth for the CLB API; needed for gated **preview** (private draft) data (build-time islands fetch + runtime SSR fetch). Note `PUBLIC_*` is exposed in the client bundle.
 - `SITE_ENV` — `prod` makes `robots.txt` crawlable; anything else returns `Disallow: /`.
 - `COL_RELEASE` — pin a specific release key for the build-time data fetch.
+- `PUBLIC_COL_BASEMAP_STYLE` — full MapLibre style URL for the distribution map's basemap (col-browser's `basemapStyle`). Unset leaves col-browser's own default, CARTO's vector Positron style.
+- `PUBLIC_CARTO_KEY` — CARTO Basemaps API key (col-browser >= 2.6.0's `cartoKey`). col-browser appends it to every `cartocdn.com` request the map makes (style, tiles, glyphs, sprites) via a MapLibre `transformRequest` — a key baked into the style URL alone would not reach the metered tile requests. Supplied per environment from the Jenkins credential `carto-basemap-cred`; it is inlined into the client bundle and therefore public by nature.
 - `scripts/fetch-data.mjs` reads additional `CLB_*` / `COL_*` vars; see that file and `DEPLOY.md`.
