@@ -84,6 +84,9 @@ echo "Cleaning previous build"
 rm -rf dist
 
 echo "Building site (Node 22 in Docker)"
+# npm ci pins col-browser to the lockfile; the --no-save update then takes the
+# newest col-browser release within the package.json range (2.6.x), so patch
+# releases deploy without a lockfile bump but a new minor needs one.
 docker run --rm -u "$(id -u):$(id -g)" \
   -e HOME=/tmp -e npm_config_cache=/tmp/.npm \
   -e SITE_ENV="$ENV" \
@@ -95,7 +98,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e PUBLIC_COL_BASEMAP_STYLE="${PUBLIC_COL_BASEMAP_STYLE:-}" \
   -e PUBLIC_CARTO_KEY="${PUBLIC_CARTO_KEY:-}" \
   --volume "$PWD:/app" -w /app \
-  node:22 bash -lc "npm ci && npm install --no-save col-browser@^2 && npm run build"
+  node:22 bash -lc "npm ci && npm update --no-save col-browser && npm run build"
 
 echo "Deploying static assets -> ${DEPLOY}:${STATIC_DIR}"
 rsync -rlO --delete dist/client/ "${DEPLOY}:${STATIC_DIR}"
