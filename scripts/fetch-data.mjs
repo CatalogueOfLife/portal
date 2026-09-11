@@ -89,10 +89,15 @@ async function fetchReleaseFull(origin, fixedRef) {
   } else {
     const priv = PRIVATE === 'any' ? '' : `&private=${PRIVATE}`;
     const rels = await getJson(
-      `/dataset?releasedFrom=${PROJECT_KEY}&sortBy=created&origin=${origin}&limit=2${priv}`,
+      `/dataset?releasedFrom=${PROJECT_KEY}&sortBy=created&origin=${origin}&limit=10${priv}`,
     );
-    releaseKey = rels.result[0].key;
-    previous = rels.result[1] || null;
+    // A release only gets its attempt once its job has finished, ES indexing
+    // included. Skip newer ones still being built, or preview bakes a release
+    // whose search index is half done (portal#306).
+    const done = (rels.result || []).filter((r) => r.attempt != null);
+    if (!done.length) throw new Error(`No finished ${origin} release of project ${PROJECT_KEY}`);
+    releaseKey = done[0].key;
+    previous = done[1] || null;
   }
   const md = { key: PROJECT_KEY, api: API, origin, releaseKey };
   md.current = addAgentLabels(await getJson(`/dataset/${releaseKey}`));
