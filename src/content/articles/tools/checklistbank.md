@@ -1,6 +1,6 @@
 ---
 title: ChecklistBank
-tagline: Catalogue’s of Life infrastructure
+tagline: Catalogue of Life infrastructure
 section_id: tools
 toc: false
 imageUrl: /images/species/Gosodesmus_claremontus.jpg
