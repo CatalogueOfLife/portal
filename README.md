@@ -142,7 +142,10 @@ git commit -m "Add Christmas news post"
 git push -u origin my-change        # then open a pull request on GitHub
 ```
 
-After merging, the [development site](https://www.dev.catalogueoflife.org/) rebuilds automatically (a few minutes).
+Merging to `master` does not deploy anything by itself. Changes go live once the
+portal Jenkins job is run for the target environment — `dev`
+([development site](https://www.dev.catalogueoflife.org/)), `preview` or `prod`.
+All three build from `master`; see [`DEPLOY.md`](./DEPLOY.md).
 
 ---
 
