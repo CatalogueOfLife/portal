@@ -182,8 +182,9 @@ import MetricsIsland from '@components/islands/MetricsIsland.tsx';
 
     fetch(`${API}/dataset/${DATASET_KEY}/import`, { headers: authHeaders })
       .then((r) => r.json())
-      .then((arr) => {
-        const m = Array.isArray(arr) ? arr[0] : arr;
+      .then((page) => {
+        // A page since backend#1647. Prod answers a plain list until it runs backend 1.7.
+        const m = Array.isArray(page) ? page[0] : page.result?.[0];
         if (!m) throw new Error('no import metrics returned');
 
         setText('#m-taxa', fmt(m.taxonCount));

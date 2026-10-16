@@ -101,7 +101,9 @@ async function fetchReleaseFull(origin, fixedRef) {
   }
   const md = { key: PROJECT_KEY, api: API, origin, releaseKey };
   md.current = addAgentLabels(await getJson(`/dataset/${releaseKey}`));
-  md.metrics = (await getJson(`/dataset/${releaseKey}/import`))[0];
+  // A page since backend#1647. Prod answers a plain list until it runs backend 1.7.
+  const imports = await getJson(`/dataset/${releaseKey}/import`);
+  md.metrics = Array.isArray(imports) ? imports[0] : imports.result?.[0];
   md['publisher-sources'] = await getJson(`/dataset/${releaseKey}/source?inclPublisherSources=true`);
   md.sources = (await getJson(`/dataset/${releaseKey}/source`)).map(addAgentLabels);
   md.previous = previous;
