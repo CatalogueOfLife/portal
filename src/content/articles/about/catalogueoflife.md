@@ -15,6 +15,6 @@ permalink: /about/catalogueoflife
 
 A world where biodiversity data is connected, harmonized and accessible, enabling our understanding and preservation of life on Earth.
 
-## Mision
+## Mission
 
 To forge an expert community that manages an authoritative species catalogue to reconcile the world's open biodiversity data.
