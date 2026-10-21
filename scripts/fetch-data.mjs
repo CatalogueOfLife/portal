@@ -123,16 +123,13 @@ async function fetchReleaseFull(origin, fixedRef) {
     throw new Error(`Release ${releaseKey} is private; refusing to bake it (COL_PRIVATE=${PRIVATE})`);
   }
   console.log(`  ${origin} release ${md.current.alias ?? '?'} -> ${releaseKey}`);
-  // A page since backend#1647. Prod answers a plain list until it runs backend 1.7.
-  const imports = await getJson(`/dataset/${releaseKey}/import`);
-  md.metrics = Array.isArray(imports) ? imports[0] : imports.result?.[0];
-  // Only feeds publisherSourceCount on the download page. It is a 20k+ record
-  // stream that prod sometimes cuts off mid-body, so it must not sink the build.
+  md.metrics = (await getJson(`/dataset/${releaseKey}/import`)).result?.[0];
+  // Only feeds the download page, so a failure must not sink the build.
   try {
-    md['publisher-sources'] = await getJson(`/dataset/${releaseKey}/source?inclPublisherSources=true`);
+    md.publisherSourceCount = await getJson(`/dataset/${releaseKey}/source/count?inclPublisherSources=true`);
   } catch (err) {
-    console.warn(`  ⚠ publisher sources of ${releaseKey} unavailable (${err.message}); omitting the count`);
-    md['publisher-sources'] = null;
+    console.warn(`  ⚠ publisher source count of ${releaseKey} unavailable (${err.message}); omitting it`);
+    md.publisherSourceCount = null;
   }
   md.sources = (await getJson(`/dataset/${releaseKey}/source`)).map(addAgentLabels);
   md.previous = previous;
@@ -172,7 +169,7 @@ function projectMetadata(md) {
     },
     metrics: slimMetrics(md.metrics),
     sources: (md.sources || []).map(slimSource),
-    publisherSourceCount: md['publisher-sources'] ? md['publisher-sources'].length : null,
+    publisherSourceCount: md.publisherSourceCount ?? null,
     previous: md.previous ? { key: md.previous.key, version: md.previous.version } : null,
   };
 }

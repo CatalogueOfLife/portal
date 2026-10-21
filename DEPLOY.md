@@ -89,8 +89,8 @@ Jenkins) a failed release-metadata fetch fails the build instead of falling back
 to a kept snapshot, and `fetch-data.mjs` refuses a private release unless
 `COL_PRIVATE=any` (preview). Transient API errors are retried twice first. The
 one exception is the download page's publisher-source count
-(`/source?inclPublisherSources=true`, a 20k+ record stream): if it fails the
-build carries on and the page simply omits that count.
+(`/source/count?inclPublisherSources=true`): if it fails the build carries on
+and the page simply omits that count.
 
 ### SSR service (systemd)
 
