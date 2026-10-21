@@ -83,6 +83,15 @@ islands, the SSR taxon/dataset routes, and the version selector (see
 then rsyncs `dist/client/` to the static dir **and** `dist/` + `node_modules` to
 `/opt/col-portal/<env>/`, restarts the SSR service, and flushes Varnish.
 
+The Jenkins workspace persists and is shared by all envs, so every build first
+wipes `src/data/_generated/` as well as `dist/`. With `SITE_ENV` set (always on
+Jenkins) a failed release-metadata fetch fails the build instead of falling back
+to a kept snapshot, and `fetch-data.mjs` refuses a private release unless
+`COL_PRIVATE=any` (preview). Transient API errors are retried twice first. The
+one exception is the download page's publisher-source count
+(`/source?inclPublisherSources=true`, a 20k+ record stream): if it fails the
+build carries on and the page simply omits that count.
+
 ### SSR service (systemd)
 
 `scripts/col-portal@.service` is a template unit running

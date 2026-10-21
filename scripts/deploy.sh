@@ -81,7 +81,9 @@ else
 fi
 
 echo "Cleaning previous build"
-rm -rf dist
+# The Jenkins workspace persists and is shared by all envs, so also drop the
+# baked API snapshot: it may hold another env's release (preview's private draft).
+rm -rf dist src/data/_generated
 
 echo "Building site (Node 22 in Docker)"
 # npm ci pins col-browser to the lockfile; the --no-save update then takes the

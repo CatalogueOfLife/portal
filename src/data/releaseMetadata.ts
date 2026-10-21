@@ -48,7 +48,7 @@ export interface ReleaseMetadata {
   current: CurrentRelease;
   metrics: Metrics;
   sources: SourceRef[];
-  publisherSourceCount: number;
+  publisherSourceCount: number | null;
   /** Total ChecklistBank checklists (origin=external) — see releases page (#273). */
   checklistCount: number | null;
   previous: { key: number; version: string } | null;

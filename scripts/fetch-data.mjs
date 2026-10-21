@@ -36,11 +36,28 @@ const OUT_DIR = join(ROOT, 'src', 'data', '_generated');
 const RAW_AUTH = process.env.PUBLIC_COL_AUTH || (USER ? `${USER}:${PASS}` : '');
 const authHeaders = RAW_AUTH ? { Authorization: 'Basic ' + Buffer.from(RAW_AUTH).toString('base64') } : {};
 
+// Retry network errors (incl. undici's "terminated" when a large body is cut
+// off mid-stream) and 5xx; a 4xx is a real answer and fails straight away.
+const RETRY_DELAYS = [1000, 3000];
 async function getJson(path) {
   const url = path.startsWith('http') ? path : `${API}${path}`;
-  const res = await fetch(url, { headers: authHeaders });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);
-  return res.json();
+  for (let attempt = 0; ; attempt++) {
+    let res;
+    try {
+      res = await fetch(url, { headers: authHeaders });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      if (attempt >= RETRY_DELAYS.length) throw new Error(`${err.message} for ${url}`);
+      console.warn(`  retrying ${url}: ${err.message}`);
+      await new Promise((r) => setTimeout(r, RETRY_DELAYS[attempt]));
+      continue;
+    }
+    if (res.status < 500 || attempt >= RETRY_DELAYS.length) {
+      throw new Error(`${res.status} ${res.statusText} for ${url}`);
+    }
+    console.warn(`  retrying ${url}: ${res.status}`);
+    await new Promise((r) => setTimeout(r, RETRY_DELAYS[attempt]));
+  }
 }
 
 // ---- agent label builder (port of addAgentLabel) --------------------------
@@ -101,10 +118,22 @@ async function fetchReleaseFull(origin, fixedRef) {
   }
   const md = { key: PROJECT_KEY, api: API, origin, releaseKey };
   md.current = addAgentLabels(await getJson(`/dataset/${releaseKey}`));
+  // Only preview may bake private draft/candidate releases.
+  if (md.current.private && PRIVATE !== 'any') {
+    throw new Error(`Release ${releaseKey} is private; refusing to bake it (COL_PRIVATE=${PRIVATE})`);
+  }
+  console.log(`  ${origin} release ${md.current.alias ?? '?'} -> ${releaseKey}`);
   // A page since backend#1647. Prod answers a plain list until it runs backend 1.7.
   const imports = await getJson(`/dataset/${releaseKey}/import`);
   md.metrics = Array.isArray(imports) ? imports[0] : imports.result?.[0];
-  md['publisher-sources'] = await getJson(`/dataset/${releaseKey}/source?inclPublisherSources=true`);
+  // Only feeds publisherSourceCount on the download page. It is a 20k+ record
+  // stream that prod sometimes cuts off mid-body, so it must not sink the build.
+  try {
+    md['publisher-sources'] = await getJson(`/dataset/${releaseKey}/source?inclPublisherSources=true`);
+  } catch (err) {
+    console.warn(`  ⚠ publisher sources of ${releaseKey} unavailable (${err.message}); omitting the count`);
+    md['publisher-sources'] = null;
+  }
   md.sources = (await getJson(`/dataset/${releaseKey}/source`)).map(addAgentLabels);
   md.previous = previous;
   return md;
@@ -143,7 +172,7 @@ function projectMetadata(md) {
     },
     metrics: slimMetrics(md.metrics),
     sources: (md.sources || []).map(slimSource),
-    publisherSourceCount: (md['publisher-sources'] || []).length,
+    publisherSourceCount: md['publisher-sources'] ? md['publisher-sources'].length : null,
     previous: md.previous ? { key: md.previous.key, version: md.previous.version } : null,
   };
 }
@@ -370,7 +399,15 @@ console.log(`Fetching build data from ${API} (project ${PROJECT_KEY}, origin ${O
 try {
   writeOut('release.json', await fetchReleaseMetadata());
 } catch (err) {
-  keepOrFallback('release.json', { key: PROJECT_KEY, api: API, origin: ORIGIN, current: {}, metrics: {}, sources: [], publisherSourceCount: 0, base: null, previous: null }, err);
+  if (process.env.SITE_ENV) {
+    // Deploy builds (Jenkins sets SITE_ENV) must fail rather than ship a kept
+    // snapshot: the shared workspace may hold another env's, e.g. preview's
+    // private draft release.
+    console.error(`  ✗ release.json: fetch failed (${err.message}); aborting the ${process.env.SITE_ENV} build`);
+    process.exitCode = 1;
+  } else {
+    keepOrFallback('release.json', { key: PROJECT_KEY, api: API, origin: ORIGIN, current: {}, metrics: {}, sources: [], publisherSourceCount: 0, base: null, previous: null }, err);
+  }
 }
 try {
   const changelog = await buildChangelog();
