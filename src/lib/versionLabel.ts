@@ -13,7 +13,7 @@ export const VERSION_STORAGE_KEY = 'col-portal:version';
 const ANNUAL_RE = /^\/annual-checklist\/(\d{4})(?:\/|$)/;
 // The per-version /data surfaces. Their bare form is the Extended release; with
 // ?v=br they are the Base release. (download/changelog are version-agnostic.)
-const DATA_SCOPED_RE = /^\/data\/(browse|search|sources|metrics|metadata|taxon\/|dataset\/)/;
+const DATA_SCOPED_RE = /^\/data\/(browse|search|sources|metrics|metadata|homonyms|taxon\/|dataset\/)/;
 const isYear = (t: string | null | undefined): t is string => !!t && /^\d{4}$/.test(t);
 
 /** The version token a URL represents (ignores any remembered preference). */
@@ -67,7 +67,8 @@ const ANNUAL_NAV: Record<string, string> = {
   '/data/metrics': 'metrics',
   '/data/metadata': 'metadata',
 };
-const BASE_SCOPED = new Set(Object.keys(ANNUAL_NAV));
+// Homonyms exists for Extended and Base only (no annual equivalent).
+const BASE_SCOPED = new Set([...Object.keys(ANNUAL_NAV), '/data/homonyms']);
 
 /** Rewrite a canonical /data nav path to its equivalent in the active version. */
 export function navHrefForToken(dataPath: string, token: string): string {
@@ -91,6 +92,7 @@ export function taxonHrefForToken(id: string, token: string): string {
 const SWITCHABLE_SURFACE_RE = /^(?:\/annual-checklist\/\d{4}\/|\/data\/)(search|sources|metrics|metadata)(?:[/?]|$)/;
 const TAXON_RE = /^(?:\/annual-checklist\/\d{4}\/|\/data\/)taxon\/([^/?]+)/;
 const HOME_RE = /^(?:\/|\/annual-checklist\/\d{4}\/?|\/data\/browse\/?)$/;
+const HOMONYMS_RE = /^\/data\/homonyms\/?$/;
 
 /**
  * Where the header version popup sends you when picking `token`: the same data
@@ -105,6 +107,7 @@ export function versionSwitchHref(token: string, pathname = '/'): string {
   if (taxon) return taxonHrefForToken(taxon[1], token);
   const surface = pathname.match(SWITCHABLE_SURFACE_RE);
   if (surface) return navHrefForToken(`/data/${surface[1]}`, token);
+  if (HOMONYMS_RE.test(pathname) && !isYear(token)) return navHrefForToken('/data/homonyms', token);
   return metadataHrefForToken(token);
 }
 

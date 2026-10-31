@@ -1,0 +1,482 @@
+---
+// Body of /data/homonyms: a dense, IRMNG-style report of identical names at one
+// rank, grouped and counted. The page is static; the client script below reads
+// rank / q / offset / v from the URL, fetches ChecklistBank's duplicates API and
+// renders. Every control is a plain link (or GET form), so each view has its
+// own URL and the canonical (query dropped) folds them onto one page.
+interface Props {
+  api: string;
+  extendedKey: number;
+  baseKey: number;
+  extendedAlias: string;
+  baseAlias: string;
+  /** Basic auth for private candidate releases on preview/dev; empty on prod. */
+  auth: string;
+  /** Source dataset key -> alias, for the small source label on each line. */
+  sources: Record<string, string>;
+}
+const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = Astro.props;
+---
+
+<div
+  id="homonyms"
+  data-api={api}
+  data-extended-key={extendedKey}
+  data-base-key={baseKey}
+  data-extended-alias={extendedAlias}
+  data-base-alias={baseAlias}
+  data-auth={auth}
+  data-sources={JSON.stringify(sources)}
+>
+  <p>
+    Scientific names spelled identically at the selected rank but used for more than one name in the Catalogue of Life,
+    regardless of their authorship, nomenclatural code or taxonomic status. Besides true homonyms (the same name
+    published for different taxa) the list also shows names that occur more than once for other reasons, for example
+    accepted in one group and a synonym in another, or with differently written authors. Many of them are worth a
+    closer look.
+  </p>
+
+  <nav class="hn-controls" aria-label="Homonym report filters">
+    <div class="hn-bar"><span class="hn-label">Rank</span><span id="hn-ranks"></span></div>
+    <div class="hn-bar"><span class="hn-label">Starts with</span><span id="hn-letters"></span></div>
+    <form id="hn-form" class="hn-form" method="get" action="/data/homonyms">
+      <input type="hidden" name="rank" value="genus" />
+      <label for="hn-q" class="hn-label">Name prefix</label>
+      <input id="hn-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="e.g. Abra" />
+      <button type="submit" class="hn-button">Show</button>
+    </form>
+  </nav>
+
+  <p class="hn-legend">
+    <span><b>syn.</b> synonym</span>
+    <span><b>?</b> provisionally accepted</span>
+    <span><b>†</b> extinct</span>
+  </p>
+
+  <p id="hn-summary" class="hn-summary" aria-live="polite">Loading…</p>
+  <div id="hn-pager-top" class="hn-pager"></div>
+  <div id="hn-results"></div>
+  <div id="hn-pager-bottom" class="hn-pager"></div>
+  <noscript><p>This report needs JavaScript to load the names from ChecklistBank.</p></noscript>
+</div>
+
+<script>
+  import {
+    RANKS,
+    LETTERS,
+    PAGE_SIZE,
+    MAX_OFFSET,
+    parseParams,
+    reportHref,
+    duplicatesUrl,
+    countUrl,
+    isItalicRank,
+    statusMark,
+    statusOrder,
+    classificationPath,
+    type HomonymParams,
+    type SimpleName,
+  } from '@lib/homonyms';
+  import { numf } from '@lib/numf';
+
+  interface NameRef {
+    id: string;
+    status?: string;
+    extinct?: boolean;
+    label?: string;
+    labelHtml?: string;
+    name?: { scientificName?: string };
+  }
+  interface Usage extends NameRef {
+    accepted?: NameRef;
+  }
+  interface UsageDecision {
+    usage: Usage;
+    sourceDatasetKey?: number;
+    classification?: SimpleName[];
+  }
+  interface Group {
+    key: string;
+    usages: UsageDecision[];
+  }
+  interface ResultPage {
+    offset: number;
+    limit: number;
+    total: number;
+    result?: Group[];
+  }
+
+  const root = document.getElementById('homonyms') as HTMLElement;
+  const cfg = root.dataset;
+  const params: HomonymParams = parseParams(location.search);
+  const datasetKey = Number(params.base ? cfg.baseKey : cfg.extendedKey);
+  const alias = (params.base ? cfg.baseAlias : cfg.extendedAlias) || '';
+  const sources: Record<string, string> = JSON.parse(cfg.sources || '{}');
+  const headers: Record<string, string> = cfg.auth ? { Authorization: 'Basic ' + btoa(cfg.auth) } : {};
+  const vq = params.base ? '?v=br' : '';
+  // The q to keep in links to this same view; null leaves it to the rank default.
+  const keptQ = params.explicitQ ? params.q : null;
+
+  // Tiny element builder: string children become text nodes, never HTML.
+  function h(tag: string, attrs: Record<string, string> = {}, ...children: (Node | string | null)[]): HTMLElement {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    for (const c of children) if (c != null) el.append(c);
+    return el;
+  }
+
+  // labelHtml carries <i> for the italic name parts. Parse it inertly and keep
+  // only text and <i>, so nothing else from the API can reach the DOM.
+  function label(ref: NameRef): DocumentFragment {
+    const out = document.createDocumentFragment();
+    if (!ref.labelHtml) {
+      out.append(ref.label ?? ref.name?.scientificName ?? ref.id);
+      return out;
+    }
+    const tpl = document.createElement('template');
+    tpl.innerHTML = ref.labelHtml;
+    const copy = (from: Node, to: Node) => {
+      from.childNodes.forEach((n) => {
+        if (n.nodeType === Node.TEXT_NODE) to.appendChild(document.createTextNode(n.textContent ?? ''));
+        else if (n.nodeName === 'I') copy(n, to.appendChild(document.createElement('i')));
+        else copy(n, to);
+      });
+    };
+    copy(tpl.content, out);
+    return out;
+  }
+
+  function taxonLink(ref: NameRef): HTMLElement {
+    const a = h('a', { href: `/data/taxon/${encodeURIComponent(ref.id)}${vq}` }, label(ref));
+    // ChecklistBank labels usually lead with † already; add it only if missing.
+    if (ref.extinct && !a.textContent?.includes('†')) a.prepend('†');
+    return a;
+  }
+
+  // --- controls ---------------------------------------------------------------
+  function renderControls() {
+    // Every view has its own URL, but only the bare page is indexable: nofollow
+    // keeps crawlers from walking all rank/letter/page variants through the API.
+    // A prefix follows you to another rank; "All" does not, as it can be a full scan.
+    const ranks = document.getElementById('hn-ranks')!;
+    ranks.replaceChildren(
+      ...RANKS.map((r) =>
+        r === params.rank
+          ? h('strong', { 'aria-current': 'page' }, r)
+          : h('a', { href: reportHref({ rank: r, q: params.q ? keptQ : null, base: params.base }), rel: 'nofollow' }, r),
+      ),
+    );
+
+    const letters = document.getElementById('hn-letters')!;
+    const items = [...LETTERS.map((l) => ({ q: l, text: l })), { q: '', text: 'All' }];
+    letters.replaceChildren(
+      ...items.map(({ q, text }) => {
+        const current = q === params.q;
+        const el = current
+          ? h('strong', { 'aria-current': 'page' }, text)
+          : h('a', { href: reportHref({ rank: params.rank, q, base: params.base }), rel: 'nofollow' }, text);
+        if (q) {
+          el.dataset.letter = q;
+          el.append(h('span', { class: 'hn-count' }));
+        }
+        return el;
+      }),
+    );
+
+    const form = document.getElementById('hn-form') as HTMLFormElement;
+    (form.elements.namedItem('rank') as HTMLInputElement).value = params.rank;
+    if (params.base) form.append(h('input', { type: 'hidden', name: 'v', value: 'br' }));
+    // Show a typed prefix, but not a single letter already shown on the bar.
+    const input = document.getElementById('hn-q') as HTMLInputElement;
+    if (params.q.length > 1) input.value = params.q;
+    // An empty box means the rank default, not the q= that asks for all names.
+    form.addEventListener('submit', (e) => {
+      if (input.value.trim()) return;
+      e.preventDefault();
+      location.href = reportHref({ rank: params.rank, base: params.base });
+    });
+
+    // The header's version links are built from the path alone, so point them at
+    // this same view. The offset is dropped: the releases paginate differently.
+    document.querySelectorAll<HTMLAnchorElement>('a[data-version-token]').forEach((a) => {
+      const token = a.dataset.versionToken;
+      if (token === 'extended' || token === 'base') {
+        a.href = reportHref({ rank: params.rank, q: keptQ, base: token === 'base' });
+      }
+    });
+  }
+
+  // Per-letter group counts, a few at a time (cached by Varnish for a release).
+  async function loadLetterCounts() {
+    const queue = [...LETTERS];
+    const worker = async () => {
+      for (let l = queue.shift(); l; l = queue.shift()) {
+        try {
+          const res = await fetch(countUrl(cfg.api!, datasetKey, params.rank, l), { headers });
+          if (!res.ok) continue;
+          const n = Number(await res.text());
+          const el = root.querySelector<HTMLElement>(`[data-letter="${l}"]`);
+          if (!el) continue;
+          el.querySelector('.hn-count')!.textContent = numf(n);
+          el.title = `${numf(n)} ${params.rank} names starting with ${l}`;
+          if (n === 0) el.classList.add('hn-empty');
+        } catch {
+          /* counts are a nicety; leave the letter without one */
+        }
+      }
+    };
+    await Promise.all([worker(), worker(), worker(), worker()]);
+  }
+
+  // --- results ------------------------------------------------------------------
+  function renderPager(page: ResultPage) {
+    const { offset, total } = page;
+    const nodes: HTMLElement[] = [];
+    const pageHref = (o: number) => reportHref({ rank: params.rank, q: keptQ, offset: o, base: params.base });
+    if (offset > 0) {
+      nodes.push(h('a', { href: pageHref(Math.max(0, offset - PAGE_SIZE)), rel: 'prev nofollow' }, '‹ previous'));
+    }
+    const next = offset + PAGE_SIZE;
+    if (next < total && next <= MAX_OFFSET) {
+      nodes.push(h('a', { href: pageHref(next), rel: 'next nofollow' }, 'next ›'));
+    }
+    if (total > PAGE_SIZE) {
+      const end = Math.min(offset + PAGE_SIZE, total);
+      nodes.unshift(h('span', {}, `${numf(offset + 1)}–${numf(end)} of ${numf(total)}`));
+    }
+    for (const id of ['hn-pager-top', 'hn-pager-bottom']) {
+      document.getElementById(id)!.replaceChildren(...nodes.map((n) => n.cloneNode(true)));
+    }
+  }
+
+  function renderLine(ud: UsageDecision): HTMLElement {
+    const u = ud.usage;
+    const mark = statusMark(u.status);
+    const name = h('span', { class: 'hn-name' }, taxonLink(u));
+    if (u.accepted && mark === 'syn.') {
+      name.append(h('span', { class: 'hn-arrow' }, ' → '), taxonLink(u.accepted));
+    }
+    const meta = h('span', { class: 'hn-meta' }, classificationPath(ud.classification, params.rank).join(' › '));
+    if (ud.sourceDatasetKey != null) {
+      const key = String(ud.sourceDatasetKey);
+      meta.append(
+        h('a', { class: 'hn-source', href: `/data/dataset/${key}${vq}`, title: 'Source dataset' }, sources[key] ?? `#${key}`),
+      );
+    }
+    return h(
+      'li',
+      { class: 'hn-line' },
+      h('span', { class: 'hn-mark', title: u.status ?? '' }, mark),
+      name,
+      meta,
+    );
+  }
+
+  function renderGroup(g: Group): HTMLElement {
+    const usages = [...g.usages].sort((a, b) => statusOrder(a.usage.status) - statusOrder(b.usage.status));
+    const title = usages[0]?.usage.name?.scientificName ?? g.key;
+    return h(
+      'li',
+      { class: 'hn-group' },
+      h(
+        'div',
+        { class: 'hn-head' },
+        isItalicRank(params.rank) ? h('i', {}, title) : title,
+        h('span', { class: 'hn-size' }, `${g.usages.length} names`),
+      ),
+      h('ul', { class: 'hn-lines' }, ...usages.map(renderLine)),
+    );
+  }
+
+  function summaryText(total: number): string {
+    const [noun, verb] = total === 1 ? ['name', 'is'] : ['names', 'are'];
+    const prefix = params.q ? ` starting with “${params.q}”` : '';
+    return `${numf(total)} ${params.rank} ${noun}${prefix} ${verb} used more than once in ${alias || 'this release'}.`;
+  }
+
+  async function load() {
+    const summary = document.getElementById('hn-summary')!;
+    const results = document.getElementById('hn-results')!;
+    try {
+      const res = await fetch(duplicatesUrl(cfg.api!, datasetKey, params.rank, params.q, params.offset), { headers });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const page: ResultPage = await res.json();
+      const groups = page.result ?? [];
+      // Past the end the API reports total = offset, so don't quote it.
+      if (!groups.length && params.offset > 0) {
+        summary.replaceChildren(
+          'This page is past the end of the list. ',
+          h('a', { href: reportHref({ rank: params.rank, q: keptQ, base: params.base }) }, 'Back to the first page'),
+        );
+        return;
+      }
+      summary.textContent = summaryText(page.total);
+      results.replaceChildren(groups.length ? h('ol', { class: 'hn-groups' }, ...groups.map(renderGroup)) : '');
+      renderPager(page);
+    } catch (e) {
+      summary.replaceChildren(
+        `The homonym list could not be loaded (${(e as Error).message}). `,
+        h('a', { href: location.href }, 'Try again'),
+      );
+    }
+  }
+
+  renderControls();
+  load();
+  loadLetterCounts();
+</script>
+
+<style>
+  .hn-controls {
+    margin: 1.2rem 0 0.6rem;
+    font-size: 0.9rem;
+  }
+  .hn-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.15rem 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+  .hn-bar > span:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.7rem;
+  }
+  .hn-label {
+    min-width: 6.5rem;
+    color: #777;
+  }
+  #hn-letters {
+    gap: 0.3rem 0.2rem;
+  }
+  #hn-letters > :global(*) {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 2.7em;
+    line-height: 1.15;
+  }
+  #homonyms :global(.hn-count) {
+    font-size: 0.72em;
+    font-weight: normal;
+    color: #999;
+  }
+  #homonyms :global(.hn-empty),
+  #homonyms :global(.hn-empty .hn-count) {
+    color: #bbb;
+  }
+  .hn-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.7rem;
+    margin: 0.6rem 0 0;
+  }
+  .hn-form input[type='search'] {
+    width: 14rem;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  .hn-button {
+    margin: 0;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  .hn-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.2rem;
+    font-size: 0.8rem;
+    color: #777;
+  }
+  .hn-legend b {
+    margin-right: 0.3em;
+    font-weight: normal;
+    color: #555;
+  }
+  .hn-summary {
+    margin: 1rem 0 0.3rem;
+    font-weight: 600;
+  }
+  .hn-pager {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1rem;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  .hn-pager:empty {
+    display: none;
+  }
+
+  /* The report itself: compact lines, a fixed mark column, then the name
+     (and accepted name) and the classification path in two columns. */
+  #homonyms :global(.hn-groups),
+  #homonyms :global(.hn-lines) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #homonyms :global(.hn-groups) {
+    margin: 0.4rem 0 1rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+  #homonyms :global(.hn-group) {
+    padding: 0.35rem 0;
+    border-top: 1px solid #eee;
+  }
+  #homonyms :global(.hn-head) {
+    font-weight: 600;
+  }
+  #homonyms :global(.hn-size) {
+    margin-left: 0.6em;
+    font-weight: normal;
+    font-size: 0.85em;
+    color: #999;
+  }
+  #homonyms :global(.hn-line) {
+    display: grid;
+    grid-template-columns: 2.4em minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 0.8em;
+    margin: 0.05rem 0;
+  }
+  #homonyms :global(.hn-mark) {
+    font-size: 0.8em;
+    color: #888;
+    text-align: right;
+    white-space: nowrap;
+  }
+  #homonyms :global(.hn-arrow) {
+    color: #999;
+  }
+  #homonyms :global(.hn-meta) {
+    color: #888;
+    font-size: 0.92em;
+  }
+  #homonyms :global(.hn-source) {
+    margin-left: 0.6em;
+    white-space: nowrap;
+    font-size: 0.85em;
+    color: #999;
+  }
+  #homonyms :global(.hn-meta:empty) {
+    display: none;
+  }
+  @media (max-width: 640px) {
+    #homonyms :global(.hn-line) {
+      grid-template-columns: 2.4em minmax(0, 1fr);
+    }
+    #homonyms :global(.hn-meta) {
+      grid-column: 2;
+    }
+    .hn-label {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+</style>

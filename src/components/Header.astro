@@ -23,7 +23,7 @@ const verLabel = versionLabel(Astro.url.pathname, Astro.url.search);
 // the script also resets the remembered version to Extended on that click).
 const verHome = versionLogoHref(Astro.url.pathname, Astro.url.search);
 
-// Annual editions hide the version-agnostic Download + Changelog data entries.
+// Annual editions hide the Download, Changelog and Homonyms data entries.
 const isAnnual = /^\d{4}$/.test(versionToken(Astro.url.pathname, Astro.url.search));
 
 // The version selector is live on dev/preview but hidden on prod for now. Baked
@@ -40,7 +40,7 @@ const versionOptions = versions.map((v) => {
 
 // Data children that vanish in annual mode (and are tagged for the client to
 // hide when the *remembered* version is annual on a version-agnostic page).
-const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
+const annualHiddenPaths = new Set(['/data/download', '/data/changelog', '/data/homonyms']);
 ---
 
 <div class="contain-to-grid sticky">
@@ -234,7 +234,7 @@ const annualHiddenPaths = new Set(['/data/download', '/data/changelog']);
       else a.removeAttribute('aria-current');
     });
 
-    // Annual editions drop the version-agnostic Download + Changelog entries.
+    // Annual editions drop the Download, Changelog and Homonyms entries.
     // Server-rendered annual pages omit them outright; this covers the case
     // where the remembered version is annual on a version-agnostic page.
     const annualActive = /^\d{4}$/.test(active);

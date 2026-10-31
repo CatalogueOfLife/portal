@@ -18,6 +18,9 @@
     - name: Metrics
       path: /data/metrics
       desc: "Metrics about the Catalogue of Life"
+    - name: Homonyms
+      path: /data/homonyms
+      desc: "Identical names used for more than one taxon, by rank"
     - name: Download
       path: /data/download
       desc: "Current and historical versions of the Catalogue of Life"
