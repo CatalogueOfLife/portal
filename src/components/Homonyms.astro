@@ -12,10 +12,8 @@ interface Props {
   baseAlias: string;
   /** Basic auth for private candidate releases on preview/dev; empty on prod. */
   auth: string;
-  /** Source dataset key -> alias, for the small source label on each line. */
-  sources: Record<string, string>;
 }
-const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = Astro.props;
+const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth } = Astro.props;
 ---
 
 <div
@@ -26,7 +24,6 @@ const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = A
   data-extended-alias={extendedAlias}
   data-base-alias={baseAlias}
   data-auth={auth}
-  data-sources={JSON.stringify(sources)}
 >
   <p>
     Scientific names spelled identically at the selected rank but used for more than one name in the Catalogue of Life,
@@ -92,7 +89,6 @@ const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = A
   }
   interface UsageDecision {
     usage: Usage;
-    sourceDatasetKey?: number;
     classification?: SimpleName[];
   }
   interface Group {
@@ -111,7 +107,6 @@ const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = A
   const params: HomonymParams = parseParams(location.search);
   const datasetKey = Number(params.base ? cfg.baseKey : cfg.extendedKey);
   const alias = (params.base ? cfg.baseAlias : cfg.extendedAlias) || '';
-  const sources: Record<string, string> = JSON.parse(cfg.sources || '{}');
   const headers: Record<string, string> = cfg.auth ? { Authorization: 'Basic ' + btoa(cfg.auth) } : {};
   const vq = params.base ? '?v=br' : '';
   // The q to keep in links to this same view; null leaves it to the rank default.
@@ -257,12 +252,6 @@ const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = A
       name.append(h('span', { class: 'hn-arrow' }, ' → '), taxonLink(u.accepted));
     }
     const meta = h('span', { class: 'hn-meta' }, classificationPath(ud.classification, params.rank).join(' › '));
-    if (ud.sourceDatasetKey != null) {
-      const key = String(ud.sourceDatasetKey);
-      meta.append(
-        h('a', { class: 'hn-source', href: `/data/dataset/${key}${vq}`, title: 'Source dataset' }, sources[key] ?? `#${key}`),
-      );
-    }
     return h(
       'li',
       { class: 'hn-line' },
@@ -457,12 +446,6 @@ const { api, extendedKey, baseKey, extendedAlias, baseAlias, auth, sources } = A
   #homonyms :global(.hn-meta) {
     color: #888;
     font-size: 0.92em;
-  }
-  #homonyms :global(.hn-source) {
-    margin-left: 0.6em;
-    white-space: nowrap;
-    font-size: 0.85em;
-    color: #999;
   }
   #homonyms :global(.hn-meta:empty) {
     display: none;

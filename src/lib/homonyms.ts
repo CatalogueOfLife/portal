@@ -6,7 +6,8 @@
 // groups usages by lower(scientific_name) — i.e. identical names regardless of
 // authorship, code and status — and filters by rank and a literal name prefix q.
 
-/** Selectable ranks, highest first. */
+/** Selectable ranks, highest first. Species and subspecies stay out until their
+ *  redundant names are cleaned up; a URL asking for them gets the default rank. */
 export const RANKS = [
   'order',
   'superfamily',
@@ -15,8 +16,6 @@ export const RANKS = [
   'tribe',
   'genus',
   'subgenus',
-  'species',
-  'subspecies',
 ] as const;
 export type HomonymRank = (typeof RANKS)[number];
 
@@ -28,9 +27,9 @@ export const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 // Ranks with many homonym groups: an unfiltered query scans the whole release
 // (~10s uncached), so they default to the letter A instead of "all".
-const LETTER_DEFAULT = new Set<HomonymRank>(['genus', 'subgenus', 'species', 'subspecies']);
+const LETTER_DEFAULT = new Set<HomonymRank>(['genus', 'subgenus']);
 // Ranks whose names are italicised (genus and below).
-const ITALIC = new Set<HomonymRank>(['genus', 'subgenus', 'species', 'subspecies']);
+const ITALIC = new Set<HomonymRank>(['genus', 'subgenus']);
 // Classification ranks shown as the path, top-down, and every rank's position
 // so the path stops above the selected rank.
 const PATH_RANKS = ['kingdom', 'phylum', 'class', 'order', 'family'];
