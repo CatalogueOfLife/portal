@@ -19,7 +19,7 @@ metadata (`<meta>` + schema.org JSON-LD) is produced server-side. See
 
 ## Running locally
 
-Prerequisites: **Node 22 LTS (≥ 22.12)** and npm 10 (the version bundled with Node 22).
+Prerequisites: **Node 24 LTS** (Astro 7 needs at least 22.23.4) and the npm bundled with it.
 
 ```bash
 npm install            # first time, or after dependencies change

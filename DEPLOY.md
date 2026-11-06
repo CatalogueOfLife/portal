@@ -8,9 +8,9 @@ plan, Phase 7).
 
 ## Requirements
 
-- **Node 22 LTS (≥ 22.12.0)** — hard requirement of Astro 6 (enforced via the
-  `engines` field; `.nvmrc` pins `22`). Use the same version to build and to run.
-- **npm 10+** — the version bundled with Node 22 (no separate install).
+- **Node 24 LTS** to build: the deploy builds in the `node:24` Docker image and
+  `.nvmrc` pins `24`. Astro 7 needs at least Node 22.23.4.
+- **npm 10+** — bundled with Node (no separate install).
 - The monthly sitemap job (`scripts/update-sitemaps.sh`) additionally needs
   **bash, curl, jq, gzip** on the box it runs on.
 
@@ -62,7 +62,7 @@ password parameter (entered per run, masked in the log). Jenkins injects both as
 environment variables for the script, which runs straight from the checked-out
 workspace — nothing is copied into the Jenkins job.
 
-All envs build identically (Node 22 in Docker) and pull data from the **prod**
+All envs build identically (Node 24 in Docker) and pull data from the **prod**
 ChecklistBank; they differ only in which release they select and the deploy
 targets:
 
@@ -120,7 +120,7 @@ systemctl enable col-portal@prod      # or @preview / @dev for that host
 ```
 
 The deploy rsyncs with default perms (world-readable), so the `col` service user
-can read the files and `service.env` that `jenkins-deploy` wrote. Needs **Node 22**
+can read the files and `service.env` that `jenkins-deploy` wrote. Needs **Node 22 or later**
 on the host at `/usr/bin/node` (adjust `ExecStart` if elsewhere).
 
 **Logs.** The unit sets no `StandardOutput`/`StandardError`, so Node's stdout and

@@ -4,7 +4,7 @@
 #
 # The deploy script (scripts/deploy.sh) rsyncs the build to /opt/col-portal/<env>
 # and writes /opt/col-portal/<env>/service.env (HOST, PORT), then restarts this.
-# Requires Node 22 on the host and a `col` user. Allow jenkins-deploy to restart
+# Requires Node 22 or later on the host and a `col` user. Allow jenkins-deploy to restart
 # it without a password via sudoers, e.g.:
 #   jenkins-deploy ALL=(root) NOPASSWD: /bin/systemctl restart col-portal@*
 

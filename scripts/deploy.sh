@@ -85,11 +85,14 @@ echo "Cleaning previous build"
 # baked API snapshot: it may hold another env's release (preview's private draft).
 rm -rf dist src/data/_generated
 
-echo "Building site (Node 22 in Docker)"
+echo "Building site (Node 24 in Docker)"
 # npm ci pins col-browser to the lockfile; the --no-save update then takes the
-# newest col-browser release within the package.json range (2.6.x), so patch
+# newest col-browser release within the package.json range (~2.8.0 → 2.8.x), so patch
 # releases deploy without a lockfile bump but a new minor needs one.
-docker run --rm -u "$(id -u):$(id -g)" \
+# --pull=always: Docker never refreshes a tag it already has, and a stale
+# cached image (node:22 stuck on 22.23.3) once broke the build when Astro
+# raised its minimum Node version.
+docker run --rm --pull=always -u "$(id -u):$(id -g)" \
   -e HOME=/tmp -e npm_config_cache=/tmp/.npm \
   -e SITE_ENV="$ENV" \
   -e CLB_API="$PROD_API" \
@@ -100,7 +103,7 @@ docker run --rm -u "$(id -u):$(id -g)" \
   -e PUBLIC_COL_BASEMAP_STYLE="${PUBLIC_COL_BASEMAP_STYLE:-}" \
   -e PUBLIC_CARTO_KEY="${PUBLIC_CARTO_KEY:-}" \
   --volume "$PWD:/app" -w /app \
-  node:22 bash -lc "npm ci && npm update --no-save col-browser && npm run build"
+  node:24 bash -lc "npm ci && npm update --no-save col-browser && npm run build"
 
 echo "Deploying static assets -> ${DEPLOY}:${STATIC_DIR}"
 rsync -rlO --delete dist/client/ "${DEPLOY}:${STATIC_DIR}"
