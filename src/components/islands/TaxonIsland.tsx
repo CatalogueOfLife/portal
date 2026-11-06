@@ -1,3 +1,4 @@
+import '../../lib/maplibreWorker';
 import { Taxon } from 'col-browser/taxon';
 import { withRouting } from 'col-browser/routing';
 import { colTheme, colAuth, colBasemapStyle } from '../../lib/colPaths';
