@@ -9,8 +9,7 @@ const URLTaxon = withRouting(Taxon, routingFor('taxon'));
 export default function TaxonIsland(props: Record<string, unknown>) {
   // `basemapStyle` is already set globally via configure() in colPaths; passing
   // it here too puts it before {...props}, so a page can override the basemap
-  // per instance. The CARTO key is global-only — it applies to whatever CARTO
-  // basemap ends up being used.
+  // per instance.
   return (
     <URLTaxon
       theme={colTheme}

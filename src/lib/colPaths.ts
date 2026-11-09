@@ -26,27 +26,12 @@ export const colTheme = { token: { borderRadius: 2 } };
 export const colAuth = import.meta.env.PUBLIC_COL_AUTH || '';
 
 // Optional MapLibre style URL for the distribution map's basemap, forwarded to
-// col-browser. Empty -> col-browser keeps its own default (CARTO's free keyless
-// Positron style), so we deliberately don't repeat that URL here.
-//
-// NOTE: a MapLibre style URL is fetched by the *browser*, so any CARTO
-// `api_key` embedded in it is necessarily public. Use a key restricted to the
-// catalogueoflife.org hosts; don't reuse one with broader scope.
+// col-browser. Empty -> col-browser keeps its own default (>= 2.9.0: the
+// bundled, keyless COL Positron style on GBIF vector tiles), so we
+// deliberately don't repeat that URL here.
 export const colBasemapStyle = import.meta.env.PUBLIC_COL_BASEMAP_STYLE || '';
-
-// CARTO Basemaps API key. col-browser installs a MapLibre transformRequest that
-// appends it to every cartocdn.com request the distribution map makes — style,
-// vector tiles, glyphs, sprites. CARTO meters *tile* requests, and their style
-// files are static with absolute key-free tile URLs, so a key baked into the
-// style URL alone would authenticate nothing that counts.
-//
-// Like colAuth, this is inlined into the client bundle — unavoidable, since
-// MapLibre fetches the tiles from the browser. Supplied per environment from
-// the Jenkins credential 'carto-basemap-cred', not committed to this repo.
-export const colCartoKey = import.meta.env.PUBLIC_CARTO_KEY || '';
 
 // Site-wide defaults for every col-browser instance. This module is imported by
 // all island wrappers, and col-browser reads config as it renders, so these
 // land before any island mounts.
 if (colBasemapStyle) configure({ basemapStyle: colBasemapStyle });
-if (colCartoKey) configure({ cartoKey: colCartoKey });

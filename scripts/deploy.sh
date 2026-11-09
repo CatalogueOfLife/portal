@@ -101,7 +101,6 @@ docker run --rm --pull=always -u "$(id -u):$(id -g)" \
   -e COL_PRIVATE="$COL_PRIVATE" \
   -e PUBLIC_COL_AUTH="$AUTH" \
   -e PUBLIC_COL_BASEMAP_STYLE="${PUBLIC_COL_BASEMAP_STYLE:-}" \
-  -e PUBLIC_CARTO_KEY="${PUBLIC_CARTO_KEY:-}" \
   --volume "$PWD:/app" -w /app \
   node:24 bash -lc "npm ci && npm update --no-save col-browser && npm run build"
 
