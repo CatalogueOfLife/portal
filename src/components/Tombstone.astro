@@ -15,10 +15,12 @@ interface Props {
   lastRelease: any;
   currentRelease: any;
   sameName: any[];
+  /** The usage of the id that took this one over, if the API names one and it is in the current release. */
+  replacedBy?: any;
   /** Version query (?v=…) to keep on internal links. */
   vq: string;
 }
-const { id, usage, firstRelease, lastRelease, currentRelease, sameName, vq } = Astro.props;
+const { id, usage, firstRelease, lastRelease, currentRelease, sameName, replacedBy, vq } = Astro.props;
 
 const clb = 'https://www.checklistbank.org';
 const relLabel = (r: any) => r?.alias ?? r?.version ?? r?.key;
@@ -151,12 +153,41 @@ const classification = (usage.classification ?? []).filter((c: any) => c.id !== 
 
   <section class="tomb-next" aria-label="What you can do next">
     {
+      replacedBy && (
+        <>
+          <h2 class="tomb-next-title">This identifier was replaced</h2>
+          <p class="tomb-next-note">
+            The same name is in the current release under a different identifier. Please update your links and
+            citations to it.
+          </p>
+          <ul class="tomb-cards">
+            <li>
+              <a href={`/data/taxon/${replacedBy.id}${vq}`}>
+                <span class="tomb-card-name" set:html={replacedBy.labelHtml ?? replacedBy.label ?? replacedBy.id} />
+                <span class="tomb-card-meta">
+                  <span class="tomb-chip tomb-chip--live">{replacedBy.id}</span>
+                  {replacedBy.status && replacedBy.status !== 'accepted' && <span>{replacedBy.status}</span>}
+                </span>
+                <span class="tomb-arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </li>
+          </ul>
+        </>
+      )
+    }
+    {
       sameName.length > 0 && (
         <>
           <h2 class="tomb-next-title">
-            {sameName.length === 1
-              ? 'The same name is in the current release'
-              : `The same name is in the current release under ${sameName.length} ids`}
+            {replacedBy
+              ? sameName.length === 1
+                ? 'Another usage of the same name'
+                : `${sameName.length} other usages of the same name`
+              : sameName.length === 1
+                ? 'The same name is in the current release'
+                : `The same name is in the current release under ${sameName.length} ids`}
           </h2>
           <p class="tomb-next-note">
             Identifiers are sometimes retired only because the record was reissued. Names that look

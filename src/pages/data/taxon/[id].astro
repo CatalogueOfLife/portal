@@ -37,6 +37,9 @@ let lastRelease: any = null;
 // Current usages carrying the same name. An id is often only retired because it
 // got reissued, e.g. the BOLD BIN GGJZT -> BOLD.AAK1046.
 let sameName: any[] = [];
+// The id that took this one over, e.g. when a duplicate was removed. The API follows a chain of redirects and
+// names the last one, so it is usually live in the current release.
+let replacedBy: any = null;
 
 async function fetchJson(url: string | null | undefined) {
   if (!url) return null;
@@ -70,14 +73,18 @@ if (infoRes.ok) {
     const search = sciName
       ? `${api}/dataset/${K}/nameusage/search?q=${encodeURIComponent(sciName)}&content=SCIENTIFIC_NAME&type=EXACT&limit=25`
       : null;
-    const [first, last, hits] = await Promise.all([
+    const [first, last, hits, successor] = await Promise.all([
       fetchJson(archived.firstReleaseKey ? `${api}/dataset/${archived.firstReleaseKey}` : null),
       fetchJson(archived.lastReleaseKey ? `${api}/dataset/${archived.lastReleaseKey}` : null),
       fetchJson(search),
+      fetchJson(archived.supersededBy ? `${api}/dataset/${K}/nameusage/${encodeURIComponent(archived.supersededBy)}` : null),
     ]);
     firstRelease = first;
     lastRelease = last;
-    sameName = (hits?.result ?? []).map((r: any) => r.usage ?? r).filter((s: any) => s?.id && s.id !== id);
+    replacedBy = successor?.id ? successor : null;
+    sameName = (hits?.result ?? [])
+      .map((r: any) => r.usage ?? r)
+      .filter((s: any) => s?.id && s.id !== id && s.id !== replacedBy?.id);
   }
   if (ver.kind === 'base') {
     const ext = await colFetch(`${api}/dataset/${extendedKey}/taxon/${id}/info`);
@@ -196,6 +203,7 @@ const jsonLd: Record<string, unknown> | null = u
               lastRelease={lastRelease}
               currentRelease={metadata.current}
               sameName={sameName}
+              replacedBy={replacedBy}
               vq={vq}
             />
           </div>
