@@ -73,9 +73,9 @@ updated.
 ## 2021: short identifiers that follow the name
 
 With the move to ChecklistBank in December 2020, COL introduced the identifiers it uses today
-([2021 announcement](/2021/04/14/stable-ids)). They are numbers written with 29 characters,
+([2021 announcement](/2021/04/14/stable-ids)). They are numbers written with [29 characters](https://github.com/CatalogueOfLife/backend/issues/491),
 `23456789BCDFGHJKLMNPQRSTVWXYZ`. The alphabet leaves out `0`, `O`, `1` and `I`, which are easily confused, and every
-vowel, so that no identifier spells a word. Kingdoms got single letters by hand: [`P`](/data/taxon/P) is Plantae and
+vowel, so that no identifier spells a word (you would otherwise get genus names like `ABIES` and offensive works as `F*CK`). Kingdoms got single letters by hand: [`P`](/data/taxon/P) is Plantae and
 [`N`](/data/taxon/N) Animalia. Other identifiers were issued in order, so a shorter identifier is an older one:
 [`75F9`](/data/taxon/75F9) is the genus *Puma*, [`623RM`](/data/taxon/623RM) the Felidae and
 [`YNV`](/data/taxon/YNV) the honey bee genus *Apis*.
