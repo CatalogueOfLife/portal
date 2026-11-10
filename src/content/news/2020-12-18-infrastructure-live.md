@@ -5,6 +5,10 @@ excerpt: The new Catalogue of Life (COL) infrastructure is live on GBIF servers
 categories: Infrastructure API
 ---
 
+*Updated November 2026: the web applications of the old Annual Checklist have been retired since this post was written.
+The links below now lead to their replacements, and the
+[history of COL identifiers](/2026/11/10/col-identifier-history) tells what became of the identifiers.*
+
 The new Catalogue of Life (COL) infrastructure is now live! 
 With the first products of the new infrastructure, the COL launches a new [Portal](http://www.catalogueoflife.org), 
 [ChecklistBank](https://www.checklistbank.org), and [API](https://api.checklistbank.org). 
@@ -16,13 +20,13 @@ The Catalogue of Life is now integrated in the new [portal](http://www.catalogue
 which includes the following features, where users can:
  - View the current version of the Catalogue of Life through the homepage, 
 or the [search](http://www.catalogueoflife.org/data/search) and [browse](http://www.catalogueoflife.org/data/browse) pages under Data.
- - Look up the metadata of a dataset on the [source datasets](http://www.catalogueoflife.org/data/source-datasets) page.
- - Access all [previous versions](http://www.catalogueoflife.org/data/archives) of the monthly and annual Catalogue of Lifes through their original interface at that time.
+ - Look up the metadata of a dataset on the [source datasets](https://www.catalogueoflife.org/data/sources) page.
+ - Access all [previous versions](https://www.catalogueoflife.org/data/download#past-releases) of the monthly and annual Catalogue of Lifes.
 
-We have maintained the most important URLs of the previous portal and setup redirections to the new site:
- - Dataset pages: [http://www.catalogueoflife.org/col/details/database/id/8](http://www.catalogueoflife.org/col/details/database/id/8)
- - Species pages: [http://www.catalogueoflife.org/col/details/species/id/12dca9c49741815f82400bb7bff50553](http://www.catalogueoflife.org/col/details/species/id/12dca9c49741815f82400bb7bff50553)
- - Species searches: [http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/](http://www.catalogueoflife.org/col/search/all/key/Dracula+antonii/)
+We have maintained the most important URLs of the previous portal and setup redirections:
+ - Dataset pages lead to the source dataset on the new site: [http://www.catalogueoflife.org/col/details/database/id/8](http://www.catalogueoflife.org/col/details/database/id/8)
+ - Species pages of the 2019 edition lead to that record in the 2019 edition, which is archived in ChecklistBank: [https://www.catalogueoflife.org/annual-checklist/2019/details/species/id/12dca9c49741815f82400bb7bff50553](https://www.catalogueoflife.org/annual-checklist/2019/details/species/id/12dca9c49741815f82400bb7bff50553)
+ - Species searches lead to a name search of that edition: [https://www.catalogueoflife.org/annual-checklist/2019/search/all/key/Dracula+antonii/](https://www.catalogueoflife.org/annual-checklist/2019/search/all/key/Dracula+antonii/)
 
 #### New species identifiers
 The Catalogue of Life now includes a new set of persistent identifiers for species and higher taxa. 
@@ -31,11 +35,12 @@ to build their own solutions against COL without needing to rebuild databases fo
 Stable identifiers will also allow COL to fit seamlessly into linked open data solutions such as Wikidata 
 or as part of a wider biodiversity knowledge graph. 
 
-We maintain a [species ID mapping file](https://download.checklistbank.org/col/legacy_id_map.zip) that allows you
-to update any local, older COL identifiers you might have. The COL API also offers a redirection service to the new
-species pages in case you need that, e.g. [https://api.checklistbank.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553](https://api.checklistbank.org/dataset/3LR/legacy/12dca9c49741815f82400bb7bff50553) 
-will take you to the [Abies alba portal page](https://www.catalogueoflife.org/data/taxon/8K9Y). 
-The API can also redirect you to the JSON API if you request JSON via an "Accept: application/json" header.
+To update any local, older COL identifiers you might have, every Extended Release comes with a mapping from the
+2019 identifiers to its own, the `<date>_xr_col19-idmap.tsv.gz` files in the
+[monthly archive](https://download.checklistbank.org/col/monthly/). It maps the 2019 key of *Abies alba*,
+`12dca9c49741815f82400bb7bff50553`, to its COL identifier [8K9Y](https://www.catalogueoflife.org/data/taxon/8K9Y).
+The first [species ID mapping file](https://download.checklistbank.org/col/legacy_id_map.zip) from April 2021 is still
+available, but no longer updated.
 
 #### COL API
 The latest version of the Catalogue of Life can be accessed through the [ChecklistBank API](https://api.checklistbank.org). 
