@@ -39,6 +39,8 @@ To update any local, older COL identifiers you might have, every Extended Releas
 2019 identifiers to its own, the `<date>_xr_col19-idmap.tsv.gz` files in the
 [monthly archive](https://download.checklistbank.org/col/monthly/). It maps the 2019 key of *Abies alba*,
 `12dca9c49741815f82400bb7bff50553`, to its COL identifier [8K9Y](https://www.catalogueoflife.org/data/taxon/8K9Y).
+The mapping of the latest Extended Release is always at
+[xr_latest_col19-idmap.tsv.gz](https://download.checklistbank.org/col/xr_latest_col19-idmap.tsv.gz).
 The first [species ID mapping file](https://download.checklistbank.org/col/legacy_id_map.zip) from April 2021 is still
 available, but no longer updated.
 

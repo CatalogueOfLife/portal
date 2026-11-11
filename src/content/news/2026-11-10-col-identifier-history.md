@@ -66,7 +66,9 @@ genera had no author.
 Old 2019 web addresses with a natural key now redirect to that taxon in the 2019 edition, which is archived in
 ChecklistBank together with the earlier Annual Checklists. To translate a 2019 key into a current identifier, use the
 mapping published with every Extended Release, the `<date>_xr_col19-idmap.tsv.gz` files in the
-[monthly archive](https://download.checklistbank.org/col/monthly/). It matches every 2019 name against that release. A first mapping from April 2021,
+[monthly archive](https://download.checklistbank.org/col/monthly/). It matches every 2019 name against that release.
+The mapping of the latest Extended Release is always at
+[xr_latest_col19-idmap.tsv.gz](https://download.checklistbank.org/col/xr_latest_col19-idmap.tsv.gz). A first mapping from April 2021,
 [legacy_id_map.zip](https://download.checklistbank.org/col/legacy_id_map.zip), is still available but no longer
 updated.
 
