@@ -183,7 +183,7 @@ contradict, or the data cannot tell. **A contradiction costs a name its identifi
 | author | a different author, or years more than 11 apart, also when one is cited in brackets and the other not: `Harrington, 1899` against `(Kirby, 1837)` | the same author cited differently: `Mill.` = `Miller`, `L.` = `Linné`; brackets added or lost: `Pascoe, 1864` = `(Pascoe, 1859)` | author added or removed |
 | spelling | a different name | gender endings and common epithet variants: *Felis rufus* = *Felis rufa* | |
 | rank | two different ranks, species against genus | the same rank | an unranked name |
-| status | a misapplied name against any other | the same kind of status | accepted against synonym |
+| status | a misapplied name against any other, also a synonym noted as `auct.`, `sensu` or `non`: *Cicer songaricum* auct. non (DC.) Bunge against *Cicer songaricum* Jaub. & Spach | the same kind of status | accepted against synonym |
 | code and group | zoological against botanical, animal against plant, unless the author agrees | the same code and group | one side unknown |
 
 An author without brackets is the name's original author. Some zoological catalogues cite a later user of a name as
@@ -191,8 +191,9 @@ its author, sometimes for a misidentification of another species, so such a cita
 original author in brackets. `L.` against `(L.) Mill.` is the same original author, but often two names in their own
 right: an original name and a later transfer of a basionym of the same author from another genus, like
 *Aechmea blanchetii* Baker and *Aechmea blanchetii* (Baker) Mez. A name keeps its identifier when a source adds the
-combination author, but never takes the identifier of a name whose author matches exactly. We added these two rules in
-November 2026, after reviewing the redirects described below.
+combination author, but never takes the identifier of a name whose author matches exactly. A synonym whose note marks
+a misapplication, like *auct. non* or *sensu*, counts as a misapplied name, as it does when a dataset is imported. We
+added these rules in November 2026, after reviewing the redirects described below.
 
 When several earlier identifiers fit, the one the previous release used comes first, and nothing can take it away.
 After that the evidence decides, and then longevity. An identifier used in a base release wins over one that only
@@ -223,11 +224,11 @@ GET https://api.checklistbank.org/dataset/3LXR/taxon/S24D/info
      "usage": {"id": "S24D", ..., "supersededBy": "VK8VH"}}
 ```
 
-Since September 2026 each release records the successor of the identifiers it drops. In November 2026 we also filled
-in the successors of identifiers dropped since COL21. 830,350 dead identifiers now point to the one that took over, the renumbered genera
-above included: `3JYB` leads to [`9CKBC`](/data/taxon/9CKBC). A redirect needs the same evidence as keeping an
-identifier: no contradiction, and agreement on author or rank. There is no redirect where two current names fit
-equally well (194,317 identifiers) or where the old and the new name contradict each other (143,313). The page of such
+Since September 2026 each release records the successor of the identifiers it drops. In November 2026 we decided
+all redirects again under the rules above and filled in those of every identifier dropped since COL21. 1,054,345 dead identifiers now point to the one that took over, the renumbered genera above included: `3JYB` leads to
+[`9CKBC`](/data/taxon/9CKBC). A redirect needs the same evidence as keeping an identifier: no contradiction, and
+agreement on author or rank. There is no redirect where two current names fit equally well (188,750 identifiers) or
+where the old and the new name contradict each other (175,174). The page of such
 an identifier lists the current names of the same spelling instead. The old COL identifiers of BOLD BINs and UNITE
 species hypotheses have no redirect yet, but each record's name is the BIN or SH code, which is now the identifier
 itself.
