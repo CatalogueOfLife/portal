@@ -227,13 +227,13 @@ GET https://api.checklistbank.org/dataset/3LXR/taxon/S24D/info
 ```
 
 Since September 2026 each release records the successor of the identifiers it drops. In November 2026 we decided
-all redirects again under the rules above and filled in those of every identifier dropped since COL21. 1,054,345 dead identifiers now point to the one that took over, the renumbered genera above included: `3JYB` leads to
+all redirects again under the rules above and filled in those of every identifier dropped since COL21. 1,054,465 dead identifiers now point to the one that took over, the renumbered genera above included: `3JYB` leads to
 [`9CKBC`](/data/taxon/9CKBC). A redirect needs the same evidence as keeping an identifier: no contradiction, and
-agreement on author or rank. There is no redirect where two current names fit equally well (188,750 identifiers) or
-where the old and the new name contradict each other (175,174). The page of such
-an identifier lists the current names of the same spelling instead. The old COL identifiers of BOLD BINs and UNITE
-species hypotheses have no redirect yet, but each record's name is the BIN or SH code, which is now the identifier
-itself.
+agreement on author or rank. There is no redirect where two current names fit equally well (188,748 identifiers) or
+where the old and the new name contradict each other (175,056). The page of such
+an identifier lists the current names of the same spelling instead. The 1,518,977 old COL identifiers of BOLD BINs
+and UNITE species hypotheses point to the code that is now their identifier: `FGK9N` leads to
+[`BOLD.AAA3374`](/data/taxon/BOLD.AAA3374).
 
 ## Following identifier changes yourself
 
